@@ -177,7 +177,7 @@ def problem_tabs(folder_name: str, express = False) -> None:
     block.append("## {{< bi github >}}")
     block.append(
         f"The source code for this exercise is [here]"
-        f"(https://github.com/posit-dev/shiny-python-workshop-2023/tree/main/{path})."
+        f"(https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/{path})."
     )
 
     block.append(":::")
