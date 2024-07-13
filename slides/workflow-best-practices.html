@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.5.54">
 
-  <title>Intro to Shiny for Python / Conf(2024) - Workflow best practices</title>
+  <title>Intro to Shiny for Python / Conf(2024) – Workflow best practices</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -223,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -480,66 +481,66 @@
 </section>
 <section id="using-functions" class="slide level2">
 <h2>Using functions</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    ui.input_slider(<span class="st">"n1"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    ui.input_slider(<span class="st">"n2"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    ui.input_slider(<span class="st">"n3"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb1-7"><a href="#cb1-7"></a>    ui.input_slider(<span class="st">"n4"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    ui.input_slider(<span class="st">"n5"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb1-9"><a href="#cb1-9"></a>    ui.input_slider(<span class="st">"n6"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb1-10"><a href="#cb1-10"></a>)</span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb1-4"><a></a>    ui.input_slider(<span class="st">"n1"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb1-5"><a></a>    ui.input_slider(<span class="st">"n2"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb1-6"><a></a>    ui.input_slider(<span class="st">"n3"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb1-7"><a></a>    ui.input_slider(<span class="st">"n4"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb1-8"><a></a>    ui.input_slider(<span class="st">"n5"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb1-9"><a></a>    ui.input_slider(<span class="st">"n6"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb1-10"><a></a>)</span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-functions-1" class="slide level2">
 <h2>Using functions</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">def</span> my_slider(<span class="bu">id</span>, label):</span>
-<span id="cb2-4"><a href="#cb2-4"></a>    <span class="cf">return</span> ui.input_slider(<span class="bu">id</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    my_slider(<span class="st">"n1"</span>),</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    my_slider(<span class="st">"n2"</span>),</span>
-<span id="cb2-9"><a href="#cb2-9"></a>    my_slider(<span class="st">"n3"</span>),</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    my_slider(<span class="st">"n4"</span>),</span>
-<span id="cb2-11"><a href="#cb2-11"></a>    my_slider(<span class="st">"n5"</span>),</span>
-<span id="cb2-12"><a href="#cb2-12"></a>)</span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a><span class="kw">def</span> my_slider(<span class="bu">id</span>, label):</span>
+<span id="cb2-4"><a></a>    <span class="cf">return</span> ui.input_slider(<span class="bu">id</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb2-7"><a></a>    my_slider(<span class="st">"n1"</span>),</span>
+<span id="cb2-8"><a></a>    my_slider(<span class="st">"n2"</span>),</span>
+<span id="cb2-9"><a></a>    my_slider(<span class="st">"n3"</span>),</span>
+<span id="cb2-10"><a></a>    my_slider(<span class="st">"n4"</span>),</span>
+<span id="cb2-11"><a></a>    my_slider(<span class="st">"n5"</span>),</span>
+<span id="cb2-12"><a></a>)</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="applying-a-function-over-a-list" class="slide level2">
 <h2>Applying a function over a list</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">def</span> my_slider(<span class="bu">id</span>):</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    <span class="cf">return</span> ui.input_slider(<span class="bu">id</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a>ids <span class="op">=</span> [<span class="st">"n1"</span>, <span class="st">"n2"</span>, <span class="st">"n3"</span>, <span class="st">"n4"</span>, <span class="st">"n5"</span>]</span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb3-9"><a href="#cb3-9"></a>    [my_slider(x) <span class="cf">for</span> x <span class="kw">in</span> ids]</span>
-<span id="cb3-10"><a href="#cb3-10"></a>)</span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="kw">def</span> my_slider(<span class="bu">id</span>):</span>
+<span id="cb3-4"><a></a>    <span class="cf">return</span> ui.input_slider(<span class="bu">id</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a>ids <span class="op">=</span> [<span class="st">"n1"</span>, <span class="st">"n2"</span>, <span class="st">"n3"</span>, <span class="st">"n4"</span>, <span class="st">"n5"</span>]</span>
+<span id="cb3-7"><a></a></span>
+<span id="cb3-8"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb3-9"><a></a>    [my_slider(x) <span class="cf">for</span> x <span class="kw">in</span> ids]</span>
+<span id="cb3-10"><a></a>)</span>
+<span id="cb3-11"><a></a></span>
+<span id="cb3-12"><a></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="iterating-across-two-lists" class="slide level2">
 <h2>Iterating across two lists</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">def</span> my_slider(<span class="bu">id</span>, label):</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="cf">return</span> ui.input_slider(<span class="bu">id</span>, label <span class="op">+</span> <span class="st">"Number"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a>numbers <span class="op">=</span> [<span class="st">"n1"</span>, <span class="st">"n2"</span>, <span class="st">"n3"</span>, <span class="st">"n4"</span>, <span class="st">"n5"</span>, <span class="st">"n6"</span>]</span>
-<span id="cb4-7"><a href="#cb4-7"></a>labels <span class="op">=</span> [<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth"</span>, <span class="st">"Sixth"</span>]</span>
-<span id="cb4-8"><a href="#cb4-8"></a></span>
-<span id="cb4-9"><a href="#cb4-9"></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb4-10"><a href="#cb4-10"></a>    [my_slider(x, y) <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(numbers, labels)]</span>
-<span id="cb4-11"><a href="#cb4-11"></a>)</span>
-<span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="kw">def</span> my_slider(<span class="bu">id</span>, label):</span>
+<span id="cb4-4"><a></a>    <span class="cf">return</span> ui.input_slider(<span class="bu">id</span>, label <span class="op">+</span> <span class="st">"Number"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a>numbers <span class="op">=</span> [<span class="st">"n1"</span>, <span class="st">"n2"</span>, <span class="st">"n3"</span>, <span class="st">"n4"</span>, <span class="st">"n5"</span>, <span class="st">"n6"</span>]</span>
+<span id="cb4-7"><a></a>labels <span class="op">=</span> [<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth"</span>, <span class="st">"Sixth"</span>]</span>
+<span id="cb4-8"><a></a></span>
+<span id="cb4-9"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb4-10"><a></a>    [my_slider(x, y) <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(numbers, labels)]</span>
+<span id="cb4-11"><a></a>)</span>
+<span id="cb4-12"><a></a></span>
+<span id="cb4-13"><a></a>app <span class="op">=</span> App(app_ui, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- 
 ## Benefits of functions
 - Defines the the logic in one place
@@ -607,8 +608,10 @@
 <p>Also, please fill out the survey:<br>
 <a href="https://pos.it/conf-workshop-survey">https://pos.it/conf-workshop-survey</a></p>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -638,7 +641,6 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -856,18 +858,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -899,11 +890,50 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -913,8 +943,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -928,7 +967,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
