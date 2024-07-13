@@ -170,3 +170,6 @@ site_libs
 
 # gimp
 *.xcf
+
+# windows / wsl zone identifier files
+*:Zone.Identifier
