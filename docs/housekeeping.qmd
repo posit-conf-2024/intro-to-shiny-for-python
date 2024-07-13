@@ -1,0 +1,25 @@
+---
+title: Housekeeping
+---
+
+
+## Outline for the day
+
+| Start | End   | Title                         |
+|-------|-------|-------------------------------|
+| 13:30 | 15:00 | Getting started with Shiny    |
+| 15:00 | 16:30 | Reactivity                    |
+| 16:30 | 17:00 | Q&A                           |
+
+## Don't be alarmed!
+
+* We'll have coffee breaks!
+
+```{=html}
+<style>
+#outline-for-the-day table {
+  margin: 0;
+  margin-top: 2em;
+}
+</style>
+```
