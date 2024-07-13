@@ -20,7 +20,7 @@ website:
 
     tools: 
       - icon: github
-        href: https://github.com/andrie/conf-2024-intro-to-shiny-for-python
+        href: https://github.com/posit-conf-2024/intro-to-shiny-for-python
       - icon: discord
         href: https://discord.gg/AQVJzG2bnN
 
