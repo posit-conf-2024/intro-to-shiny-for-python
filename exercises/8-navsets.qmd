@@ -1,0 +1,25 @@
+---
+title: "Navsets"
+---
+```{python}
+# | echo: false
+import os
+
+os.chdir("..")
+from helpers import problem_tabs_core, problem_tabs_express
+
+
+
+def ui_tabs(file):
+    problem_tabs_core(f"4-ui-customization/{file}")
+
+
+```
+
+## Exercise 4.1
+
+```{python}
+# | echo: false
+# | output: asis
+ui_tabs("4.1-tabs")
+```

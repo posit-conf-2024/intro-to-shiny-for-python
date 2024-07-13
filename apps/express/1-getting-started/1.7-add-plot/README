@@ -1,0 +1,1 @@
+Use the `plot_precision_recall_curve` function from the `plots.py` module to add a second plot output to the app. Note that you should use the `@render_plotly` decorator

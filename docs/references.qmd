@@ -1,0 +1,10 @@
+---
+title: Reference material
+---
+
+
+## Links
+
+- [Shiny for Python cheatsheet (PDF)](https://rstudio.github.io/cheatsheets/shiny-python.pdf)
+- [Opiniated python setup guide](https://chendaniely.github.io/python_setup/)
+- [Shiny for Python website](https://shiny.posit.co/py/)

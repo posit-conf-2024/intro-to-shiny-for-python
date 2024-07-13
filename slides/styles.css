@@ -1,0 +1,15 @@
+.v-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    text-align: center;
+}
+
+.reveal sourceCode code {
+    height: 90%;
+}
+
+.reveal pre.sourceCode code {
+    max-height: 650px;
+}
