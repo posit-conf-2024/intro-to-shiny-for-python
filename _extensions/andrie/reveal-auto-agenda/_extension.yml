@@ -1,6 +1,0 @@
-title: Reveal agenda
-author: Andrie de Vries
-version: 0.0.3
-contributes:
-  filters:
-    - reveal-auto-agenda.lua
