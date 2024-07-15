@@ -29,28 +29,23 @@ website:
       collapse-level: 4
       contents:
         - docs/course.qmd
-        - section: "Shiny express"
+        - section: "Hallo, Shiny express!"
           contents:      
             - href: docs/shiny-express.qmd
               text: Slides
             - section: "Exercises"
               contents: 
-              - exercises/express-1-hello-world.qmd
-              - exercises/express-2-basic-ui.qmd
-              - exercises/express-3-reactivity.qmd
-              - exercises/express-4-dynamic-ui.qmd
-              - exercises/express-5-reactive-effect.qmd
-
-        - section: "Getting Started"
-          contents:      
-            - href: docs/getting-started-slides.qmd
-              text: Slides
-            - section: "Exercises"
+              - exercises/express-01-hello-world.qmd
+              - exercises/express-02-debug.qmd
+              - exercises/express-03-filter.qmd
+              - exercises/express-04-plot.qmd
+            - section: "Still to move"
               contents: 
-              - exercises/1-hello-world.qmd
-              - exercises/2-debug.qmd
-              - exercises/3-add-filter.qmd
-              - exercises/4-add-plot.qmd
+              - exercises/express-12-basic-ui.qmd
+              - exercises/express-13-reactivity.qmd
+              - exercises/express-14-dynamic-ui.qmd
+              - exercises/express-15-reactive-effect.qmd
+
         - section: "Reactivity"
           contents:
             - href: docs/reactivity-slides.qmd

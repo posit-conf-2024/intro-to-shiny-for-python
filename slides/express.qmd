@@ -1,5 +1,5 @@
 ---
-title: "Shiny express"
+title: "Getting started with Shiny express"
 title-slide-attributes: 
   data-background-image:  images/shiny-for-python-newcastle.jpg
   data-background-position: bottom left
@@ -31,40 +31,40 @@ from helpers import problem_tabs_core, problem_tabs_express, include_shiny_folde
 
 # Getting started
 
+
+
 ## Goals of Session 1
 
-1)  Understand the mechanics of a Shiny app (what to do, not why you do it)
-2)  Develop comfort with failure and debugging
-3)  You know where to go for help
+1.  Understand the mechanics of a Shiny app (what to do, not why you do it)
+
+2.  Develop comfort with failure and debugging
+
+3.  You know where to go for help
+
+## Why Shiny?
+
+Introduce the end state / whole game / bigger picture: web page with a server. 
+
+The server watches the web page and responds to user events on that page.
+
+We need to tell the compute what to do when the user clicks.
+
 
 ## How this session works
 
 -   This session is going to be exercise based
--   All of the exercises and slides are running live on the [website](https://posit-dev.github.io/shiny-python-workshop-2023/)
+-   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
 -   You can do them on the website or open the apps in the `apps/core` folder
 -   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
 
-## Testing your setup
+## Your turn
 
-1)  In a terminal, type `shiny create my-app`
-2)  Open `my-app/app.py`
-3)  Click the "Run app" button in the top right of VS Code ([screenshot](https://camo.githubusercontent.com/5d947e6dff7d74fd1cf221e79583105c42e4986ae673ce79733ce5edbfdcdda5/68747470733a2f2f7368696e792e7273747564696f2e636f6d2f70792f646f63732f6173736574732f7673636f64652e706e67))
-4)  If your local setup doesn't work, switch to Posit Workbench and try again
+{{< yourturn 'express-01-hello-world' >}}
 
-## Posit workbench information
-
-::: nonincremental
-1)  Go to https://colorado.posit.co/rsc/class/
-2)  Enter identifier "shinypython"
-3)  Copy the url and credentials somewhere on your computer
-4)  Login to workbench
-5)  Clone the repo `git clone https://github.com/posit-dev/shiny-python-workshop-2023.git`
-6)  Open the workshop folder in VS Code
-:::
 
 # Hello Shiny
 
-## What's a Shiny app?
+## What is a Shiny app?
 
 ```{python}
 # | echo: false
@@ -83,94 +83,171 @@ include_shiny_folder(
 
 ## Why Shiny for Python?
 
+Shiny is great because it lets you quickly create web apps without worrying about maintaining cache, managing state, and callbacks — or even HTML, CSS, and JavaScript.
+
 -   Shiny is designed to take you from prototype to production
 -   Easy enough to use for prototypes
 -   Efficient enough to handle complexity
 -   Everything you need to build production quality apps
 -   You don't need to throw away your Shiny apps
 
-## Anatomy of a Shiny App
+# Anatomy of a Shiny App
+
+## You need three things
 
 To make a Shiny app work you need to do three things:
 
-1)  Add inputs and outputs to the UI
-2)  Create a rendering function
-3)  Refer to inputs
+1.  Create a **UI section** that describes inputs and outputs
 
-## Inputs and outputs
+    - Can contain text, plots, buttons, sliders, etc.
 
-``` {.python code-line-numbers="3-6"}
-from shiny import Inputs, Outputs, Session, App, render, ui
+2. Create a **server section**
 
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 20),
-    ui.output_text_verbatim("txt"),
-)
+    - Contains your application logic
+    - In particular, it contains **rendering functions** that turn inputs into outputs
 
+3.  Link the server section and UI section
 
-def server(input, output, session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
+    - by referring to the inputs in the server section
 
 
-app = App(app_ui, server)
+## Inputs using shiny express
+
+```{.python filename="app.py" code-line-numbers="3-4"}
+from shiny.express import input, render, ui
+
+# UI section
+ui.input_slider(id = "n", label = "N", min = 0, max = 100, value = 20)
+
+## Server section
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}"
 ```
 
-## Rendering function
-
-``` {.python code-line-numbers="10-12"}
-from shiny import Inputs, Outputs, Session, App, render, ui
-
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 20),
-    ui.output_text_verbatim("txt"),
-)
+<br />
 
 
-def server(input, output, session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 150
 
+from shiny.express import input, render, ui
 
-app = App(app_ui, server)
+# UI section
+ui.input_slider("n", "N", 0, 100, 20)
+
+## Server section
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}"
+```
+
+## Server section using shiny express
+
+``` {.python filename="app.py" code-line-numbers="6-9"}
+from shiny.express import input, render, ui
+
+# UI section
+ui.input_slider(id = "n", label = "N", min = 0, max = 100, value = 20)
+
+## Server section
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}"
+```
+
+<br />
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 150
+
+from shiny.express import input, render, ui
+
+# UI section
+ui.input_slider("n", "N", 0, 100, 20)
+
+## Server section
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}"
 ```
 
 ## Refer to inputs
 
-``` {.python code-line-numbers="13"}
-from shiny import Inputs, Outputs, Session, App, render, ui
+Your render function can refer to the input by calling it like a function.
 
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 20),
-    ui.output_text_verbatim("txt"),
-)
+In this case, the `input_slider` has the name `"n"`, so you refer to it as `input.n()`.
 
 
-def server(input, output, session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
+```{.python filename="app.py" code-line-numbers="9"}
+from shiny.express import input, render, ui
 
+# UI section
+ui.input_slider(id = "n", label = "N", min = 0, max = 100, value = 20)
 
-app = App(app_ui, server)
+## Server section
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}"
+```
+
+<br />
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 150
+
+from shiny.express import input, render, ui
+
+# UI section
+ui.input_slider("n", "N", 0, 100, 20)
+
+## Server section
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}"
 ```
 
 ## UI functions
 
--   UI functions are in the `ui` submodule
--   Inputs start with `ui.input_*()` and take an id, and options
--   Outputs start with `ui.output_*()` and usually just take an id
+-   The `ui` submodule contains functions to create UI elements
+-   Inputs start with `ui.input_*()` and take an `id` and options
 -   Other functions like `ui.h1()` or `ui.p()` add static HTML to the app
 -   We'll get to layout functions in Session 3
 
+<https://shiny.posit.co/py/api/express/express.ui.input_select.html>
+
+## Inputs component gallery
+
+![](images/input-component-gallery.png)
+
+<https://shiny.posit.co/py/components/>
+
+
+## Render functions for outputs
+
+The render functions define the outputs of the app.
+
+-   Outputs start with `render_*()` and usually just take an id
+
+<https://shiny.posit.co/py/api/express/express.render.plot.html>
+
+
+## Outputs component gallery
+
+![](images/output-component-gallery.png)
+
+<https://shiny.posit.co/py/components/>
+
+
 ## Your turn
 
-Go to [exercises/1-hello-world](../exercises/1-hello-world.html) or run `apps/core/1-getting-started/1.0-hello-world` locally.
+{{< yourturn 'express-01-hello-world' >}}
+
+
+# Rendering functions on the server side
 
 ## Server function
 
@@ -218,13 +295,11 @@ app_ui = ui.page_fluid(
     ui.output_text_verbatim("txt"),
 )
 
-
 def server(input, output, session):
     @output
     @render.text
     def txt():
         return f"n*2 is {input.n() * 2}"
-
 
 app = App(app_ui, server)
 ```
@@ -237,7 +312,10 @@ app = App(app_ui, server)
 
 ## Your turn
 
-Go to [exercises/2-debug](../exercises/2-debug.html) or work through exercises 1.1-1.5 locally.
+{{< yourturn 'express-02-debug' >}}
+
+
+# Making the link
 
 ## Connecting inputs to outputs
 
@@ -256,16 +334,20 @@ def server(input: Inputs, output: Outputs, session: Session):
 
 ## Your turn
 
-Go to [exercises/3-add-filter](../exercises/3-add-filter.html) or work through exercises 1.6-1.9 locally.
+{{< yourturn '03-filter' >}}
 
-## Recap
+
+# Recap
+
+## Summary
 
 Most Shiny app development consists of variations of these three things:
 
-1)  Add UI elements
-2)  Add rendering functions
-3)  Connect inputs and outputs
+1.  Add UI elements
+2.  Add rendering functions
+3.  Connect inputs and outputs
 
 ## Your turn
 
-Go to [exercises/4-add-plot](../exercises/4-add-plot.html) or work through exercise 1.10 locally.
+{{< yourturn '04-plot' >}}
+
