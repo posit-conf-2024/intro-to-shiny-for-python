@@ -16,7 +16,7 @@
 <script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.54">
 
-  <title>Intro to Shiny for Python / Conf(2024) – Shiny express</title>
+  <title>Intro to Shiny for Python / Conf(2024) – Getting started with Shiny express</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -399,7 +399,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="images/shiny-for-python-newcastle.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
-  <h1 class="title">Shiny express</h1>
+  <h1 class="title">Getting started with Shiny express</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -413,40 +413,35 @@
 <section id="goals-of-session-1" class="slide level2">
 <h2>Goals of Session 1</h2>
 <ol type="1">
-<li>Understand the mechanics of a Shiny app (what to do, not why you do it)</li>
-<li>Develop comfort with failure and debugging</li>
-<li>You know where to go for help</li>
+<li><p>Understand the mechanics of a Shiny app (what to do, not why you do it)</p></li>
+<li><p>Develop comfort with failure and debugging</p></li>
+<li><p>You know where to go for help</p></li>
 </ol>
+</section>
+<section id="why-shiny" class="slide level2">
+<h2>Why Shiny?</h2>
+<p>Introduce the end state / whole game / bigger picture: web page with a server.</p>
+<p>The server watches the web page and responds to user events on that page.</p>
+<p>We need to tell the compute what to do when the user clicks.</p>
 </section>
 <section id="how-this-session-works" class="slide level2">
 <h2>How this session works</h2>
 <ul>
 <li>This session is going to be exercise based</li>
-<li>All of the exercises and slides are running live on the <a href="https://posit-dev.github.io/shiny-python-workshop-2023/">website</a></li>
+<li>All of the exercises and slides are running live on the <a href="https://posit-conf-2024.github.io/intro-to-shiny-for-python/">website</a></li>
 <li>You can do them on the website or open the apps in the <code>apps/core</code> folder</li>
 <li>If you need help, put a red sticker on your laptop; when you’re done, put up a green sticker</li>
 </ul>
 </section>
-<section id="testing-your-setup" class="slide level2">
-<h2>Testing your setup</h2>
-<ol type="1">
-<li>In a terminal, type <code>shiny create my-app</code></li>
-<li>Open <code>my-app/app.py</code></li>
-<li>Click the “Run app” button in the top right of VS Code (<a href="https://camo.githubusercontent.com/5d947e6dff7d74fd1cf221e79583105c42e4986ae673ce79733ce5edbfdcdda5/68747470733a2f2f7368696e792e7273747564696f2e636f6d2f70792f646f63732f6173736574732f7673636f64652e706e67">screenshot</a>)</li>
-<li>If your local setup doesn’t work, switch to Posit Workbench and try again</li>
-</ol>
-</section>
-<section id="posit-workbench-information" class="slide level2">
-<h2>Posit workbench information</h2>
-<div>
-<ol type="1">
-<li>Go to https://colorado.posit.co/rsc/class/</li>
-<li>Enter identifier “shinypython”</li>
-<li>Copy the url and credentials somewhere on your computer</li>
-<li>Login to workbench</li>
-<li>Clone the repo <code>git clone https://github.com/posit-dev/shiny-python-workshop-2023.git</code></li>
-<li>Open the workshop folder in VS Code</li>
-</ol>
+<section id="your-turn" class="slide level2">
+<h2>Your turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Go to <a href="../exercises/express-01-hello-world.html">exercises/express-01-hello-world</a> and complete the exercise.</p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
 </div>
 </section></section>
 <section>
@@ -454,8 +449,8 @@
 <h1>Hello Shiny</h1>
 
 </section>
-<section id="whats-a-shiny-app" class="slide level2">
-<h2>What’s a Shiny app?</h2>
+<section id="what-is-a-shiny-app" class="slide level2">
+<h2>What is a Shiny app?</h2>
 <div class="sourceCode" id="cb1" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>#| standalone: true</span>
 <span id="cb1-2"><a></a>#| components: [viewer]</span>
 <span id="cb1-3"><a></a>#| layout: horizontal</span>
@@ -890,6 +885,7 @@
 </section>
 <section id="why-shiny-for-python" class="slide level2">
 <h2>Why Shiny for Python?</h2>
+<p>Shiny is great because it lets you quickly create web apps without worrying about maintaining cache, managing state, and callbacks — or even HTML, CSS, and JavaScript.</p>
 <ul>
 <li>Shiny is designed to take you from prototype to production</li>
 <li>Easy enough to use for prototypes</li>
@@ -897,86 +893,166 @@
 <li>Everything you need to build production quality apps</li>
 <li>You don’t need to throw away your Shiny apps</li>
 </ul>
+</section></section>
+<section>
+<section class="title-slide slide level1">
+<h1>Anatomy of a Shiny App</h1>
+
 </section>
-<section id="anatomy-of-a-shiny-app" class="slide level2">
-<h2>Anatomy of a Shiny App</h2>
+<section id="you-need-three-things" class="slide level2">
+<h2>You need three things</h2>
 <p>To make a Shiny app work you need to do three things:</p>
 <ol type="1">
-<li>Add inputs and outputs to the UI</li>
-<li>Create a rendering function</li>
-<li>Refer to inputs</li>
+<li><p>Create a <strong>UI section</strong> that describes inputs and outputs</p>
+<ul>
+<li>Can contain text, plots, buttons, sliders, etc.</li>
+</ul></li>
+<li><p>Create a <strong>server section</strong></p>
+<ul>
+<li>Contains your application logic</li>
+<li>In particular, it contains <strong>rendering functions</strong> that turn inputs into outputs</li>
+</ul></li>
+<li><p>Link the server section and UI section</p>
+<ul>
+<li>by referring to the inputs in the server section</li>
+</ul></li>
 </ol>
 </section>
-<section id="inputs-and-outputs" class="slide level2">
-<h2>Inputs and outputs</h2>
-<div class="sourceCode" id="cb2" data-code-line-numbers="3-6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> Inputs, Outputs, Session, App, render, ui</span>
+<section id="inputs-using-shiny-express" class="slide level2">
+<h2>Inputs using shiny express</h2>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>app.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="app.py" data-code-line-numbers="3-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> <span class="bu">input</span>, render, ui</span>
 <span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb2-4"><a></a>    ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb2-5"><a></a>    ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
-<span id="cb2-6"><a></a>)</span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb2-10"><a></a>    <span class="at">@output</span></span>
-<span id="cb2-11"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb2-12"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb2-13"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb2-14"><a></a></span>
-<span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="rendering-function" class="slide level2">
-<h2>Rendering function</h2>
-<div class="sourceCode" id="cb3" data-code-line-numbers="10-12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> Inputs, Outputs, Session, App, render, ui</span>
-<span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb3-4"><a></a>    ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb3-5"><a></a>    ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
-<span id="cb3-6"><a></a>)</span>
-<span id="cb3-7"><a></a></span>
+<span id="cb2-3"><a></a><span class="co"># UI section</span></span>
+<span id="cb2-4"><a></a>ui.input_slider(<span class="bu">id</span> <span class="op">=</span> <span class="st">"n"</span>, label <span class="op">=</span> <span class="st">"N"</span>, <span class="bu">min</span> <span class="op">=</span> <span class="dv">0</span>, <span class="bu">max</span> <span class="op">=</span> <span class="dv">100</span>, value <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a><span class="co">## Server section</span></span>
+<span id="cb2-7"><a></a><span class="at">@render.text</span></span>
+<span id="cb2-8"><a></a><span class="kw">def</span> txt():</span>
+<span id="cb2-9"><a></a>    <span class="cf">return</span> <span class="ss">f"2 * n is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb3" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>#| standalone: true</span>
+<span id="cb3-2"><a></a>#| viewerHeight: 150</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a>from shiny.express import input, render, ui</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a># UI section</span>
+<span id="cb3-7"><a></a>ui.input_slider("n", "N", 0, 100, 20)</span>
 <span id="cb3-8"><a></a></span>
-<span id="cb3-9"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb3-10"><a></a>    <span class="at">@output</span></span>
-<span id="cb3-11"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb3-12"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb3-13"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb3-14"><a></a></span>
-<span id="cb3-15"><a></a></span>
-<span id="cb3-16"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a></a>## Server section</span>
+<span id="cb3-10"><a></a>@render.text</span>
+<span id="cb3-11"><a></a>def txt():</span>
+<span id="cb3-12"><a></a>    return f"2 * n is {input.n() * 2}"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="server-section-using-shiny-express" class="slide level2">
+<h2>Server section using shiny express</h2>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>app.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="app.py" data-code-line-numbers="6-9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> <span class="bu">input</span>, render, ui</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="co"># UI section</span></span>
+<span id="cb4-4"><a></a>ui.input_slider(<span class="bu">id</span> <span class="op">=</span> <span class="st">"n"</span>, label <span class="op">=</span> <span class="st">"N"</span>, <span class="bu">min</span> <span class="op">=</span> <span class="dv">0</span>, <span class="bu">max</span> <span class="op">=</span> <span class="dv">100</span>, value <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a><span class="co">## Server section</span></span>
+<span id="cb4-7"><a></a><span class="at">@render.text</span></span>
+<span id="cb4-8"><a></a><span class="kw">def</span> txt():</span>
+<span id="cb4-9"><a></a>    <span class="cf">return</span> <span class="ss">f"2 * n is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb5" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>#| standalone: true</span>
+<span id="cb5-2"><a></a>#| viewerHeight: 150</span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a>from shiny.express import input, render, ui</span>
+<span id="cb5-5"><a></a></span>
+<span id="cb5-6"><a></a># UI section</span>
+<span id="cb5-7"><a></a>ui.input_slider("n", "N", 0, 100, 20)</span>
+<span id="cb5-8"><a></a></span>
+<span id="cb5-9"><a></a>## Server section</span>
+<span id="cb5-10"><a></a>@render.text</span>
+<span id="cb5-11"><a></a>def txt():</span>
+<span id="cb5-12"><a></a>    return f"2 * n is {input.n() * 2}"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="refer-to-inputs" class="slide level2">
 <h2>Refer to inputs</h2>
-<div class="sourceCode" id="cb4" data-code-line-numbers="13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> Inputs, Outputs, Session, App, render, ui</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb4-4"><a></a>    ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb4-5"><a></a>    ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
-<span id="cb4-6"><a></a>)</span>
-<span id="cb4-7"><a></a></span>
-<span id="cb4-8"><a></a></span>
-<span id="cb4-9"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb4-10"><a></a>    <span class="at">@output</span></span>
-<span id="cb4-11"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb4-12"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb4-13"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb4-14"><a></a></span>
-<span id="cb4-15"><a></a></span>
-<span id="cb4-16"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Your render function can refer to the input by calling it like a function.</p>
+<p>In this case, the <code>input_slider</code> has the name <code>"n"</code>, so you refer to it as <code>input.n()</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>app.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb6" data-filename="app.py" data-code-line-numbers="9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> <span class="bu">input</span>, render, ui</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a><span class="co"># UI section</span></span>
+<span id="cb6-4"><a></a>ui.input_slider(<span class="bu">id</span> <span class="op">=</span> <span class="st">"n"</span>, label <span class="op">=</span> <span class="st">"N"</span>, <span class="bu">min</span> <span class="op">=</span> <span class="dv">0</span>, <span class="bu">max</span> <span class="op">=</span> <span class="dv">100</span>, value <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb6-5"><a></a></span>
+<span id="cb6-6"><a></a><span class="co">## Server section</span></span>
+<span id="cb6-7"><a></a><span class="at">@render.text</span></span>
+<span id="cb6-8"><a></a><span class="kw">def</span> txt():</span>
+<span id="cb6-9"><a></a>    <span class="cf">return</span> <span class="ss">f"2 * n is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb7" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a></a>#| standalone: true</span>
+<span id="cb7-2"><a></a>#| viewerHeight: 150</span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a>from shiny.express import input, render, ui</span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a># UI section</span>
+<span id="cb7-7"><a></a>ui.input_slider("n", "N", 0, 100, 20)</span>
+<span id="cb7-8"><a></a></span>
+<span id="cb7-9"><a></a>## Server section</span>
+<span id="cb7-10"><a></a>@render.text</span>
+<span id="cb7-11"><a></a>def txt():</span>
+<span id="cb7-12"><a></a>    return f"2 * n is {input.n() * 2}"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="ui-functions" class="slide level2">
 <h2>UI functions</h2>
 <ul>
-<li>UI functions are in the <code>ui</code> submodule</li>
-<li>Inputs start with <code>ui.input_*()</code> and take an id, and options</li>
-<li>Outputs start with <code>ui.output_*()</code> and usually just take an id</li>
+<li>The <code>ui</code> submodule contains functions to create UI elements</li>
+<li>Inputs start with <code>ui.input_*()</code> and take an <code>id</code> and options</li>
 <li>Other functions like <code>ui.h1()</code> or <code>ui.p()</code> add static HTML to the app</li>
 <li>We’ll get to layout functions in Session 3</li>
 </ul>
+<p><a href="https://shiny.posit.co/py/api/express/express.ui.input_select.html" class="uri">https://shiny.posit.co/py/api/express/express.ui.input_select.html</a></p>
 </section>
-<section id="your-turn" class="slide level2">
+<section id="inputs-component-gallery" class="slide level2">
+<h2>Inputs component gallery</h2>
+
+<img data-src="images/input-component-gallery.png" class="r-stretch"><p><a href="https://shiny.posit.co/py/components/" class="uri">https://shiny.posit.co/py/components/</a></p>
+</section>
+<section id="render-functions-for-outputs" class="slide level2">
+<h2>Render functions for outputs</h2>
+<p>The render functions define the outputs of the app.</p>
+<ul>
+<li>Outputs start with <code>render_*()</code> and usually just take an id</li>
+</ul>
+<p><a href="https://shiny.posit.co/py/api/express/express.render.plot.html" class="uri">https://shiny.posit.co/py/api/express/express.render.plot.html</a></p>
+</section>
+<section id="outputs-component-gallery" class="slide level2">
+<h2>Outputs component gallery</h2>
+
+<img data-src="images/output-component-gallery.png" class="r-stretch"><p><a href="https://shiny.posit.co/py/components/" class="uri">https://shiny.posit.co/py/components/</a></p>
+</section>
+<section id="your-turn-1" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/1-hello-world.html">exercises/1-hello-world</a> or run <code>apps/core/1-getting-started/1.0-hello-world</code> locally.</p>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Go to <a href="../exercises/express-01-hello-world.html">exercises/express-01-hello-world</a> and complete the exercise.</p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1">
+<h1>Rendering functions on the server side</h1>
+
 </section>
 <section id="server-function" class="slide level2">
 <h2>Server function</h2>
@@ -988,11 +1064,11 @@
 </section>
 <section id="rendering-functions" class="slide level2">
 <h2>Rendering functions</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb5-2"><a></a>    <span class="at">@output</span></span>
-<span id="cb5-3"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb5-4"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb5-5"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb8-2"><a></a>    <span class="at">@output</span></span>
+<span id="cb8-3"><a></a>    <span class="at">@render.text</span></span>
+<span id="cb8-4"><a></a>    <span class="kw">def</span> txt():</span>
+<span id="cb8-5"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Functions are defined inside the main <code>server</code> function</li>
 <li>They need to be <strong>decorated</strong> with <code>@output</code> and <code>@render.*</code> in that order</li>
@@ -1002,12 +1078,12 @@
 </section>
 <section id="decorators-are-just-functions" class="slide level2">
 <h2>Decorators are just functions</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>    <span class="at">@output</span></span>
-<span id="cb6-2"><a></a>    <span class="at">@render.plot</span>(alt<span class="op">=</span><span class="st">"A body mass plot of penguins"</span>)</span>
-<span id="cb6-3"><a></a>    <span class="kw">def</span> mass_plot():</span>
-<span id="cb6-4"><a></a>        df <span class="op">=</span> sample_data(penguins.copy(), <span class="bu">input</span>.sample())</span>
-<span id="cb6-5"><a></a>        df <span class="op">=</span> df.loc[df[<span class="st">"body_mass"</span>] <span class="op">&lt;</span> <span class="bu">input</span>.mass()]</span>
-<span id="cb6-6"><a></a>        <span class="cf">return</span> dist_plot(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>    <span class="at">@output</span></span>
+<span id="cb9-2"><a></a>    <span class="at">@render.plot</span>(alt<span class="op">=</span><span class="st">"A body mass plot of penguins"</span>)</span>
+<span id="cb9-3"><a></a>    <span class="kw">def</span> mass_plot():</span>
+<span id="cb9-4"><a></a>        df <span class="op">=</span> sample_data(penguins.copy(), <span class="bu">input</span>.sample())</span>
+<span id="cb9-5"><a></a>        df <span class="op">=</span> df.loc[df[<span class="st">"body_mass"</span>] <span class="op">&lt;</span> <span class="bu">input</span>.mass()]</span>
+<span id="cb9-6"><a></a>        <span class="cf">return</span> dist_plot(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Decorators are functions which take other functions</li>
 <li>Shiny uses them to identify reactive functions</li>
@@ -1016,22 +1092,20 @@
 </section>
 <section id="simple-app-example" class="slide level2">
 <h2>Simple app example</h2>
-<div class="sourceCode" id="cb7" data-code-line-numbers="5,10-13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> Inputs, Outputs, Session, App, render, ui</span>
-<span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb7-4"><a></a>    ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb7-5"><a></a>    ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
-<span id="cb7-6"><a></a>)</span>
-<span id="cb7-7"><a></a></span>
-<span id="cb7-8"><a></a></span>
-<span id="cb7-9"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb7-10"><a></a>    <span class="at">@output</span></span>
-<span id="cb7-11"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb7-12"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb7-13"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb7-14"><a></a></span>
-<span id="cb7-15"><a></a></span>
-<span id="cb7-16"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10" data-code-line-numbers="5,10-13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> Inputs, Outputs, Session, App, render, ui</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb10-4"><a></a>    ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb10-5"><a></a>    ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
+<span id="cb10-6"><a></a>)</span>
+<span id="cb10-7"><a></a></span>
+<span id="cb10-8"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb10-9"><a></a>    <span class="at">@output</span></span>
+<span id="cb10-10"><a></a>    <span class="at">@render.text</span></span>
+<span id="cb10-11"><a></a>    <span class="kw">def</span> txt():</span>
+<span id="cb10-12"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb10-13"><a></a></span>
+<span id="cb10-14"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="common-problems" class="slide level2">
 <h2>Common problems</h2>
@@ -1041,17 +1115,29 @@
 <li>There’s some weird error</li>
 </ul>
 </section>
-<section id="your-turn-1" class="slide level2">
+<section id="your-turn-2" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/2-debug.html">exercises/2-debug</a> or work through exercises 1.1-1.5 locally.</p>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Go to <a href="../exercises/express-02-debug.html">exercises/express-02-debug</a> and complete the exercise.</p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1">
+<h1>Making the link</h1>
+
 </section>
 <section id="connecting-inputs-to-outputs" class="slide level2">
 <h2>Connecting inputs to outputs</h2>
-<div class="sourceCode" id="cb8" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="kw">def</span> server(<span class="bu">input</span>: Inputs, output: Outputs, session: Session):</span>
-<span id="cb8-2"><a></a>    <span class="at">@output</span></span>
-<span id="cb8-3"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb8-4"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb8-5"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="kw">def</span> server(<span class="bu">input</span>: Inputs, output: Outputs, session: Session):</span>
+<span id="cb11-2"><a></a>    <span class="at">@output</span></span>
+<span id="cb11-3"><a></a>    <span class="at">@render.text</span></span>
+<span id="cb11-4"><a></a>    <span class="kw">def</span> txt():</span>
+<span id="cb11-5"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Inputs are read by calling them like a function: <code>input.n()</code>, not <code>input.n</code></li>
 <li>Referring to an input creates a reactive link between that input and the rendering function</li>
@@ -1059,12 +1145,24 @@
 <li>You can use multiple inputs in the same rendering function</li>
 </ul>
 </section>
-<section id="your-turn-2" class="slide level2">
+<section id="your-turn-3" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/3-add-filter.html">exercises/3-add-filter</a> or work through exercises 1.6-1.9 locally.</p>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Go to <a href="../exercises/03-filter.html">exercises/03-filter</a> and complete the exercise.</p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1">
+<h1>Recap</h1>
+
 </section>
-<section id="recap" class="slide level2">
-<h2>Recap</h2>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
 <p>Most Shiny app development consists of variations of these three things:</p>
 <ol type="1">
 <li>Add UI elements</li>
@@ -1072,9 +1170,16 @@
 <li>Connect inputs and outputs</li>
 </ol>
 </section>
-<section id="your-turn-3" class="slide level2">
+<section id="your-turn-4" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/4-add-plot.html">exercises/4-add-plot</a> or work through exercise 1.10 locally.</p>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Go to <a href="../exercises/04-plot.html">exercises/04-plot</a> and complete the exercise.</p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
