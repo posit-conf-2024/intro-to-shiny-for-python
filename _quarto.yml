@@ -6,6 +6,12 @@ project:
 
 website:
   title: "Intro to Shiny for Python / Conf(2024)"
+  announcement: 
+    icon: info-circle
+    dismissable: true
+    content: "**Alert** - this site is under active construction"
+    type: warning
+    position: below-navbar
   navbar:
     logo: https://d33wubrfki0l68.cloudfront.net/71003073848110093780ea9a1c721439ad6b64f3/655ba/shiny-for-python.svg
     search: true
