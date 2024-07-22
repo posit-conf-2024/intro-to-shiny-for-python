@@ -3,12 +3,14 @@ return {
     local name = "exercises/" .. pandoc.utils.stringify(args[1])
     local target = "../" .. name .. ".html"
     local link = pandoc.Link(pandoc.Str(name), target)
-    local msg_pre = "Go to "
-    local msg_post = " and complete the exercise."
+    link.attributes = {target = "_blank"}
+    local msg_pre = "Complete the exercise on this page:"
+    local msg_post = "..."
     return pandoc.Div({
-      pandoc.Div(
-        pandoc.Para{
-          pandoc.Str(msg_pre), link, pandoc.Str(msg_post),
+      pandoc.Div({
+        pandoc.Para(pandoc.Str(msg_pre)),
+        pandoc.Para(link),
+        pandoc.Para(pandoc.Str(msg_post)),
         },
         pandoc.Attr("", {"your-turn-link"}, {style='width:70%;'})
       ),
