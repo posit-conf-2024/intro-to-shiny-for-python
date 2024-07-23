@@ -22,10 +22,11 @@ format:
 ```{python}
 # | echo: false
 import os
-
-os.chdir("../")
-from helpers import problem_tabs_core, include_shiny_folder, Quiz, multiple_choice_app
-
+import sys
+exercises_path = "../exercises"
+if exercises_path not in sys.path:
+    sys.path.append(exercises_path)
+from helpers import include_shiny_folder, multiple_choice_app, Quiz
 ```
 
 # Reactivity overview
@@ -37,7 +38,7 @@ from helpers import problem_tabs_core, include_shiny_folder, Quiz, multiple_choi
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "apps/core/1-getting-started/1.10-add-plot",
+    "../apps/core/1-getting-started/1.10-add-plot",
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
@@ -160,7 +161,7 @@ Draw the graph of this application
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "apps/core/1-getting-started/1.10-add-plot",
+    "../apps/core/1-getting-started/1.10-add-plot",
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
@@ -413,7 +414,7 @@ flowchart TD
 # | echo: false
 # | output: asis
 
-include_shiny_folder("apps/examples/2.0-simple-reactive-calc")
+include_shiny_folder("../apps/examples/2.0-simple-reactive-calc")
 ```
 
 ## Identify repetition
@@ -715,7 +716,7 @@ flowchart TD
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "apps/core/2-reactivity/2.3-reactive-event",
+    "../apps/core/2-reactivity/2.3-reactive-event",
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
@@ -758,7 +759,7 @@ Go to [exercises/6-reactive-event](../exercises/6-reactive-event.html) or run `a
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "apps/examples/3.0-modal",
+    "../apps/examples/3.0-modal",
     components="viewer",
     viewer_height=500,
 )
@@ -805,8 +806,6 @@ def toggle_modal():
 # | echo: false
 # | output: asis
 
-from helpers import multiple_choice_app, Quiz
-
 questions = Quiz(
     {
         "Writing a CSV": {
@@ -843,7 +842,8 @@ questions = Quiz(
         },
     }
 )
-
+```
+```{python}
 multiple_choice_app(questions)
 ```
 

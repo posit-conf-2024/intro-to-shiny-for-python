@@ -23,15 +23,15 @@ format:
 ```{python}
 # | echo: false
 import os
+import sys
+exercises_path = "../exercises"
+if exercises_path not in sys.path:
+    sys.path.append(exercises_path)
 
-os.chdir("..")
-from helpers import problem_tabs_core, problem_tabs_express, include_shiny_folder
-
+from helpers import include_shiny_folder
 ```
 
 # Getting started
-
-
 
 ## Goals of Session 1
 
@@ -71,7 +71,7 @@ We need to tell the compute what to do when the user clicks.
 # | output: asis
 
 include_shiny_folder(
-    "apps/examples/0.0-penguins", components="viewer", viewer_height=700
+    "../apps/examples/0.0-penguins", components="viewer", viewer_height=700
 )
 ```
 

@@ -41,10 +41,10 @@ website:
               text: Slides
             - section: "Exercises"
               contents: 
-              - exercises/express-01-hello-world.qmd
-              - exercises/express-02-debug.qmd
-              - exercises/express-03-filter.qmd
-              - exercises/express-04-plot.qmd
+              - exercises/express-01-hello-world/express-01-hello-world.qmd
+              - exercises/express-02-debug/express-02-debug.qmd
+              - exercises/express-03-filter/express-03-filter.qmd
+              - exercises/express-04-plot/express-04-plot.qmd
             - section: "Still to move"
               contents: 
               - exercises/express-12-basic-ui.qmd

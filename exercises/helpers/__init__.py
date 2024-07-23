@@ -118,10 +118,8 @@ def problem_tabs(folder_name: str, express = False) -> None:
 
     import os
 
-    def find_problem_set_folder(base_path, target_path, express = False):
-        base_path = Path(base_path)
-        secondary_path = "express" if express else "core"
-        search_path = Path(base_path)/secondary_path
+    def find_problem_set_folder(target_path):
+        search_path = os.getcwd()
         for root, dirs, files in os.walk(search_path):
             for name in dirs:
                 full_path = os.path.join(root, name)
@@ -131,10 +129,7 @@ def problem_tabs(folder_name: str, express = False) -> None:
             f"Folder matching path '{target_path}' not found in '{search_path}'."
         )
 
-    if (express):
-        path = find_problem_set_folder("apps", folder_name, express=True)
-    else:
-        path = find_problem_set_folder("apps", folder_name, express = False)
+    path = find_problem_set_folder(folder_name)
 
     formatted_title = "## " + folder_name.replace("-", " ").title()
 
@@ -223,7 +218,13 @@ class Quiz(dict):
 def multiple_choice_app(questions: Quiz):
     questions = Quiz(questions)
     temp_dir = tempfile.mkdtemp("temp_folder")
-    shutil.copy("apps/utilities/multiple-choice/app.py", temp_dir)
+
+    # Get the directory of the current file (helpers.py)
+    current_dir = os.path.dirname(__file__)
+    # Construct the path to app.py assuming it's in the same directory as helpers.py
+    app_path = os.path.join(current_dir, "multiple_choice/app.py")
+    shutil.copy(app_path, temp_dir)
+
     with open(os.path.join(temp_dir, "questions.json"), "w") as file:
         json.dump(questions, file)
 

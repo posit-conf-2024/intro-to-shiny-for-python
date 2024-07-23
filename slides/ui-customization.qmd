@@ -21,10 +21,11 @@ format:
 ```{python}
 # | echo: false
 import os
-
-os.chdir("..")
-from helpers import problem_tabs_core, problem_tabs_express, include_shiny_folder, Quiz, multiple_choice_app
-
+import sys
+exercises_path = "../exercises"
+if exercises_path not in sys.path:
+    sys.path.append(exercises_path)
+from helpers import include_shiny_folder
 ```
 
 ## Goals
@@ -48,7 +49,7 @@ from helpers import problem_tabs_core, problem_tabs_express, include_shiny_folde
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "apps/core/4-ui-customization/4.7-conditional-panel",
+    "../apps/core/4-ui-customization/4.7-conditional-panel",
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
@@ -172,7 +173,7 @@ ui.navset_tab(
 # | output: asis
 
 include_shiny_folder(
-    "apps/examples/4.0.0-navsets", components="viewer", viewer_height=500
+    "../apps/examples/4.0.0-navsets", components="viewer", viewer_height=500
 )
 ```
 
@@ -210,7 +211,7 @@ app_ui = ui.page_fluid(
 # | output: asis
 
 include_shiny_folder(
-    "apps/examples/4.0.0.0-cards", components="viewer", viewer_height=500
+    "../apps/examples/4.0.0.0-cards", components="viewer", viewer_height=500
 )
 ```
 
@@ -335,7 +336,7 @@ Go to [exercises/11-value-boxes](../exercises/11-value-boxes.html) or run `apps/
 # | echo: false
 # | output: asis
 
-include_shiny_folder("apps/examples/4.1.1-dynamic-ui", components="viewer")
+include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
 ```
 
 
@@ -417,7 +418,7 @@ app = App(app_ui, server)
 # | echo: false
 # | output: asis
 
-include_shiny_folder("apps/examples/4.1.1-dynamic-ui", components="viewer")
+include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
 ```
 
 ## Conditional panel
@@ -432,7 +433,7 @@ include_shiny_folder("apps/examples/4.1.1-dynamic-ui", components="viewer")
 # | echo: false
 # | output: asis
 
-include_shiny_folder("apps/examples/4.1.1-dynamic-ui", components="viewer")
+include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
 ```
 
 ## Conditional panel
