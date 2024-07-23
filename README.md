@@ -23,9 +23,21 @@ You will need to install a few things to render the website locally:
 
 This is a quarto website, so to make changes to the course text modify the `.qmd` files, or the `_quarto.yml`.
 
-To do a live preview run `quarto preview --render html`, note that while `--render html` is a bit slower, it's the best way to see changes with the included applications. 
+For a quick preview, use:
 
-### Creating an including Shiny Apps
+```sh
+quarto preview
+```
+
+But for a more accurate preview, use:
+
+```sh
+quarto preview --render html
+```
+
+Note that while `--render html` is rather slow, it's the best way to see changes with the included applications. 
+
+### Creating and including Shiny Apps
 
 All of the apps live in the `apps` folder, which means that you can use VS Code to edit and test them out. 
 
