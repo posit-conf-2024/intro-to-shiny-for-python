@@ -2555,75 +2555,72 @@
 </section>
 <section id="whats-a-side-effect" class="slide level2">
 <h2>What’s a side effect?</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Test your understanding</strong></p>
-</div>
-<div class="callout-content">
-<div class="sourceCode" id="cb12" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a></a>#| standalone: true</span>
-<span id="cb12-2"><a></a>#| components: [viewer]</span>
-<span id="cb12-3"><a></a>#| layout: horizontal</span>
-<span id="cb12-4"><a></a>#| viewerHeight: 250</span>
-<span id="cb12-5"><a></a>from shiny import App, render, ui, reactive, req</span>
-<span id="cb12-6"><a></a>import json</span>
-<span id="cb12-7"><a></a>from pathlib import Path</span>
-<span id="cb12-8"><a></a></span>
-<span id="cb12-9"><a></a>with open(Path(__file__).parent / "questions.json", "r") as file:</span>
-<span id="cb12-10"><a></a>    questions = json.load(file)</span>
-<span id="cb12-11"><a></a></span>
-<span id="cb12-12"><a></a>app_ui = ui.page_fluid(ui.output_ui("question"), ui.output_ui("validation"))</span>
-<span id="cb12-13"><a></a></span>
-<span id="cb12-14"><a></a></span>
-<span id="cb12-15"><a></a>def server(input, output, session):</span>
-<span id="cb12-16"><a></a>    q_num = reactive.Value(0)</span>
-<span id="cb12-17"><a></a></span>
-<span id="cb12-18"><a></a>    question_keys = list(questions.keys())</span>
-<span id="cb12-19"><a></a></span>
-<span id="cb12-20"><a></a>    @reactive.Calc</span>
-<span id="cb12-21"><a></a>    def current_q():</span>
-<span id="cb12-22"><a></a>        return questions[question_keys[q_num()]]</span>
-<span id="cb12-23"><a></a></span>
-<span id="cb12-24"><a></a>    @output</span>
-<span id="cb12-25"><a></a>    @render.ui</span>
-<span id="cb12-26"><a></a>    def question():</span>
-<span id="cb12-27"><a></a>        return ui.div(</span>
-<span id="cb12-28"><a></a>            ui.h5(question_keys[q_num()], style="margin-bottom: 20px"),</span>
-<span id="cb12-29"><a></a>            ui.input_radio_buttons(</span>
-<span id="cb12-30"><a></a>                "question",</span>
-<span id="cb12-31"><a></a>                "",</span>
-<span id="cb12-32"><a></a>                choices=current_q()["choices"],</span>
-<span id="cb12-33"><a></a>                selected="",</span>
-<span id="cb12-34"><a></a>            ),</span>
-<span id="cb12-35"><a></a>        )</span>
-<span id="cb12-36"><a></a></span>
-<span id="cb12-37"><a></a>    @output</span>
-<span id="cb12-38"><a></a>    @render.ui</span>
-<span id="cb12-39"><a></a>    def validation():</span>
-<span id="cb12-40"><a></a>        req(input.question())</span>
-<span id="cb12-41"><a></a>        if input.question() == current_q()["answer"]:</span>
-<span id="cb12-42"><a></a>            if q_num() == len(question_keys) - 1:</span>
-<span id="cb12-43"><a></a>                return ui.p("Correct! Quiz complete.")</span>
-<span id="cb12-44"><a></a>            else:</span>
-<span id="cb12-45"><a></a>                return ui.div(</span>
-<span id="cb12-46"><a></a>                    ui.p("Correct!"), ui.input_action_button("next", "Next Question")</span>
-<span id="cb12-47"><a></a>                )</span>
-<span id="cb12-48"><a></a>        return ui.p("Not quite right, try again")</span>
-<span id="cb12-49"><a></a></span>
-<span id="cb12-50"><a></a>    @reactive.Effect</span>
-<span id="cb12-51"><a></a>    @reactive.event(input.next)</span>
-<span id="cb12-52"><a></a>    def next_question():</span>
-<span id="cb12-53"><a></a>        q_num.set(q_num.get() + 1)</span>
-<span id="cb12-54"><a></a></span>
-<span id="cb12-55"><a></a></span>
-<span id="cb12-56"><a></a>app = App(app_ui, server)</span>
-<span id="cb12-57"><a></a></span>
-<span id="cb12-58"><a></a>## file: questions.json</span>
-<span id="cb12-59"><a></a>{"Writing a CSV": {"choices": ["value", "side effect"], "answer": "side effect"}, "Querying a database": {"choices": ["value", "side effect"], "answer": "value"}, "Adding two numbers": {"choices": ["value", "side effect"], "answer": "value"}, "A function which prints to the console": {"choices": ["value", "side effect"], "answer": "side effect"}, "Fetching the current temperature from an API": {"choices": ["value", "side effect"], "answer": "value"}, "A function which sorts a list in place": {"choices": ["value", "side effect"], "answer": "side effect"}, "Getting a model score for a set of inputs": {"choices": ["value", "side effect"], "answer": "value"}, "Deploying a model to a hosting service": {"choices": ["value", "side effect"], "answer": "side effect"}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div id="205d2941" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>::: callout-note
+## Test your understanding
+```{shinylive-python}
+#| standalone: true
+#| components: [viewer]
+#| layout: horizontal
+#| viewerHeight: 250
+from shiny import App, render, ui, reactive, req
+import json
+from pathlib import Path
+
+with open(Path(__file__).parent / "questions.json", "r") as file:
+    questions = json.load(file)
+
+app_ui = ui.page_fluid(ui.output_ui("question"), ui.output_ui("validation"))
+
+
+def server(input, output, session):
+    q_num = reactive.Value(0)
+
+    question_keys = list(questions.keys())
+
+    @reactive.Calc
+    def current_q():
+        return questions[question_keys[q_num()]]
+
+    @output
+    @render.ui
+    def question():
+        return ui.div(
+            ui.h5(question_keys[q_num()], style="margin-bottom: 20px"),
+            ui.input_radio_buttons(
+                "question",
+                "",
+                choices=current_q()["choices"],
+                selected="",
+            ),
+        )
+
+    @output
+    @render.ui
+    def validation():
+        req(input.question())
+        if input.question() == current_q()["answer"]:
+            if q_num() == len(question_keys) - 1:
+                return ui.p("Correct! Quiz complete.")
+            else:
+                return ui.div(
+                    ui.p("Correct!"), ui.input_action_button("next", "Next Question")
+                )
+        return ui.p("Not quite right, try again")
+
+    @reactive.Effect
+    @reactive.event(input.next)
+    def next_question():
+        q_num.set(q_num.get() + 1)
+
+
+app = App(app_ui, server)
+
+## file: questions.json
+{"Writing a CSV": {"choices": ["value", "side effect"], "answer": "side effect"}, "Querying a database": {"choices": ["value", "side effect"], "answer": "value"}, "Adding two numbers": {"choices": ["value", "side effect"], "answer": "value"}, "A function which prints to the console": {"choices": ["value", "side effect"], "answer": "side effect"}, "Fetching the current temperature from an API": {"choices": ["value", "side effect"], "answer": "value"}, "A function which sorts a list in place": {"choices": ["value", "side effect"], "answer": "side effect"}, "Getting a model score for a set of inputs": {"choices": ["value", "side effect"], "answer": "value"}, "Deploying a model to a hosting service": {"choices": ["value", "side effect"], "answer": "side effect"}}
+```
+:::</code></pre>
 </div>
 </div>
 </section>

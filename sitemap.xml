@@ -2,98 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/housekeeping.html</loc>
-    <lastmod>2024-07-22T13:28:38.508Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.627Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/references.html</loc>
-    <lastmod>2024-07-22T13:28:38.516Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.639Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/ui-customization-slides.html</loc>
-    <lastmod>2024-07-22T13:28:38.516Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.639Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/pre-requisites.html</loc>
-    <lastmod>2024-07-22T13:28:38.516Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.639Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/course.html</loc>
-    <lastmod>2024-07-22T13:28:38.508Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.627Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/bonus.html</loc>
-    <lastmod>2024-07-22T13:28:38.508Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.627Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/slides/express.html</loc>
-    <lastmod>2024-07-22T13:28:38.524Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.663Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/slides/workflow-best-practices.html</loc>
-    <lastmod>2024-07-22T13:28:38.532Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.671Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/slides/reactivity.html</loc>
-    <lastmod>2024-07-22T13:28:38.528Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.671Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-03-filter.html</loc>
-    <lastmod>2024-07-22T13:28:38.520Z</lastmod>
+    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-14-dynamic-ui/express-14-dynamic-ui.html</loc>
+    <lastmod>2024-07-23T15:53:45.655Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-04-plot.html</loc>
-    <lastmod>2024-07-22T13:28:38.520Z</lastmod>
+    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-04-plot/express-04-plot.html</loc>
+    <lastmod>2024-07-23T15:53:45.647Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-13-reactivity.html</loc>
-    <lastmod>2024-07-22T13:28:38.520Z</lastmod>
+    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-13-reactivity/express-13-reactivity.html</loc>
+    <lastmod>2024-07-23T15:53:45.655Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-01-hello-world.html</loc>
-    <lastmod>2024-07-22T13:28:38.520Z</lastmod>
+    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-01-hello-world/express-01-hello-world.html</loc>
+    <lastmod>2024-07-23T15:53:45.639Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-14-dynamic-ui.html</loc>
-    <lastmod>2024-07-22T13:28:38.520Z</lastmod>
+    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-02-debug/express-02-debug.html</loc>
+    <lastmod>2024-07-23T15:53:45.643Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-12-basic-ui.html</loc>
-    <lastmod>2024-07-22T13:28:38.520Z</lastmod>
+    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-12-basic-ui/express-12-basic-ui.html</loc>
+    <lastmod>2024-07-23T15:53:45.651Z</lastmod>
   </url>
   <url>
-    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-02-debug.html</loc>
-    <lastmod>2024-07-22T13:28:38.520Z</lastmod>
+    <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/exercises/express-03-filter/express-03-filter.html</loc>
+    <lastmod>2024-07-23T15:53:45.647Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/slides/getting-started.html</loc>
-    <lastmod>2024-07-22T13:28:38.524Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.663Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/slides/ui-customization.html</loc>
-    <lastmod>2024-07-22T13:28:38.532Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.671Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/index.html</loc>
-    <lastmod>2024-07-22T13:28:38.524Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.663Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/shiny-express.html</loc>
-    <lastmod>2024-07-22T13:28:38.516Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.639Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/reactivity-slides.html</loc>
-    <lastmod>2024-07-22T13:28:38.516Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.639Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/wrapup.html</loc>
-    <lastmod>2024-07-22T13:28:38.516Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.639Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/getting-started-slides.html</loc>
-    <lastmod>2024-07-22T13:28:38.508Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.627Z</lastmod>
   </url>
   <url>
     <loc>https://posit-conf-2024.github.io/intro-to-shiny-for-python/docs/best-practices-slides.html</loc>
-    <lastmod>2024-07-22T13:28:38.508Z</lastmod>
+    <lastmod>2024-07-23T15:53:45.627Z</lastmod>
   </url>
 </urlset>
