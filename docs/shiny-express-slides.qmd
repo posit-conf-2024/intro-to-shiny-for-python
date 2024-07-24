@@ -18,6 +18,9 @@ format:
     css: "styles.css"
     filters:
       - positconfslides
+      - reveal-auto-agenda
+    auto-agenda:
+      heading: Agenda
 ---
 
 ```{python}

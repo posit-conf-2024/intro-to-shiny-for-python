@@ -6,7 +6,7 @@ title-slide-attributes:
   data-background-size: cover
 format:
   positconfslides-revealjs: 
-    incremental: true
+    incremental: false
     chalkboard: true
     slide-number: c/t
     code-copy: true
@@ -17,6 +17,9 @@ format:
     height: "900"
     filters:
       - positconfslides
+      - reveal-auto-agenda
+    auto-agenda:
+      heading: Agenda
 ---
 ```{python}
 # | echo: false
@@ -27,6 +30,8 @@ if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 from helpers import include_shiny_folder
 ```
+
+# Introduction
 
 ## Goals
 
@@ -57,7 +62,9 @@ include_shiny_folder(
 )
 ```
 
-## Anatomy of Shiny's UI
+# Anatomy of Shiny UI
+
+## Anatomy of Shiny UI
 
 :::: {.columns}
 ::: column
@@ -144,6 +151,8 @@ app_ui = ui.page_fluid(
     - `panel_sidebar` defines the sidebar
     - `panel_main` defines the main panel
 
+# Navsets
+
 ## Navsets
 - It's common to put apps in tabs
 - We have a `navset_tab` function which organizes `ui.nav` containers into tabs
@@ -182,6 +191,7 @@ include_shiny_folder(
 
 Go to [exercises/8-navsets](../exercises/8-navsets.html) or run `apps/core/exercises/4-ui-customization/4.1-tabs` locally.
 
+# Cards
 
 ## Cards
 - Cards are just small boxes which contain other elements
@@ -219,6 +229,7 @@ include_shiny_folder(
 
 Go to [exercises/9-cards](../exercises/9-cards.html) or run `apps/core/exercises/4-ui-customization/4.2-cards` locally.
 
+# Rows and columns
 
 ## Rows and columns
 - Sidebars, navsets and cards are all special purpose containers
@@ -270,6 +281,8 @@ ui.row(
     ),
 ```
 
+# Composable functions
+
 ## This is getting a bit complicated
 
 - UIs can start to get complicated
@@ -313,6 +326,8 @@ ui = ui.fluid_page(ui.navset_tab(tab1, tab2, tab3))
 
 Go to [exercises/10-layout](../exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally.
 
+# Review
+
 ## Review: Value boxes
 
 - Value boxes are another experimental layout container
@@ -339,6 +354,7 @@ Go to [exercises/11-value-boxes](../exercises/11-value-boxes.html) or run `apps/
 include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
 ```
 
+# Dynamic UI
 
 ## Shiny Dynamic UI
 
@@ -421,6 +437,8 @@ app = App(app_ui, server)
 include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
 ```
 
+# Conditional panel
+
 ## Conditional panel
 - `ui.panel_conditional` hides UI elements based on conditions
 - Less flexible than `ui.output_ui`
@@ -470,6 +488,8 @@ app = App(app_ui, server)
 
 Go to [exercises/12-layout](../exercises/12-layout.html) or run problems `4.6` and `4.7` in `apps/core/exercises/4-ui-customization/`.
 
+
+# Conclusion
 
 ## That's a lot of stuff!
 
