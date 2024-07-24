@@ -6,5 +6,6 @@
     "cSpell.words": [
         "asis",
         "behaviour"
-    ]
+    ],
+    "liveServer.settings.root": "/_site"
 }
