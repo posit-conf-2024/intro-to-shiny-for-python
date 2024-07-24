@@ -54,7 +54,7 @@ website:
 
         - section: "Reactivity"
           contents:
-            - href: docs/reactivity-slides.qmd
+            - href: docs/reactivity.qmd
               text: Slides
             - section: "Exercises"
               contents: 
@@ -64,7 +64,7 @@ website:
 
         - section: "UI Customization"
           contents:
-            - href: docs/ui-customization-slides.qmd
+            - href: docs/ui-customization.qmd
               text: Slides
             - section: "Exercises"
               contents: 
@@ -75,7 +75,7 @@ website:
               - exercises/12-dynamic-ui.qmd
         - section: "Best practices"
           contents:
-            - href: docs/best-practices-slides.qmd
+            - href: docs/best-practices.qmd
               text: Slides
             - section: "Exercises"
               contents: 
