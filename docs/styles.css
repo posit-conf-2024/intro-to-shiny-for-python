@@ -13,3 +13,58 @@
 .reveal pre.sourceCode code {
     max-height: 650px;
 }
+
+
+/* css styles */
+
+#vcenter {
+    vertical-align: middle;
+}
+
+.callout .shinylive-wrapper {
+    border: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+.someclass {
+    fill: rgb(240, 102, 255);
+}
+
+.panel-tabset .shinylive-container {
+    max-height: calc(80vh - 110px);
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.v-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    background-color: brown;
+}
+
+.reveal div.column {
+    background-color: blueviolet;
+}
+
+
+.reveal svg.mermaid-js {
+  /* transform: scale(2) translateX(50%) translateX(50%); */
+  background-color: red;
+  height: 500px;
+  width: 800px;
+}
+
+.reveal div.cell.mermaid img {
+    border-color: red;
+    border-width: 3px;
+    border-style: solid;
+}
+
+
+div.quarto-figure-default {
+    overflow-y: hidden;
+}
+

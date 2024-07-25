@@ -477,8 +477,8 @@
 <span id="cb1-19"><a></a>species = df["Species"].unique().tolist()</span>
 <span id="cb1-20"><a></a>species.sort()</span>
 <span id="cb1-21"><a></a></span>
-<span id="cb1-22"><a></a>app_ui = x.ui.page_sidebar(</span>
-<span id="cb1-23"><a></a>    x.ui.sidebar(</span>
+<span id="cb1-22"><a></a>app_ui = ui.page_sidebar(</span>
+<span id="cb1-23"><a></a>    ui.sidebar(</span>
 <span id="cb1-24"><a></a>        ui.input_selectize(</span>
 <span id="cb1-25"><a></a>            "xvar", "X variable", numeric_cols, selected="Bill Length (mm)"</span>
 <span id="cb1-26"><a></a>        ),</span>
@@ -492,7 +492,7 @@
 <span id="cb1-34"><a></a>        ui.input_switch("by_species", "Show species", value=True),</span>
 <span id="cb1-35"><a></a>        ui.input_switch("show_margins", "Show marginal plots", value=True),</span>
 <span id="cb1-36"><a></a>    ),</span>
-<span id="cb1-37"><a></a>    x.ui.output_plot("scatter"),</span>
+<span id="cb1-37"><a></a>    ui.output_plot("scatter"),</span>
 <span id="cb1-38"><a></a>)</span>
 <span id="cb1-39"><a></a></span>
 <span id="cb1-40"><a></a></span>
@@ -501,7 +501,7 @@
 <span id="cb1-43"><a></a>    def filtered_df() -&gt; pd.DataFrame:</span>
 <span id="cb1-44"><a></a>        """Returns a Pandas data frame that includes only the desired rows"""</span>
 <span id="cb1-45"><a></a></span>
-<span id="cb1-46"><a></a>        # This calculation "req"uires that at least one species is selected</span>
+<span id="cb1-46"><a></a>        # This calculation "requires" that at least one species is selected</span>
 <span id="cb1-47"><a></a>        req(len(input.species()) &gt; 0)</span>
 <span id="cb1-48"><a></a></span>
 <span id="cb1-49"><a></a>        # Filter the rows so we only include the desired species</span>
@@ -528,7 +528,7 @@
 <span id="cb1-70"><a></a>app = App(app_ui, server)</span>
 <span id="cb1-71"><a></a></span>
 <span id="cb1-72"><a></a>## file: requirements.txt</span>
-<span id="cb1-73"><a></a>shiny==0.5.1</span>
+<span id="cb1-73"><a></a>shiny==1.0.0</span>
 <span id="cb1-74"><a></a>shinyswatch==0.2.4</span>
 <span id="cb1-75"><a></a>seaborn==0.12.2</span>
 <span id="cb1-76"><a></a>matplotlib==3.7.1</span>
@@ -975,7 +975,7 @@
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/1-hello-world.html">exercises/1-hello-world</a> or run <code>apps/core/1-getting-started/1.0-hello-world</code> locally.</p>
+<p>Go to <a href="./exercises/1-hello-world.html">exercises/1-hello-world</a> or run <code>apps/core/1-getting-started/1.0-hello-world</code> locally.</p>
 </section>
 <section id="server-function" class="slide level2">
 <h2>Server function</h2>
@@ -1042,7 +1042,7 @@
 </section>
 <section id="your-turn-1" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/2-debug.html">exercises/2-debug</a> or work through exercises 1.1-1.5 locally.</p>
+<p>Go to <a href="./exercises/2-debug.html">exercises/2-debug</a> or work through exercises 1.1-1.5 locally.</p>
 </section>
 <section id="connecting-inputs-to-outputs" class="slide level2">
 <h2>Connecting inputs to outputs</h2>
@@ -1060,7 +1060,7 @@
 </section>
 <section id="your-turn-2" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/3-add-filter.html">exercises/3-add-filter</a> or work through exercises 1.6-1.9 locally.</p>
+<p>Go to <a href="./exercises/3-add-filter.html">exercises/3-add-filter</a> or work through exercises 1.6-1.9 locally.</p>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
@@ -1073,7 +1073,7 @@
 </section>
 <section id="your-turn-3" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/4-add-plot.html">exercises/4-add-plot</a> or work through exercise 1.10 locally.</p>
+<p>Go to <a href="./exercises/4-add-plot.html">exercises/4-add-plot</a> or work through exercise 1.10 locally.</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

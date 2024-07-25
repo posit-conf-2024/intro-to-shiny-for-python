@@ -13,7 +13,8 @@
 <script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/shinylive.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script>
+<link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
   <title>Intro to Shiny for Python / Conf(2024) – Getting started with Shiny express</title>
@@ -406,9 +407,33 @@
 
 </section>
 <section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
 <h1>Getting started</h1>
-
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>Getting started</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Hello Shiny</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Anatomy of a Shiny App</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Rendering functions on the server side</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Making the link</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
 </section>
 <section id="goals-of-session-1" class="slide level2">
 <h2>Goals of Session 1</h2>
@@ -438,8 +463,9 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="../exercises/express-01-hello-world.html" target="_blank">exercises/express-01-hello-world</a></p>
+<p><a href="../docs/exercises/express-01-hello-world/express-01-hello-world.html" target="_blank">express-01-hello-world</a></p>
 <p>...</p>
+<p><button onclick="console.log('Sending a message')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -447,9 +473,33 @@
 </div>
 </section></section>
 <section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
 <h1>Hello Shiny</h1>
-
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Getting started</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Hello Shiny</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Anatomy of a Shiny App</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Rendering functions on the server side</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Making the link</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
 </section>
 <section id="what-is-a-shiny-app" class="slide level2">
 <h2>What is a Shiny app?</h2>
@@ -474,8 +524,8 @@
 <span id="cb1-19"><a></a>species = df["Species"].unique().tolist()</span>
 <span id="cb1-20"><a></a>species.sort()</span>
 <span id="cb1-21"><a></a></span>
-<span id="cb1-22"><a></a>app_ui = x.ui.page_sidebar(</span>
-<span id="cb1-23"><a></a>    x.ui.sidebar(</span>
+<span id="cb1-22"><a></a>app_ui = ui.page_sidebar(</span>
+<span id="cb1-23"><a></a>    ui.sidebar(</span>
 <span id="cb1-24"><a></a>        ui.input_selectize(</span>
 <span id="cb1-25"><a></a>            "xvar", "X variable", numeric_cols, selected="Bill Length (mm)"</span>
 <span id="cb1-26"><a></a>        ),</span>
@@ -489,7 +539,7 @@
 <span id="cb1-34"><a></a>        ui.input_switch("by_species", "Show species", value=True),</span>
 <span id="cb1-35"><a></a>        ui.input_switch("show_margins", "Show marginal plots", value=True),</span>
 <span id="cb1-36"><a></a>    ),</span>
-<span id="cb1-37"><a></a>    x.ui.output_plot("scatter"),</span>
+<span id="cb1-37"><a></a>    ui.output_plot("scatter"),</span>
 <span id="cb1-38"><a></a>)</span>
 <span id="cb1-39"><a></a></span>
 <span id="cb1-40"><a></a></span>
@@ -498,7 +548,7 @@
 <span id="cb1-43"><a></a>    def filtered_df() -&gt; pd.DataFrame:</span>
 <span id="cb1-44"><a></a>        """Returns a Pandas data frame that includes only the desired rows"""</span>
 <span id="cb1-45"><a></a></span>
-<span id="cb1-46"><a></a>        # This calculation "req"uires that at least one species is selected</span>
+<span id="cb1-46"><a></a>        # This calculation "requires" that at least one species is selected</span>
 <span id="cb1-47"><a></a>        req(len(input.species()) &gt; 0)</span>
 <span id="cb1-48"><a></a></span>
 <span id="cb1-49"><a></a>        # Filter the rows so we only include the desired species</span>
@@ -525,7 +575,7 @@
 <span id="cb1-70"><a></a>app = App(app_ui, server)</span>
 <span id="cb1-71"><a></a></span>
 <span id="cb1-72"><a></a>## file: requirements.txt</span>
-<span id="cb1-73"><a></a>shiny==0.5.1</span>
+<span id="cb1-73"><a></a>shiny==1.0.0</span>
 <span id="cb1-74"><a></a>shinyswatch==0.2.4</span>
 <span id="cb1-75"><a></a>seaborn==0.12.2</span>
 <span id="cb1-76"><a></a>matplotlib==3.7.1</span>
@@ -896,9 +946,33 @@
 </ul>
 </section></section>
 <section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
 <h1>Anatomy of a Shiny App</h1>
-
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Getting started</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Hello Shiny</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Anatomy of a Shiny App</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Rendering functions on the server side</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Making the link</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
 </section>
 <section id="you-need-three-things" class="slide level2">
 <h2>You need three things</h2>
@@ -1044,8 +1118,9 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="../exercises/express-01-hello-world.html" target="_blank">exercises/express-01-hello-world</a></p>
+<p><a href="../docs/exercises/express-01-hello-world/express-01-hello-world.html" target="_blank">express-01-hello-world</a></p>
 <p>...</p>
+<p><button onclick="console.log('Sending a message')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1053,9 +1128,33 @@
 </div>
 </section></section>
 <section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
 <h1>Rendering functions on the server side</h1>
-
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Getting started</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Hello Shiny</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Anatomy of a Shiny App</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Rendering functions on the server side</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Making the link</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
 </section>
 <section id="server-function" class="slide level2">
 <h2>Server function</h2>
@@ -1123,8 +1222,9 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="../exercises/express-02-debug.html" target="_blank">exercises/express-02-debug</a></p>
+<p><a href="../docs/exercises/express-02-debug/express-02-debug.html" target="_blank">express-02-debug</a></p>
 <p>...</p>
+<p><button onclick="console.log('Sending a message')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1132,9 +1232,33 @@
 </div>
 </section></section>
 <section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
 <h1>Making the link</h1>
-
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Getting started</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Hello Shiny</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Anatomy of a Shiny App</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Rendering functions on the server side</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Making the link</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
 </section>
 <section id="connecting-inputs-to-outputs" class="slide level2">
 <h2>Connecting inputs to outputs</h2>
@@ -1155,8 +1279,9 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="../exercises/03-filter.html" target="_blank">exercises/03-filter</a></p>
+<p><a href="../docs/exercises/express-03-filter/express-03-filter.html" target="_blank">express-03-filter</a></p>
 <p>...</p>
+<p><button onclick="console.log('Sending a message')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1164,9 +1289,33 @@
 </div>
 </section></section>
 <section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
 <h1>Recap</h1>
-
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Getting started</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Hello Shiny</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Anatomy of a Shiny App</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Rendering functions on the server side</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Making the link</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
 </section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
@@ -1182,8 +1331,9 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="../exercises/04-plot.html" target="_blank">exercises/04-plot</a></p>
+<p><a href="../docs/exercises/express-04-plot/express-04-plot.html" target="_blank">express-04-plot</a></p>
 <p>...</p>
+<p><button onclick="console.log('Sending a message')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">

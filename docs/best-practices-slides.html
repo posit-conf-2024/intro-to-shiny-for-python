@@ -8,7 +8,8 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script><meta charset="utf-8">
+<script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script>
+<link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
   <title>Intro to Shiny for Python / Conf(2024) – Workflow best practices</title>
@@ -399,40 +400,92 @@
 </div>
 
 </section>
-<section class="slide level2">
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Introduction</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Refactoring</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>UI Functions</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Modules</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Question &amp; Answer</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
-<li class="fragment">Learn some Shiny best practices</li>
-<li class="fragment">Get a sense of how large complicated apps are structured</li>
-<li class="fragment">Know when you need to refactor your application</li>
+<li>Learn some Shiny best practices</li>
+<li>Get a sense of how large complicated apps are structured</li>
+<li>Know when you need to refactor your application</li>
 </ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Refactoring</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Refactoring</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>UI Functions</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Modules</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Question &amp; Answer</p>
+</div></li>
+</ul>
+</div>
 </section>
-<section class="slide level2">
+<section id="avoid-premature-refactoring" class="slide level2">
 <h2>Avoid premature refactoring</h2>
 <ul>
-<li class="fragment">Start by just getting your app to work</li>
-<li class="fragment">Take small steps to avoid repetition</li>
-<li class="fragment">Ultimately you’re the one who needs to work with the code</li>
+<li>Start by just getting your app to work</li>
+<li>Take small steps to avoid repetition</li>
+<li>Ultimately you’re the one who needs to work with the code</li>
 </ul>
 </section>
-<section class="slide level2">
+<section id="when-should-you-refactor" class="slide level2">
 <h2>When should you refactor?</h2>
 <ul>
-<li class="fragment">You’re trying to hold too much in your head</li>
-<li class="fragment">Changing the app is difficult</li>
-<li class="fragment">Other people don’t understand your code</li>
-<li class="fragment">You don’t understand your code!</li>
+<li>You’re trying to hold too much in your head</li>
+<li>Changing the app is difficult</li>
+<li>Other people don’t understand your code</li>
+<li>You don’t understand your code!</li>
 </ul>
 </section>
-<section class="slide level2">
+<section id="three-main-techniques" class="slide level2">
 <h2>Three main techniques</h2>
 <ul>
-<li class="fragment">Use functions to generate UI</li>
-<li class="fragment">Separate reactive and non-reactive code</li>
-<li class="fragment">Modules</li>
+<li>Use functions to generate UI</li>
+<li>Separate reactive and non-reactive code</li>
+<li>Modules</li>
 </ul>
 </section>
-<section class="slide level2">
+<section id="were-only-going-to-cover-two" class="slide level2">
 <h2>We’re only going to cover two</h2>
 <div>
 <ul>
@@ -441,23 +494,44 @@
 <li><del>Modules</del></li>
 </ul>
 </div>
-</section>
+</section></section>
 <section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
 <h1>UI Functions</h1>
-
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Refactoring</p>
+</div></li>
+<li><div class="agenda-active">
+<p>UI Functions</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Modules</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Question &amp; Answer</p>
+</div></li>
+</ul>
+</div>
 </section>
 <section id="background-on-functions" class="slide level2">
 <h2>Background on functions</h2>
 <ul>
-<li class="fragment">In Python, functions are the best way to improve code quality
+<li>In Python, functions are the best way to improve code quality
 <ul>
-<li class="fragment">Don’t Repeat Yourself (DRY) principle</li>
-<li class="fragment">Can define variables within the function scope</li>
-<li class="fragment">Can write tests against them</li>
-<li class="fragment">Easy to use in list comprehensions</li>
+<li>Don’t Repeat Yourself (DRY) principle</li>
+<li>Can define variables within the function scope</li>
+<li>Can write tests against them</li>
+<li>Easy to use in list comprehensions</li>
 </ul></li>
-<li class="fragment">If your code is getting crazy, start refactoring into functions</li>
+<li>If your code is getting crazy, start refactoring into functions</li>
 </ul>
 </section>
 <section id="data-science-blind-spot" class="slide level2">
@@ -470,12 +544,12 @@
 <section id="ui-elements-are-just-values" class="slide level2">
 <h2>UI elements are just values</h2>
 <ul>
-<li class="fragment">Recall that Shiny UI elements are just values
+<li>Recall that Shiny UI elements are just values
 <ul>
-<li class="fragment">They can be saved as variables</li>
-<li class="fragment">They can be stored in lists</li>
-<li class="fragment">They can be passed into functions</li>
-<li class="fragment">They can be returned by functions</li>
+<li>They can be saved as variables</li>
+<li>They can be stored in lists</li>
+<li>They can be passed into functions</li>
+<li>They can be returned by functions</li>
 </ul></li>
 </ul>
 </section>
@@ -550,60 +624,105 @@
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/13-ui-functions.html">exercises/13-ui-functions</a> or run problems <code>5.1</code> and <code>5.2</code> in <code>apps/core/exercises/5-workflows</code>.</p>
+<p>Go to <a href="./exercises/13-ui-functions.html">exercises/13-ui-functions</a> or run problems <code>5.1</code> and <code>5.2</code> in <code>apps/core/exercises/5-workflows</code>.</p>
 </section>
 <section id="separate-reactive-and-non-reactive-logic" class="slide level2">
 <h2>Separate Reactive and Non-reactive logic</h2>
 <ul>
-<li class="fragment">Most Shiny app code is non-reactive
+<li>Most Shiny app code is non-reactive
 <ul>
-<li class="fragment">Drawing plots</li>
-<li class="fragment">Summarizing data</li>
-<li class="fragment">Interacting with databases</li>
-<li class="fragment">(Really, everything except the actual reading of reactive inputs and calcs)</li>
+<li>Drawing plots</li>
+<li>Summarizing data</li>
+<li>Interacting with databases</li>
+<li>(Really, everything except the actual reading of reactive inputs and calcs)</li>
 </ul></li>
-<li class="fragment">It’s fine to include this code inside reactive functions</li>
-<li class="fragment">As your app grows you should separate them</li>
+<li>It’s fine to include this code inside reactive functions</li>
+<li>As your app grows you should separate them</li>
 </ul>
 </section>
 <section id="reactivity-makes-everything-harder" class="slide level2">
 <h2>Reactivity makes everything harder</h2>
 <ul>
-<li class="fragment">Reactive context makes them inherently more difficult
+<li>Reactive context makes them inherently more difficult
 <ul>
-<li class="fragment">Harder to debug</li>
-<li class="fragment">Harder to test</li>
-<li class="fragment">Harder to document</li>
-<li class="fragment">Harder to reason about</li>
+<li>Harder to debug</li>
+<li>Harder to test</li>
+<li>Harder to document</li>
+<li>Harder to reason about</li>
 </ul></li>
 </ul>
 </section>
 <section id="pull-logic-out-of-the-reactive-context" class="slide level2">
 <h2>Pull logic out of the reactive context</h2>
 <ul>
-<li class="fragment">Non-reactive functions are familliar and predictable</li>
-<li class="fragment">You can call them in a notebook</li>
-<li class="fragment">You can write unit tests</li>
-<li class="fragment">Makes your reactive code much clearer</li>
-<li class="fragment">You can reuse them in other contexts</li>
+<li>Non-reactive functions are familliar and predictable</li>
+<li>You can call them in a notebook</li>
+<li>You can write unit tests</li>
+<li>Makes your reactive code much clearer</li>
+<li>You can reuse them in other contexts</li>
 </ul>
 </section>
 <section id="your-turn-1" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="../exercises/14-extract-functions.html">exercises/14-extract-functions</a> or run problem <code>5.3</code> in <code>apps/core/exercises/5-workflows</code>.</p>
-</section>
-<section id="modules" class="slide level2">
-<h2>Modules</h2>
-<ul>
-<li class="fragment">Not going to teach them, but you should know about them</li>
-<li class="fragment">Used when you want to encapsulate <em>both</em> UI <em>and</em> server logic together</li>
-<li class="fragment">Allows you to package and re-use parts of your application</li>
-<li class="fragment">Great for working with teams of developers</li>
-<li class="fragment">Essential for large applications</li>
-</ul>
+<p>Go to <a href="./exercises/14-extract-functions.html">exercises/14-extract-functions</a> or run problem <code>5.3</code> in <code>apps/core/exercises/5-workflows</code>.</p>
 </section></section>
-<section class="title-slide slide level1">
+<section class="title-slide slide level1 agenda-slide">
+<h1>Modules</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Refactoring</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>UI Functions</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Modules</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Question &amp; Answer</p>
+</div></li>
+</ul>
+</div>
+<ul>
+<li>Not going to teach them, but you should know about them</li>
+<li>Used when you want to encapsulate <em>both</em> UI <em>and</em> server logic together</li>
+<li>Allows you to package and re-use parts of your application</li>
+<li>Great for working with teams of developers</li>
+<li>Essential for large applications</li>
+</ul>
+</section>
+
+<section class="title-slide slide level1 agenda-slide">
 <h1>Question &amp; Answer</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Refactoring</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>UI Functions</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Modules</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Question &amp; Answer</p>
+</div></li>
+</ul>
+</div>
 <p><br><br><br></p>
 <p>Also, please fill out the survey:<br>
 <a href="https://pos.it/conf-workshop-survey">https://pos.it/conf-workshop-survey</a></p>
