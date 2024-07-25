@@ -4,11 +4,10 @@ title: "Debugging rendering"
 
 ```{python}
 # | echo: false
-import os
-
-os.chdir("..")
+helpers_path = "../"
+if helpers_path not in sys.path:
+    sys.path.append(helpers_path)
 from helpers import problem_tabs_core, problem_tabs_express
-
 
 def gs_problems(file):
     problem_tabs_core(f"1-getting-started/{file}")

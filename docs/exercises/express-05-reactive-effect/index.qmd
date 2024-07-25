@@ -1,0 +1,17 @@
+---
+title: "Reactive Effects"
+---
+
+```{python}
+# | echo: false
+# | output: asis
+import sys
+helpers_path = "../"
+if helpers_path not in sys.path:
+    sys.path.append(helpers_path)
+from helpers import problem_tabs_core, problem_tabs_express
+
+problem_tabs_express("5.1-reactive-event")
+problem_tabs_express("5.2-reactive-effect")
+```
+

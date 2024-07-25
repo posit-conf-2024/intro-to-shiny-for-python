@@ -27,20 +27,15 @@ prerender:
 LOG_LEVEL := warning
 LOG_LEVEL := info
 
-# Define lists of .qmd files
-DOCS_QMD_FILES := $(wildcard $(DOCS_DIR)/*.qmd)
-SLIDES_QMD_FILES := $(wildcard $(SLIDES_DIR)/*.qmd)
+# Define lists of .qmd files recursively in the docs folder
+QMD_FILES := $(shell find $(DOCS_DIR) -type f -name '*.qmd' ! -name '_*.qmd')
 
 # Define corresponding .html files
-DOCS_HTML_FILES := $(patsubst $(DOCS_DIR)/%.qmd,$(SITE_DOCS)/%.html,$(DOCS_QMD_FILES))
-SLIDES_HTML_FILES := $(patsubst $(SLIDES_DIR)/%.qmd,$(SITE_SLIDES)/%.html,$(SLIDES_QMD_FILES))
+HTML_FILES := $(patsubst $(DOCS_DIR)/%.qmd,$(SITE_DOCS)/%.html,$(QMD_FILES))
 
 # Existing pattern rules for generating .html from .qmd
 $(SITE_DOCS)/%.html: $(DOCS_DIR)/%.qmd
 	quarto render $< --log-level $(LOG_LEVEL)
 
-$(SITE_SLIDES)/%.html: $(SLIDES_DIR)/%.qmd
-	quarto render $< --log-level $(LOG_LEVEL)
-
 # New target to generate all .html files
-html: $(DOCS_HTML_FILES) $(SLIDES_HTML_FILES)
+html: $(HTML_FILES)

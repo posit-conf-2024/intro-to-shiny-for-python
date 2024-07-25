@@ -14,15 +14,15 @@ error_tab = ui.nav(
     ui.row(
         ui.column(
             6,
-            x.ui.card(
-                x.ui.card_header("Distribution"),
+            ui.card(
+                ui.card_header("Distribution"),
                 ui.output_plot("error_distribution"),
             ),
         ),
         ui.column(
             6,
-            x.ui.card(
-                x.ui.card_header("Error by day"),
+            ui.card(
+                ui.card_header("Error by day"),
                 ui.output_plot("error_by_day"),
                 ui.input_slider("alpha", "Plot Alpha", value=0.5, min=0, max=1),
             ),

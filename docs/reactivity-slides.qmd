@@ -20,13 +20,14 @@ format:
       - reveal-auto-agenda
     auto-agenda:
       heading: Agenda
+    mermaid-format: svg
 ---
 
 ```{python}
 # | echo: false
 import os
 import sys
-exercises_path = "../exercises"
+exercises_path = "./exercises"
 if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 from helpers import include_shiny_folder, multiple_choice_app, Quiz
@@ -41,7 +42,8 @@ from helpers import include_shiny_folder, multiple_choice_app, Quiz
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "../apps/core/1-getting-started/1.10-add-plot",
+    # "../apps/core/1-getting-started/1.10-add-plot",
+    "./exercises/express-04-plot/1.7-add-plot",
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
@@ -56,8 +58,11 @@ include_shiny_folder(
 
 ## How do other frameworks work?
 
-- Streamlit: re-render everything everywhere all the time
-- Dash/Panel/Gradio: Define callback functions
+- Streamlit
+  - re-render everything everywhere all the time
+
+- Dash / Panel / Gradio
+  - Define callback functions
 
 ## Event driven programming
 
@@ -131,7 +136,6 @@ app = App(app_ui, server)
 ## Reactive graph
 
 ```{mermaid}
-%%| fig-height: 20
 flowchart TD
   S[Slider] --> R{Recipe}
   R --> Sc((Text))
@@ -164,7 +168,7 @@ Draw the graph of this application
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "../apps/core/1-getting-started/1.10-add-plot",
+    "./exercises/express-04-plot/1.7-add-plot",
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
@@ -685,10 +689,11 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
+# Your turn
 
 ## Your turn
 
-Go to [exercises/5-reactivity](../exercises/5-reactivity.html) or run `apps/core/exercises/5-reactivity` locally.
+{{< yourturn 'express-05-reactive-event' 'true' >}}
 
 
 ## Exercise 2.3 answer 
@@ -704,6 +709,8 @@ flowchart TD
 ```
 
 # Overriding reactivity
+
+## Overriding reactivity
 
 - By default, when an input changes, any outputs that use it will recalculate
 - This isn't always the user interaction you want
@@ -743,7 +750,9 @@ def txt():
 
 ## Your turn
 
-Go to [exercises/6-reactive-event](../exercises/6-reactive-event.html) or run `apps/core/2-reactivity/2.3-reactive-event` locally.
+{{< yourturn 'express-05-reactive-event' 'true' >}}
+
+Go to [exercises/6-reactive-event](./exercises/6-reactive-event.html) or run `apps/core/2-reactivity/2.3-reactive-event` locally.
 
 
 # Side effects
@@ -858,4 +867,4 @@ multiple_choice_app(questions)
 
 ## Your turn
 
-Go to [exercises/7-reactive-effects](../exercises/7-reactive-effects.html) or run `apps/core/3-reactive-effects/3.1-update-slider` locally.
+Go to [exercises/7-reactive-effects](./exercises/7-reactive-effects.html) or run `apps/core/3-reactive-effects/3.1-update-slider` locally.

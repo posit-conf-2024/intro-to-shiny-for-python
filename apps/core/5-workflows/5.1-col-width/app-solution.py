@@ -14,7 +14,7 @@ def card_col(title, *args):
         (
             ui.column(
                 6,
-                x.ui.card(x.ui.card_header(title), *args),
+                ui.card(ui.card_header(title), *args),
             ),
         ),
     )

@@ -1,5 +1,5 @@
-shiny 
-shinylive 
+shiny>=1.0.0
+shinylive==0.5.0
 pandas
 plotnine
 seaborn

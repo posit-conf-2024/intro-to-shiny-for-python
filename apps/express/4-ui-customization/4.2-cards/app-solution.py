@@ -28,12 +28,12 @@ app_ui = ui.page_fluid(
             ui.navset_tab(
                 ui.nav(
                     "Error",
-                    x.ui.card(
-                        x.ui.card_header("Distribution"),
+                    ui.card(
+                        ui.card_header("Distribution"),
                         ui.output_plot("error_distribution"),
                     ),
-                    x.ui.card(
-                        x.ui.card_header("Error by day"),
+                    ui.card(
+                        ui.card_header("Error by day"),
                         ui.output_plot("error_by_day"),
                     ),
                 ),

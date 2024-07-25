@@ -25,7 +25,7 @@ format:
 # | echo: false
 import os
 import sys
-exercises_path = "../exercises"
+exercises_path = "./exercises"
 if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 from helpers import include_shiny_folder
@@ -170,7 +170,7 @@ app = App(app_ui, None)
 
 ## Your turn
 
-Go to [exercises/13-ui-functions](../exercises/13-ui-functions.html) or run problems `5.1` and `5.2` in `apps/core/exercises/5-workflows`.
+Go to [exercises/13-ui-functions](./exercises/13-ui-functions.html) or run problems `5.1` and `5.2` in `apps/core/exercises/5-workflows`.
 
 ## Separate Reactive and Non-reactive logic
 
@@ -199,7 +199,7 @@ Go to [exercises/13-ui-functions](../exercises/13-ui-functions.html) or run prob
 
 ## Your turn
 
-Go to [exercises/14-extract-functions](../exercises/14-extract-functions.html) or run problem `5.3` in `apps/core/exercises/5-workflows`.
+Go to [exercises/14-extract-functions](./exercises/14-extract-functions.html) or run problem `5.3` in `apps/core/exercises/5-workflows`.
 
 
 # Modules

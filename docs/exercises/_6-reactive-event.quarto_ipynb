@@ -1,0 +1,62 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Reactive events\"\n",
+        "---"
+      ],
+      "id": "64ac4033"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# | echo: false\n",
+        "import sys\n",
+        "helpers_path = \"../\"\n",
+        "if helpers_path not in sys.path:\n",
+        "    sys.path.append(helpers_path)\n",
+        "from helpers import problem_tabs_core, problem_tabs_express\n",
+        "\n",
+        "def reactive_problems(file):\n",
+        "    problem_tabs_core(f\"2-reactivity/{file}\")"
+      ],
+      "id": "b40aae7d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Exercise 2.3\n"
+      ],
+      "id": "a6713702"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# | echo: false\n",
+        "# | output: asis\n",
+        "reactive_problems(\"2.3-reactive-event\")"
+      ],
+      "id": "39115859",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/home/andrie/github/posit-conf-2024/intro-to-shiny-for-python/.venv/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

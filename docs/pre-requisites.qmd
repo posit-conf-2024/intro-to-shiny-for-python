@@ -7,7 +7,7 @@ code-annotations: hover
 # | echo: false
 import os
 import sys
-exercises_path = "../exercises"
+exercises_path = "./exercises"
 if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 from helpers import include_shiny_folder

@@ -1,0 +1,29 @@
+---
+title: "Reactive calc"
+---
+
+```{python}
+# | echo: false
+helpers_path = "../"
+if helpers_path not in sys.path:
+    sys.path.append(helpers_path)
+from helpers import problem_tabs_core, problem_tabs_express
+
+def reactive_problems(file):
+    problem_tabs_core(f"2-reactivity/{file}")
+
+
+```
+
+## Exercise 2.2
+
+```{python}
+# | echo: false
+# | output: asis
+
+reactive_problems("2.2-reactive-calc")
+```
+
+## Exercise 2.3
+
+Draw the reactive graph for the above application

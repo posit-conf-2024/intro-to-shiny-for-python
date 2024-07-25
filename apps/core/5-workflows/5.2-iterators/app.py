@@ -12,22 +12,22 @@ data_tab = ui.nav("Data", ui.output_data_frame("data"))
 error_tab = ui.nav(
     "Error",
     ui.row(
-        ui.column(4, x.ui.value_box("Hot days", ui.output_text("hot_days"))),
-        ui.column(4, x.ui.value_box("Cold days", ui.output_text("cold_days"))),
-        ui.column(4, x.ui.value_box("Mean Error", ui.output_text("mean_error"))),
+        ui.column(4, ui.value_box("Hot days", ui.output_text("hot_days"))),
+        ui.column(4, ui.value_box("Cold days", ui.output_text("cold_days"))),
+        ui.column(4, ui.value_box("Mean Error", ui.output_text("mean_error"))),
     ),
     ui.row(
         ui.column(
             6,
-            x.ui.card(
-                x.ui.card_header("Distribution"),
+            ui.card(
+                ui.card_header("Distribution"),
                 ui.output_plot("error_distribution"),
             ),
         ),
         ui.column(
             6,
-            x.ui.card(
-                x.ui.card_header("Error by day"),
+            ui.card(
+                ui.card_header("Error by day"),
                 ui.output_plot("error_by_day"),
                 ui.input_slider("alpha", "Plot Alpha", value=0.5, min=0, max=1),
             ),

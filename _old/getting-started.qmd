@@ -5,10 +5,7 @@ code-annotations: hover
 
 ```{python}
 # | echo: false
-import 
-
-os.chdir("..")
-from  import problem_tabs, include_shiny_folder, Quiz, multiple_choice_app
+from helpers import problem_tabs, include_shiny_folder, Quiz, multiple_choice_app
 
 ```
 

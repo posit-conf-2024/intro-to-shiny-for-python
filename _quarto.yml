@@ -17,7 +17,7 @@ website:
     search: true
     left:
       - text: "Home"
-        file: index.qmd
+        file: docs/index.qmd
       - text: Pre-requisites
         file: docs/pre-requisites.qmd
 
@@ -41,26 +41,28 @@ website:
               text: Slides
             - section: "Exercises"
               contents: 
-              - exercises/express-01-hello-world/express-01-hello-world.qmd
-              - exercises/express-02-debug/express-02-debug.qmd
-              - exercises/express-03-filter/express-03-filter.qmd
-              - exercises/express-04-plot/express-04-plot.qmd
+              - docs/exercises/express-01-hello-world/express-01-hello-world.qmd
+              - docs/exercises/express-02-debug/express-02-debug.qmd
+              - docs/exercises/express-03-filter/express-03-filter.qmd
+              - docs/exercises/express-04-plot/express-04-plot.qmd
             - section: "Still to move"
               contents: 
-              - exercises/express-12-basic-ui.qmd
-              - exercises/express-13-reactivity.qmd
-              - exercises/express-14-dynamic-ui.qmd
-              - exercises/express-15-reactive-effect.qmd
+              - docs/exercises/express-12-basic-ui.qmd
+              - docs/exercises/express-13-reactivity.qmd
+              - docs/exercises/express-14-dynamic-ui.qmd
+              - docs/exercises/express-15-reactive-effect.qmd
 
         - section: "Reactivity"
           contents:
+            - href: docs/test-slides.qmd
+              text: Test
             - href: docs/reactivity.qmd
               text: Slides
             - section: "Exercises"
               contents: 
-              - exercises/5-reactivity.qmd
-              - exercises/6-reactive-event.qmd
-              - exercises/7-reactive-effects.qmd
+              - docs/exercises/express-05-reactive-effect/index.qmd
+              - docs/exercises/6-reactive-event.qmd
+              - docs/exercises/7-reactive-effects.qmd
 
         - section: "UI Customization"
           contents:
@@ -68,19 +70,19 @@ website:
               text: Slides
             - section: "Exercises"
               contents: 
-              - exercises/8-navsets.qmd
-              - exercises/9-cards.qmd
-              - exercises/10-layout.qmd
-              - exercises/11-value-boxes.qmd
-              - exercises/12-dynamic-ui.qmd
+              - docs/exercises/8-navsets.qmd
+              - docs/exercises/9-cards.qmd
+              - docs/exercises/10-layout.qmd
+              - docs/exercises/11-value-boxes.qmd
+              - docs/exercises/12-dynamic-ui.qmd
         - section: "Best practices"
           contents:
             - href: docs/best-practices.qmd
               text: Slides
             - section: "Exercises"
               contents: 
-              - exercises/13-ui-functions.qmd
-              - exercises/14-extract-functions.qmd
+              - docs/exercises/13-ui-functions.qmd
+              - docs/exercises/14-extract-functions.qmd
 
 filters:
   - shinylive

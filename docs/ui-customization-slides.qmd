@@ -25,7 +25,7 @@ format:
 # | echo: false
 import os
 import sys
-exercises_path = "../exercises"
+exercises_path = "./exercises"
 if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 from helpers import include_shiny_folder
@@ -189,7 +189,7 @@ include_shiny_folder(
 
 ## Your turn
 
-Go to [exercises/8-navsets](../exercises/8-navsets.html) or run `apps/core/exercises/4-ui-customization/4.1-tabs` locally.
+Go to [exercises/8-navsets](./exercises/8-navsets.html) or run `apps/core/exercises/4-ui-customization/4.1-tabs` locally.
 
 # Cards
 
@@ -197,9 +197,8 @@ Go to [exercises/8-navsets](../exercises/8-navsets.html) or run `apps/core/exerc
 - Cards are just small boxes which contain other elements
 - Useful for grouping inputs and outputs
 - "Dashboards" are just web apps in boxes
-- Currently in experimental, import with `import shiny.experimental as x`
-- Called with `x.ui.card`
-- Cards can take `x.ui.card_header` and `x.ui.card_footer`
+- Called with `ui.card`
+- Cards can take `ui.card_header` and `ui.card_footer`
 
 ## Cards
 
@@ -207,8 +206,8 @@ Go to [exercises/8-navsets](../exercises/8-navsets.html) or run `apps/core/exerc
 import shiny.experimental as x
 
 app_ui = ui.page_fluid(
-    x.ui.card(
-        x.ui.card_header("Slider card"),
+    ui.card(
+        ui.card_header("Slider card"),
         ui.input_slider("n", "N", 0, 100, 20),
         ui.output_text_verbatim("txt"),
     )
@@ -227,7 +226,7 @@ include_shiny_folder(
 
 ## Your turn
 
-Go to [exercises/9-cards](../exercises/9-cards.html) or run `apps/core/exercises/4-ui-customization/4.2-cards` locally.
+Go to [exercises/9-cards](./exercises/9-cards.html) or run `apps/core/exercises/4-ui-customization/4.2-cards` locally.
 
 # Rows and columns
 
@@ -299,7 +298,7 @@ import shiny.experimental as x
 ui.navset_tab(
     ui.nav(
         "Tab1",
-        x.ui.card(ui.output_plot("Plot")),
+        ui.card(ui.output_plot("Plot")),
         ui.output_text("some_text"),
     ),
     ui.nav("Tab2", ui.output_data_frame("data")),
@@ -310,7 +309,7 @@ ui.navset_tab(
 ## UI functions are composable
 
 ```{.python}
-card1 = x.ui.card(ui.output_plot("Plot"))
+card1 = ui.card(ui.output_plot("Plot"))
 tab1 = ui.nav(
     "Tab1",
     card1,
@@ -324,21 +323,21 @@ ui = ui.fluid_page(ui.navset_tab(tab1, tab2, tab3))
 
 ## Your turn
 
-Go to [exercises/10-layout](../exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally.
+Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally.
 
 # Review
 
 ## Review: Value boxes
 
 - Value boxes are another experimental layout container
-- Just like `x.ui.card()` 
-- Called with `x.ui.value_box()`
+- Just like `ui.card()` 
+- Called with `ui.value_box()`
 - Useful for visually highlighting important numbers or text
 - Usually contain `ui.output_text()` as a child element
 
 ## Your turn
 
-Go to [exercises/11-value-boxes](../exercises/11-value-boxes.html) or run `apps/core/exercises/4-ui-customization/4.5-value-boxes` locally.
+Go to [exercises/11-value-boxes](./exercises/11-value-boxes.html) or run `apps/core/exercises/4-ui-customization/4.5-value-boxes` locally.
 
 ## Dynamic user interfaces
 
@@ -486,7 +485,7 @@ app = App(app_ui, server)
 
 ## Your turn
 
-Go to [exercises/12-layout](../exercises/12-layout.html) or run problems `4.6` and `4.7` in `apps/core/exercises/4-ui-customization/`.
+Go to [exercises/12-layout](./exercises/12-layout.html) or run problems `4.6` and `4.7` in `apps/core/exercises/4-ui-customization/`.
 
 
 # Conclusion

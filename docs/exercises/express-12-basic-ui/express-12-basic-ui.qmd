@@ -1,0 +1,18 @@
+---
+title: "Basic UI"
+---
+
+```{python}
+# | echo: false
+# | output: asis
+import sys
+helpers_path = "../"
+if helpers_path not in sys.path:
+    sys.path.append(helpers_path)
+from helpers import problem_tabs_core, problem_tabs_express
+
+problem_tabs_express("2.1-sidebar")
+problem_tabs_express("2.2-cards")
+problem_tabs_express("2.3-cards-switch")
+problem_tabs_express("2.4-layout-columns")
+```

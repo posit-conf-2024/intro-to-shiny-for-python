@@ -15,8 +15,8 @@ numeric_cols = df.select_dtypes(include=["float64"]).columns.tolist()
 species = df["Species"].unique().tolist()
 species.sort()
 
-app_ui = x.ui.page_sidebar(
-    x.ui.sidebar(
+app_ui = ui.page_sidebar(
+    ui.sidebar(
         ui.input_selectize(
             "xvar", "X variable", numeric_cols, selected="Bill Length (mm)"
         ),
@@ -30,7 +30,7 @@ app_ui = x.ui.page_sidebar(
         ui.input_switch("by_species", "Show species", value=True),
         ui.input_switch("show_margins", "Show marginal plots", value=True),
     ),
-    x.ui.output_plot("scatter"),
+    ui.output_plot("scatter"),
 )
 
 
@@ -39,7 +39,7 @@ def server(input: Inputs, output: Outputs, session: Session):
     def filtered_df() -> pd.DataFrame:
         """Returns a Pandas data frame that includes only the desired rows"""
 
-        # This calculation "req"uires that at least one species is selected
+        # This calculation "requires" that at least one species is selected
         req(len(input.species()) > 0)
 
         # Filter the rows so we only include the desired species

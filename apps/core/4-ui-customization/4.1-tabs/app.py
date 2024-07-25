@@ -9,7 +9,7 @@ weather = pd.read_csv(infile)
 weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 
 
-card1 = x.ui.card(ui.output_plot("Plot"))
+card1 = ui.card(ui.output_plot("Plot"))
 tab1 = ui.nav(
     "Tab1",
     card1,

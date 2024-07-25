@@ -27,7 +27,7 @@ format:
 # | echo: false
 import os
 import sys
-exercises_path = "../exercises"
+exercises_path = "./exercises"
 if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 
@@ -337,7 +337,7 @@ def server(input: Inputs, output: Outputs, session: Session):
 
 ## Your turn
 
-{{< yourturn '03-filter' >}}
+{{< yourturn 'express-03-filter' >}}
 
 
 # Recap
@@ -352,5 +352,5 @@ Most Shiny app development consists of variations of these three things:
 
 ## Your turn
 
-{{< yourturn '04-plot' >}}
+{{< yourturn 'express-04-plot' >}}
 
