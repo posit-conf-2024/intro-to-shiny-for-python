@@ -54,8 +54,6 @@ website:
 
         - section: "Reactivity"
           contents:
-            - href: docs/test-slides.qmd
-              text: Test
             - href: docs/reactivity.qmd
               text: Slides
             - section: "Exercises"

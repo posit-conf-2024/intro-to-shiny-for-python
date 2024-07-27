@@ -21,6 +21,7 @@ format:
     auto-agenda:
       heading: Agenda
 ---
+
 ```{python}
 # | echo: false
 import os
@@ -188,6 +189,8 @@ include_shiny_folder(
 
 
 ## Your turn
+
+{{< yourturn '8-navsets' >}}
 
 Go to [exercises/8-navsets](./exercises/8-navsets.html) or run `apps/core/exercises/4-ui-customization/4.1-tabs` locally.
 

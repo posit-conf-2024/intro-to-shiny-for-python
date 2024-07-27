@@ -1,6 +1,5 @@
-
 ---
-title: "Reactivity"
+title: "Test"
 title-slide-attributes: 
   data-background-image:  images/shiny-for-python-newcastle.jpg
   data-background-position: bottom left
@@ -22,8 +21,17 @@ format:
     auto-agenda:
       heading: Agenda
       format:
-    mermaid-format: png
+    mermaid-format: svg
 ---
+
+## Hello world
+
+{{< yourturn 'express-01-hello-world' >}}
+
+## Debug
+
+{{< yourturn 'express-02-debug' >}}
+
 
 ## Initial state
 

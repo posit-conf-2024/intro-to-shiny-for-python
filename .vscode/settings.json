@@ -7,5 +7,6 @@
         "asis",
         "behaviour"
     ],
-    "liveServer.settings.root": "/_site"
+    "liveServer.settings.root": "/_site",
+    "editor.tabSize": 2
 }

@@ -135,18 +135,27 @@ app = App(app_ui, server)
 
 ## Reactive graph
 
+:::: {.columns}
+
+::: {.column width="50%"}
 ```{mermaid}
 flowchart TD
   S[Slider] --> R{Recipe}
   R --> Sc((Text))
 ```
+:::
 
-## Reactive graph
-
+::: {.column width="50%"}
 ```{mermaid}
 flowchart TD
   S[Slider] --> Sc((Text))
 ```
+:::
+
+::::
+
+
+
 
 ## Declarative programming
 
@@ -155,14 +164,20 @@ flowchart TD
 - You're setting the menu, not doing the cooking
 
 ## Event-driven programming
-![](images/carmy-yelling.webp)
+
+![](images/carmy-yelling.webp){fig-align="center"}
 
 ## Reactive programming
-![](images/carmy-whites.png)
+
+![](images/carmy-whites.png){fig-align="center"}
+
+# Your turn
 
 ## Your turn
 
-Draw the graph of this application
+Draw the graph of this application:
+
+<!-- TODO: Revert to original example to reflect the reactive graph -->
 
 ```{python}
 # | echo: false
@@ -172,11 +187,12 @@ include_shiny_folder(
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
-    viewer_height=600,
+    viewer_height=700,
 )
 ```
+# Solution
 
-## Initial state
+## Solution: Initial state
 
 ```{mermaid}
 flowchart TD
@@ -188,7 +204,7 @@ flowchart TD
   linkStyle 2 display:none
 ```
 
-## Calculate scatter plot
+## Solution: Calculate scatter plot
 
 ```{mermaid}
 flowchart TD
@@ -201,7 +217,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Calculate scatter plot
+## Solution: Calculate scatter plot
 
 ```{mermaid}
 flowchart TD
@@ -212,7 +228,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Calculate distribution
+## Solution: Calculate distribution
 
 ```{mermaid}
 flowchart TD
@@ -223,7 +239,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Calculate distribution
+## Solution: Calculate distribution
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot))
@@ -233,7 +249,7 @@ flowchart TD
 ```
 
 
-## Reactive graph
+## Solution: Reactive graph
 
 ```{mermaid}
 flowchart TD
@@ -243,7 +259,7 @@ flowchart TD
 ```
 
 
-## Slider changes
+## Solution: Slider changes
 
 ```{mermaid}
 flowchart TD
@@ -254,7 +270,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Invalidated
+## Solution: Invalidated
 
 ```{mermaid}
 flowchart TD
@@ -265,7 +281,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Forget dependencies
+## Solution: Forget dependencies
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot))
@@ -278,7 +294,7 @@ flowchart TD
   linkStyle 2 display:none
 ```
 
-## Recalculate
+## Solution: Recalculate
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot)):::changed
@@ -291,7 +307,7 @@ flowchart TD
   linkStyle 2 display:none
 ```
 
-## Recalculate
+## Solution: Recalculate
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot)):::changed
@@ -303,7 +319,7 @@ flowchart TD
 ```
 
 
-## Recalculate
+## Solution: Recalculate
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot))
@@ -314,7 +330,7 @@ flowchart TD
   linkStyle 2 display:none
 ```
 
-## Recalculate
+## Solution: Recalculate
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot))
@@ -324,7 +340,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Updated
+## Solution: Updated
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot))
@@ -334,7 +350,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Checkbox changes
+## Solution: Checkbox changes
 ```{mermaid}
 flowchart TD
   C[Checkbox]:::changed --> Sc((Scatter\nPlot))
@@ -344,7 +360,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Invalidated
+## Solution: Invalidated
 
 ```{mermaid}
 flowchart TD
@@ -355,7 +371,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Forget dependencies
+## Solution: Forget dependencies
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot)):::changed
@@ -367,7 +383,7 @@ flowchart TD
   linkStyle 1 display:none
 ```
 
-## Recalculate
+## Solution: Recalculate
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot)):::changed
@@ -379,7 +395,7 @@ flowchart TD
   linkStyle 1 display:none
 ```
 
-## Recalculate
+## Solution: Recalculate
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot)):::changed
@@ -389,7 +405,7 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
-## Updated
+## Solution: Updated
 ```{mermaid}
 flowchart TD
   C[Checkbox] --> Sc((Scatter\nPlot))
@@ -399,13 +415,14 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
+
+# Reactive calculations
+
 ## Reactivity scales
 
 - Every Shiny app uses this pattern
 - Works for dynamic UIs
 - Shiny is lazy 
-
-# Reactive calculations
 
 ## Saving and reusing calculated values
 
@@ -420,7 +437,6 @@ flowchart TD
 ```{python}
 # | echo: false
 # | output: asis
-
 include_shiny_folder("../apps/examples/2.0-simple-reactive-calc")
 ```
 
@@ -693,7 +709,7 @@ flowchart TD
 
 ## Your turn
 
-{{< yourturn 'express-05-reactive-event' 'true' >}}
+{{< yourturn 'express-05-reactive-effect' 'true' >}}
 
 
 ## Exercise 2.3 answer 
@@ -751,8 +767,6 @@ def txt():
 ## Your turn
 
 {{< yourturn 'express-05-reactive-event' 'true' >}}
-
-Go to [exercises/6-reactive-event](./exercises/6-reactive-event.html) or run `apps/core/2-reactivity/2.3-reactive-event` locally.
 
 
 # Side effects
@@ -867,4 +881,5 @@ multiple_choice_app(questions)
 
 ## Your turn
 
-Go to [exercises/7-reactive-effects](./exercises/7-reactive-effects.html) or run `apps/core/3-reactive-effects/3.1-update-slider` locally.
+{{< yourturn 'express-13-reactivity' 'true' >}}
+

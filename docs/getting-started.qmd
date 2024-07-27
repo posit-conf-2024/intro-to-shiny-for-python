@@ -2,13 +2,8 @@
 title: Getting started
 ---
 
-## Slides
 
-To view the slides in full screen, either:
-
-- Click on the slides then press `f`, or
-- <a href = "getting-started-slides.html" target="_blank"> Click </a> to open in new tab.
-
+To view in full screen, click on the slides then press {{< kbd  f >}}, or <a href = "getting-started-slides.html" target="_blank">open in new tab.</a>
 
 ```{=html}
 <iframe class="slide-deck" src="getting-started-slides.html" height="420" width="747" style="border: 1px solid #123233;"></iframe>

@@ -1,5 +1,10 @@
-return {
-  ['yourturn'] = function(args, kwargs, meta) 
+quarto.doc.add_html_dependency({
+  name = "yourturnIframeContainer",
+  version = "0.1.0",
+  scripts = {"yourturn-iframeContainer.js"},
+})
+
+insert_your_turn = function(args, kwargs, meta) 
 
     local use_index = args[2]
     if use_index == nil or use_index == "" then
@@ -12,18 +17,23 @@ return {
     local name = pandoc.utils.stringify(args[1])
     local target
     if use_index == true or use_index == 'true' then
-      target = "../docs/exercises/" .. name .. "/index.html"
+      target = "exercises/" .. name .. "/index.html"
     else
-      target = "../docs/exercises/" .. name .. "/" .. name .. ".html"
+      target = "exercises/" .. name .. "/" .. name .. ".html"
     end
-    local link = pandoc.Link(pandoc.Str(name), target)
+    -- local link = pandoc.Link(pandoc.Str(name), target)
+    local link = pandoc.Link(name, target)
     link.attributes = {target = "_blank"}
     local msg_pre = "Complete the exercise on this page:"
     local msg_post = "..."
 
-        -- Create the button using raw HTML
-    local cmd = "window.open(\'%s\', \'_blank\')"
-    local cmd = "console.log('Sending a message')"
+    -- Create the button using raw HTML
+    local json_msg = '{ "from": "your-turn", "target": "' .. target .. '" }'
+    json_msg = json_msg:gsub('"', '\'')  -- Escape quotes
+    -- json_msg = pandoc.json.encode{from="your-turn", target=target}
+    -- local cmd = "console.log('" .. json_msg .. "'); ";
+    local cmd =  "window.top.postMessage('" .. target .. "', '*')";
+
     local txt = "Go to Exercise"
     local btn ='<button onclick="' .. cmd .. '">' .. txt ..'</button>'
     local button_html = string.format(btn, target)
@@ -49,6 +59,32 @@ return {
     },
     pandoc.Attr("", {"your-turn-container"}, {style='display:flex;'}) 
   )
-  end
+end
+
+
+insert_container = function(args, kwargs, meta)
+  local msg = pandoc.Div(
+    '',
+    pandoc.Attr(
+      "messageDisplay", -- id
+      {}, -- classes
+      {style = "margin-top: 20px; padding: 10px; border: 1px solid #123233;"} -- attributes
+    )
+  )
+  local iframe = pandoc.Div(
+    '',
+    pandoc.Attr(
+      "yourturnContainer", -- id
+      {}, -- classes
+      {style = "margin-top: 20px; position: absolute; left: 25px; width: calc(100vw - 50px);"} -- attributes
+    )
+  )
+  return {msg, iframe}
+end
+
+
+return {
+  ['yourturn'] = insert_your_turn,
+  ['yourturnIframeContainer'] = insert_container
 }
 

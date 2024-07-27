@@ -5,7 +5,7 @@ title-slide-attributes:
   data-background-position: bottom left
   data-background-size: cover
 format:
-  positconfslides-revealjs: 
+  positconfslides-revealjs:
     incremental: false
     chalkboard: true
     slide-number: c/t
@@ -35,6 +35,7 @@ from helpers import include_shiny_folder
 ```
 
 # Getting started
+
 
 ## Goals of Session 1
 

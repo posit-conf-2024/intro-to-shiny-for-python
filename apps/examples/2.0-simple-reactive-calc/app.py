@@ -1,6 +1,6 @@
 from shiny import Inputs, Outputs, Session, App, reactive, render, req, ui
 import pandas as pd
-from plotnine import ggplot, geom_histogram, labs, aes
+from plotnine import ggplot, geom_density, labs, aes
 import numpy as np
 
 app_ui = ui.page_fluid(
@@ -25,8 +25,8 @@ def server(input: Inputs, output: Outputs, session: Session):
         df = pd.DataFrame(rand, columns=["col_1"])
         plot = (
             ggplot(df, aes(x="col_1"))
-            + geom_histogram(binwidth=0.1, fill="blue", color="black")
-            + labs(x="Random Values", y="Frequency", title="Histogram of Random Data")
+            + geom_density()
+            + labs(x="Random Values", y="Density", title="Distribution of Random Data")
         )
         return plot
 
