@@ -8,6 +8,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/yourturn-iframeContainer.js"></script>
 <meta name="shinylive:serviceworker_dir" content="..">
 <script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/load-shinylive-sw.js" type="module"></script>
 <script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
@@ -417,6 +418,12 @@
 <ul>
 <li><div class="agenda-active">
 <p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Solution</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Reactive calculations</p>
@@ -1564,11 +1571,11 @@
 <section id="how-do-other-frameworks-work" class="slide level2">
 <h2>How do other frameworks work?</h2>
 <ul>
-<li>Streamlit
+<li><p>Streamlit</p>
 <ul>
-<li>re-render everything everywhere all the time</li>
+<li>Re-render everything everywhere all the time</li>
 </ul></li>
-<li>Dash / Panel / Gradio
+<li><p>Dash / Panel / Gradio</p>
 <ul>
 <li>Define callback functions</li>
 </ul></li>
@@ -1579,7 +1586,7 @@
 <ul>
 <li>You have to do it</li>
 <li>Easy to get wrong</li>
-<li>Hard to tell when you’ve gotten it wrong</li>
+<li>Hard to tell when you get it wrong</li>
 </ul>
 </section>
 <section id="whats-a-better-way" class="slide level2">
@@ -1595,7 +1602,11 @@
 <h2>Does that really work?</h2>
 <ul>
 <li>You’re not wrong to find this suspicious</li>
-<li>“Does Shiny infer relationships by analyizing the source code?” No–lots of ways that would break down!</li>
+<li>“Does Shiny infer relationships by analyzing the source code?”
+<ul>
+<li>No</li>
+<li>Many ways that would break down!</li>
+</ul></li>
 <li>For this to work, the inference has to be 100% reliable</li>
 </ul>
 </section>
@@ -1647,6 +1658,8 @@
 </section>
 <section id="reactive-graph" class="slide level2">
 <h2>Reactive graph</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1681,9 +1694,7 @@
 </div>
 </div>
 </div>
-</section>
-<section id="reactive-graph-1" class="slide level2">
-<h2>Reactive graph</h2>
+</div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1710,6 +1721,7 @@
 </div>
 </div>
 </div>
+</div></div>
 </section>
 <section id="declarative-programming" class="slide level2">
 <h2>Declarative programming</h2>
@@ -1722,18 +1734,51 @@
 <section id="event-driven-programming-1" class="slide level2">
 <h2>Event-driven programming</h2>
 
-<img data-src="images/carmy-yelling.webp" class="r-stretch"></section>
+<img data-src="images/carmy-yelling.webp" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="reactive-programming" class="slide level2">
 <h2>Reactive programming</h2>
 
-<img data-src="images/carmy-whites.png" class="r-stretch"></section>
-<section id="your-turn" class="slide level2">
+<img data-src="images/carmy-whites.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Your turn</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Solution</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Reactive calculations</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Overriding reactivity</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Side effects</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="your-turn-1" class="slide level2">
 <h2>Your turn</h2>
-<p>Draw the graph of this application</p>
+<p>Draw the graph of this application:</p>
+<!-- TODO: Revert to original example to reflect the reactive graph -->
 <div class="sourceCode" id="cb4" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>#| standalone: true</span>
 <span id="cb4-2"><a></a>#| components: [viewer]</span>
 <span id="cb4-3"><a></a>#| layout: horizontal</span>
-<span id="cb4-4"><a></a>#| viewerHeight: 600</span>
+<span id="cb4-4"><a></a>#| viewerHeight: 700</span>
 <span id="cb4-5"><a></a>from shiny.express import render, ui, input</span>
 <span id="cb4-6"><a></a>from data_import import df</span>
 <span id="cb4-7"><a></a>from plots import plot_auc_curve, plot_precision_recall_curve</span>
@@ -2848,9 +2893,41 @@
 <span id="cb4-1116"><a></a></span>
 <span id="cb4-1117"><a></a>df = pd.read_csv(file_path, dtype={"sub_account": str})</span>
 <span id="cb4-1118"><a></a>df["date"] = pd.to_datetime(df["date"], errors="coerce")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Solution</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Solution</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Reactive calculations</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Overriding reactivity</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Side effects</p>
+</div></li>
+</ul>
+</div>
 </section>
-<section id="initial-state" class="slide level2">
-<h2>Initial state</h2>
+<section id="solution-initial-state" class="slide level2">
+<h2>Solution: Initial state</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -2894,8 +2971,8 @@
 </div>
 </div>
 </section>
-<section id="calculate-scatter-plot" class="slide level2">
-<h2>Calculate scatter plot</h2>
+<section id="solution-calculate-scatter-plot" class="slide level2">
+<h2>Solution: Calculate scatter plot</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -2939,8 +3016,8 @@
 </div>
 </div>
 </section>
-<section id="calculate-scatter-plot-1" class="slide level2">
-<h2>Calculate scatter plot</h2>
+<section id="solution-calculate-scatter-plot-1" class="slide level2">
+<h2>Solution: Calculate scatter plot</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -2984,8 +3061,8 @@
 </div>
 </div>
 </section>
-<section id="calculate-distribution" class="slide level2">
-<h2>Calculate distribution</h2>
+<section id="solution-calculate-distribution" class="slide level2">
+<h2>Solution: Calculate distribution</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3029,8 +3106,8 @@
 </div>
 </div>
 </section>
-<section id="calculate-distribution-1" class="slide level2">
-<h2>Calculate distribution</h2>
+<section id="solution-calculate-distribution-1" class="slide level2">
+<h2>Solution: Calculate distribution</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3074,8 +3151,8 @@
 </div>
 </div>
 </section>
-<section id="reactive-graph-2" class="slide level2">
-<h2>Reactive graph</h2>
+<section id="solution-reactive-graph" class="slide level2">
+<h2>Solution: Reactive graph</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3119,8 +3196,8 @@
 </div>
 </div>
 </section>
-<section id="slider-changes" class="slide level2">
-<h2>Slider changes</h2>
+<section id="solution-slider-changes" class="slide level2">
+<h2>Solution: Slider changes</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3164,8 +3241,8 @@
 </div>
 </div>
 </section>
-<section id="invalidated" class="slide level2">
-<h2>Invalidated</h2>
+<section id="solution-invalidated" class="slide level2">
+<h2>Solution: Invalidated</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3209,8 +3286,8 @@
 </div>
 </div>
 </section>
-<section id="forget-dependencies" class="slide level2">
-<h2>Forget dependencies</h2>
+<section id="solution-forget-dependencies" class="slide level2">
+<h2>Solution: Forget dependencies</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3254,8 +3331,8 @@
 </div>
 </div>
 </section>
-<section id="recalculate" class="slide level2">
-<h2>Recalculate</h2>
+<section id="solution-recalculate" class="slide level2">
+<h2>Solution: Recalculate</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3299,8 +3376,8 @@
 </div>
 </div>
 </section>
-<section id="recalculate-1" class="slide level2">
-<h2>Recalculate</h2>
+<section id="solution-recalculate-1" class="slide level2">
+<h2>Solution: Recalculate</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3344,8 +3421,8 @@
 </div>
 </div>
 </section>
-<section id="recalculate-2" class="slide level2">
-<h2>Recalculate</h2>
+<section id="solution-recalculate-2" class="slide level2">
+<h2>Solution: Recalculate</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3389,8 +3466,8 @@
 </div>
 </div>
 </section>
-<section id="recalculate-3" class="slide level2">
-<h2>Recalculate</h2>
+<section id="solution-recalculate-3" class="slide level2">
+<h2>Solution: Recalculate</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3434,8 +3511,8 @@
 </div>
 </div>
 </section>
-<section id="updated" class="slide level2">
-<h2>Updated</h2>
+<section id="solution-updated" class="slide level2">
+<h2>Solution: Updated</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3479,8 +3556,8 @@
 </div>
 </div>
 </section>
-<section id="checkbox-changes" class="slide level2">
-<h2>Checkbox changes</h2>
+<section id="solution-checkbox-changes" class="slide level2">
+<h2>Solution: Checkbox changes</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3524,8 +3601,8 @@
 </div>
 </div>
 </section>
-<section id="invalidated-1" class="slide level2">
-<h2>Invalidated</h2>
+<section id="solution-invalidated-1" class="slide level2">
+<h2>Solution: Invalidated</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3569,8 +3646,8 @@
 </div>
 </div>
 </section>
-<section id="forget-dependencies-1" class="slide level2">
-<h2>Forget dependencies</h2>
+<section id="solution-forget-dependencies-1" class="slide level2">
+<h2>Solution: Forget dependencies</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3614,8 +3691,8 @@
 </div>
 </div>
 </section>
-<section id="recalculate-4" class="slide level2">
-<h2>Recalculate</h2>
+<section id="solution-recalculate-4" class="slide level2">
+<h2>Solution: Recalculate</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3659,8 +3736,8 @@
 </div>
 </div>
 </section>
-<section id="recalculate-5" class="slide level2">
-<h2>Recalculate</h2>
+<section id="solution-recalculate-5" class="slide level2">
+<h2>Solution: Recalculate</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3704,8 +3781,8 @@
 </div>
 </div>
 </section>
-<section id="updated-1" class="slide level2">
-<h2>Updated</h2>
+<section id="solution-updated-1" class="slide level2">
+<h2>Solution: Updated</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3748,14 +3825,6 @@
 </div>
 </div>
 </div>
-</section>
-<section id="reactivity-scales" class="slide level2">
-<h2>Reactivity scales</h2>
-<ul>
-<li>Every Shiny app uses this pattern</li>
-<li>Works for dynamic UIs</li>
-<li>Shiny is lazy</li>
-</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
@@ -3767,6 +3836,12 @@
 <ul>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Solution</p>
 </div></li>
 <li><div class="agenda-active">
 <p>Reactive calculations</p>
@@ -3782,6 +3857,14 @@
 </div></li>
 </ul>
 </div>
+</section>
+<section id="reactivity-scales" class="slide level2">
+<h2>Reactivity scales</h2>
+<ul>
+<li>Every Shiny app uses this pattern</li>
+<li>Works for dynamic UIs</li>
+<li>Shiny is lazy</li>
+</ul>
 </section>
 <section id="saving-and-reusing-calculated-values" class="slide level2">
 <h2>Saving and reusing calculated values</h2>
@@ -3801,7 +3884,7 @@
 <span id="cb5-4"><a></a>#| viewerHeight: 800</span>
 <span id="cb5-5"><a></a>from shiny import Inputs, Outputs, Session, App, reactive, render, req, ui</span>
 <span id="cb5-6"><a></a>import pandas as pd</span>
-<span id="cb5-7"><a></a>from plotnine import ggplot, geom_histogram, labs, aes</span>
+<span id="cb5-7"><a></a>from plotnine import ggplot, geom_density, labs, aes</span>
 <span id="cb5-8"><a></a>import numpy as np</span>
 <span id="cb5-9"><a></a></span>
 <span id="cb5-10"><a></a>app_ui = ui.page_fluid(</span>
@@ -3826,8 +3909,8 @@
 <span id="cb5-29"><a></a>        df = pd.DataFrame(rand, columns=["col_1"])</span>
 <span id="cb5-30"><a></a>        plot = (</span>
 <span id="cb5-31"><a></a>            ggplot(df, aes(x="col_1"))</span>
-<span id="cb5-32"><a></a>            + geom_histogram(binwidth=0.1, fill="blue", color="black")</span>
-<span id="cb5-33"><a></a>            + labs(x="Random Values", y="Frequency", title="Histogram of Random Data")</span>
+<span id="cb5-32"><a></a>            + geom_density()</span>
+<span id="cb5-33"><a></a>            + labs(x="Random Values", y="Density", title="Distribution of Random Data")</span>
 <span id="cb5-34"><a></a>        )</span>
 <span id="cb5-35"><a></a>        return plot</span>
 <span id="cb5-36"><a></a></span>
@@ -3899,7 +3982,7 @@
 </ul></li>
 </ul>
 </section>
-<section id="initial-state-1" class="slide level2">
+<section id="initial-state" class="slide level2">
 <h2>Initial state</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4259,7 +4342,7 @@
 </div>
 </div>
 </section>
-<section id="slider-changes-1" class="slide level2">
+<section id="slider-changes" class="slide level2">
 <h2>Slider changes</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4304,7 +4387,7 @@
 </div>
 </div>
 </section>
-<section id="invalidated-2" class="slide level2">
+<section id="invalidated" class="slide level2">
 <h2>Invalidated</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4349,7 +4432,7 @@
 </div>
 </div>
 </section>
-<section id="invalidated-3" class="slide level2">
+<section id="invalidated-1" class="slide level2">
 <h2>Invalidated</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4664,7 +4747,7 @@
 </div>
 </div>
 </section>
-<section id="updated-2" class="slide level2">
+<section id="updated" class="slide level2">
 <h2>Updated</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4721,6 +4804,12 @@
 <p>Reactivity overview</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Solution</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
 <p>Reactive calculations</p>
 </div></li>
 <li><div class="agenda-active">
@@ -4735,14 +4824,14 @@
 </ul>
 </div>
 </section>
-<section id="your-turn-2" class="slide level2">
+<section id="your-turn-3" class="slide level2">
 <h2>Your turn</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="../docs/exercises/express-05-reactive-event/index.html" target="_blank">express-05-reactive-event</a></p>
+<p><a href="exercises/express-209-reactive-effect/index.html" target="_blank">express-209-reactive-effect</a></p>
 <p>...</p>
-<p><button onclick="console.log('Sending a message')">Go to Exercise</button></p>
+<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-209-reactive-effect/index.html', '*')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -4822,6 +4911,12 @@
 <p>Reactivity overview</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Solution</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
 <p>Reactive calculations</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
@@ -4895,20 +4990,19 @@
 <li><code>@reactive.event</code> is often used with action buttons or action links</li>
 </ul>
 </section>
-<section id="your-turn-3" class="slide level2">
+<section id="your-turn-4" class="slide level2">
 <h2>Your turn</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="../docs/exercises/express-05-reactive-event/index.html" target="_blank">express-05-reactive-event</a></p>
+<p><a href="exercises/express-208-reactive-event/express-208-reactive-event.html" target="_blank">express-208-reactive-event</a></p>
 <p>...</p>
-<p><button onclick="console.log('Sending a message')">Go to Exercise</button></p>
+<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-208-reactive-event/express-208-reactive-event.html', '*')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
 </div>
 </div>
-<p>Go to <a href="./exercises/6-reactive-event.html">exercises/6-reactive-event</a> or run <code>apps/core/2-reactivity/2.3-reactive-event</code> locally.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
@@ -4920,6 +5014,12 @@
 <ul>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Solution</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Reactive calculations</p>
@@ -5025,72 +5125,75 @@
 </section>
 <section id="whats-a-side-effect" class="slide level2">
 <h2>What’s a side effect?</h2>
-<div id="15b26baf" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-stdout">
-<pre><code>::: callout-note
-## Test your understanding
-```{shinylive-python}
-#| standalone: true
-#| components: [viewer]
-#| layout: horizontal
-#| viewerHeight: 250
-from shiny import App, render, ui, reactive, req
-import json
-from pathlib import Path
-
-with open(Path(__file__).parent / "questions.json", "r") as file:
-    questions = json.load(file)
-
-app_ui = ui.page_fluid(ui.output_ui("question"), ui.output_ui("validation"))
-
-
-def server(input, output, session):
-    q_num = reactive.Value(0)
-
-    question_keys = list(questions.keys())
-
-    @reactive.Calc
-    def current_q():
-        return questions[question_keys[q_num()]]
-
-    @output
-    @render.ui
-    def question():
-        return ui.div(
-            ui.h5(question_keys[q_num()], style="margin-bottom: 20px"),
-            ui.input_radio_buttons(
-                "question",
-                "",
-                choices=current_q()["choices"],
-                selected="",
-            ),
-        )
-
-    @output
-    @render.ui
-    def validation():
-        req(input.question())
-        if input.question() == current_q()["answer"]:
-            if q_num() == len(question_keys) - 1:
-                return ui.p("Correct! Quiz complete.")
-            else:
-                return ui.div(
-                    ui.p("Correct!"), ui.input_action_button("next", "Next Question")
-                )
-        return ui.p("Not quite right, try again")
-
-    @reactive.Effect
-    @reactive.event(input.next)
-    def next_question():
-        q_num.set(q_num.get() + 1)
-
-
-app = App(app_ui, server)
-
-## file: questions.json
-{"Writing a CSV": {"choices": ["value", "side effect"], "answer": "side effect"}, "Querying a database": {"choices": ["value", "side effect"], "answer": "value"}, "Adding two numbers": {"choices": ["value", "side effect"], "answer": "value"}, "A function which prints to the console": {"choices": ["value", "side effect"], "answer": "side effect"}, "Fetching the current temperature from an API": {"choices": ["value", "side effect"], "answer": "value"}, "A function which sorts a list in place": {"choices": ["value", "side effect"], "answer": "side effect"}, "Getting a model score for a set of inputs": {"choices": ["value", "side effect"], "answer": "value"}, "Deploying a model to a hosting service": {"choices": ["value", "side effect"], "answer": "side effect"}}
-```
-:::</code></pre>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Test your understanding</strong></p>
+</div>
+<div class="callout-content">
+<div class="sourceCode" id="cb12" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a></a>#| standalone: true</span>
+<span id="cb12-2"><a></a>#| components: [viewer]</span>
+<span id="cb12-3"><a></a>#| layout: horizontal</span>
+<span id="cb12-4"><a></a>#| viewerHeight: 250</span>
+<span id="cb12-5"><a></a>from shiny import App, render, ui, reactive, req</span>
+<span id="cb12-6"><a></a>import json</span>
+<span id="cb12-7"><a></a>from pathlib import Path</span>
+<span id="cb12-8"><a></a></span>
+<span id="cb12-9"><a></a>with open(Path(__file__).parent / "questions.json", "r") as file:</span>
+<span id="cb12-10"><a></a>    questions = json.load(file)</span>
+<span id="cb12-11"><a></a></span>
+<span id="cb12-12"><a></a>app_ui = ui.page_fluid(ui.output_ui("question"), ui.output_ui("validation"))</span>
+<span id="cb12-13"><a></a></span>
+<span id="cb12-14"><a></a></span>
+<span id="cb12-15"><a></a>def server(input, output, session):</span>
+<span id="cb12-16"><a></a>    q_num = reactive.Value(0)</span>
+<span id="cb12-17"><a></a></span>
+<span id="cb12-18"><a></a>    question_keys = list(questions.keys())</span>
+<span id="cb12-19"><a></a></span>
+<span id="cb12-20"><a></a>    @reactive.Calc</span>
+<span id="cb12-21"><a></a>    def current_q():</span>
+<span id="cb12-22"><a></a>        return questions[question_keys[q_num()]]</span>
+<span id="cb12-23"><a></a></span>
+<span id="cb12-24"><a></a>    @output</span>
+<span id="cb12-25"><a></a>    @render.ui</span>
+<span id="cb12-26"><a></a>    def question():</span>
+<span id="cb12-27"><a></a>        return ui.div(</span>
+<span id="cb12-28"><a></a>            ui.h5(question_keys[q_num()], style="margin-bottom: 20px"),</span>
+<span id="cb12-29"><a></a>            ui.input_radio_buttons(</span>
+<span id="cb12-30"><a></a>                "question",</span>
+<span id="cb12-31"><a></a>                "",</span>
+<span id="cb12-32"><a></a>                choices=current_q()["choices"],</span>
+<span id="cb12-33"><a></a>                selected="",</span>
+<span id="cb12-34"><a></a>            ),</span>
+<span id="cb12-35"><a></a>        )</span>
+<span id="cb12-36"><a></a></span>
+<span id="cb12-37"><a></a>    @output</span>
+<span id="cb12-38"><a></a>    @render.ui</span>
+<span id="cb12-39"><a></a>    def validation():</span>
+<span id="cb12-40"><a></a>        req(input.question())</span>
+<span id="cb12-41"><a></a>        if input.question() == current_q()["answer"]:</span>
+<span id="cb12-42"><a></a>            if q_num() == len(question_keys) - 1:</span>
+<span id="cb12-43"><a></a>                return ui.p("Correct! Quiz complete.")</span>
+<span id="cb12-44"><a></a>            else:</span>
+<span id="cb12-45"><a></a>                return ui.div(</span>
+<span id="cb12-46"><a></a>                    ui.p("Correct!"), ui.input_action_button("next", "Next Question")</span>
+<span id="cb12-47"><a></a>                )</span>
+<span id="cb12-48"><a></a>        return ui.p("Not quite right, try again")</span>
+<span id="cb12-49"><a></a></span>
+<span id="cb12-50"><a></a>    @reactive.Effect</span>
+<span id="cb12-51"><a></a>    @reactive.event(input.next)</span>
+<span id="cb12-52"><a></a>    def next_question():</span>
+<span id="cb12-53"><a></a>        q_num.set(q_num.get() + 1)</span>
+<span id="cb12-54"><a></a></span>
+<span id="cb12-55"><a></a></span>
+<span id="cb12-56"><a></a>app = App(app_ui, server)</span>
+<span id="cb12-57"><a></a></span>
+<span id="cb12-58"><a></a>## file: questions.json</span>
+<span id="cb12-59"><a></a>{"Writing a CSV": {"choices": ["value", "side effect"], "answer": "side effect"}, "Querying a database": {"choices": ["value", "side effect"], "answer": "value"}, "Adding two numbers": {"choices": ["value", "side effect"], "answer": "value"}, "A function which prints to the console": {"choices": ["value", "side effect"], "answer": "side effect"}, "Fetching the current temperature from an API": {"choices": ["value", "side effect"], "answer": "value"}, "A function which sorts a list in place": {"choices": ["value", "side effect"], "answer": "side effect"}, "Getting a model score for a set of inputs": {"choices": ["value", "side effect"], "answer": "value"}, "Deploying a model to a hosting service": {"choices": ["value", "side effect"], "answer": "side effect"}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -5102,9 +5205,19 @@ app = App(app_ui, server)
 <li>If your solution feels complicated and painful, ask whether you should use the other strategy</li>
 </ul>
 </section>
-<section id="your-turn-4" class="slide level2">
+<section id="your-turn-5" class="slide level2">
 <h2>Your turn</h2>
-<p>Go to <a href="./exercises/7-reactive-effects.html">exercises/7-reactive-effects</a> or run <code>apps/core/3-reactive-effects/3.1-update-slider</code> locally.</p>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-201-reactive-calc/index.html" target="_blank">express-201-reactive-calc</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-201-reactive-calc/index.html', '*')">Go to Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

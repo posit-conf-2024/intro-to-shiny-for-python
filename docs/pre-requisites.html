@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -39,6 +73,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/yourturn-iframeContainer.js"></script>
+<script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -128,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
   <ul class="collapse">
   <li><a href="#in-your-web-browser-with-shinylive" id="toc-in-your-web-browser-with-shinylive" class="nav-link" data-scroll-target="#in-your-web-browser-with-shinylive">1) In your web browser with Shinylive</a></li>
-  <li><a href="#locally-with-vs-code" id="toc-locally-with-vs-code" class="nav-link" data-scroll-target="#locally-with-vs-code">2) Locally with VS Code</a></li>
+  <li><a href="#optional-on-your-laptop-with-vs-code-or-positron" id="toc-optional-on-your-laptop-with-vs-code-or-positron" class="nav-link" data-scroll-target="#optional-on-your-laptop-with-vs-code-or-positron">2) Optional: on your laptop with VS Code (or Positron)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,24 +208,58 @@ ul.task-list li input[type="checkbox"] {
 <p>There are two ways to work through the examples and exercises in this workshop.</p>
 <section id="in-your-web-browser-with-shinylive" class="level3">
 <h3 class="anchored" data-anchor-id="in-your-web-browser-with-shinylive">1) In your web browser with Shinylive</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This option is what we will use during the workshop.</p>
+</div>
+</div>
 <p>Shinylive allows you to run full-featured shiny apps in your browser, and includes a basic editor which is good enough to run examples.</p>
 <p>As a result you should be able to work through all of the examples in the workshop using just the browser without installing anything locally.</p>
 </section>
-<section id="locally-with-vs-code" class="level3">
-<h3 class="anchored" data-anchor-id="locally-with-vs-code">2) Locally with VS Code</h3>
+<section id="optional-on-your-laptop-with-vs-code-or-positron" class="level3">
+<h3 class="anchored" data-anchor-id="optional-on-your-laptop-with-vs-code-or-positron">2) Optional: on your laptop with VS Code (or Positron)</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are welcome to use this option if you know how to set up Python and your preferred IDE. We will only be able to give minimal support for this option during the workshop.</p>
+<p>You can use <a href="https://github.com/posit-dev/positron">Positron</a> instead of VS Code if you feel adventurous.</p>
+</div>
+</div>
 <p>While Shinylive is great, it likely isn’t the environment you’ll use to develop Shiny apps, and so it makes sense to set up VS Code and run the examples locally. To do this follow these steps before the workshop:</p>
 <ol type="1">
 <li><p>Install <a href="https://code.visualstudio.com/">VS Code</a></p></li>
 <li><p>Install the Shiny for Python <a href="https://marketplace.visualstudio.com/items?itemName=posit.shiny-python">VS Code extension</a></p></li>
-<li><p>Clone the repository with <code>git clone https://github.com/rstudio/shiny-python-workshop-2023.git</code>, or alternately download the repository as a zip file:<br>
-<img src="../images/git-download-button.png" class="img-fluid" width="287"></p></li>
-<li><p>Navigate to the project directory and create a new virtual environment with <code>python3 -m venv .venv</code></p></li>
-<li><p>Set your python interpreter to the virtual environment with <code>CMD + SHIFT + P</code> &gt; <code>Select Interpreter</code></p></li>
-<li><p>Open a new terminal prompt, which should switch to <code>(.venv)</code></p></li>
+<li><p>Clone the repository using:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/rstudio/shiny-python-workshop-2023.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or alternately download the repository as a zip file:</p>
+<p><img src="../images/git-download-button.png" class="img-fluid" width="287"></p></li>
+<li><p>Navigate to the project directory and create a new virtual environment using</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python3 <span class="op">-</span>m venv .venv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Set your python interpreter to the virtual environment with <kbd aria-hidden="true">CMD+SHIFT+P</kbd><span class="visually-hidden">CMD+SHIFT+P</span> and then typing <code>Select Interpreter</code></p></li>
+<li><p>Open a new terminal prompt, which should switch to <code>(.venv)</code></p>
+<p>Or ensure the virtual environment is activated by running:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Install the relevant packages with <code>pip install -r requirements.txt</code></p></li>
 </ol>
-<p>All of the example apps are stored in the <code>/apps</code> directory. The examples are in <code>apps/examples</code> and the problem sets are in <code>apps/core</code>. If you’ve installed the Shiny for Python VS Code extension, you can run any of the apps by opening the <code>app.py</code> file and clicking the play button in the top right. (<a href="https://camo.githubusercontent.com/5d947e6dff7d74fd1cf221e79583105c42e4986ae673ce79733ce5edbfdcdda5/68747470733a2f2f7368696e792e7273747564696f2e636f6d2f70792f646f63732f6173736574732f7673636f64652e706e67">See screenshot</a>)</p>
-<p>Alternatively, run them from the command line with <code>shiny run &lt;path-to-app.py&gt; --reload</code>.</p>
+<p>All of the example apps and problems are stored in the <code>/docs/exercises</code> directory.</p>
+<p>If you’ve installed the Shiny for Python VS Code extension, you can run any of the apps by opening the <code>app.py</code> file and clicking the play button in the top right.</p>
+<p>Alternatively, run a shiny app from the command line using:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>shiny run <span class="op">&lt;</span>path<span class="op">-</span>to<span class="op">-</span>app.py<span class="op">&gt;</span> <span class="op">--</span><span class="bu">reload</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

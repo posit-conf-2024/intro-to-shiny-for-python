@@ -8,11 +8,12 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/yourturn-iframeContainer.js"></script>
 <script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script>
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Intro to Shiny for Python / Conf(2024) – Reactivity</title>
+  <title>Intro to Shiny for Python / Conf(2024) – Test</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -324,17 +325,46 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/quarto-diagram/mermaid-postprocess-shim.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" data-background-image="images/shiny-for-python-newcastle.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
-  <h1 class="title">Reactivity</h1>
+  <h1 class="title">Test</h1>
 
 <div class="quarto-title-authors">
 </div>
 
+</section>
+<section class="slide level2">
+<h2>Hello world</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-101-hello-world/index.html" target="_blank">express-101-hello-world</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-101-hello-world/index.html', '*')">Go to Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Debug</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-102-data-frame/index.html" target="_blank">express-102-data-frame</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-102-data-frame/index.html', '*')">Go to Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
 </section>
 <section class="slide level2">
 <h2>Initial state</h2>
@@ -343,7 +373,38 @@
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<p><img data-src="test-slides_files/figure-revealjs/mermaid-figure-1.png" style="width:10in;height:7.33in"></p>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 236.94921875 173.578125" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-1" height="480">
+<style>#mermaid-figure-1{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span,#mermaid-figure-1 p{color:#333;}#mermaid-figure-1 .label text,#mermaid-figure-1 span,#mermaid-figure-1 p{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .flowchart-label text{text-anchor:middle;}#mermaid-figure-1 .node .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span,#mermaid-figure-1 p{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="display:none;fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-Sc" id="L-C-Sc-0" d="M43.078125,33L43.078125,37.166666666666664C43.078125,41.333333333333336,43.078125,49.666666666666664,43.87710301503225,58.81009248478026C44.67608103006449,67.95351830289387,46.27403706012897,77.90703660578775,47.073015075161216,82.88379575723468L47.87199309019346,87.86055490868162"></path><path marker-end="url(#flowchart-pointEnd)" style="display:none;fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Sl LE-Sc" id="L-Sl-Sc-0" d="M149.77833207831324,33L143.74756839859438,37.166666666666664C137.7168047188755,41.333333333333336,125.65527735943776,49.666666666666664,113.35295465852585,60.28868320113247C101.05063195761392,70.91069973559827,88.50751391522783,83.82139947119656,82.23595489403479,90.27674933899569L75.96439587284175,96.73209920679483"></path><path marker-end="url(#flowchart-pointEnd)" style="display:none;fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Sl LE-M" id="L-Sl-M-0" d="M177.63605986445782,33L178.64007592871485,37.166666666666664C179.64409199297188,41.333333333333336,181.65212412148594,49.666666666666664,182.65614018574297,58C183.66015625,66.33333333333333,183.66015625,74.66666666666667,183.66015625,78.83333333333333L183.66015625,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(43.078125, 16.5)" id="flowchart-C-12" class="node default default flowchart-label"><rect height="33" width="86.15625" y="-16.5" x="-43.078125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-35.578125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="71.15625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Checkbox</span>
+</div>
+</foreignobject></g></g><g transform="translate(53.078125, 120.2890625)" id="flowchart-Sc-13" class="node default default flowchart-label"><circle height="51" width="65.6875" r="32.84375" ry="0" rx="0" style=""></circle><g transform="translate(-25.34375, -18)" style="" class="label"><rect></rect><foreignobject height="36" width="50.6875">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Scatter<br>Plot</span>
+</div>
+</foreignobject></g></g><g transform="translate(173.66015625, 16.5)" id="flowchart-Sl-14" class="node default default flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(183.66015625, 120.2890625)" id="flowchart-M-17" class="node default default flowchart-label"><circle height="33" width="74.578125" r="37.2890625" ry="0" rx="0" style=""></circle><g transform="translate(-29.7890625, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="59.578125">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Dist Plot</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
 </div>
 <p></p></figure><p></p>
 </div>
