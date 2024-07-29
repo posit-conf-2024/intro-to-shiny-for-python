@@ -63,7 +63,7 @@ We need to tell the compute what to do when the user clicks.
 
 ## Your turn
 
-{{< yourturn 'express-01-hello-world' >}}
+{{< yourturn 'express-101-hello-world' >}}
 
 
 # Hello Shiny
@@ -248,7 +248,7 @@ The render functions define the outputs of the app.
 
 ## Your turn
 
-{{< yourturn 'express-01-hello-world' >}}
+{{< yourturn 'express-102-data-frame' >}}
 
 
 # Rendering functions on the server side
@@ -316,7 +316,7 @@ app = App(app_ui, server)
 
 ## Your turn
 
-{{< yourturn 'express-02-debug' >}}
+{{< yourturn 'express-103-debug' >}}
 
 
 # Making the link
@@ -338,7 +338,22 @@ def server(input: Inputs, output: Outputs, session: Session):
 
 ## Your turn
 
-{{< yourturn 'express-03-filter' >}}
+{{< yourturn 'express-104-filter' >}}
+
+
+## Your turn
+
+{{< yourturn 'express-105-connect-filter' >}}
+
+
+## Your turn
+
+{{< yourturn 'express-106-debug' >}}
+
+
+## Your turn
+
+{{< yourturn 'express-107-debug' >}}
 
 
 # Recap
@@ -353,5 +368,5 @@ Most Shiny app development consists of variations of these three things:
 
 ## Your turn
 
-{{< yourturn 'express-04-plot' >}}
+{{< yourturn 'express-108-plot' >}}
 

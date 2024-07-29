@@ -1,4 +1,4 @@
-.PHONY: clean render preview prerender html
+.PHONY: clean render preview prerender html docs slds
 
 SITE := _site
 SLIDES_DIR := slides
@@ -7,10 +7,10 @@ SITE_SLIDES := $(SITE)/$(SLIDES_DIR)
 SITE_DOCS := $(SITE)/$(DOCS_DIR)
 
 clean:
-	find exercises -type f -name '*.html' -exec rm -f {} +
-	find exercises -type f -name '*.ipynb' -exec rm -f {} +
-	find exercises -type d -name '*_files' -exec rm -rf {} +
-	find . -type f -name '*Zone.Identifier' -exec rm -rf {} +
+	find docs/exercises -type f -name '*.html' -exec rm -f {} +
+	find docs/exercises -type f -name '*.ipynb' -exec rm -f {} +
+	find docs/exercises -type d -name '*_files' -exec rm -rf {} +
+	find . -type f -name '*.Identifier' -exec rm -rf {} +
 	find . -type d -name '__pycache__' -exec rm -rf {} +
 
 
@@ -28,14 +28,26 @@ LOG_LEVEL := warning
 LOG_LEVEL := info
 
 # Define lists of .qmd files recursively in the docs folder
-QMD_FILES := $(shell find $(DOCS_DIR) -type f -name '*.qmd' ! -name '_*.qmd')
+DOC_QMD := $(shell find $(DOCS_DIR) -maxdepth 1 -type f -name '*.qmd' ! -name '_*.qmd' ! -name '*-slides.qmd')
+SLD_QMD := $(shell find $(DOCS_DIR) -maxdepth 1 -type f -name '*-slides.qmd' ! -name '_*.qmd')
+
 
 # Define corresponding .html files
-HTML_FILES := $(patsubst $(DOCS_DIR)/%.qmd,$(SITE_DOCS)/%.html,$(QMD_FILES))
+DOC_HTML := $(patsubst $(DOCS_DIR)/%.qmd, $(SITE_DOCS)/%.html, $(DOC_QMD))
+SLD_HTML := $(patsubst $(DOCS_DIR)/%.qmd, $(SITE_DOCS)/%.html, $(SLD_QMD))
 
-# Existing pattern rules for generating .html from .qmd
-$(SITE_DOCS)/%.html: $(DOCS_DIR)/%.qmd
+docs: $(DOC_HTML)
+
+slds: $(SLD_HTML)
+
+# Rule to build DOC_HTML
+$(SITE_DOCS)/%.html: $(DOCS_DIR)/%.qmd _quarto.yml
 	quarto render $< --log-level $(LOG_LEVEL)
 
+# Rule to build SLD_HTML
+$(SITE_SLDS)/%.html: $(SLDS_DIR)/%.qmd _quarto.yml
+	quarto render $< --log-level $(LOG_LEVEL)
+
+
 # New target to generate all .html files
-html: $(HTML_FILES)
+html: docs slds

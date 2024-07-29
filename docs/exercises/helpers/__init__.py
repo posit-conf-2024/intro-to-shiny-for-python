@@ -22,6 +22,9 @@ class QuartoPrint(list):
             self.append(app_contents)
 
 
+def getcwd() -> str:
+    return os.getcwd()
+
 def list_files(path: str) -> list:
     files = glob.glob(path + "/**", recursive=True)
     files = [file for file in files if not glob.os.path.isdir(file)]
@@ -116,8 +119,6 @@ def problem_tabs_express(folder_name:str) -> None:
 
 def problem_tabs(folder_name: str, express = False) -> None:
 
-    import os
-
     def find_problem_set_folder(target_path):
         search_path = os.getcwd()
         for root, dirs, files in os.walk(search_path):
@@ -129,8 +130,12 @@ def problem_tabs(folder_name: str, express = False) -> None:
             f"Folder matching path '{target_path}' not found in '{search_path}'."
         )
 
-    path = find_problem_set_folder(folder_name)
+    if express == True:
+        path = os.path.join(folder_name, "problem")
+    else:
+        path = find_problem_set_folder(folder_name)
 
+    folder_name = path
     formatted_title = "## " + folder_name.replace("-", " ").title()
 
     block = QuartoPrint(

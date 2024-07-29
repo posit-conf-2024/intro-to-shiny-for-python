@@ -31,11 +31,17 @@ There are two ways to work through the examples and exercises in this workshop.
 
 ### 1) In your web browser with Shinylive
 
+**This option is what we will use during the workshop.**
+
 Shinylive allows you to run full-featured shiny apps in your browser, and includes a basic editor which is good enough to run examples. 
 
 As a result you should be able to work through all of the examples in the workshop using just the browser without installing anything locally.
 
-### 2) Locally with VS Code
+### 2) Optional: on your laptop with VS Code (or Positron)
+
+**You are welcome to use this option if you know how to set up Python and your preferred IDE.  We will only be able to give minimal support for this option during the workshop.**
+
+**You can use [Positron](https://github.com/posit-dev/positron) if you feel adventurous.**
 
 While Shinylive is great, it likely isn't the environment you'll use to develop Shiny apps, and so it makes sense to set up VS Code and run the examples locally. To do this follow these steps before the workshop:
 

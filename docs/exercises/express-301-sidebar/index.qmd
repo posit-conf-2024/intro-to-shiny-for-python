@@ -1,5 +1,5 @@
 ---
-title: "101 Hello Shiny"
+title: "301 Sidebar"
 ---
 
 ```{python}

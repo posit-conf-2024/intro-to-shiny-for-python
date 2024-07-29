@@ -8,9 +8,9 @@ insert_your_turn = function(args, kwargs, meta)
 
     local use_index = args[2]
     if use_index == nil or use_index == "" then
-      index = talse
+      use_index = true
     else
-      index = true
+      use_index = false
     end
 
     -- Create the link target from the name
@@ -30,12 +30,11 @@ insert_your_turn = function(args, kwargs, meta)
     -- Create the button using raw HTML
     local json_msg = '{ "from": "your-turn", "target": "' .. target .. '" }'
     json_msg = json_msg:gsub('"', '\'')  -- Escape quotes
-    -- json_msg = pandoc.json.encode{from="your-turn", target=target}
-    -- local cmd = "console.log('" .. json_msg .. "'); ";
     local cmd =  "window.top.postMessage('" .. target .. "', '*')";
 
     local txt = "Go to Exercise"
-    local btn ='<button onclick="' .. cmd .. '">' .. txt ..'</button>'
+    local btn_style = 'style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;"'
+    local btn ='<button ' .. btn_style .. ' onclick="' .. cmd .. '">' .. txt ..'</button>'
     local button_html = string.format(btn, target)
     local button = pandoc.RawInline('html', button_html)
 
