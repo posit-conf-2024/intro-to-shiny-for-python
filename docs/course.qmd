@@ -2,13 +2,9 @@
 title: Course material
 ---
 
-## Getting started
+## Overview
 
-- Slides
-- Exercises
-
-
-## Reactivity
-
-- Slides
-- Exercises
+- [Hallo, Shiny express](shiny-express.qmd)
+- [Reactivity](reactivity.qmd)
+- [UI Customization](ui-customization.qmd)
+- [Best practices](best-practices.qmd)
