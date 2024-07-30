@@ -2764,14 +2764,15 @@
 <li><code>ui.nav</code> is itself a container and allows you lay out the things on the tab</li>
 </ul>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>ui.navset_tab(</span>
-<span id="cb5-2"><a></a>    ui.nav(</span>
-<span id="cb5-3"><a></a>        <span class="st">"Tab1"</span>,</span>
-<span id="cb5-4"><a></a>        ui.input_slider(<span class="st">"slider"</span>, <span class="st">"Slider"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb5-5"><a></a>    ),</span>
-<span id="cb5-6"><a></a>    ui.nav(<span class="st">"Tab2"</span>, ui.input_action_button(<span class="st">"button"</span>, <span class="st">"Button"</span>)),</span>
-<span id="cb5-7"><a></a>    ui.nav(<span class="st">"Tab3"</span>, ui.input_action_button(<span class="st">"button2"</span>, <span class="st">"Button 2"</span>)),</span>
-<span id="cb5-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> ui</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="cf">with</span> ui.navset_tab():</span>
+<span id="cb5-4"><a></a>    <span class="cf">with</span> ui.nav_panel( <span class="st">"Panel 1"</span>):</span>
+<span id="cb5-5"><a></a>        ui.input_slider(<span class="st">"slider"</span>, <span class="st">"Slider"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb5-6"><a></a>    <span class="cf">with</span> ui.nav_panel(<span class="st">"Panel 2"</span>):</span>
+<span id="cb5-7"><a></a>        ui.input_action_button(<span class="st">"button"</span>, <span class="st">"Button A"</span>)</span>
+<span id="cb5-8"><a></a>    <span class="cf">with</span> ui.nav_panel(<span class="st">"Panel 3"</span>):</span>
+<span id="cb5-9"><a></a>        ui.input_action_button(<span class="st">"button2"</span>, <span class="st">"Button B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="navset-example" class="slide level2">
 <h2>Navset example</h2>
@@ -2779,20 +2780,31 @@
 <span id="cb6-2"><a></a>#| components: [viewer]</span>
 <span id="cb6-3"><a></a>#| layout: horizontal</span>
 <span id="cb6-4"><a></a>#| viewerHeight: 500</span>
-<span id="cb6-5"><a></a>from shiny import Inputs, Outputs, Session, App, reactive, render, req, ui</span>
+<span id="cb6-5"><a></a>from shiny.express import ui</span>
 <span id="cb6-6"><a></a></span>
-<span id="cb6-7"><a></a>app_ui = ui.page_fluid(</span>
-<span id="cb6-8"><a></a>    ui.navset_tab(</span>
-<span id="cb6-9"><a></a>        ui.nav(</span>
-<span id="cb6-10"><a></a>            "Tab1",</span>
-<span id="cb6-11"><a></a>            ui.input_slider("slider", "Slider", 0, 100, 20),</span>
-<span id="cb6-12"><a></a>        ),</span>
-<span id="cb6-13"><a></a>        ui.nav("Tab2", ui.input_action_button("button", "Button")),</span>
-<span id="cb6-14"><a></a>        ui.nav("Tab3", ui.input_action_button("button2", "Button 2")),</span>
-<span id="cb6-15"><a></a>    )</span>
-<span id="cb6-16"><a></a>)</span>
+<span id="cb6-7"><a></a>with ui.navset_tab():</span>
+<span id="cb6-8"><a></a>    with ui.nav_panel( "Panel 1"):</span>
+<span id="cb6-9"><a></a>        ui.input_slider("slider", "Slider", 0, 100, 20)</span>
+<span id="cb6-10"><a></a>    with ui.nav_panel("Panel 2"):</span>
+<span id="cb6-11"><a></a>        ui.input_action_button("button", "Button A")</span>
+<span id="cb6-12"><a></a>    with ui.nav_panel("Panel 3"):</span>
+<span id="cb6-13"><a></a>        ui.input_action_button("button2", "Button B")</span>
+<span id="cb6-14"><a></a></span>
+<span id="cb6-15"><a></a>## file: app-core.py</span>
+<span id="cb6-16"><a></a>from shiny import Inputs, Outputs, Session, App, reactive, render, req, ui</span>
 <span id="cb6-17"><a></a></span>
-<span id="cb6-18"><a></a>app = App(app_ui, None)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-18"><a></a>app_ui = ui.page_fluid(</span>
+<span id="cb6-19"><a></a>    ui.navset_tab(</span>
+<span id="cb6-20"><a></a>        ui.nav(</span>
+<span id="cb6-21"><a></a>            "Tab1",</span>
+<span id="cb6-22"><a></a>            ui.input_slider("slider", "Slider", 0, 100, 20),</span>
+<span id="cb6-23"><a></a>        ),</span>
+<span id="cb6-24"><a></a>        ui.nav("Tab2", ui.input_action_button("button", "Button")),</span>
+<span id="cb6-25"><a></a>        ui.nav("Tab3", ui.input_action_button("button2", "Button 2")),</span>
+<span id="cb6-26"><a></a>    )</span>
+<span id="cb6-27"><a></a>)</span>
+<span id="cb6-28"><a></a></span>
+<span id="cb6-29"><a></a>app = App(app_ui, None)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn</h2>
