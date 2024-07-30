@@ -47,7 +47,7 @@ include_shiny_folder(
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
-    viewer_height=500,
+    viewer_height=700,
 )
 ```
 
@@ -441,7 +441,10 @@ flowchart TD
 ```{python}
 # | echo: false
 # | output: asis
-include_shiny_folder("../apps/examples/2.0-simple-reactive-calc")
+include_shiny_folder(
+  "apps/200-simple-reactive-calc",
+  viewer_height=700,
+)
 ```
 
 ## Identify repetition
@@ -750,7 +753,7 @@ include_shiny_folder(
     file_name="app-solution.py",
     exclusions=["app.py"],
     components="viewer",
-    viewer_height=500,
+    viewer_height=700,
 )
 ```
 
@@ -792,9 +795,9 @@ def txt():
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "../apps/examples/3.0-modal",
+    "apps/201-modal",
     components="viewer",
-    viewer_height=500,
+    viewer_height=700,
 )
 ```
 
