@@ -794,9 +794,11 @@ def txt():
 include_shiny_folder(
     "apps/201-modal",
     components="viewer",
-    viewer_height=700,
+    viewer_height=400,
 )
 ```
+
+
 
 ## Return values vs. side effects
 
@@ -807,11 +809,11 @@ include_shiny_folder(
 
 ## Reactive Effects
 
-- The `@reactive.Effect` decorator allows you to react to an input without returning a value
+- The `@reactive.effect` decorator allows you to react to an input without returning a value
 - Usually paired with `@reactive.event` 
 
 ``` {.python}
-@reactive.Effect
+@reactive.effect
 @reactive.event(input.show)
 def toggle_modal():
     m = ui.modal(
@@ -826,8 +828,8 @@ def toggle_modal():
 ## The rule
 
 * Code that produces an output: `@output` + `@render.*`
-* Code that produces an intermediate value: `@reactive.Calc`
-* **Code that produces only side effects: `@reactive.Effect`**
+* Code that produces an intermediate value: `@reactive.calc`
+* **Code that produces only side effects: `@reactive.effect`**
 
 . . .
 
