@@ -51,6 +51,11 @@ if __name__ == '__main__':
   n_files, n_matches, n_correct = walk_dir(check_yourturn, regex, "docs/exercises", print_names=False)
   print_result(n_files, n_matches, n_correct)
   
+  regex = '"apps/(.*?)"'
+  print(f"=== regex: {regex} ===")
+  n_files, n_matches, n_correct = walk_dir(check_yourturn, regex, "docs/apps/", print_names=True)
+  print_result(n_files, n_matches, n_correct)
+
   regex = '"../apps/examples/(.*?)"'
   print(f"=== regex: {regex} ===")
   n_files, n_matches, n_correct = walk_dir(check_yourturn, regex, "../apps/examples", print_names=True)
