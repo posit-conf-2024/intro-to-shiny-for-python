@@ -25,6 +25,19 @@ If you are brand new to Python we recommend spending a bit of time familiarizing
 - How to draw plots 
 - How to clone a repository with git
 
+## Prior to traveling:
+
+- Create a Github account, if you do not already have one
+- Install Python and your IDE of choice (we suggest VS Code or Positron) on the laptop you intend to bring to the workshop
+
+## On the day
+
+- Bring with you a laptop and power cord
+- You need to be able to access the course materials online from this laptop
+- You also need to be able to access a terminal / command line and run Python code from this laptop
+
+
+
 ## Setup
 
 There are two ways to work through the examples and exercises in this workshop.
