@@ -60,3 +60,8 @@ if __name__ == '__main__':
   print(f"=== regex: {regex} ===")
   n_files, n_matches, n_correct = walk_dir(check_yourturn, regex, "../apps/examples", print_names=True)
   print_result(n_files, n_matches, n_correct)
+
+  regex = '"../apps/core/(.*?)"'
+  print(f"=== regex: {regex} ===")
+  n_files, n_matches, n_correct = walk_dir(check_yourturn, regex, "../apps/core", print_names=True)
+  print_result(n_files, n_matches, n_correct)

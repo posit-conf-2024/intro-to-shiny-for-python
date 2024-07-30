@@ -55,11 +55,10 @@ from helpers import include_shiny_folder
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "../apps/core/4-ui-customization/4.7-conditional-panel",
-    file_name="app-solution.py",
-    exclusions=["app.py"],
+    "apps/303-conditional-panel",
+    file_name="app.py",
     components="viewer",
-    viewer_height=500,
+    viewer_height=700,
 )
 ```
 

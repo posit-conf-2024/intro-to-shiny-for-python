@@ -1,8 +1,7 @@
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
-import shiny.experimental as x
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -52,14 +51,19 @@ app_ui = ui.page_fluid(
                 multiple=True,
             ),
             ui.output_ui("cities_ui"),
+            ui.panel_conditional(
+                "input.tabs === 'Data'",
+                ui.input_selectize(
+                    "columns",
+                    "Display Columns",
+                    choices=weather.columns.tolist(),
+                    selected=weather.columns.tolist(),
+                    multiple=True,
+                ),
+            ),
             width=3,
         ),
-        ui.panel_main(
-            ui.navset_tab(
-                error_tab,
-                data_tab,
-            )
-        ),
+        ui.panel_main(ui.navset_tab(error_tab, data_tab, id="tabs")),
     ),
 )
 
@@ -101,7 +105,7 @@ def server(input, output, session):
     @output
     @render.data_frame
     def data():
-        return filtered_data()
+        return filtered_data().loc[:, input.columns()]
 
     @output
     @render.text
