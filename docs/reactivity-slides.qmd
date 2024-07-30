@@ -42,7 +42,6 @@ from helpers import include_shiny_folder, multiple_choice_app, Quiz
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    # "../apps/core/1-getting-started/1.10-add-plot",
     "./exercises/express-108-plot/problem",
     file_name="app-solution.py",
     exclusions=["app.py"],
@@ -181,19 +180,17 @@ flowchart TD
 
 Draw the graph of this application:
 
-<!-- TODO: Revert to original example to reflect the reactive graph -->
-
 ```{python}
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "./exercises/express-108-plot/problem",
-    file_name="app-solution.py",
-    exclusions=["app.py"],
+    "./apps/200-penguins",
+    file_name="app.py",
     components="viewer",
     viewer_height=700,
 )
 ```
+
 # Solution
 
 ## Solution: Initial state
