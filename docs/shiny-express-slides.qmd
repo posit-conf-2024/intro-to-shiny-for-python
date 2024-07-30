@@ -75,7 +75,7 @@ We need to tell the compute what to do when the user clicks.
 # | output: asis
 
 include_shiny_folder(
-    "../apps/examples/0.0-penguins", components="viewer", viewer_height=700
+    "apps/000-penguins", components="viewer", viewer_height=700
 )
 ```
 
