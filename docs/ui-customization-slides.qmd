@@ -223,9 +223,10 @@ app_ui = ui.page_fluid(
 # | output: asis
 
 include_shiny_folder(
-    "../apps/examples/4.0.0.0-cards", components="viewer", viewer_height=500
+    "apps/301-cards", components="viewer", viewer_height=500
 )
 ```
+
 
 ## Your turn
 
@@ -353,80 +354,59 @@ Go to [exercises/11-value-boxes](./exercises/11-value-boxes.html) or run `apps/c
 # | echo: false
 # | output: asis
 
-include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
+include_shiny_folder("./apps/302-dynamic-ui", components="viewer")
 ```
 
 # Dynamic UI
 
 ## Shiny Dynamic UI
 
-1) **`render.ui`**: Generate UI elements on the server
+1) **`@render.ui`**: Generate UI elements on the server
 2) **`ui.conditional_panel`**: Hide things on the browser
 3) **`ui.update_*`**: Modify existing UI elements
 
 ## Dynamic UI
 
 - UI elements can be generated like any other element
-- Use `ui.ui_ouput()` in the UI object
 - Use `@render.ui` on the server
 - Function returns any `ui` element
 - Referred to like a regular ui element
 
 ## Dynamic UI
 
-```{.python}
-app_ui = ui.page_fluid(
-    ui.input_checkbox("show_checkbox", "Show Checkbox"),
-    ui.panel_conditional(
-        "input.show_checkbox",
+```{.python code-line-numbers="5-6"}
+from shiny.express import render, ui, input
+
+with ui.card():
+    ui.input_checkbox("show_checkbox", "Show Checkbox")
+    with ui.panel_conditional( "input.show_checkbox"):
         ui.input_checkbox("show_slider", "Show Slider"),
-    ),
-    ui.output_ui("dynamic_slider"),
-)
-
-
-def server(input, output, session):
-    @output
     @render.ui
     def dynamic_slider():
         if input.show_slider():
             return ui.input_slider("n", "N", 0, 100, 20)
-
-
-app = App(app_ui, server)
 ```
 
 ## Dynamic UI
 
-```{.python code-line-numbers="7,12-17"}
-app_ui = ui.page_fluid(
-    ui.input_checkbox("show_checkbox", "Show Checkbox"),
-    ui.panel_conditional(
-        "input.show_checkbox",
+```{.python code-line-numbers="7-10"}
+from shiny.express import render, ui, input
+
+with ui.card():
+    ui.input_checkbox("show_checkbox", "Show Checkbox")
+    with ui.panel_conditional( "input.show_checkbox"):
         ui.input_checkbox("show_slider", "Show Slider"),
-    ),
-    ui.output_ui("dynamic_slider"),
-)
-
-
-def server(input, output, session):
-    @output
     @render.ui
     def dynamic_slider():
-        print(input.show_slider())
         if input.show_slider():
             return ui.input_slider("n", "N", 0, 100, 20)
-
-
-app = App(app_ui, server)
 ```
 
 ## Dynamic UI
 
 - Dynamic UIs can be intimidating, but they follow a familiar pattern:
-    - Insert a UI element with `ui.output_ui`
     - Create a rendering function which returns a UI chunk
-    - Decorate the function with `@output` and `render.ui`
+    - Decorate the function with and `@render.ui`
 - Very powerful, but 
     - Round trip to the server
     - You can lose session state
@@ -436,7 +416,7 @@ app = App(app_ui, server)
 # | echo: false
 # | output: asis
 
-include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
+include_shiny_folder("apps/302-dynamic-ui", components="viewer")
 ```
 
 # Conditional panel
@@ -453,7 +433,7 @@ include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
 # | echo: false
 # | output: asis
 
-include_shiny_folder("../apps/examples/4.1.1-dynamic-ui", components="viewer")
+include_shiny_folder("apps/302-dynamic-ui", components="viewer")
 ```
 
 ## Conditional panel
