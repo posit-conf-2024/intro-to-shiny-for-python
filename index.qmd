@@ -21,7 +21,7 @@ If you are brand new to Python we recommend spending a bit of time familiarizing
 ## Pre-requisites
 
 
-Please ensure you have followed the instructions in the [pre-requisites section](pre-requisites.qmd)
+Please ensure you have followed the instructions in the [pre-requisites section](docs/pre-requisites.qmd)
 
 
 ## On the day
