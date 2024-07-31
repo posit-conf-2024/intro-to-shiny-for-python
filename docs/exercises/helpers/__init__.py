@@ -113,13 +113,10 @@ def parse_readme(path: str) -> str:
         file_contents = file.read()
     return file_contents
 
-def problem_tabs_core(folder_name:str) -> None:
-    return problem_tabs(folder_name, express=False)
-
 def problem_tabs_express(folder_name:str) -> None:
     return problem_tabs(folder_name, express=True)
 
-def problem_tabs(folder_name: str, express = False) -> None:
+def problem_tabs(folder_name: str, express = True) -> None:
 
     def find_problem_set_folder(target_path):
         search_path = os.getcwd()
@@ -135,14 +132,14 @@ def problem_tabs(folder_name: str, express = False) -> None:
     if express == True:
         path = os.path.join(folder_name, "problem")
     else:
-        path = find_problem_set_folder(folder_name)
+        raise ValueError("Only express is supported at this time.")
 
     folder_name = path
     formatted_title = "## " + folder_name.replace("-", " ").title()
 
     block = QuartoPrint(
         [
-            formatted_title,
+            # formatted_title,
             "::::: {.column-screen-inset}",
             "::: {.panel-tabset}",
             "## Goal",
