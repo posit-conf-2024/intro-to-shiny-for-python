@@ -48,6 +48,11 @@ $(SITE_DOCS)/%.html: $(DOCS_DIR)/%.qmd _quarto.yml
 $(SITE_SLDS)/%.html: $(SLDS_DIR)/%.qmd _quarto.yml
 	quarto render $< --log-level $(LOG_LEVEL)
 
+index: $(SITE)/index.html
+
+$(SITE)/index.html: index.qmd _quarto.yml
+	quarto render index.qmd --log-level $(LOG_LEVEL)
+
 
 # New target to generate all .html files
-html: docs slds
+html: index docs slds
