@@ -16,14 +16,16 @@ website:
     logo: https://d33wubrfki0l68.cloudfront.net/71003073848110093780ea9a1c721439ad6b64f3/655ba/shiny-for-python.svg
     search: true
     left:
-      - text: "Home"
-        file: docs/index.qmd
       - text: Pre-requisites
         file: docs/pre-requisites.qmd
-
-      - text: "Course material"
-        file: docs/course.qmd
-
+      - text: "Hello, Shiny express!"
+        file: docs/shiny-express.qmd
+      - text: "Reactivity"
+        file: docs/reactivity.qmd
+      - text: "UI Customization"
+        file: docs/ui-customization.qmd
+      - text: "Best practices"
+        file: docs/best-practices.qmd
     tools: 
       - icon: github
         href: https://github.com/posit-conf-2024/intro-to-shiny-for-python
@@ -31,59 +33,49 @@ website:
         href: https://discord.gg/AQVJzG2bnN
 
   sidebar:
-    - title: "Course material"
-      collapse-level: 4
+    - title: "Hallo, Shiny express!"
+      contents:      
+        - href: docs/shiny-express.qmd
+          text: Slides
+        - section: "Exercises"
+          contents: 
+          - docs/exercises/express-101-hello-world/index.qmd
+          - docs/exercises/express-102-data-frame/index.qmd
+          - docs/exercises/express-103-debug/index.qmd
+          - docs/exercises/express-104-filter/index.qmd
+          - docs/exercises/express-105-connect-filter/index.qmd
+          - docs/exercises/express-106-debug/index.qmd
+          - docs/exercises/express-107-debug/index.qmd
+          - docs/exercises/express-108-plot/index.qmd
+    - title: "Reactivity"
       contents:
-        - docs/course.qmd
-        # - section: "Test"
-        #   contents:
-        #     - href: docs/test.qmd
-        #       text: Slides
-        - section: "Hallo, Shiny express!"
-          contents:      
-            - href: docs/shiny-express.qmd
-              text: Slides
-            - section: "Exercises"
-              contents: 
-              - docs/exercises/express-101-hello-world/index.qmd
-              - docs/exercises/express-102-data-frame/index.qmd
-              - docs/exercises/express-103-debug/index.qmd
-              - docs/exercises/express-104-filter/index.qmd
-              - docs/exercises/express-105-connect-filter/index.qmd
-              - docs/exercises/express-106-debug/index.qmd
-              - docs/exercises/express-107-debug/index.qmd
-              - docs/exercises/express-108-plot/index.qmd
-
-        - section: "Reactivity"
-          contents:
-            - href: docs/reactivity.qmd
-              text: Slides
-            - section: "Exercises"
-              contents: 
-              - docs/exercises/express-201-reactive-calc/index.qmd
-              - docs/exercises/express-202-reactive-stack/index.qmd
-              - docs/exercises/express-208-reactive-event/index.qmd
-              - docs/exercises/express-209-reactive-effect/index.qmd
-
-        - section: "UI Customization"
-          contents:
-            - href: docs/ui-customization.qmd
-              text: Slides
-            - section: "Exercises"
-              contents: 
-              - docs/exercises/express-301-sidebar/index.qmd
-              - docs/exercises/express-302-cards/index.qmd
-              - docs/exercises/express-303-cards-switch/index.qmd
-              - docs/exercises/express-304-layout-columns/index.qmd
-              - docs/exercises/express-305-dynamic-ui/index.qmd
-        - section: "Best practices"
-          contents:
-            - href: docs/best-practices.qmd
-              text: Slides
-            - section: "Exercises"
-              contents: 
-              - docs/exercises/13-ui-functions.qmd
-              - docs/exercises/14-extract-functions.qmd
+        - href: docs/reactivity.qmd
+          text: Slides
+        - section: "Exercises"
+          contents: 
+          - docs/exercises/express-201-reactive-calc/index.qmd
+          - docs/exercises/express-202-reactive-stack/index.qmd
+          - docs/exercises/express-208-reactive-event/index.qmd
+          - docs/exercises/express-209-reactive-effect/index.qmd
+    - title: "UI Customization"
+      contents:
+        - href: docs/ui-customization.qmd
+          text: Slides
+        - section: "Exercises"
+          contents: 
+          - docs/exercises/express-301-sidebar/index.qmd
+          - docs/exercises/express-302-cards/index.qmd
+          - docs/exercises/express-303-cards-switch/index.qmd
+          - docs/exercises/express-304-layout-columns/index.qmd
+          - docs/exercises/express-305-dynamic-ui/index.qmd
+    - title: "Best practices"
+      contents:
+        - href: docs/best-practices.qmd
+          text: Slides
+        - section: "Exercises"
+          contents: 
+          - docs/exercises/13-ui-functions.qmd
+          - docs/exercises/14-extract-functions.qmd
 
 filters:
   - shinylive

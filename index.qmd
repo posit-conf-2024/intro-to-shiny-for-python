@@ -5,7 +5,7 @@ This is the workshop website for the "Intro to Shiny for Python" Workshop at [Po
 
 While most of these materials are designed to be used in conjunction with the workshop, they also stand alone as an educational resource.
 
-![](images/shiny-for-python-seattle.jpg){fig-alt="Stock photo image of the Seattle skyline, with logos for both Shiny and Python" fig-align="center" width="500"}
+![](docs/images/shiny-for-python-seattle.jpg){fig-alt="Stock photo image of the Seattle skyline, with logos for both Shiny and Python" fig-align="center" width="500"}
 
 ## Background
 
