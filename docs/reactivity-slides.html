@@ -3237,7 +3237,7 @@
 <li>So far we’ve been working with shallow reactive graphs</li>
 <li>Each input is passed to a rendering function which produces an output</li>
 <li>Input -&gt; Recipe -&gt; Output can produce repetitive, inefficient applications</li>
-<li><code>@reactive.Calc</code> creates calculations whose results can be used by one <em>or more</em> outputs</li>
+<li><code>@reactive.calc</code> creates calculations whose results can be used by one <em>or more</em> outputs</li>
 <li>This adds intermediate nodes to the reactive graph</li>
 </ul>
 </section>
@@ -3341,7 +3341,7 @@
 </section>
 <section id="reactive-calculation-to-the-rescue" class="slide level2">
 <h2>Reactive Calculation to the rescue</h2>
-<div class="sourceCode" id="cb7" data-code-line-numbers="1-4,9,15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>    <span class="at">@reactive.Calc</span></span>
+<div class="sourceCode" id="cb7" data-code-line-numbers="1-4,9,15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>    <span class="at">@reactive.calc</span></span>
 <span id="cb7-2"><a></a>    <span class="kw">def</span> sampled_df():</span>
 <span id="cb7-3"><a></a>        rand <span class="op">=</span> np.random.rand(<span class="bu">input</span>.n_rows(), <span class="dv">1</span>)</span>
 <span id="cb7-4"><a></a>        df <span class="op">=</span> pd.DataFrame(rand, columns<span class="op">=</span>[<span class="st">"col_1"</span>])</span>
@@ -3364,7 +3364,7 @@
 <section id="reactive-calculations-1" class="slide level2">
 <h2>Reactive calculations</h2>
 <ul>
-<li>Defined with the <code>@reactive.Calc</code> decorator</li>
+<li>Defined with the <code>@reactive.calc</code> decorator</li>
 <li>Called like other inputs</li>
 <li>Can read inputs, reactive values, or other reactive calculations</li>
 <li>Caches its value, so it’s cheap to call repeatedly</li>
@@ -4344,41 +4344,60 @@
 <span id="cb8-2"><a></a>#| components: [viewer]</span>
 <span id="cb8-3"><a></a>#| layout: horizontal</span>
 <span id="cb8-4"><a></a>#| viewerHeight: 700</span>
-<span id="cb8-5"><a></a>from shiny import Inputs, Outputs, Session, App, reactive, render, req, ui</span>
-<span id="cb8-6"><a></a></span>
-<span id="cb8-7"><a></a>app_ui = ui.page_fluid(</span>
-<span id="cb8-8"><a></a>    ui.input_text("input_txt", "Enter text"),</span>
-<span id="cb8-9"><a></a>    ui.input_action_button("send", "Enter"),</span>
-<span id="cb8-10"><a></a>    ui.output_text_verbatim("output_txt"),</span>
-<span id="cb8-11"><a></a>)</span>
-<span id="cb8-12"><a></a></span>
-<span id="cb8-13"><a></a></span>
-<span id="cb8-14"><a></a>def server(input, output, session):</span>
-<span id="cb8-15"><a></a>    @output</span>
-<span id="cb8-16"><a></a>    @render.text</span>
-<span id="cb8-17"><a></a>    @reactive.event(input.send)</span>
-<span id="cb8-18"><a></a>    def output_txt():</span>
-<span id="cb8-19"><a></a>        return input.input_txt()</span>
-<span id="cb8-20"><a></a></span>
-<span id="cb8-21"><a></a></span>
-<span id="cb8-22"><a></a>app = App(app_ui, server)</span>
-<span id="cb8-23"><a></a></span>
-<span id="cb8-24"><a></a>## file: requirements.txt</span>
-<span id="cb8-25"><a></a>plotly</span>
+<span id="cb8-5"><a></a>from shiny.express import ui, render, input</span>
+<span id="cb8-6"><a></a>from shiny import reactive</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a>ui.input_text("input_txt", "Enter text")</span>
+<span id="cb8-9"><a></a>ui.input_action_button("send", "Enter")</span>
+<span id="cb8-10"><a></a>@render.text</span>
+<span id="cb8-11"><a></a>@reactive.event(input.send)</span>
+<span id="cb8-12"><a></a>def output_txt():</span>
+<span id="cb8-13"><a></a>    return input.input_txt()</span>
+<span id="cb8-14"><a></a></span>
+<span id="cb8-15"><a></a></span>
+<span id="cb8-16"><a></a></span>
+<span id="cb8-17"><a></a>## file: app-core.py</span>
+<span id="cb8-18"><a></a>from shiny import Inputs, Outputs, Session, App, reactive, render, req, ui</span>
+<span id="cb8-19"><a></a></span>
+<span id="cb8-20"><a></a>app_ui = ui.page_fluid(</span>
+<span id="cb8-21"><a></a>    ui.input_text("input_txt", "Enter text"),</span>
+<span id="cb8-22"><a></a>    ui.input_action_button("send", "Enter"),</span>
+<span id="cb8-23"><a></a>    ui.output_text_verbatim("output_txt"),</span>
+<span id="cb8-24"><a></a>)</span>
+<span id="cb8-25"><a></a></span>
 <span id="cb8-26"><a></a></span>
-<span id="cb8-27"><a></a>## file: README</span>
-<span id="cb8-28"><a></a>Add an `input.action_button` to the app, and use `@reactive.event` to prevent the text from printing until the user presses the button.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-27"><a></a>def server(input, output, session):</span>
+<span id="cb8-28"><a></a>    @output</span>
+<span id="cb8-29"><a></a>    @render.text</span>
+<span id="cb8-30"><a></a>    @reactive.event(input.send)</span>
+<span id="cb8-31"><a></a>    def output_txt():</span>
+<span id="cb8-32"><a></a>        return input.input_txt()</span>
+<span id="cb8-33"><a></a></span>
+<span id="cb8-34"><a></a></span>
+<span id="cb8-35"><a></a>app = App(app_ui, server)</span>
+<span id="cb8-36"><a></a></span>
+<span id="cb8-37"><a></a>## file: requirements.txt</span>
+<span id="cb8-38"><a></a>plotly</span>
+<span id="cb8-39"><a></a></span>
+<span id="cb8-40"><a></a>## file: README</span>
+<span id="cb8-41"><a></a>Add an `input.action_button` to the app, and use `@reactive.event` to prevent the text from printing until the user presses the button.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="reactive.event" class="slide level2">
 <h2>reactive.event</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="at">@output</span></span>
-<span id="cb9-2"><a></a><span class="at">@render.text</span></span>
-<span id="cb9-3"><a></a><span class="at">@reactive.event</span>(<span class="bu">input</span>.my_input)</span>
-<span id="cb9-4"><a></a><span class="kw">def</span> txt():</span>
-<span id="cb9-5"><a></a>  <span class="cf">return</span> <span class="st">"Here is my text"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> ui, render, <span class="bu">input</span></span>
+<span id="cb9-2"><a></a><span class="im">from</span> shiny <span class="im">import</span> reactive</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a>ui.input_text(<span class="st">"input_txt"</span>, <span class="st">"Enter text"</span>)</span>
+<span id="cb9-5"><a></a>ui.input_action_button(<span class="st">"send"</span>, <span class="st">"Enter"</span>)</span>
+<span id="cb9-6"><a></a><span class="at">@render.text</span></span>
+<span id="cb9-7"><a></a><span class="at">@reactive.event</span>(<span class="bu">input</span>.send)</span>
+<span id="cb9-8"><a></a><span class="kw">def</span> output_txt():</span>
+<span id="cb9-9"><a></a>    <span class="cf">return</span> <span class="bu">input</span>.input_txt()</span>
+<span id="cb9-10"><a></a></span>
+<span id="cb9-11"><a></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>@reactive.event</code> overrides the usual <em>implicit</em> dependency detection with an <em>explicit</em> trigger</li>
-<li>It can be applied to rendering functions or to <code>@reactive.Calc</code></li>
+<li>It can be applied to rendering functions or to <code>@reactive.calc</code></li>
 <li>It tells Shiny to invalidate the object whenever or more inputs change</li>
 <li><code>@reactive.event</code> is often used with action buttons or action links</li>
 </ul>
@@ -4434,7 +4453,7 @@
 <ul>
 <li>How Shiny re-renders elements</li>
 <li>How Shiny detects dependencies between elements (inputs and outputs)</li>
-<li>How to create reusable calculations with <code>@reactive.Calc</code></li>
+<li>How to create reusable calculations with <code>@reactive.calc</code></li>
 <li>How to explicitly control reactivity with <code>@reactive.event</code></li>
 </ul>
 </section>
