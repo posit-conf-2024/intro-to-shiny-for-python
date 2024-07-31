@@ -23,7 +23,9 @@ class QuartoPrint(list):
 
 
 def getcwd() -> str:
-    return os.getcwd()
+    current =  os.getcwd()
+    relative = os.path.relpath(current)
+    return os.path.dirname(relative)
 
 def list_files(path: str) -> list:
     files = glob.glob(path + "/**", recursive=True)
