@@ -26,6 +26,8 @@ website:
         file: docs/ui-customization.qmd
       - text: "Best practices"
         file: docs/best-practices.qmd
+      # - text: "Test"
+      #   file: docs/test.qmd
     tools: 
       - icon: github
         href: https://github.com/posit-conf-2024/intro-to-shiny-for-python
