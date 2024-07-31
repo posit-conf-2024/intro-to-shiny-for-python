@@ -15,7 +15,7 @@ website:
   navbar:
     logo: https://d33wubrfki0l68.cloudfront.net/71003073848110093780ea9a1c721439ad6b64f3/655ba/shiny-for-python.svg
     search: true
-    left:
+    right:
       - text: Pre-requisites
         file: docs/pre-requisites.qmd
       - text: "Hello, Shiny express!"
