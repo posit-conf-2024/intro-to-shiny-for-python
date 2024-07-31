@@ -59,6 +59,7 @@ website:
           - docs/exercises/express-202-reactive-stack/index.qmd
           - docs/exercises/express-208-reactive-event/index.qmd
           - docs/exercises/express-209-reactive-effect/index.qmd
+
     - title: "UI Customization"
       contents:
         - href: docs/ui-customization.qmd
@@ -70,6 +71,9 @@ website:
           - docs/exercises/express-303-cards-switch/index.qmd
           - docs/exercises/express-304-layout-columns/index.qmd
           - docs/exercises/express-305-dynamic-ui/index.qmd
+        - section: "Apps"
+          contents:
+          - docs/apps/303-conditional-panel/index.qmd
     - title: "Best practices"
       contents:
         - href: docs/best-practices.qmd
