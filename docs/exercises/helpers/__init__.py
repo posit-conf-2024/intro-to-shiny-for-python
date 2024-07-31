@@ -95,7 +95,7 @@ def _include_shiny_folder(
 
 
 def collapse_prompt(prompt: str) -> list:
-    out = [
+    return [
         "",
         '::: {.callout-note collapse="false"}',
         "## Exercise",
@@ -103,7 +103,6 @@ def collapse_prompt(prompt: str) -> list:
         ":::",
         "",
     ]
-    return out
 
 
 def parse_readme(path: str) -> str:
@@ -136,17 +135,23 @@ def problem_tabs(folder_name: str, express = True) -> None:
 
     folder_name = path
     formatted_title = "## " + folder_name.replace("-", " ").title()
+    
+    # collapse_prompt(prompt),
+    prompt = parse_readme(path)
+    # block.extend(collapse_prompt(prompt))
 
     block = QuartoPrint(
+            collapse_prompt(prompt)
+    )
+    block.extend(
         [
             # formatted_title,
+            "",
             "::::: {.column-screen-inset}",
             "::: {.panel-tabset}",
             "## Goal",
         ]
     )
-    prompt = parse_readme(path)
-    block.extend(collapse_prompt(prompt))
     block.extend(
         _include_shiny_folder(
             path,
@@ -156,7 +161,7 @@ def problem_tabs(folder_name: str, express = True) -> None:
         )
     )
     block.append("## Problem")
-    block.extend(collapse_prompt(prompt))
+    # block.extend(collapse_prompt(prompt))
     block.extend(
         _include_shiny_folder(
             path, 
@@ -165,7 +170,7 @@ def problem_tabs(folder_name: str, express = True) -> None:
         )
     )
     block.append("## Solution")
-    block.extend(collapse_prompt(prompt))
+    # block.extend(collapse_prompt(prompt))
     block.extend(
         _include_shiny_folder(
             path, 
