@@ -1,8 +1,8 @@
 project:
   type: website
 
-# execute:
-#   freeze: auto
+execute:
+  freeze: auto
 
 website:
   title: "Intro to Shiny for Python / Conf(2024)"
