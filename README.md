@@ -56,14 +56,14 @@ You can also pass options to this function to modify the behaviour of the includ
 
 To include a set of problem tabs, your app should have two application files. `app.py` which shows the starting point for the problem and `app-solution.py` which shows the target application. 
 
-You can then use the `problem_tabs` function to include the tabs.
+You can then use the `problem_tabs_express` function to include the tabs.
 
 `````` python
 ```{python}
 ##| echo: false
 ##| output: asis
 
-problem_tabs("apps/basic-app")
+problem_tabs_express("apps/basic-app")
 ```
 ```````
 
