@@ -76,9 +76,9 @@ website:
           text: Slides
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-501-col-width/index.qmd
-          - docs/exercises/express-502-iterators/index.qmd
-          - docs/exercises/express-503-extract-function/index.qmd
+          - docs/exercises/express-401-col-width/index.qmd
+          - docs/exercises/express-402-iterators/index.qmd
+          - docs/exercises/express-403-extract-function/index.qmd
 
 filters:
   - shinylive
