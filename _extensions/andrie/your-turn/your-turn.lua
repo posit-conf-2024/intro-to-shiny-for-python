@@ -4,27 +4,40 @@ quarto.doc.add_html_dependency({
   scripts = {"yourturn-iframeContainer.js"},
 })
 
-insert_your_turn = function(args, kwargs, meta) 
 
-    local use_index = args[2]
-    if use_index == nil or use_index == "" then
-      use_index = true
-    else
-      use_index = false
-    end
-
+-- workhorse function
+insert_it = function(type, name, use_index) 
     -- Create the link target from the name
-    local name = pandoc.utils.stringify(args[1])
     local target
+    local prefix
+    local msg_pre = ''
+    local img_src = ''
+    local txt
+    local btn_colour
+    if type == "yourturn" then
+      msg_pre = "Complete the exercise on this page:"
+      img_src = "../images/keep-calm-and-take-your-turn.png"
+      txt = "Go to Exercise"
+      btn_colour = "#72994E"
+      font_colour = "#000000"
+      prefix = "exercises/"
+    else 
+      msg_pre = "View the exercise on this page:"
+      img_src = "../images/keep-calm-and-view-the-app.png"
+      txt = "View the App"
+      btn_colour = "#4A6B79"
+      font_colour = "#FFFFFF"
+      prefix = "apps/"
+    end
     if use_index == true or use_index == 'true' then
-      target = "exercises/" .. name .. "/index.html"
+      target = prefix .. name .. "/index.html"
     else
-      target = "exercises/" .. name .. "/" .. name .. ".html"
+      target = prefix .. name .. "/" .. name .. ".html"
     end
     -- local link = pandoc.Link(pandoc.Str(name), target)
     local link = pandoc.Link(name, target)
     link.attributes = {target = "_blank"}
-    local msg_pre = "Complete the exercise on this page:"
+
     local msg_post = "..."
 
     -- Create the button using raw HTML
@@ -32,8 +45,7 @@ insert_your_turn = function(args, kwargs, meta)
     json_msg = json_msg:gsub('"', '\'')  -- Escape quotes
     local cmd =  "window.top.postMessage('" .. target .. "', '*')";
 
-    local txt = "Go to Exercise"
-    local btn_style = 'style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;"'
+    local btn_style = 'style="background-color: ' .. btn_colour .. '; color:' .. font_colour .. '; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;"'
     local btn ='<button ' .. btn_style .. ' onclick="' .. cmd .. '">' .. txt ..'</button>'
     local button_html = string.format(btn, target)
     local button = pandoc.RawInline('html', button_html)
@@ -50,7 +62,8 @@ insert_your_turn = function(args, kwargs, meta)
       pandoc.Div(
         pandoc.Image(
           "", --caption
-          "../images/keep-calm-and-take-your-turn.png", --source
+          -- "../images/keep-calm-and-take-your-turn.png", --source
+          img_src, --source
           "" --title,
         ),
         pandoc.Attr("", {"your-turn-image"}, {style='width:30%;'})
@@ -58,6 +71,29 @@ insert_your_turn = function(args, kwargs, meta)
     },
     pandoc.Attr("", {"your-turn-container"}, {style='display:flex;'}) 
   )
+end
+
+-- your turn
+insert_your_turn = function(args, kwargs, meta) 
+  local use_index = args[2]
+  if use_index == nil or use_index == "" then
+    use_index = true
+  else
+    use_index = false
+  end
+  local name = pandoc.utils.stringify(args[1])
+  return insert_it("yourturn", name, use_index)
+end
+
+insert_view_app = function(args, kwargs, meta) 
+  local use_index = args[2]
+  if use_index == nil or use_index == "" then
+    use_index = true
+  else
+    use_index = false
+  end
+  local name = pandoc.utils.stringify(args[1])
+  return insert_it("yourview", name, use_index)
 end
 
 
@@ -84,6 +120,7 @@ end
 
 return {
   ['yourturn'] = insert_your_turn,
+  ['yourview'] = insert_view_app,
   ['yourturnIframeContainer'] = insert_container
 }
 

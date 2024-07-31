@@ -28,9 +28,13 @@ format:
 
 {{< yourturn 'express-101-hello-world' >}}
 
+## Hello your view
+
+{{< yourview '303-conditional-panel' >}}
+
 ## Debug
 
-{{< yourturn 'express-102-data-frame' >}}
+{{< yourturn 'express-303-conditional-panel' >}}
 
 
 ## Initial state

@@ -112,72 +112,63 @@ def parse_readme(path: str) -> str:
         file_contents = file.read()
     return file_contents
 
-def problem_tabs_express(folder_name:str) -> None:
-    return problem_tabs(folder_name, express=True)
+def problem_app_express(folder_name) -> None:
+    problem_tabs_express(folder_name, app=True)
 
-def problem_tabs(folder_name: str, express = True) -> None:
 
-    def find_problem_set_folder(target_path):
-        search_path = os.getcwd()
-        for root, dirs, files in os.walk(search_path):
-            for name in dirs:
-                full_path = os.path.join(root, name)
-                if target_path in full_path:
-                    return full_path
-        raise FileNotFoundError(
-            f"Folder matching path '{target_path}' not found in '{search_path}'."
-        )
-
-    if express == True:
-        path = os.path.join(folder_name, "problem")
-    else:
-        raise ValueError("Only express is supported at this time.")
-
+def problem_tabs_express(folder_name:str, app:bool = False) -> None:
+    path = os.path.join(folder_name, "problem")
     folder_name = path
-    formatted_title = "## " + folder_name.replace("-", " ").title()
     
-    # collapse_prompt(prompt),
     prompt = parse_readme(path)
-    # block.extend(collapse_prompt(prompt))
 
     block = QuartoPrint(
             collapse_prompt(prompt)
     )
     block.extend(
         [
-            # formatted_title,
             "",
             "::::: {.column-screen-inset}",
             "::: {.panel-tabset}",
-            "## Goal",
         ]
     )
-    block.extend(
-        _include_shiny_folder(
-            path,
-            "app-solution.py",
-            exclusions=["app.py", "README"],
-            components="viewer",
+    if not app:
+        block.append( "## Goal")
+        block.extend(
+            _include_shiny_folder(
+                path,
+                "app-solution.py",
+                exclusions=["app.py", "README"],
+                components="viewer",
+            )
         )
-    )
-    block.append("## Problem")
-    # block.extend(collapse_prompt(prompt))
-    block.extend(
-        _include_shiny_folder(
-            path, 
-            "app.py", 
-            exclusions=["app-solution.py", "README"]
+        block.append("## Problem")
+        block.extend(
+            _include_shiny_folder(
+                path, 
+                "app.py", 
+                exclusions=["app-solution.py", "README"]
+            )
         )
-    )
-    block.append("## Solution")
-    # block.extend(collapse_prompt(prompt))
-    block.extend(
-        _include_shiny_folder(
-            path, 
-            "app-solution.py", 
-            exclusions=["app.py", "README"]
+    else:
+        block.append("## App")
+        block.extend(
+            _include_shiny_folder(
+                path, 
+                "app.py", 
+                exclusions=["app-solution.py", "README"],
+                components="viewer"
+            )
         )
-    )
+    if not app:
+        block.append("## Solution")
+        block.extend(
+            _include_shiny_folder(
+                path, 
+                "app-solution.py", 
+                exclusions=["app.py", "README"]
+            )
+        )
     block.append("## {{< bi github >}}")
     block.append(
         f"The source code for this exercise is [here]"
