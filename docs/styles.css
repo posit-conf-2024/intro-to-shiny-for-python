@@ -63,6 +63,11 @@
     border-style: solid;
 }
 
+.reveal #title-slide h1 {
+    color: white;
+}
+
+
 
 div.quarto-figure-default {
     overflow-y: hidden;

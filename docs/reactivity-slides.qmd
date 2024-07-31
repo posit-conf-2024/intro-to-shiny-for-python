@@ -1,7 +1,7 @@
 ---
 title: "Reactivity"
 title-slide-attributes: 
-  data-background-image:  images/shiny-for-python-newcastle.jpg
+  data-background-image:  images/shiny-for-python-seattle.jpg
   data-background-position: bottom left
   data-background-size: cover
 format:
