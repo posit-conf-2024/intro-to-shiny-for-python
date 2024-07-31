@@ -170,7 +170,12 @@ app = App(app_ui, None)
 
 ## Your turn
 
-Go to [exercises/13-ui-functions](./exercises/13-ui-functions.html) or run problems `5.1` and `5.2` in `apps/core/exercises/5-workflows`.
+{{< yourturn 'express-501-col-width' >}}
+
+## Your turn
+
+{{< yourturn 'express-502-iterators' >}}
+
 
 ## Separate Reactive and Non-reactive logic
 
@@ -199,19 +204,27 @@ Go to [exercises/13-ui-functions](./exercises/13-ui-functions.html) or run probl
 
 ## Your turn
 
-Go to [exercises/14-extract-functions](./exercises/14-extract-functions.html) or run problem `5.3` in `apps/core/exercises/5-workflows`.
+{{< yourturn 'express-503-extract-function' >}}
+
 
 
 # Modules
+
+## Modules
+
 - Not going to teach them, but you should know about them
 - Used when you want to encapsulate _both_ UI _and_ server logic together
 - Allows you to package and re-use parts of your application
 - Great for working with teams of developers
 - Essential for large applications
 
-# Question & Answer
+# Question and Answer
 
-<br><br><br>
+## Any questions?
+
+# Conclusion
+
+## Thank you!
 
 Also, please fill out the survey:  
 [https://pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)

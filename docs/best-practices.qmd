@@ -3,9 +3,11 @@ title: Workflow Best Practices
 ---
 
 
-To view in full screen, click on the slides then press {{< kbd  f >}}, or <a href = "best-practices-slides.html" target="_blank">open in new tab.</a>
+To view in full screen, click on the slides then press {{< kbd  f >}}, or <a href = "reactivity-slides.html" target="_blank">open in new tab.</a>
 
 
 ```{=html}
 <iframe class="slide-deck" src="best-practices-slides.html" height="420" width="747" style="border: 1px solid #123233;"></iframe>
 ```
+
+{{< yourturnIframeContainer >}}
