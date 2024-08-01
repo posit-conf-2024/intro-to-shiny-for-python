@@ -19,7 +19,7 @@ insert_it = function(type, name, use_index)
       img_src = "../images/keep-calm-and-take-your-turn.png"
       txt = "Go to Exercise"
       btn_colour = "#72994E"
-      font_colour = "#000000"
+      font_colour = "#FFFFFF"
       prefix = "exercises/"
     else 
       msg_pre = "View the exercise on this page:"
