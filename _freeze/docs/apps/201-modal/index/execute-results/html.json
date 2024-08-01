@@ -1,0 +1,12 @@
+{
+  "hash": "f257cbd5417484427982587a12a8646f",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"201 Modal\"\n---\n\n\n::: {.callout-note collapse=\"false\"}\n## Exercise\n\n:::\n\n\n::::: {.column-screen-inset}\n::: {.panel-tabset}\n## App\n```{shinylive-python}\n#| standalone: true\n#| components: [viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny import reactive\nfrom shiny.express import ui, render, input\n\n\nui.input_action_button(\"show\", \"Show modal dialog\")\n\n@render.text\ndef txt():\n    return \"Some text\"\n\n@reactive.effect\n@reactive.event(input.show)\ndef show_modal():\n    m = ui.modal(\n        \"This is a somewhat important message.\",\n        title=\"Click outside the modal to close\",\n        easy_close=True,\n        footer=None,\n    )\n    ui.modal_show(m)\n\n\n\n## file: app-core.py\nfrom shiny import App, Inputs, Outputs, Session, reactive, ui, render\n\napp_ui = ui.page_fluid(\n    ui.input_action_button(\"show\", \"Show modal dialog\"), ui.output_text(\"txt\")\n)\n\n\ndef server(input: Inputs, output: Outputs, session: Session):\n    @reactive.Effect\n    @reactive.event(input.show)\n    def show_modal():\n        m = ui.modal(\n            \"This is a somewhat important message.\",\n            title=\"Click outside the modal to close\",\n            easy_close=True,\n            footer=None,\n        )\n        ui.modal_show(m)\n\n\napp = App(app_ui, server)\n\n```\n## {{< bi github >}}\nThe source code for this exercise is [here](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/problem).\n:::\n:::::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

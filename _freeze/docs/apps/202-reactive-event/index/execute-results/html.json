@@ -1,0 +1,12 @@
+{
+  "hash": "79cec30a0b8abf669655825cd5bc2496",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"202 Reactive Event\"\n---\n\n\n::: {.callout-note collapse=\"false\"}\n## Exercise\nAdd an `input.action_button` to the app, and use `@reactive.event` to prevent the text from printing until the user presses the button.\n:::\n\n\n::::: {.column-screen-inset}\n::: {.panel-tabset}\n## App\n```{shinylive-python}\n#| standalone: true\n#| components: [viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny.express import ui, render, input\nfrom shiny import reactive\n\nui.input_text(\"input_txt\", \"Enter text\")\nui.input_action_button(\"send\", \"Enter\")\n@render.text\n@reactive.event(input.send)\ndef output_txt():\n    return input.input_txt()\n\n\n\n## file: app-core.py\nfrom shiny import Inputs, Outputs, Session, App, reactive, render, req, ui\n\napp_ui = ui.page_fluid(\n    ui.input_text(\"input_txt\", \"Enter text\"),\n    ui.input_action_button(\"send\", \"Enter\"),\n    ui.output_text_verbatim(\"output_txt\"),\n)\n\n\ndef server(input, output, session):\n    @output\n    @render.text\n    @reactive.event(input.send)\n    def output_txt():\n        return input.input_txt()\n\n\napp = App(app_ui, server)\n\n## file: requirements.txt\nplotly\n\n```\n## {{< bi github >}}\nThe source code for this exercise is [here](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/problem).\n:::\n:::::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

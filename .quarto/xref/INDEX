@@ -319,5 +319,29 @@
   },
   "docs/apps/303-conditional-panel/index.qmd": {
     "index.html": "717dbed4"
+  },
+  "docs/apps/301-cards/index.qmd": {
+    "index.html": "b8ba4be5"
+  },
+  "docs/apps/200-penguins/index.qmd": {
+    "index.html": "d05e6826"
+  },
+  "docs/apps/200-simple-reactive-calc/index.qmd": {
+    "index.html": "44754888"
+  },
+  "docs/apps/201-modal/index.qmd": {
+    "index.html": "b6e021d3"
+  },
+  "docs/apps/000-penguins/index.qmd": {
+    "index.html": "971d72a3"
+  },
+  "docs/apps/202-reactive-event/index.qmd": {
+    "index.html": "8948d322"
+  },
+  "docs/apps/302-dynamic-ui/index.qmd": {
+    "index.html": "f357fe90"
+  },
+  "docs/apps/300-navsets/index.qmd": {
+    "index.html": "d21f7eba"
   }
 }
