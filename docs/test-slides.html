@@ -331,7 +331,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/shiny-for-python-newcastle.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
+<section id="title-slide" data-background-image="images/shiny-for-python-seattle.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
   <h1 class="title">Test</h1>
 
 <div class="quarto-title-authors">
@@ -345,10 +345,24 @@
 <p>Complete the exercise on this page:</p>
 <p><a href="exercises/express-101-hello-world/index.html" target="_blank">express-101-hello-world</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-101-hello-world/index.html', '*')">Go to Exercise</button></p>
+<p><button style="background-color: #72994E; color:#000000; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-101-hello-world/index.html', '*')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Hello your view</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>View the exercise on this page:</p>
+<p><a href="apps/303-conditional-panel/index.html" target="_blank">303-conditional-panel</a></p>
+<p>...</p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/303-conditional-panel/index.html', '*')">View the App</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-view-the-app.png">
 </div>
 </div>
 </section>
@@ -357,9 +371,9 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-102-data-frame/index.html" target="_blank">express-102-data-frame</a></p>
+<p><a href="exercises/express-303-conditional-panel/index.html" target="_blank">express-303-conditional-panel</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-102-data-frame/index.html', '*')">Go to Exercise</button></p>
+<p><button style="background-color: #72994E; color:#000000; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-303-conditional-panel/index.html', '*')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -718,7 +732,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

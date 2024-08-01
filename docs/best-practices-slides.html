@@ -98,6 +98,7 @@
     code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="styles.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -394,7 +395,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/shiny-for-python-newcastle.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
+<section id="title-slide" data-background-image="images/shiny-for-python-seattle.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
   <h1 class="title">Workflow best practices</h1>
 
 <div class="quarto-title-authors">
@@ -639,7 +640,7 @@
 <p>Complete the exercise on this page:</p>
 <p><a href="exercises/express-401-col-width/index.html" target="_blank">express-401-col-width</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-401-col-width/index.html', '*')">Go to Exercise</button></p>
+<p><button style="background-color: #72994E; color:#000000; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-401-col-width/index.html', '*')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -653,7 +654,7 @@
 <p>Complete the exercise on this page:</p>
 <p><a href="exercises/express-402-iterators/index.html" target="_blank">express-402-iterators</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-402-iterators/index.html', '*')">Go to Exercise</button></p>
+<p><button style="background-color: #72994E; color:#000000; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-402-iterators/index.html', '*')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -703,7 +704,7 @@
 <p>Complete the exercise on this page:</p>
 <p><a href="exercises/express-403-extract-function/index.html" target="_blank">express-403-extract-function</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-403-extract-function/index.html', '*')">Go to Exercise</button></p>
+<p><button style="background-color: #72994E; color:#000000; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-403-extract-function/index.html', '*')">Go to Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1125,7 +1126,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

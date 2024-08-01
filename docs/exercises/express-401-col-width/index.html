@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../../docs/pre-requisites.html"> 
 <span class="menu-text">Pre-requisites</span></a>
@@ -236,7 +236,8 @@ Exercise
 #| components: [viewer]
 #| layout: horizontal
 #| viewerHeight: 800
-from shiny import ui, render, reactive, App
+from shiny.express import ui, render
+from shiny import reactive
 import pandas as pd
 from pathlib import Path
 from plots import temp_distirbution, daily_error
@@ -258,7 +259,7 @@ def card_col(title, *args):
     )
 
 
-app_ui = ui.page_fluid(
+ ui.page_opts(
     ui.panel_title("Weather error"),
     ui.layout_sidebar(
         ui.panel_sidebar(
@@ -321,6 +322,42 @@ def server(input, output, session):
 
 
 app = App(app_ui, server)
+
+## file: plots.py
+import pandas as pd
+from plotnine import (
+    ggplot,
+    aes,
+    geom_density,
+    theme_light,
+    labs,
+    geom_point,
+    theme,
+    element_text,
+)
+
+
+def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+    plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
+    plot_df = pd.melt(
+        plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
+    )
+    out = (
+        ggplot(plot_df, aes(x="value", group="variable", color="variable"))
+        + geom_density()
+        + theme_light()
+    )
+    return out
+
+
+def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
+    out = (
+        ggplot(plot_df, aes(x="date", y="error"))
+        + geom_point(alpha=alpha)
+        + theme_light()
+        + theme(axis_text_x=element_text(rotation=45, hjust=1))
+    )
+    return out
 
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
@@ -2244,42 +2281,6 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
-
-## file: plots.py
-import pandas as pd
-from plotnine import (
-    ggplot,
-    aes,
-    geom_density,
-    theme_light,
-    labs,
-    geom_point,
-    theme,
-    element_text,
-)
-
-
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
-    plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
-    plot_df = pd.melt(
-        plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
-    )
-    out = (
-        ggplot(plot_df, aes(x="value", group="variable", color="variable"))
-        + geom_density()
-        + theme_light()
-    )
-    return out
-
-
-def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
-    out = (
-        ggplot(plot_df, aes(x="date", y="error"))
-        + geom_point(alpha=alpha)
-        + theme_light()
-        + theme(axis_text_x=element_text(rotation=45, hjust=1))
-    )
-    return out
 </code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
@@ -2371,6 +2372,42 @@ def server(input, output, session):
 
 app = App(app_ui, server)
 
+## file: plots.py
+import pandas as pd
+from plotnine import (
+    ggplot,
+    aes,
+    geom_density,
+    theme_light,
+    labs,
+    geom_point,
+    theme,
+    element_text,
+)
+
+
+def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+    plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
+    plot_df = pd.melt(
+        plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
+    )
+    out = (
+        ggplot(plot_df, aes(x="value", group="variable", color="variable"))
+        + geom_density()
+        + theme_light()
+    )
+    return out
+
+
+def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
+    out = (
+        ggplot(plot_df, aes(x="date", y="error"))
+        + geom_point(alpha=alpha)
+        + theme_light()
+        + theme(axis_text_x=element_text(rotation=45, hjust=1))
+    )
+    return out
+
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -4293,42 +4330,6 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
-
-## file: plots.py
-import pandas as pd
-from plotnine import (
-    ggplot,
-    aes,
-    geom_density,
-    theme_light,
-    labs,
-    geom_point,
-    theme,
-    element_text,
-)
-
-
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
-    plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
-    plot_df = pd.melt(
-        plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
-    )
-    out = (
-        ggplot(plot_df, aes(x="value", group="variable", color="variable"))
-        + geom_density()
-        + theme_light()
-    )
-    return out
-
-
-def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
-    out = (
-        ggplot(plot_df, aes(x="date", y="error"))
-        + geom_point(alpha=alpha)
-        + theme_light()
-        + theme(axis_text_x=element_text(rotation=45, hjust=1))
-    )
-    return out
 </code></pre>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
@@ -4336,7 +4337,8 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
 #| components: [editor, viewer]
 #| layout: horizontal
 #| viewerHeight: 800
-from shiny import ui, render, reactive, App
+from shiny.express import ui, render
+from shiny import reactive
 import pandas as pd
 from pathlib import Path
 from plots import temp_distirbution, daily_error
@@ -4358,7 +4360,7 @@ def card_col(title, *args):
     )
 
 
-app_ui = ui.page_fluid(
+ ui.page_opts(
     ui.panel_title("Weather error"),
     ui.layout_sidebar(
         ui.panel_sidebar(
@@ -4422,6 +4424,42 @@ def server(input, output, session):
 
 app = App(app_ui, server)
 
+## file: plots.py
+import pandas as pd
+from plotnine import (
+    ggplot,
+    aes,
+    geom_density,
+    theme_light,
+    labs,
+    geom_point,
+    theme,
+    element_text,
+)
+
+
+def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+    plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
+    plot_df = pd.melt(
+        plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
+    )
+    out = (
+        ggplot(plot_df, aes(x="value", group="variable", color="variable"))
+        + geom_density()
+        + theme_light()
+    )
+    return out
+
+
+def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
+    out = (
+        ggplot(plot_df, aes(x="date", y="error"))
+        + geom_point(alpha=alpha)
+        + theme_light()
+        + theme(axis_text_x=element_text(rotation=45, hjust=1))
+    )
+    return out
+
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -6344,42 +6382,6 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
-
-## file: plots.py
-import pandas as pd
-from plotnine import (
-    ggplot,
-    aes,
-    geom_density,
-    theme_light,
-    labs,
-    geom_point,
-    theme,
-    element_text,
-)
-
-
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
-    plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
-    plot_df = pd.melt(
-        plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
-    )
-    out = (
-        ggplot(plot_df, aes(x="value", group="variable", color="variable"))
-        + geom_density()
-        + theme_light()
-    )
-    return out
-
-
-def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
-    out = (
-        ggplot(plot_df, aes(x="date", y="error"))
-        + geom_point(alpha=alpha)
-        + theme_light()
-        + theme(axis_text_x=element_text(rotation=45, hjust=1))
-    )
-    return out
 </code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
@@ -6484,7 +6486,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
