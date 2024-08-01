@@ -49,6 +49,10 @@ website:
           - docs/exercises/express-106-debug/index.qmd
           - docs/exercises/express-107-debug/index.qmd
           - docs/exercises/express-108-plot/index.qmd
+        - section: "Apps"
+          contents:
+          - docs/apps/000-penguins/index.qmd
+          
     - title: "Reactivity"
       contents:
         - href: docs/reactivity.qmd
@@ -59,6 +63,11 @@ website:
           - docs/exercises/express-202-reactive-stack/index.qmd
           - docs/exercises/express-208-reactive-event/index.qmd
           - docs/exercises/express-209-reactive-effect/index.qmd
+        - section: "Apps"
+          contents:
+          - docs/apps/200-simple-reactive-calc/index.qmd
+          - docs/apps/201-modal/index.qmd
+          - docs/apps/202-reactive-event/index.qmd
 
     - title: "UI Customization"
       contents:
@@ -73,6 +82,8 @@ website:
           - docs/exercises/express-305-dynamic-ui/index.qmd
         - section: "Apps"
           contents:
+          - docs/apps/301-cards/index.qmd
+          - docs/apps/302-dynamic-ui/index.qmd
           - docs/apps/303-conditional-panel/index.qmd
     - title: "Best practices"
       contents:
