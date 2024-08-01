@@ -204,6 +204,18 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/301-cards/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">301 Cards</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/302-dynamic-ui/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">302 Dynamic UI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../docs/apps/303-conditional-panel/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">303 Conditional Panel</span></a>
   </div>
@@ -277,7 +289,6 @@ def account_data():
     return df[
         (df["account"] == input.account()) &amp; (df["sub_account"] == input.sub_account())
     ]
-
 
 @reactive.calc()
 def character_filter():
@@ -2585,7 +2596,6 @@ def account_data():
     return df[
         (df["account"] == input.account()) &amp; (df["sub_account"] == input.sub_account())
     ]
-
 
 @reactive.calc()
 def character_filter():

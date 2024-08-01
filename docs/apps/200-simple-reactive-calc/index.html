@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>UI Customization – Intro to Shiny for Python / Conf(2024)</title>
+<title>200 Simple Reactive Calc – Intro to Shiny for Python / Conf(2024)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/yourturn-iframeContainer.js"></script>
-<script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
-<link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/yourturn-iframeContainer.js"></script>
+<meta name="shinylive:serviceworker_dir" content="../../..">
+<script src="../../../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="../../../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
+<link href="../../../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/shinylive.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -81,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="https://d33wubrfki0l68.cloudfront.net/71003073848110093780ea9a1c721439ad6b64f3/655ba/shiny-for-python.svg" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Intro to Shiny for Python / Conf(2024)</span>
     </a>
   </div>
@@ -95,23 +99,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../docs/pre-requisites.html"> 
+    <a class="nav-link" href="../../../docs/pre-requisites.html"> 
 <span class="menu-text">Pre-requisites</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/shiny-express.html"> 
+    <a class="nav-link" href="../../../docs/shiny-express.html"> 
 <span class="menu-text">Hello, Shiny express!</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/reactivity.html"> 
+    <a class="nav-link active" href="../../../docs/reactivity.html" aria-current="page"> 
 <span class="menu-text">Reactivity</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../docs/ui-customization.html" aria-current="page"> 
+    <a class="nav-link" href="../../../docs/ui-customization.html"> 
 <span class="menu-text">UI Customization</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/best-practices.html"> 
+    <a class="nav-link" href="../../../docs/best-practices.html"> 
 <span class="menu-text">Best practices</span></a>
   </li>  
 </ul>
@@ -127,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/ui-customization.html">Slides</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/apps/200-simple-reactive-calc/index.html">Apps</a></li><li class="breadcrumb-item"><a href="../../../docs/apps/200-simple-reactive-calc/index.html">200 Simple Reactive Calc</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/ui-customization.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../docs/reactivity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slides</span></a>
   </div>
 </li>
@@ -159,32 +163,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-301-sidebar/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">301 Sidebar</span></a>
+  <a href="../../../docs/exercises/express-201-reactive-calc/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">201 Reactive calc</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-302-cards/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">302 Cards</span></a>
+  <a href="../../../docs/exercises/express-202-reactive-stack/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">202 Stacking reactives</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-303-cards-switch/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">303 Cards switch</span></a>
+  <a href="../../../docs/exercises/express-208-reactive-event/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">208 Reactive event</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-304-layout-columns/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">304 Layout columns</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-305-dynamic-ui/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">305 Dynamic UI</span></a>
+  <a href="../../../docs/exercises/express-209-reactive-effect/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">209 Reactive effect</span></a>
   </div>
 </li>
       </ul>
@@ -200,20 +198,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/apps/301-cards/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">301 Cards</span></a>
+  <a href="../../../docs/apps/200-simple-reactive-calc/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">200 Simple Reactive Calc</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/apps/302-dynamic-ui/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">302 Dynamic UI</span></a>
+  <a href="../../../docs/apps/201-modal/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">201 Modal</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/apps/303-conditional-panel/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">303 Conditional Panel</span></a>
+  <a href="../../../docs/apps/202-reactive-event/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">202 Reactive Event</span></a>
   </div>
 </li>
       </ul>
@@ -227,11 +225,11 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/apps/200-simple-reactive-calc/index.html">Apps</a></li><li class="breadcrumb-item"><a href="../../../docs/apps/200-simple-reactive-calc/index.html">200 Simple Reactive Calc</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">UI Customization</h1>
+<h1 class="title">200 Simple Reactive Calc</h1>
 </div>
 
 
@@ -248,13 +246,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>To view in full screen, click on the slides then press <kbd aria-hidden="true">f</kbd><span class="visually-hidden">f</span>, or <a href="ui-customization-slides.html" target="_blank">open in new tab.</a></p>
-<iframe class="slide-deck" src="ui-customization-slides.html" height="420" width="747" style="border: 1px solid #123233;"></iframe>
-<div id="messageDisplay" style="margin-top: 20px; padding: 10px; border: 1px solid #123233;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 
 </div>
-<div id="yourturnContainer" style="margin-top: 20px; position: absolute; left: 25px; width: calc(100vw - 50px);">
+</div>
+</div>
+<div class="column-screen-inset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">App</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="bi-github " style="" role="img" aria-hidden="true"></i></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| components: [viewer]
+#| layout: horizontal
+#| viewerHeight: 800
+import pandas as pd
+from plotnine import ggplot, geom_density, labs, aes
+import numpy as np
 
+from shiny.express import render, ui, input
+from shiny import reactive, req
+
+ui.input_slider("n_rows", "Sample rows", 0, 100, 20)
+
+@render.plot
+def hist():
+    rand = np.random.rand(input.n_rows(), 1)
+    df = pd.DataFrame(rand, columns=["col_1"])
+    return (
+        ggplot(df, aes(x="col_1"))
+        + geom_density()
+        + labs(x="Random Values", y="Density", title="Distribution of Random Data")
+    )
+
+@render.data_frame
+def df():
+    rand = np.random.rand(input.n_rows(), 1)
+    return pd.DataFrame(rand, columns=["col_1"])
+
+
+
+
+## file: app_core.py
+from shiny import Inputs, Outputs, Session, App, reactive, render, req, ui
+import pandas as pd
+from plotnine import ggplot, geom_density, labs, aes
+import numpy as np
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n_rows", "Sample rows", 0, 100, 20),
+    ui.output_plot("hist"),
+    ui.output_table("df"),
+)
+
+
+def server(input: Inputs, output: Outputs, session: Session):
+    @output
+    @render.table
+    def df():
+        rand = np.random.rand(input.n_rows(), 1)
+        df = pd.DataFrame(rand, columns=["col_1"])
+        return df
+
+    @output
+    @render.plot
+    def hist():
+        rand = np.random.rand(input.n_rows(), 1)
+        df = pd.DataFrame(rand, columns=["col_1"])
+        plot = (
+            ggplot(df, aes(x="col_1"))
+            + geom_density()
+            + labs(x="Random Values", y="Density", title="Distribution of Random Data")
+        )
+        return plot
+
+
+app = App(app_ui, server)</code></pre>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The source code for this exercise is <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/problem">here</a>.</p>
+</div>
+</div>
+</div>
 </div>
 
 
