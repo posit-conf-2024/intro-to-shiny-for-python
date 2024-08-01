@@ -1,4 +1,4 @@
-.PHONY: clean render preview prerender html docs slds
+.PHONY: clean render preview prerender html docs slds publish
 
 SITE := _site
 SLIDES_DIR := slides
@@ -56,3 +56,6 @@ $(SITE)/index.html: index.qmd _quarto.yml
 
 # New target to generate all .html files
 html: index docs slds
+
+publish:
+	quarto publish gh-pages --no-render --no-prompt
