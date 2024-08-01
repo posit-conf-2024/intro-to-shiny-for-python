@@ -160,7 +160,6 @@ cython_debug/
 #.idea/
 .Rproj.user
 
-/.quarto/
 .DS_Store
 _site
 site_libs

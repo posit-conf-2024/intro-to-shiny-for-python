@@ -1,0 +1,11 @@
+{
+  "hash": "9f2a5955dfde69829f04562a03c20769",
+  "result": {
+    "markdown": "---\ntitle: \"Hello World!\"\n---\n\n\n\n## Exercise 1.0 - Hello World\n\n## 1 Getting Started/1.0 Hello World\n::::: {.column-screen-inset}\n::: {.panel-tabset}\n## Goal\n\n::: {.callout-note collapse=\"false\"}\n## Exercise\nModify the app to add \"Hello World\" to the main heading.\n:::\n\n```{shinylive-python}\n#| standalone: true\n#| components: [viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny import Inputs, Outputs, Session, App, ui\n\napp_ui = ui.page_fluid(ui.h1(\"Hello world!\"))\n\n\ndef server(input: Inputs, output: Outputs, session: Session):\n    None\n\n\napp = App(app_ui, server)\n\n```\n## Problem\n\n::: {.callout-note collapse=\"false\"}\n## Exercise\nModify the app to add \"Hello World\" to the main heading.\n:::\n\n```{shinylive-python}\n#| standalone: true\n#| components: [editor, viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny import Inputs, Outputs, Session, App, ui\n\napp_ui = ui.page_fluid(ui.h1(\"\"))\n\n\ndef server(input: Inputs, output: Outputs, session: Session):\n    None\n\n\napp = App(app_ui, server)\n\n```\n## Solution\n\n::: {.callout-note collapse=\"false\"}\n## Exercise\nModify the app to add \"Hello World\" to the main heading.\n:::\n\n```{shinylive-python}\n#| standalone: true\n#| components: [editor, viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny import Inputs, Outputs, Session, App, ui\n\napp_ui = ui.page_fluid(ui.h1(\"Hello world!\"))\n\n\ndef server(input: Inputs, output: Outputs, session: Session):\n    None\n\n\napp = App(app_ui, server)\n\n```\n## {{< bi github >}}\nThe source code for this exercise is [here](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/apps/core/1-getting-started/1.0-hello-world).\n:::\n:::::\n\n\n",
+    "supporting": [
+      "1-hello-world_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

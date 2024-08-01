@@ -1,0 +1,12 @@
+{
+  "hash": "9799c1a8fe8d743f97180132e8d63179",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"101 Hello Shiny\"\n---\n\n\n::: {.callout-note collapse=\"false\"}\n## Exercise\nModify the app to add \"Hello World!\" to the main heading. \nClick the play button to run the app.\n:::\n\n\n::::: {.column-screen-inset}\n::: {.panel-tabset}\n## Goal\n```{shinylive-python}\n#| standalone: true\n#| components: [viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny.express import ui\n\nui.h1(\"Hello World!\")\n\n## file: requirements.txt\npandas\nplotly\n```\n## Problem\n```{shinylive-python}\n#| standalone: true\n#| components: [editor, viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny.express import ui\n\nui.h1(\"\")\n\n## file: requirements.txt\npandas\nplotly\n```\n## Solution\n```{shinylive-python}\n#| standalone: true\n#| components: [editor, viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny.express import ui\n\nui.h1(\"Hello World!\")\n\n## file: requirements.txt\npandas\nplotly\n```\n## {{< bi github >}}\nThe source code for this exercise is [here](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/problem).\n:::\n:::::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
