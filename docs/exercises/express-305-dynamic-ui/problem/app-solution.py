@@ -11,7 +11,6 @@ def account_data():
         (df["account"] == input.account()) & (df["sub_account"] == input.sub_account())
     ]
 
-
 @reactive.calc()
 def character_filter():
     return account_data()[(account_data()["text"].str.len().between(*input.chars()))]
