@@ -65,6 +65,8 @@
 
 .reveal #title-slide h1 {
     color: white;
+    background-color: #091A34;
+    max-width: 55%;
 }
 
 
