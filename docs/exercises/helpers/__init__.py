@@ -4,6 +4,7 @@ import tempfile
 import shutil
 import os
 import json
+import re
 
 
 class QuartoPrint(list):
@@ -24,8 +25,15 @@ class QuartoPrint(list):
 
 def getcwd() -> str:
     current =  os.getcwd()
-    relative = os.path.relpath(current)
-    return os.path.dirname(relative)
+    # relative = os.path.relpath(current)
+    # return os.path.dirname(relative)
+    ptn = ("^.*/docs/(.*)$")
+    match = re.match(ptn, current)
+    if match:
+        folder = match.group(1)
+    else:
+        folder = current
+    return folder
 
 def list_files(path: str) -> list:
     files = glob.glob(path + "/**", recursive=True)
@@ -47,6 +55,16 @@ def include_shiny_folder(
         )
     )
 
+def print_cwd(path: str):
+    # ptn = ("^.*/(docs/.*)$")
+    # match = re.match(ptn, path)
+    # if match:
+    #     folder = match.group(1)
+    # else:
+    #     folder = "not found"
+    block =  QuartoPrint("")
+    block.append(path)
+    print(block)
 
 def _include_shiny_folder(
     path: str,
@@ -97,8 +115,8 @@ def _include_shiny_folder(
 def collapse_prompt(prompt: str) -> list:
     return [
         "",
-        '::: {.callout-note collapse="false"}',
-        "## Exercise",
+        '::: {.callout-important collapse="false"}',
+        "## Instructions",
         prompt,
         ":::",
         "",
@@ -106,7 +124,9 @@ def collapse_prompt(prompt: str) -> list:
 
 
 def parse_readme(path: str) -> str:
-    file_path = Path(__name__).parent / path / "README"
+    # file_path = Path(__name__).parent / path / "README"
+    file_path = os.path.join(path, "README")
+    # file_path = "README"
     file_contents = ""
     with open(file_path, "r") as file:
         file_contents = file.read()
@@ -116,15 +136,27 @@ def problem_app_express(folder_name) -> None:
     problem_tabs_express(folder_name, app=True)
 
 
+# Inserts problem tab (goal, problem, solution) into the document as markdown
+#
+# Parameters:
+#    - folder_name:  relative folder path
+#    - app: If True, expects an app (app.py) and if False, expects a problem (app.py and app-solution.py)
 def problem_tabs_express(folder_name:str, app:bool = False) -> None:
-    path = os.path.join(folder_name, "problem")
-    folder_name = path
+    path = os.path.basename(folder_name)
+    path = os.path.join(path, "problem")
+    path = "problem"
+    # path = 
+    # path = folder_name
+    # folder_name = path
     
-    prompt = parse_readme(path)
+    prompt = parse_readme("problem")
 
-    block = QuartoPrint(
-            collapse_prompt(prompt)
-    )
+    if prompt == "":
+        block = QuartoPrint("")
+    else:
+        block = QuartoPrint(
+                collapse_prompt(prompt)
+        )
     block.extend(
         [
             "",
@@ -170,9 +202,14 @@ def problem_tabs_express(folder_name:str, app:bool = False) -> None:
             )
         )
     block.append("## {{< bi github >}}")
+
+    if app:
+        github_path = os.path.join("docs", folder_name, "problem")
+    else:
+        github_path = os.path.join("docs", folder_name, "problem")
     block.append(
-        f"The source code for this exercise is [here]"
-        f"(https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/{path})."
+        f"The source code for this exercise is at "
+        f"<https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/{github_path}>."
     )
 
     block.append(":::")
