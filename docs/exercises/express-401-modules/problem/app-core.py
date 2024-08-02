@@ -1,8 +1,7 @@
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
-import shiny.experimental as x
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -12,7 +11,7 @@ weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 app_ui = ui.page_fluid(
     ui.panel_title("Weather error"),
     ui.layout_sidebar(
-        ui.panel_sidebar(
+        ui.sidebar(
             ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
             ui.input_selectize(
                 "cities",
@@ -23,32 +22,30 @@ app_ui = ui.page_fluid(
             ),
             width=3,
         ),
-        ui.panel_main(
-            ui.navset_tab(
-                ui.nav(
-                    "Error",
-                    ui.row(
-                        ui.column(
-                            6,
-                            ui.card(
-                                ui.card_header("Distribution"),
-                                ui.output_plot("error_distribution"),
-                            ),
+        ui.navset_tab(
+            ui.nav_panel(
+                "Error",
+                ui.row(
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Distribution"),
+                            ui.output_plot("error_distribution"),
                         ),
-                        ui.column(
-                            6,
-                            ui.card(
-                                ui.card_header("Error by day"),
-                                ui.output_plot("error_by_day"),
-                                ui.input_slider(
-                                    "alpha", "Plot Alpha", value=0.5, min=0, max=1
-                                ),
+                    ),
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Error by day"),
+                            ui.output_plot("error_by_day"),
+                            ui.input_slider(
+                                "alpha", "Plot Alpha", value=0.5, min=0, max=1
                             ),
                         ),
                     ),
                 ),
-                ui.nav("Data", ui.output_data_frame("data")),
-            )
+            ),
+            ui.nav_panel("Data", ui.output_data_frame("data")),
         ),
     ),
 )
@@ -67,7 +64,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
