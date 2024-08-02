@@ -322,5 +322,8 @@
   },
   "docs/exercises/express-102-ui-module/index.qmd": {
     "index.html": "5ff2a12e"
+  },
+  "docs/exercises/express-101-run-app/index.qmd": {
+    "index.html": "2fcd7921"
   }
 }

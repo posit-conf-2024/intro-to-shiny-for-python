@@ -1,0 +1,12 @@
+{
+  "hash": "dc770df78c8749146cf0e248b0f81f5e",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"101 Run app\"\n---\n\n\n::: {.callout-note collapse=\"false\"}\n## Exercise\nRun the \"app\" below to launch an HTML based user interface that contains the app's contents.\n:::\n\n\n::::: {.column-screen-inset}\n::: {.panel-tabset}\n## Goal\n```{shinylive-python}\n#| standalone: true\n#| components: [viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny.express import ui\n\n# To run the app, click the play button (a triangle) located \n# above to the right.\n\n\"\"\"\nWhy Shiny for Python? Shiny lets you make pure Python web apps \nquickly, without worrying about cache, state, callbacks ...or \neven HTML, CSS, and JavaScript.\n\"\"\"\n\n## file: requirements.txt\npandas\nplotly\n```\n## Problem\n```{shinylive-python}\n#| standalone: true\n#| components: [editor, viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny.express import ui\n\n\"\"\"\nWhy Shiny for Python? Shiny lets you make pure Python web apps \nquickly, without worrying about cache, state, callbacks ...or \neven HTML, CSS, and JavaScript.\n\"\"\"\n\n\n\n## file: requirements.txt\npandas\nplotly\n```\n## Solution\n```{shinylive-python}\n#| standalone: true\n#| components: [editor, viewer]\n#| layout: horizontal\n#| viewerHeight: 800\nfrom shiny.express import ui\n\n# To run the app, click the play button (a triangle) located \n# above to the right.\n\n\"\"\"\nWhy Shiny for Python? Shiny lets you make pure Python web apps \nquickly, without worrying about cache, state, callbacks ...or \neven HTML, CSS, and JavaScript.\n\"\"\"\n\n## file: requirements.txt\npandas\nplotly\n```\n## {{< bi github >}}\nThe source code for this exercise is [here](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/problem).\n:::\n:::::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
