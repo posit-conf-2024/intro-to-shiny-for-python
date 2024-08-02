@@ -2,7 +2,7 @@ from shiny.express import render, ui, input
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -26,7 +26,7 @@ with ui.layout_sidebar():
 
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
     
     @render.plot
     def error_by_day():
