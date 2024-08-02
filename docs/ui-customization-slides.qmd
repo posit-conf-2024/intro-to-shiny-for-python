@@ -171,14 +171,8 @@ with ui.navset_tab():
 
 ## Navset example
 
-```{python}
-# | echo: false
-# | output: asis
+{{< yourview 'express-300-navset' >}}
 
-include_shiny_folder(
-    "apps/300-navsets", components="viewer", viewer_height=500
-)
-```
 
 
 ## Your turn
@@ -215,7 +209,7 @@ app_ui = ui.page_fluid(
 # | output: asis
 
 include_shiny_folder(
-    "apps/301-cards", components="viewer", viewer_height=500
+    "apps/301-cards/problem", components="viewer", viewer_height=500
 )
 ```
 
@@ -319,6 +313,7 @@ ui = ui.fluid_page(ui.navset_tab(tab1, tab2, tab3))
 
 ## Your turn
 
+
 Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally.
 
 # Review
@@ -346,7 +341,7 @@ Go to [exercises/11-value-boxes](./exercises/11-value-boxes.html) or run `apps/c
 # | echo: false
 # | output: asis
 
-include_shiny_folder("./apps/302-dynamic-ui", components="viewer")
+include_shiny_folder("apps/302-dynamic-ui/problem", components="viewer")
 ```
 
 # Dynamic UI
@@ -408,7 +403,7 @@ with ui.card():
 # | echo: false
 # | output: asis
 
-include_shiny_folder("apps/302-dynamic-ui", components="viewer")
+include_shiny_folder("apps/302-dynamic-ui/problem", components="viewer")
 ```
 
 # Conditional panel
@@ -425,7 +420,7 @@ include_shiny_folder("apps/302-dynamic-ui", components="viewer")
 # | echo: false
 # | output: asis
 
-include_shiny_folder("apps/302-dynamic-ui", components="viewer")
+include_shiny_folder("apps/302-dynamic-ui/problem", components="viewer")
 ```
 
 ## Conditional panel

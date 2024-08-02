@@ -38,6 +38,7 @@ from helpers import include_shiny_folder, multiple_choice_app, Quiz
 
 ## How did Shiny do that?
 
+
 ```{python}
 # | echo: false
 # | output: asis
@@ -184,7 +185,7 @@ Draw the graph of this application:
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "./apps/200-penguins",
+    "./apps/200-penguins/problem",
     file_name="app.py",
     components="viewer",
     viewer_height=700,
@@ -439,7 +440,7 @@ flowchart TD
 # | echo: false
 # | output: asis
 include_shiny_folder(
-  "apps/200-simple-reactive-calc",
+  "apps/200-simple-reactive-calc/problem",
   viewer_height=700,
 )
 ```
@@ -746,7 +747,7 @@ flowchart TD
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "apps/202-reactive-event",
+    "apps/202-reactive-event/problem",
     file_name="app.py",
     # exclusions=["app.py"],
     components="viewer",
@@ -799,7 +800,7 @@ def output_txt():
 # | echo: false
 # | output: asis
 include_shiny_folder(
-    "apps/201-modal",
+    "apps/201-modal/problem",
     components="viewer",
     viewer_height=400,
 )

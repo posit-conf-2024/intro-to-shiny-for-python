@@ -1,4 +1,4 @@
-.PHONY: clean render preview prerender html docs slds publish
+.PHONY: clean render preview prerender html docs slds publish exer all
 
 SITE := _site
 SLIDES_DIR := slides
@@ -12,6 +12,7 @@ clean:
 	find docs/exercises -type d -name '*_files' -exec rm -rf {} +
 	find . -type f -name '*.Identifier' -exec rm -rf {} +
 	find . -type d -name '__pycache__' -exec rm -rf {} +
+	find . -type d -name '.jupyter_cache' -exec rm -rf {} +
 
 
 render:
@@ -59,3 +60,18 @@ html: index docs slds
 
 publish:
 	quarto publish gh-pages --no-render --no-prompt
+
+all: html exer clean
+
+
+# Rule to build index.html files in subfolders of docs/exercises
+EXERCISE_DIRS := $(wildcard docs/exercises/*)
+EXERCISE_QMD := $(foreach dir,$(EXERCISE_DIRS),$(wildcard $(dir)/index.qmd))
+EXERCISE_HTML := $(patsubst docs/exercises/%,_site/docs/exercises/%,$(EXERCISE_QMD:.qmd=.html))
+
+exer: $(EXERCISE_HTML)
+
+# Include files in the problems subfolder as dependencies
+$(EXERCISE_HTML): _site/docs/exercises/%/index.html: docs/exercises/%/index.qmd $(wildcard docs/exercises/%/problems/*)
+# @echo "Files that will change: $@ and $(patsubst _site/docs/exercises/%,docs/exercises/%,$(@:.html=.qmd))"
+	quarto render $(patsubst _site/docs/exercises/%,docs/exercises/%,$(@:.html=.qmd)) --log-level $(LOG_LEVEL)

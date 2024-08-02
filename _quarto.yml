@@ -92,7 +92,7 @@ website:
           text: Slides
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-401-col-width/index.qmd
+          - docs/exercises/express-401-modules/index.qmd
           - docs/exercises/express-402-iterators/index.qmd
           - docs/exercises/express-403-extract-function/index.qmd
 
