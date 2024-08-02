@@ -204,19 +204,25 @@ app_ui = ui.page_fluid(
 ```
 
 ## Cards example
-```{python}
+
+{{< yourview '301-cards' >}}
+
+<!-- ```{python}
 # | echo: false
 # | output: asis
 
 include_shiny_folder(
     "apps/301-cards/problem", components="viewer", viewer_height=500
 )
-```
+``` -->
 
 
 ## Your turn
 
-Go to [exercises/9-cards](./exercises/9-cards.html) or run `apps/core/exercises/4-ui-customization/4.2-cards` locally.
+
+{{< yourturn '302-cards' >}}
+
+<!-- Go to [exercises/9-cards](./exercises/9-cards.html) or run `apps/core/exercises/4-ui-customization/4.2-cards` locally. -->
 
 # Rows and columns
 
@@ -313,8 +319,14 @@ ui = ui.fluid_page(ui.navset_tab(tab1, tab2, tab3))
 
 ## Your turn
 
+{{< yourturn 'express-304-layout-columns' >}}
 
-Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally.
+<!-- Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally. -->
+
+## Your turn
+
+{{< yourturn 'express-305-layout-columns' >}}
+
 
 # Review
 
@@ -328,7 +340,8 @@ Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exerci
 
 ## Your turn
 
-Go to [exercises/11-value-boxes](./exercises/11-value-boxes.html) or run `apps/core/exercises/4-ui-customization/4.5-value-boxes` locally.
+{{< yourturn 'express-307-value-box' >}}
+
 
 ## Dynamic user interfaces
 
@@ -337,12 +350,15 @@ Go to [exercises/11-value-boxes](./exercises/11-value-boxes.html) or run `apps/c
 - Much better to prevent errors than to handle them 
 
 ## Dynamic UI
-```{python}
+
+{{< yourview '302-dynamic-ui' >}}
+
+<!-- ```{python}
 # | echo: false
 # | output: asis
 
 include_shiny_folder("apps/302-dynamic-ui/problem", components="viewer")
-```
+``` -->
 
 # Dynamic UI
 
@@ -399,12 +415,15 @@ with ui.card():
     - You can lose session state
 
 ## Dynamic UI
-```{python}
+
+{{< yourview '302-dynamic-ui' >}}
+
+<!-- ```{python}
 # | echo: false
 # | output: asis
 
 include_shiny_folder("apps/302-dynamic-ui/problem", components="viewer")
-```
+``` -->
 
 # Conditional panel
 
@@ -416,12 +435,14 @@ include_shiny_folder("apps/302-dynamic-ui/problem", components="viewer")
 
 ## Conditional panel
 
-```{python}
+{{< yourview '302-dynamic-ui' >}}
+
+<!-- ```{python}
 # | echo: false
 # | output: asis
 
 include_shiny_folder("apps/302-dynamic-ui/problem", components="viewer")
-```
+``` -->
 
 ## Conditional panel
 
@@ -455,7 +476,13 @@ app = App(app_ui, server)
 
 ## Your turn
 
-Go to [exercises/12-layout](./exercises/12-layout.html) or run problems `4.6` and `4.7` in `apps/core/exercises/4-ui-customization/`.
+{{< yourturn 'express-308-layout' >}}
+
+
+## Your turn
+
+{{< yourturn 'express-309-ui-composition' >}}
+
 
 
 # Conclusion
