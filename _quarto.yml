@@ -80,6 +80,7 @@ website:
           - docs/exercises/express-303-cards-switch/index.qmd
           - docs/exercises/express-304-layout-columns/index.qmd
           - docs/exercises/express-305-dynamic-ui/index.qmd
+          - docs/exercises/express-306-navset/index.qmd
         - section: "Apps"
           contents:
           - docs/apps/301-cards/index.qmd
