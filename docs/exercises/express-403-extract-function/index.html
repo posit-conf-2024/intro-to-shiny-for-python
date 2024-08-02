@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-403-extract-function/index.html">403 Extract function</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Exercises</li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-403-extract-function/index.html">403 Extract function</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -162,11 +162,8 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-401-modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">401 Modules</span></a>
-  </div>
-</li>
+ <span class="menu-text">docs/exercises/express-401-col-width/index.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/exercises/express-402-iterators/index.html" class="sidebar-item-text sidebar-link">
@@ -192,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-403-extract-function/index.html">403 Extract function</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Exercises</li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-403-extract-function/index.html">403 Extract function</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">403 Extract function</h1>
 </div>
@@ -239,7 +236,7 @@ Instructions
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -310,12 +307,12 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distribution(filtered_data())
+        return plots.temp_distribution(filtered_data())
 
     @output
     @render.plot
     def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
+        return plots.daily_error(filtered_data(), input.alpha())
 
     @output
     @render.data_frame
@@ -2320,7 +2317,7 @@ date,city,state,observed_temp,forecast_temp
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -2391,12 +2388,12 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distribution(filtered_data())
+        return plots.temp_distribution(filtered_data())
 
     @output
     @render.plot
     def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
+        return plots.daily_error(filtered_data(), input.alpha())
 
     @output
     @render.data_frame
@@ -4392,7 +4389,7 @@ date,city,state,observed_temp,forecast_temp
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -4463,12 +4460,12 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distribution(filtered_data())
+        return plots.temp_distribution(filtered_data())
 
     @output
     @render.plot
     def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
+        return plots.daily_error(filtered_data(), input.alpha())
 
     @output
     @render.data_frame

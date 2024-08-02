@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">UI Customization</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../docs/best-practices.html" aria-current="page"> 
+    <a class="nav-link" href="../../../docs/best-practices.html"> 
 <span class="menu-text">Best practices</span></a>
   </li>  
 </ul>
@@ -126,16 +126,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">401 Modules</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
   <div id="quarto-announcement" data-announcement-id="17c3353fa487da670c8d44723e1bd226" class="alert alert-warning hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
 <p><strong>Alert</strong> - this site is under active construction</p>
 </div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
@@ -143,48 +133,6 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/best-practices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-401-modules/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">401 Modules</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-402-iterators/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">402 Iterators</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-403-extract-function/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">403 Extract function</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
@@ -192,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">401 Modules</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">401 Modules</h1>
 </div>
@@ -223,7 +171,7 @@ Instructions
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>We have some repetitive code which creates a column with a single card in it. Create a function <code>card_col</code> which takes the card title and the UI elements which go in the card.</p>
+<p>We have some repetitive code that creates a column with a single card in it. Create a function <code>card_col</code> that takes the card title and the UI elements that go in the card.</p>
 </div>
 </div>
 </div>
@@ -240,7 +188,7 @@ from shiny.express import ui, render, input, module
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-# from plots import temp_distribution, daily_error
+# import plots
 import plots
 
 infile = Path(__file__).parent / "weather.csv"
@@ -383,88 +331,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: app-core.py
-from shiny import ui, render, reactive, App
-import pandas as pd
-from pathlib import Path
-from plots import temp_distribution, daily_error
-
-infile = Path(__file__).parent / "weather.csv"
-weather = pd.read_csv(infile)
-weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
-
-
-app_ui = ui.page_fluid(
-    ui.panel_title("Weather error"),
-    ui.layout_sidebar(
-        ui.sidebar(
-            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
-            ui.input_selectize(
-                "cities",
-                "Select Cities",
-                weather["city"].unique().tolist(),
-                selected="BUFFALO",
-                multiple=True,
-            ),
-            width=3,
-        ),
-        ui.navset_tab(
-            ui.nav_panel(
-                "Error",
-                ui.row(
-                    ui.column(
-                        6,
-                        ui.card(
-                            ui.card_header("Distribution"),
-                            ui.output_plot("error_distribution"),
-                        ),
-                    ),
-                    ui.column(
-                        6,
-                        ui.card(
-                            ui.card_header("Error by day"),
-                            ui.output_plot("error_by_day"),
-                            ui.input_slider(
-                                "alpha", "Plot Alpha", value=0.5, min=0, max=1
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            ui.nav_panel("Data", ui.output_data_frame("data")),
-        ),
-    ),
-)
-
-
-def server(input, output, session):
-    @reactive.Calc
-    def filtered_data():
-        df = weather.copy()
-        df = df[df["city"].isin(input.cities())]
-        df["date"] = pd.to_datetime(df["date"])
-        dates = pd.to_datetime(input.dates())
-        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
-        return df
-
-    @output
-    @render.plot
-    def error_distribution():
-        return temp_distribution(filtered_data())
-
-    @output
-    @render.plot
-    def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
-
-    @output
-    @render.data_frame
-    def data():
-        return filtered_data()
-
-
-app = App(app_ui, server)
-
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -2388,12 +2254,94 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
 
+## file: app-core.py
+from shiny import ui, render, reactive, App
+import pandas as pd
+from pathlib import Path
+import plots
+
+infile = Path(__file__).parent / "weather.csv"
+weather = pd.read_csv(infile)
+weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
+
+
+app_ui = ui.page_fluid(
+    ui.panel_title("Weather error"),
+    ui.layout_sidebar(
+        ui.sidebar(
+            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+            ui.input_selectize(
+                "cities",
+                "Select Cities",
+                weather["city"].unique().tolist(),
+                selected="BUFFALO",
+                multiple=True,
+            ),
+            width=3,
+        ),
+        ui.navset_tab(
+            ui.nav_panel(
+                "Error",
+                ui.row(
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Distribution"),
+                            ui.output_plot("error_distribution"),
+                        ),
+                    ),
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Error by day"),
+                            ui.output_plot("error_by_day"),
+                            ui.input_slider(
+                                "alpha", "Plot Alpha", value=0.5, min=0, max=1
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            ui.nav_panel("Data", ui.output_data_frame("data")),
+        ),
+    ),
+)
+
+
+def server(input, output, session):
+    @reactive.Calc
+    def filtered_data():
+        df = weather.copy()
+        df = df[df["city"].isin(input.cities())]
+        df["date"] = pd.to_datetime(df["date"])
+        dates = pd.to_datetime(input.dates())
+        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
+        return df
+
+    @output
+    @render.plot
+    def error_distribution():
+        return plots.temp_distribution(filtered_data())
+
+    @output
+    @render.plot
+    def error_by_day():
+        return plots.daily_error(filtered_data(), input.alpha())
+
+    @output
+    @render.data_frame
+    def data():
+        return filtered_data()
+
+
+app = App(app_ui, server)
+
 ## file: app-solution-core.py
 # from shiny.express import ui, render
 from shiny import reactive, ui, render, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -2458,12 +2406,12 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distribution(filtered_data())
+        return plots.temp_distribution(filtered_data())
 
     @output
     @render.plot
     def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
+        return plots.daily_error(filtered_data(), input.alpha())
 
     @output
     @render.data_frame
@@ -2482,7 +2430,7 @@ app = App(app_ui, server)
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -2545,12 +2493,12 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distribution(filtered_data())
+        return plots.temp_distribution(filtered_data())
 
     @output
     @render.plot
     def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
+        return plots.daily_error(filtered_data(), input.alpha())
 
     @output
     @render.data_frame
@@ -2635,88 +2583,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: app-core.py
-from shiny import ui, render, reactive, App
-import pandas as pd
-from pathlib import Path
-from plots import temp_distribution, daily_error
-
-infile = Path(__file__).parent / "weather.csv"
-weather = pd.read_csv(infile)
-weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
-
-
-app_ui = ui.page_fluid(
-    ui.panel_title("Weather error"),
-    ui.layout_sidebar(
-        ui.sidebar(
-            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
-            ui.input_selectize(
-                "cities",
-                "Select Cities",
-                weather["city"].unique().tolist(),
-                selected="BUFFALO",
-                multiple=True,
-            ),
-            width=3,
-        ),
-        ui.navset_tab(
-            ui.nav_panel(
-                "Error",
-                ui.row(
-                    ui.column(
-                        6,
-                        ui.card(
-                            ui.card_header("Distribution"),
-                            ui.output_plot("error_distribution"),
-                        ),
-                    ),
-                    ui.column(
-                        6,
-                        ui.card(
-                            ui.card_header("Error by day"),
-                            ui.output_plot("error_by_day"),
-                            ui.input_slider(
-                                "alpha", "Plot Alpha", value=0.5, min=0, max=1
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            ui.nav_panel("Data", ui.output_data_frame("data")),
-        ),
-    ),
-)
-
-
-def server(input, output, session):
-    @reactive.Calc
-    def filtered_data():
-        df = weather.copy()
-        df = df[df["city"].isin(input.cities())]
-        df["date"] = pd.to_datetime(df["date"])
-        dates = pd.to_datetime(input.dates())
-        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
-        return df
-
-    @output
-    @render.plot
-    def error_distribution():
-        return temp_distribution(filtered_data())
-
-    @output
-    @render.plot
-    def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
-
-    @output
-    @render.data_frame
-    def data():
-        return filtered_data()
-
-
-app = App(app_ui, server)
-
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -4640,12 +4506,94 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
 
+## file: app-core.py
+from shiny import ui, render, reactive, App
+import pandas as pd
+from pathlib import Path
+import plots
+
+infile = Path(__file__).parent / "weather.csv"
+weather = pd.read_csv(infile)
+weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
+
+
+app_ui = ui.page_fluid(
+    ui.panel_title("Weather error"),
+    ui.layout_sidebar(
+        ui.sidebar(
+            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+            ui.input_selectize(
+                "cities",
+                "Select Cities",
+                weather["city"].unique().tolist(),
+                selected="BUFFALO",
+                multiple=True,
+            ),
+            width=3,
+        ),
+        ui.navset_tab(
+            ui.nav_panel(
+                "Error",
+                ui.row(
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Distribution"),
+                            ui.output_plot("error_distribution"),
+                        ),
+                    ),
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Error by day"),
+                            ui.output_plot("error_by_day"),
+                            ui.input_slider(
+                                "alpha", "Plot Alpha", value=0.5, min=0, max=1
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            ui.nav_panel("Data", ui.output_data_frame("data")),
+        ),
+    ),
+)
+
+
+def server(input, output, session):
+    @reactive.Calc
+    def filtered_data():
+        df = weather.copy()
+        df = df[df["city"].isin(input.cities())]
+        df["date"] = pd.to_datetime(df["date"])
+        dates = pd.to_datetime(input.dates())
+        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
+        return df
+
+    @output
+    @render.plot
+    def error_distribution():
+        return plots.temp_distribution(filtered_data())
+
+    @output
+    @render.plot
+    def error_by_day():
+        return plots.daily_error(filtered_data(), input.alpha())
+
+    @output
+    @render.data_frame
+    def data():
+        return filtered_data()
+
+
+app = App(app_ui, server)
+
 ## file: app-solution-core.py
 # from shiny.express import ui, render
 from shiny import reactive, ui, render, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -4710,12 +4658,12 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distribution(filtered_data())
+        return plots.temp_distribution(filtered_data())
 
     @output
     @render.plot
     def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
+        return plots.daily_error(filtered_data(), input.alpha())
 
     @output
     @render.data_frame
@@ -4735,7 +4683,7 @@ from shiny.express import ui, render, input, module
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-# from plots import temp_distribution, daily_error
+# import plots
 import plots
 
 infile = Path(__file__).parent / "weather.csv"
@@ -4877,88 +4825,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
         + theme(axis_text_x=element_text(rotation=45, hjust=1))
     )
     return out
-
-## file: app-core.py
-from shiny import ui, render, reactive, App
-import pandas as pd
-from pathlib import Path
-from plots import temp_distribution, daily_error
-
-infile = Path(__file__).parent / "weather.csv"
-weather = pd.read_csv(infile)
-weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
-
-
-app_ui = ui.page_fluid(
-    ui.panel_title("Weather error"),
-    ui.layout_sidebar(
-        ui.sidebar(
-            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
-            ui.input_selectize(
-                "cities",
-                "Select Cities",
-                weather["city"].unique().tolist(),
-                selected="BUFFALO",
-                multiple=True,
-            ),
-            width=3,
-        ),
-        ui.navset_tab(
-            ui.nav_panel(
-                "Error",
-                ui.row(
-                    ui.column(
-                        6,
-                        ui.card(
-                            ui.card_header("Distribution"),
-                            ui.output_plot("error_distribution"),
-                        ),
-                    ),
-                    ui.column(
-                        6,
-                        ui.card(
-                            ui.card_header("Error by day"),
-                            ui.output_plot("error_by_day"),
-                            ui.input_slider(
-                                "alpha", "Plot Alpha", value=0.5, min=0, max=1
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            ui.nav_panel("Data", ui.output_data_frame("data")),
-        ),
-    ),
-)
-
-
-def server(input, output, session):
-    @reactive.Calc
-    def filtered_data():
-        df = weather.copy()
-        df = df[df["city"].isin(input.cities())]
-        df["date"] = pd.to_datetime(df["date"])
-        dates = pd.to_datetime(input.dates())
-        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
-        return df
-
-    @output
-    @render.plot
-    def error_distribution():
-        return temp_distribution(filtered_data())
-
-    @output
-    @render.plot
-    def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
-
-    @output
-    @render.data_frame
-    def data():
-        return filtered_data()
-
-
-app = App(app_ui, server)
 
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
@@ -6883,12 +6749,94 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
 
+## file: app-core.py
+from shiny import ui, render, reactive, App
+import pandas as pd
+from pathlib import Path
+import plots
+
+infile = Path(__file__).parent / "weather.csv"
+weather = pd.read_csv(infile)
+weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
+
+
+app_ui = ui.page_fluid(
+    ui.panel_title("Weather error"),
+    ui.layout_sidebar(
+        ui.sidebar(
+            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+            ui.input_selectize(
+                "cities",
+                "Select Cities",
+                weather["city"].unique().tolist(),
+                selected="BUFFALO",
+                multiple=True,
+            ),
+            width=3,
+        ),
+        ui.navset_tab(
+            ui.nav_panel(
+                "Error",
+                ui.row(
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Distribution"),
+                            ui.output_plot("error_distribution"),
+                        ),
+                    ),
+                    ui.column(
+                        6,
+                        ui.card(
+                            ui.card_header("Error by day"),
+                            ui.output_plot("error_by_day"),
+                            ui.input_slider(
+                                "alpha", "Plot Alpha", value=0.5, min=0, max=1
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            ui.nav_panel("Data", ui.output_data_frame("data")),
+        ),
+    ),
+)
+
+
+def server(input, output, session):
+    @reactive.Calc
+    def filtered_data():
+        df = weather.copy()
+        df = df[df["city"].isin(input.cities())]
+        df["date"] = pd.to_datetime(df["date"])
+        dates = pd.to_datetime(input.dates())
+        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
+        return df
+
+    @output
+    @render.plot
+    def error_distribution():
+        return plots.temp_distribution(filtered_data())
+
+    @output
+    @render.plot
+    def error_by_day():
+        return plots.daily_error(filtered_data(), input.alpha())
+
+    @output
+    @render.data_frame
+    def data():
+        return filtered_data()
+
+
+app = App(app_ui, server)
+
 ## file: app-solution-core.py
 # from shiny.express import ui, render
 from shiny import reactive, ui, render, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -6953,12 +6901,12 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distribution(filtered_data())
+        return plots.temp_distribution(filtered_data())
 
     @output
     @render.plot
     def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
+        return plots.daily_error(filtered_data(), input.alpha())
 
     @output
     @render.data_frame

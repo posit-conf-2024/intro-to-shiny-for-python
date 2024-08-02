@@ -197,6 +197,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">306 Navset</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-307-value-box/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">307 Value box</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-308-layout/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">308 Layout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-309-ui-composition/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">309 UI composition</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -271,7 +289,7 @@ from shiny.express import input, render, ui
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-from plots import temp_distribution, daily_error
+import plots
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -345,13 +363,13 @@ with ui.layout_sidebar():
                     ui.card_header("Distribution")
                     @render.plot
                     def error_distribution():
-                        return temp_distribution(filtered_data())
+                        return plots.temp_distribution(filtered_data())
 
                 with ui.card():
                     ui.card_header("Error by day")
                     @render.plot
                     def error_by_day():
-                        return daily_error(filtered_data(), input.alpha())
+                        return plots.daily_error(filtered_data(), input.alpha())
                     ui.input_slider("alpha", "Plot Alpha", value=0.5, min=0, max=1)
 
         with ui.nav_panel("Data"):
@@ -403,137 +421,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
         + theme(axis_text_x=element_text(rotation=45, hjust=1))
     )
     return out
-
-## file: app-core.py
-from shiny import ui, render, reactive, App
-import pandas as pd
-from pathlib import Path
-from plots import temp_distribution, daily_error
-
-infile = Path(__file__).parent / "weather.csv"
-weather = pd.read_csv(infile)
-weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
-
-data_tab = ui.nav("Data", ui.output_data_frame("data"))
-error_tab = ui.nav(
-    "Error",
-    ui.row(
-        ui.column(
-            4, ui.value_box("Hotter than forecast", ui.output_text("hot_days"))
-        ),
-        ui.column(
-            4, ui.value_box("Colder than forecast", ui.output_text("cold_days"))
-        ),
-        ui.column(4, ui.value_box("Mean Error", ui.output_text("mean_error"))),
-    ),
-    ui.row(
-        ui.column(
-            6,
-            ui.card(
-                ui.card_header("Distribution"),
-                ui.output_plot("error_distribution"),
-            ),
-        ),
-        ui.column(
-            6,
-            ui.card(
-                ui.card_header("Error by day"),
-                ui.output_plot("error_by_day"),
-                ui.input_slider("alpha", "Plot Alpha", value=0.5, min=0, max=1),
-            ),
-        ),
-    ),
-)
-
-app_ui = ui.page_fluid(
-    ui.panel_title("Weather error"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
-            ui.input_selectize(
-                "states",
-                "Select States",
-                weather["state"].unique().tolist(),
-                selected="CO",
-                multiple=True,
-            ),
-            ui.output_ui("cities_ui"),
-            ui.panel_conditional(
-                "input.tabs === 'Data'",
-                ui.input_selectize(
-                    "columns",
-                    "Display Columns",
-                    choices=weather.columns.tolist(),
-                    selected=weather.columns.tolist(),
-                    multiple=True,
-                ),
-            ),
-            width=3,
-        ),
-        ui.panel_main(ui.navset_tab(error_tab, data_tab, id="tabs")),
-    ),
-)
-
-
-def server(input, output, session):
-    @output
-    @render.ui
-    def cities_ui():
-        df = weather.copy()
-        df = df[df["state"].isin(input.states())]
-        city_options = df["city"].unique().tolist()
-        return ui.input_selectize(
-            "cities",
-            "Select Cities",
-            choices=city_options,
-            selected=city_options[0],
-            multiple=True,
-        )
-
-    @reactive.Calc
-    def filtered_data() -&gt; pd.DataFrame:
-        df = weather.copy()
-        df = df[df["city"].isin(input.cities())]
-        df["date"] = pd.to_datetime(df["date"])
-        dates = pd.to_datetime(input.dates())
-        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
-        return df
-
-    @output
-    @render.plot
-    def error_distribution():
-        return temp_distribution(filtered_data())
-
-    @output
-    @render.plot
-    def error_by_day():
-        return daily_error(filtered_data(), input.alpha())
-
-    @output
-    @render.data_frame
-    def data():
-        return filtered_data().loc[:, input.columns()]
-
-    @output
-    @render.text
-    def mean_error():
-        mean_error = filtered_data()["error"].mean()
-        return round(mean_error, 2)
-
-    @output
-    @render.text
-    def hot_days():
-        hot_days = filtered_data()["error"] &gt; 0
-        return sum(hot_days)
-
-    @output
-    @render.text
-    def cold_days():
-        hot_days = filtered_data()["error"] &lt; 0
-        return sum(hot_days)
-
-
-app = App(app_ui, server)
 
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
@@ -2457,6 +2344,137 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
+
+## file: app-core.py
+from shiny import ui, render, reactive, App
+import pandas as pd
+from pathlib import Path
+import plots
+
+infile = Path(__file__).parent / "weather.csv"
+weather = pd.read_csv(infile)
+weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
+
+data_tab = ui.nav("Data", ui.output_data_frame("data"))
+error_tab = ui.nav(
+    "Error",
+    ui.row(
+        ui.column(
+            4, ui.value_box("Hotter than forecast", ui.output_text("hot_days"))
+        ),
+        ui.column(
+            4, ui.value_box("Colder than forecast", ui.output_text("cold_days"))
+        ),
+        ui.column(4, ui.value_box("Mean Error", ui.output_text("mean_error"))),
+    ),
+    ui.row(
+        ui.column(
+            6,
+            ui.card(
+                ui.card_header("Distribution"),
+                ui.output_plot("error_distribution"),
+            ),
+        ),
+        ui.column(
+            6,
+            ui.card(
+                ui.card_header("Error by day"),
+                ui.output_plot("error_by_day"),
+                ui.input_slider("alpha", "Plot Alpha", value=0.5, min=0, max=1),
+            ),
+        ),
+    ),
+)
+
+app_ui = ui.page_fluid(
+    ui.panel_title("Weather error"),
+    ui.layout_sidebar(
+        ui.panel_sidebar(
+            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+            ui.input_selectize(
+                "states",
+                "Select States",
+                weather["state"].unique().tolist(),
+                selected="CO",
+                multiple=True,
+            ),
+            ui.output_ui("cities_ui"),
+            ui.panel_conditional(
+                "input.tabs === 'Data'",
+                ui.input_selectize(
+                    "columns",
+                    "Display Columns",
+                    choices=weather.columns.tolist(),
+                    selected=weather.columns.tolist(),
+                    multiple=True,
+                ),
+            ),
+            width=3,
+        ),
+        ui.panel_main(ui.navset_tab(error_tab, data_tab, id="tabs")),
+    ),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.ui
+    def cities_ui():
+        df = weather.copy()
+        df = df[df["state"].isin(input.states())]
+        city_options = df["city"].unique().tolist()
+        return ui.input_selectize(
+            "cities",
+            "Select Cities",
+            choices=city_options,
+            selected=city_options[0],
+            multiple=True,
+        )
+
+    @reactive.Calc
+    def filtered_data() -&gt; pd.DataFrame:
+        df = weather.copy()
+        df = df[df["city"].isin(input.cities())]
+        df["date"] = pd.to_datetime(df["date"])
+        dates = pd.to_datetime(input.dates())
+        df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
+        return df
+
+    @output
+    @render.plot
+    def error_distribution():
+        return plots.temp_distribution(filtered_data())
+
+    @output
+    @render.plot
+    def error_by_day():
+        return plots.daily_error(filtered_data(), input.alpha())
+
+    @output
+    @render.data_frame
+    def data():
+        return filtered_data().loc[:, input.columns()]
+
+    @output
+    @render.text
+    def mean_error():
+        mean_error = filtered_data()["error"].mean()
+        return round(mean_error, 2)
+
+    @output
+    @render.text
+    def hot_days():
+        hot_days = filtered_data()["error"] &gt; 0
+        return sum(hot_days)
+
+    @output
+    @render.text
+    def cold_days():
+        hot_days = filtered_data()["error"] &lt; 0
+        return sum(hot_days)
+
+
+app = App(app_ui, server)
 </code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">

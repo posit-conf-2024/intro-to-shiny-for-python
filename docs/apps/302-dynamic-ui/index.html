@@ -197,6 +197,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">306 Navset</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-307-value-box/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">307 Value box</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-308-layout/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">308 Layout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-309-ui-composition/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">309 UI composition</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -281,30 +299,6 @@ with ui.card():
 
 
 
-
-## file: app-core.py
-from shiny import App, render, ui
-
-app_ui = ui.page_fluid(
-    ui.input_checkbox("show_checkbox", "Show Checkbox"),
-    ui.panel_conditional(
-        "input.show_checkbox",
-        ui.input_checkbox("show_slider", "Show Slider"),
-    ),
-    ui.output_ui("dynamic_slider"),
-)
-
-
-def server(input, output, session):
-    @output
-    @render.ui
-    def dynamic_slider():
-        print(input.show_slider())
-        if input.show_slider():
-            return ui.input_slider("n", "N", 0, 100, 20)
-
-
-app = App(app_ui, server)
 
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
@@ -2228,6 +2222,30 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
+
+## file: app-core.py
+from shiny import App, render, ui
+
+app_ui = ui.page_fluid(
+    ui.input_checkbox("show_checkbox", "Show Checkbox"),
+    ui.panel_conditional(
+        "input.show_checkbox",
+        ui.input_checkbox("show_slider", "Show Slider"),
+    ),
+    ui.output_ui("dynamic_slider"),
+)
+
+
+def server(input, output, session):
+    @output
+    @render.ui
+    def dynamic_slider():
+        print(input.show_slider())
+        if input.show_slider():
+            return ui.input_slider("n", "N", 0, 100, 20)
+
+
+app = App(app_ui, server)
 </code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">

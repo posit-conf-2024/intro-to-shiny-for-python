@@ -913,79 +913,80 @@
 <span id="cb1-407"><a></a>Chinstrap,Dream,50.8,19,210,4100,male,2009</span>
 <span id="cb1-408"><a></a>Chinstrap,Dream,50.2,18.7,198,3775,female,2009</span>
 <span id="cb1-409"><a></a></span>
-<span id="cb1-410"><a></a>## file: app_core.py</span>
-<span id="cb1-411"><a></a>from pathlib import Path</span>
-<span id="cb1-412"><a></a></span>
-<span id="cb1-413"><a></a>import pandas as pd</span>
-<span id="cb1-414"><a></a>import seaborn as sns</span>
-<span id="cb1-415"><a></a></span>
-<span id="cb1-416"><a></a>from shiny import App, Inputs, Outputs, Session, reactive, render, req, ui</span>
+<span id="cb1-410"><a></a>## file: README</span>
+<span id="cb1-411"><a></a></span>
+<span id="cb1-412"><a></a>## file: app_core.py</span>
+<span id="cb1-413"><a></a>from pathlib import Path</span>
+<span id="cb1-414"><a></a></span>
+<span id="cb1-415"><a></a>import pandas as pd</span>
+<span id="cb1-416"><a></a>import seaborn as sns</span>
 <span id="cb1-417"><a></a></span>
-<span id="cb1-418"><a></a>sns.set_theme()</span>
+<span id="cb1-418"><a></a>from shiny import App, Inputs, Outputs, Session, reactive, render, req, ui</span>
 <span id="cb1-419"><a></a></span>
-<span id="cb1-420"><a></a># https://raw.githubusercontent.com/jcheng5/simplepenguins.R/main/penguins.csv</span>
+<span id="cb1-420"><a></a>sns.set_theme()</span>
 <span id="cb1-421"><a></a></span>
-<span id="cb1-422"><a></a>df = pd.read_csv(Path(__file__).parent / "penguins.csv", na_values="NA")</span>
-<span id="cb1-423"><a></a>numeric_cols = df.select_dtypes(include=["float64"]).columns.tolist()</span>
-<span id="cb1-424"><a></a>species = df["Species"].unique().tolist()</span>
-<span id="cb1-425"><a></a>species.sort()</span>
-<span id="cb1-426"><a></a></span>
-<span id="cb1-427"><a></a>app_ui = ui.page_sidebar(</span>
-<span id="cb1-428"><a></a>    ui.sidebar(</span>
-<span id="cb1-429"><a></a>        ui.input_selectize(</span>
-<span id="cb1-430"><a></a>            "xvar", "X variable", numeric_cols, selected="Bill Length (mm)"</span>
-<span id="cb1-431"><a></a>        ),</span>
-<span id="cb1-432"><a></a>        ui.input_selectize(</span>
-<span id="cb1-433"><a></a>            "yvar", "Y variable", numeric_cols, selected="Bill Depth (mm)"</span>
-<span id="cb1-434"><a></a>        ),</span>
-<span id="cb1-435"><a></a>        ui.input_checkbox_group(</span>
-<span id="cb1-436"><a></a>            "species", "Filter by species", species, selected=species</span>
-<span id="cb1-437"><a></a>        ),</span>
-<span id="cb1-438"><a></a>        ui.hr(),</span>
-<span id="cb1-439"><a></a>        ui.input_switch("by_species", "Show species", value=True),</span>
-<span id="cb1-440"><a></a>        ui.input_switch("show_margins", "Show marginal plots", value=True),</span>
-<span id="cb1-441"><a></a>    ),</span>
-<span id="cb1-442"><a></a>    ui.output_plot("scatter"),</span>
-<span id="cb1-443"><a></a>)</span>
-<span id="cb1-444"><a></a></span>
-<span id="cb1-445"><a></a></span>
-<span id="cb1-446"><a></a>def server(input: Inputs, output: Outputs, session: Session):</span>
-<span id="cb1-447"><a></a>    @reactive.Calc</span>
-<span id="cb1-448"><a></a>    def filtered_df() -&gt; pd.DataFrame:</span>
-<span id="cb1-449"><a></a>        """Returns a Pandas data frame that includes only the desired rows"""</span>
-<span id="cb1-450"><a></a></span>
-<span id="cb1-451"><a></a>        # This calculation "requires" that at least one species is selected</span>
-<span id="cb1-452"><a></a>        req(len(input.species()) &gt; 0)</span>
-<span id="cb1-453"><a></a></span>
-<span id="cb1-454"><a></a>        # Filter the rows so we only include the desired species</span>
-<span id="cb1-455"><a></a>        return df[df["Species"].isin(input.species())]</span>
-<span id="cb1-456"><a></a></span>
-<span id="cb1-457"><a></a>    @output</span>
-<span id="cb1-458"><a></a>    @render.plot</span>
-<span id="cb1-459"><a></a>    def scatter():</span>
-<span id="cb1-460"><a></a>        """Generates a plot for Shiny to display to the user"""</span>
-<span id="cb1-461"><a></a></span>
-<span id="cb1-462"><a></a>        # The plotting function to use depends on whether margins are desired</span>
-<span id="cb1-463"><a></a>        plotfunc = sns.jointplot if input.show_margins() else sns.scatterplot</span>
-<span id="cb1-464"><a></a></span>
-<span id="cb1-465"><a></a>        plotfunc(</span>
-<span id="cb1-466"><a></a>            data=filtered_df(),</span>
-<span id="cb1-467"><a></a>            x=input.xvar(),</span>
-<span id="cb1-468"><a></a>            y=input.yvar(),</span>
-<span id="cb1-469"><a></a>            hue="Species" if input.by_species() else None,</span>
-<span id="cb1-470"><a></a>            hue_order=species,</span>
-<span id="cb1-471"><a></a>            legend=False,</span>
-<span id="cb1-472"><a></a>        )</span>
-<span id="cb1-473"><a></a></span>
-<span id="cb1-474"><a></a></span>
-<span id="cb1-475"><a></a>app = App(app_ui, server)</span>
+<span id="cb1-422"><a></a># https://raw.githubusercontent.com/jcheng5/simplepenguins.R/main/penguins.csv</span>
+<span id="cb1-423"><a></a></span>
+<span id="cb1-424"><a></a>df = pd.read_csv(Path(__file__).parent / "penguins.csv", na_values="NA")</span>
+<span id="cb1-425"><a></a>numeric_cols = df.select_dtypes(include=["float64"]).columns.tolist()</span>
+<span id="cb1-426"><a></a>species = df["Species"].unique().tolist()</span>
+<span id="cb1-427"><a></a>species.sort()</span>
+<span id="cb1-428"><a></a></span>
+<span id="cb1-429"><a></a>app_ui = ui.page_sidebar(</span>
+<span id="cb1-430"><a></a>    ui.sidebar(</span>
+<span id="cb1-431"><a></a>        ui.input_selectize(</span>
+<span id="cb1-432"><a></a>            "xvar", "X variable", numeric_cols, selected="Bill Length (mm)"</span>
+<span id="cb1-433"><a></a>        ),</span>
+<span id="cb1-434"><a></a>        ui.input_selectize(</span>
+<span id="cb1-435"><a></a>            "yvar", "Y variable", numeric_cols, selected="Bill Depth (mm)"</span>
+<span id="cb1-436"><a></a>        ),</span>
+<span id="cb1-437"><a></a>        ui.input_checkbox_group(</span>
+<span id="cb1-438"><a></a>            "species", "Filter by species", species, selected=species</span>
+<span id="cb1-439"><a></a>        ),</span>
+<span id="cb1-440"><a></a>        ui.hr(),</span>
+<span id="cb1-441"><a></a>        ui.input_switch("by_species", "Show species", value=True),</span>
+<span id="cb1-442"><a></a>        ui.input_switch("show_margins", "Show marginal plots", value=True),</span>
+<span id="cb1-443"><a></a>    ),</span>
+<span id="cb1-444"><a></a>    ui.output_plot("scatter"),</span>
+<span id="cb1-445"><a></a>)</span>
+<span id="cb1-446"><a></a></span>
+<span id="cb1-447"><a></a></span>
+<span id="cb1-448"><a></a>def server(input: Inputs, output: Outputs, session: Session):</span>
+<span id="cb1-449"><a></a>    @reactive.Calc</span>
+<span id="cb1-450"><a></a>    def filtered_df() -&gt; pd.DataFrame:</span>
+<span id="cb1-451"><a></a>        """Returns a Pandas data frame that includes only the desired rows"""</span>
+<span id="cb1-452"><a></a></span>
+<span id="cb1-453"><a></a>        # This calculation "requires" that at least one species is selected</span>
+<span id="cb1-454"><a></a>        req(len(input.species()) &gt; 0)</span>
+<span id="cb1-455"><a></a></span>
+<span id="cb1-456"><a></a>        # Filter the rows so we only include the desired species</span>
+<span id="cb1-457"><a></a>        return df[df["Species"].isin(input.species())]</span>
+<span id="cb1-458"><a></a></span>
+<span id="cb1-459"><a></a>    @output</span>
+<span id="cb1-460"><a></a>    @render.plot</span>
+<span id="cb1-461"><a></a>    def scatter():</span>
+<span id="cb1-462"><a></a>        """Generates a plot for Shiny to display to the user"""</span>
+<span id="cb1-463"><a></a></span>
+<span id="cb1-464"><a></a>        # The plotting function to use depends on whether margins are desired</span>
+<span id="cb1-465"><a></a>        plotfunc = sns.jointplot if input.show_margins() else sns.scatterplot</span>
+<span id="cb1-466"><a></a></span>
+<span id="cb1-467"><a></a>        plotfunc(</span>
+<span id="cb1-468"><a></a>            data=filtered_df(),</span>
+<span id="cb1-469"><a></a>            x=input.xvar(),</span>
+<span id="cb1-470"><a></a>            y=input.yvar(),</span>
+<span id="cb1-471"><a></a>            hue="Species" if input.by_species() else None,</span>
+<span id="cb1-472"><a></a>            hue_order=species,</span>
+<span id="cb1-473"><a></a>            legend=False,</span>
+<span id="cb1-474"><a></a>        )</span>
+<span id="cb1-475"><a></a></span>
 <span id="cb1-476"><a></a></span>
-<span id="cb1-477"><a></a>## file: requirements.txt</span>
-<span id="cb1-478"><a></a>shiny==1.0.0</span>
-<span id="cb1-479"><a></a>shinyswatch==0.2.4</span>
-<span id="cb1-480"><a></a>seaborn==0.12.2</span>
-<span id="cb1-481"><a></a>matplotlib==3.7.1</span>
-<span id="cb1-482"><a></a>## file: README</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-477"><a></a>app = App(app_ui, server)</span>
+<span id="cb1-478"><a></a></span>
+<span id="cb1-479"><a></a>## file: requirements.txt</span>
+<span id="cb1-480"><a></a>shiny==1.0.0</span>
+<span id="cb1-481"><a></a>shinyswatch==0.2.4</span>
+<span id="cb1-482"><a></a>seaborn==0.12.2</span>
+<span id="cb1-483"><a></a>matplotlib==3.7.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="key-features-of-shiny" class="slide level2">
 <h2>Key features of Shiny</h2>
