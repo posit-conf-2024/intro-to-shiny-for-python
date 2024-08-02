@@ -1,5 +1,5 @@
 ---
-title: "Getting started with Shiny express"
+title: "Getting started with Shiny Express"
 title-slide-attributes: 
   data-background-image:  images/shiny-for-python-seattle.jpg
   data-background-position: bottom left
