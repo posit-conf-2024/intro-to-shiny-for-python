@@ -2,7 +2,7 @@ from shiny.express import ui, render, input, module
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-# from plots import temp_distribution, daily_error
+# import plots
 import plots
 
 infile = Path(__file__).parent / "weather.csv"
