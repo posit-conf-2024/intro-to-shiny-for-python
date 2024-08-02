@@ -7,6 +7,7 @@ def walk_dir():
   # remove dirs that start with _
   dirs = [dir for dir in dirs if not dir.startswith('_')]
   ptn = ".*?-(\d+)-.*"
+  n_changed = 0
   for dir in dirs:
     match = re.search(ptn, dir)
     if match:
@@ -23,19 +24,25 @@ def walk_dir():
             title = match.group(2)
             # print(f"Title: {title}")
             new_content = f'title: "{number} {title}"\n'
-            print(f"New contents: {new_content}")
-            print(f"Dir: {dir}, number: {number}")
-            print(f"Contents of {index_path}: {title_line}")
-            print(f"New content: {new_content}")
-            if title_line != changed:
+            if title_line != new_content:
               content[1] = new_content
               changed = True
+              n_changed += 1
+              print(f"New contents: {new_content}")
+              print(f"Dir: {dir}, number: {number}")
+              print(f"Contents of {index_path}: {title_line}")
+              print(f"New content: {new_content}")
         if changed:
           with open(index_path, 'w', encoding='utf-8') as f:
             f.writelines(content)
+  if n_changed > 0:
+    print(f"Changed {n_changed} files.")
+  else:
+    print("=== exercises.py ===")
+    print("No files changed.")
 
 
 
+docs_dir = 'docs/exercises'
 if __name__ == '__main__':
-  docs_dir = 'docs/exercises'
   walk_dir()
