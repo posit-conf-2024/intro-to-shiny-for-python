@@ -72,7 +72,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return filtered_data().temp_distirbution()
+        return filtered_data().temp_distribution()
 
     @output
     @render.plot

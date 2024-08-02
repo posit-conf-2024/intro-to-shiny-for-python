@@ -11,7 +11,7 @@ from plotnine import (
 )
 
 
-def temp_distirbution(plot_df: pd.DataFrame) -> ggplot:
+def temp_distribution(plot_df: pd.DataFrame) -> ggplot:
     plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
     plot_df = pd.melt(
         plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]

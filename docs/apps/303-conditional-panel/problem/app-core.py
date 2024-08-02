@@ -95,7 +95,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot

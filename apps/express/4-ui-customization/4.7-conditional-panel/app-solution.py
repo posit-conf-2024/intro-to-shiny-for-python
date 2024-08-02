@@ -1,7 +1,7 @@
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -96,7 +96,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot

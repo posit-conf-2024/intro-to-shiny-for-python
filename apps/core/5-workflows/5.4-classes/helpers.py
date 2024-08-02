@@ -20,7 +20,7 @@ class WeatherDisplay:
         df = df[(df["date"] > dates[0]) & (df["date"] <= dates[1])]
         self.dataframe = df
 
-    def temp_distirbution(self):
+    def temp_distribution(self):
         plot_df = self.dataframe[["observed_temp", "forecast_temp", "date"]]
         plot_df = pd.melt(
             plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
