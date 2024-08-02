@@ -175,4 +175,5 @@ site_libs
 
 temp/
 
-.quarto_temp
+.quarto/
+
