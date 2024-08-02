@@ -177,5 +177,6 @@ temp/
 
 .quarto/
 docs/*.html
-/docs/include/*.html
+!docs/include/*.html
+
 
