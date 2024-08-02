@@ -176,4 +176,6 @@ site_libs
 temp/
 
 .quarto/
+docs/*.html
+/docs/include/*.html
 
