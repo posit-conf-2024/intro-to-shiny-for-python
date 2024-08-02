@@ -343,5 +343,8 @@
   },
   "docs/apps/300-navsets/index.qmd": {
     "index.html": "d21f7eba"
+  },
+  "docs/exercises/express-401-module/index.qmd": {
+    "index.html": "0e44b05a"
   }
 }
