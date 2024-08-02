@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-col-width/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-402-iterators/index.html">402 Iterators</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-402-iterators/index.html">402 Iterators</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -163,8 +163,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-401-col-width/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">401 Column Width</span></a>
+  <a href="../../../docs/exercises/express-401-modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">401 Modules</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -192,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-col-width/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-402-iterators/index.html">402 Iterators</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-401-modules/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-402-iterators/index.html">402 Iterators</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">402 Iterators</h1>
 </div>
@@ -211,13 +211,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+Instructions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -239,7 +239,7 @@ Exercise
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -315,7 +315,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -362,7 +362,7 @@ from plotnine import (
 )
 
 
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+def temp_distribution(plot_df: pd.DataFrame) -&gt; ggplot:
     plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
     plot_df = pd.melt(
         plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
@@ -2316,7 +2316,7 @@ date,city,state,observed_temp,forecast_temp
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -2387,7 +2387,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -2434,7 +2434,7 @@ from plotnine import (
 )
 
 
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+def temp_distribution(plot_df: pd.DataFrame) -&gt; ggplot:
     plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
     plot_df = pd.melt(
         plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
@@ -4388,7 +4388,7 @@ date,city,state,observed_temp,forecast_temp
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -4464,7 +4464,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -4511,7 +4511,7 @@ from plotnine import (
 )
 
 
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+def temp_distribution(plot_df: pd.DataFrame) -&gt; ggplot:
     plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
     plot_df = pd.melt(
         plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
@@ -6458,7 +6458,7 @@ date,city,state,observed_temp,forecast_temp
 </code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>The source code for this exercise is <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/problem">here</a>.</p>
+<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-402-iterators/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-402-iterators/problem</a>.</p>
 </div>
 </div>
 </div>

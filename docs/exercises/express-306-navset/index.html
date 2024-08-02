@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>306 Extract function – Intro to Shiny for Python / Conf(2024)</title>
+<title>306 Navset – Intro to Shiny for Python / Conf(2024)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -111,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Reactivity</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../docs/ui-customization.html"> 
+    <a class="nav-link active" href="../../../docs/ui-customization.html" aria-current="page"> 
 <span class="menu-text">UI Customization</span></a>
   </li>  
   <li class="nav-item">
@@ -126,6 +126,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-301-sidebar/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-306-navset/index.html">306 Navset</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
   <div id="quarto-announcement" data-announcement-id="17c3353fa487da670c8d44723e1bd226" class="alert alert-warning hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
 <p><strong>Alert</strong> - this site is under active construction</p>
 </div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
@@ -133,6 +143,95 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/ui-customization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-301-sidebar/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">301 Sidebar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-302-cards/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">302 Cards</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-303-cards-switch/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">303 Cards switch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-304-layout-columns/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">304 Layout columns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-305-dynamic-ui/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">305 Dynamic UI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/express-306-navset/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">306 Navset</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apps</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/301-cards/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">301 Cards</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/302-dynamic-ui/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">302 Dynamic UI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/303-conditional-panel/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">303 Conditional Panel</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
@@ -140,9 +239,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/express-301-sidebar/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/express-306-navset/index.html">306 Navset</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">306 Extract function</h1>
+<h1 class="title">306 Navset</h1>
 </div>
 
 
@@ -159,13 +258,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+Instructions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -188,7 +287,7 @@ from shiny.express import render, ui, input
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -212,7 +311,7 @@ with ui.layout_sidebar():
 
             @render.plot
             def error_distribution():
-                return temp_distirbution(filtered_data())
+                return temp_distribution(filtered_data())
             
             @render.plot
             def error_by_day():
@@ -248,7 +347,7 @@ from plotnine import (
 )
 
 
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+def temp_distribution(plot_df: pd.DataFrame) -&gt; ggplot:
     plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
     plot_df = pd.melt(
         plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
@@ -274,7 +373,7 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -329,7 +428,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -2271,7 +2370,7 @@ date,city,state,observed_temp,forecast_temp
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -2319,7 +2418,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -2344,7 +2443,7 @@ from shiny.express import render, ui, input
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -2368,7 +2467,7 @@ with ui.layout_sidebar():
 
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
     
     @render.plot
     def error_by_day():
@@ -2405,7 +2504,7 @@ from plotnine import (
 )
 
 
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+def temp_distribution(plot_df: pd.DataFrame) -&gt; ggplot:
     plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
     plot_df = pd.melt(
         plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
@@ -2431,7 +2530,7 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -2486,7 +2585,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -4428,7 +4527,7 @@ date,city,state,observed_temp,forecast_temp
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -4476,7 +4575,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -4501,7 +4600,7 @@ from shiny.express import render, ui, input
 from shiny import reactive
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -4525,7 +4624,7 @@ with ui.layout_sidebar():
 
             @render.plot
             def error_distribution():
-                return temp_distirbution(filtered_data())
+                return temp_distribution(filtered_data())
             
             @render.plot
             def error_by_day():
@@ -4561,7 +4660,7 @@ from plotnine import (
 )
 
 
-def temp_distirbution(plot_df: pd.DataFrame) -&gt; ggplot:
+def temp_distribution(plot_df: pd.DataFrame) -&gt; ggplot:
     plot_df = plot_df[["observed_temp", "forecast_temp", "date"]]
     plot_df = pd.melt(
         plot_df, id_vars="date", value_vars=["observed_temp", "forecast_temp"]
@@ -4587,7 +4686,7 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -4642,7 +4741,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -6584,7 +6683,7 @@ date,city,state,observed_temp,forecast_temp
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
@@ -6632,7 +6731,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot
@@ -6649,7 +6748,7 @@ app = App(app_ui, server)
 </code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>The source code for this exercise is <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/problem">here</a>.</p>
+<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-306-navset/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-306-navset/problem</a>.</p>
 </div>
 </div>
 </div>
