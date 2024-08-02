@@ -319,5 +319,8 @@
   },
   "docs/apps/303-conditional-panel/index.qmd": {
     "index.html": "717dbed4"
+  },
+  "docs/exercises/express-102-ui-module/index.qmd": {
+    "index.html": "5ff2a12e"
   }
 }
