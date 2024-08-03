@@ -1,4 +1,4 @@
-.PHONY: clean render preview prerender html docs slds publish exer apps all
+.PHONY: clean render preview prerender html docs slds publish exer apps all check
 
 SITE := _site
 SLIDES_DIR := slides
@@ -90,3 +90,6 @@ exer: $(EXERCISE_HTML)
 $(EXERCISE_HTML): $(SITE_DOCS)/exercises/%/index.html: $(DOCS)/exercises/%/index.qmd $(wildcard docs/exercises/%/problem/*)
 # @echo "Files that will change: $@ and $(patsubst _site/docs/exercises/%,docs/exercises/%,$(@:.html=.qmd))"
 	quarto render $(patsubst $(SITE_DOCS)/exercises/%,docs/exercises/%,$(@:.html=.qmd)) --log-level $(LOG_LEVEL)
+
+check:
+	python check.py
