@@ -79,7 +79,7 @@ website:
           - docs/exercises/express-302-cards/index.qmd
           - docs/exercises/express-303-cards-switch/index.qmd
           - docs/exercises/express-304-layout-columns/index.qmd
-          - docs/exercises/express-305-dynamic-ui/index.qmd
+          - docs/exercises/express-305-render-express/index.qmd
           - docs/exercises/express-306-navset/index.qmd
           - docs/exercises/express-307-value-box/index.qmd
           - docs/exercises/express-308-layout/index.qmd
