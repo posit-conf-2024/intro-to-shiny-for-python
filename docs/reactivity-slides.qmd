@@ -38,18 +38,8 @@ from helpers import include_shiny_folder, multiple_choice_app, Quiz
 
 ## How did Shiny do that?
 
+{{< yourview '000-penguins' >}}
 
-```{python}
-# | echo: false
-# | output: asis
-include_shiny_folder(
-    "./exercises/express-108-plot/problem",
-    file_name="app-solution.py",
-    exclusions=["app.py"],
-    components="viewer",
-    viewer_height=700,
-)
-```
 
 ## How did Shiny do that?
 
@@ -181,16 +171,7 @@ flowchart TD
 
 Draw the graph of this application:
 
-```{python}
-# | echo: false
-# | output: asis
-include_shiny_folder(
-    "./apps/200-penguins/problem",
-    file_name="app.py",
-    components="viewer",
-    viewer_height=700,
-)
-```
+{{< yourview '200-penguins' >}}
 
 # Solution
 
@@ -436,14 +417,8 @@ flowchart TD
 
 ## Reactive Calc example
 
-```{python}
-# | echo: false
-# | output: asis
-include_shiny_folder(
-  "apps/200-simple-reactive-calc/problem",
-  viewer_height=700,
-)
-```
+{{< yourview '200-simple-reactive-calc' >}}
+
 
 ## Identify repetition
 ```{.python code-line-numbers="4,5,11,12"}
@@ -743,17 +718,8 @@ flowchart TD
 
 ## Example
 
-```{python}
-# | echo: false
-# | output: asis
-include_shiny_folder(
-    "apps/202-reactive-event/problem",
-    file_name="app.py",
-    # exclusions=["app.py"],
-    components="viewer",
-    viewer_height=700,
-)
-```
+{{< yourview '202-reactive-event' >}}
+
 
 ## reactive.event
 
@@ -796,15 +762,7 @@ def output_txt():
 - Shiny has a function `ui.show_modal` which triggers a modal window. 
 - Using what you know so far, how would you call this function?
 
-```{python}
-# | echo: false
-# | output: asis
-include_shiny_folder(
-    "apps/201-modal/problem",
-    components="viewer",
-    viewer_height=400,
-)
-```
+{{< yourview '201-modal' >}}
 
 
 

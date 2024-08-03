@@ -24,17 +24,14 @@ format:
     mermaid-format: svg
 ---
 
-## Hello world
+## your turn
 
 {{< yourturn 'express-101-hello-world' >}}
 
-## Hello your view
+## your turn app only
 
-{{< yourview '303-conditional-panel' >}}
+{{< yourview 'express-101-hello-world' >}}
 
-## Debug
-
-{{< yourturn 'express-303-conditional-panel' >}}
 
 
 ## Initial state
