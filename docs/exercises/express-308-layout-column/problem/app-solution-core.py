@@ -1,7 +1,7 @@
 from shiny import ui, render, reactive, App
 import pandas as pd
 from pathlib import Path
-from plots import temp_distirbution, daily_error
+from plots import temp_distribution, daily_error
 import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
@@ -30,15 +30,15 @@ app_ui = ui.page_fluid(
                     ui.row(
                         ui.column(
                             6,
-                            x.ui.card(
-                                x.ui.card_header("Distribution"),
+                            ui.card(
+                                ui.card_header("Distribution"),
                                 ui.output_plot("error_distribution"),
                             ),
                         ),
                         ui.column(
                             6,
-                            x.ui.card(
-                                x.ui.card_header("Error by day"),
+                            ui.card(
+                                ui.card_header("Error by day"),
                                 ui.output_plot("error_by_day"),
                                 ui.input_slider(
                                     "alpha", "Plot Alpha", value=0.5, min=0, max=1
@@ -67,7 +67,7 @@ def server(input, output, session):
     @output
     @render.plot
     def error_distribution():
-        return temp_distirbution(filtered_data())
+        return temp_distribution(filtered_data())
 
     @output
     @render.plot

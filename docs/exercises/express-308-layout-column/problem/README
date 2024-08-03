@@ -1,0 +1,2 @@
+The `Error` nav panel contains multiple cards, but these are stacked on top of one another.
+Use a column layout to display the cards in a single column.

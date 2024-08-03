@@ -1,5 +1,5 @@
 ---
-title: "308 Layout"
+title: "308 Layout Column"
 ---
 
 ```{python}
