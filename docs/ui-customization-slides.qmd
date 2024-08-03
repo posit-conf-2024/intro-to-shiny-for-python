@@ -455,11 +455,6 @@ app = App(app_ui, server)
 {{< yourturn 'express-308-layout-column' >}}
 
 
-## Your turn
-
-{{< yourturn 'express-309-ui-composition' >}}
-
-
 
 # Conclusion
 

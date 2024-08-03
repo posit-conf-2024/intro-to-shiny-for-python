@@ -83,7 +83,6 @@ website:
           - docs/exercises/express-306-navset/index.qmd
           - docs/exercises/express-307-value-box/index.qmd
           - docs/exercises/express-308-layout-column/index.qmd
-          - docs/exercises/express-309-ui-composition/index.qmd
         - section: "Apps"
           contents:
           - docs/apps/301-cards/index.qmd
