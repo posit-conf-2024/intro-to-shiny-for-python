@@ -17,12 +17,12 @@ insert_it = function(type, name, use_index)
     if type == "yourturn" then
       msg_pre = "Complete the exercise on this page:"
       img_src = "../images/keep-calm-and-take-your-turn.png"
-      txt = "Go to Exercise"
+      txt = "Open Exercise"
       btn_colour = "#72994E"
-      font_colour = "#000000"
+      font_colour = "#FFFFFF"
       prefix = "exercises/"
     else 
-      msg_pre = "View the exercise on this page:"
+      msg_pre = "View the app on this page:"
       img_src = "../images/keep-calm-and-view-the-app.png"
       txt = "View the App"
       btn_colour = "#4A6B79"
