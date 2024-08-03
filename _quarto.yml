@@ -82,7 +82,7 @@ website:
           - docs/exercises/express-305-render-express/index.qmd
           - docs/exercises/express-306-navset/index.qmd
           - docs/exercises/express-307-value-box/index.qmd
-          - docs/exercises/express-308-layout/index.qmd
+          - docs/exercises/express-308-layout-column/index.qmd
           - docs/exercises/express-309-ui-composition/index.qmd
         - section: "Apps"
           contents:
@@ -95,7 +95,7 @@ website:
           text: Slides
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-401-col-width/index.qmd
+          - docs/exercises/express-401-modules/index.qmd
           - docs/exercises/express-402-iterators/index.qmd
           - docs/exercises/express-403-extract-function/index.qmd
 
