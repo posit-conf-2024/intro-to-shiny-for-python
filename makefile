@@ -61,35 +61,10 @@ html: index docs slds
 publish:
 	quarto publish gh-pages --no-render --no-prompt
 
-all: html exer apps clean
+all: html exer clean
 
-
-# Rule to build index.html files in subfolders of docs/exercises
-APP_DIRS := $(wildcard docs/apps/*)
-APP_QMD := $(foreach dir,$(app_DIRS),$(wildcard $(dir)/index.qmd))
-APP_HTML := $(patsubst docs/apps/%,_site/docs/apps/%,$(app_QMD:.qmd=.html))
-
-apps: $(APP_HTML)
-
-# Include files in the problems subfolder as dependencies
-$(APp_HTML): $(SITE_DOCS)/apps/%/index.html: $(DOCS)/apps/%/index.qmd $(wildcard docs/apps/%/problem/*)
-# @echo "Files that will change: $@ and $(patsubst _site/docs/apps/%,docs/apps/%,$(@:.html=.qmd))"
-	quarto render $(patsubst $(SITE_DOCS)/apps/%,docs/apps/%,$(@:.html=.qmd)) --log-level $(LOG_LEVEL)
-
-
-
-
-# Rule to build index.html files in subfolders of docs/exercises
-EXERCISE_DIRS := $(wildcard docs/exercises/*)
-EXERCISE_QMD := $(foreach dir,$(EXERCISE_DIRS),$(wildcard $(dir)/index.qmd))
-EXERCISE_HTML := $(patsubst docs/exercises/%,_site/docs/exercises/%,$(EXERCISE_QMD:.qmd=.html))
-
-exer: $(EXERCISE_HTML)
-
-# Include files in the problems subfolder as dependencies
-$(EXERCISE_HTML): $(SITE_DOCS)/exercises/%/index.html: $(DOCS)/exercises/%/index.qmd $(wildcard docs/exercises/%/problem/*)
-# @echo "Files that will change: $@ and $(patsubst _site/docs/exercises/%,docs/exercises/%,$(@:.html=.qmd))"
-	quarto render $(patsubst $(SITE_DOCS)/exercises/%,docs/exercises/%,$(@:.html=.qmd)) --log-level $(LOG_LEVEL)
+exer:
+	python make.py
 
 check:
 	python check.py
