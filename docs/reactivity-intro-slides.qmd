@@ -1,0 +1,400 @@
+---
+title: "Reactivity Intro"
+title-slide-attributes: 
+  data-background-image:  images/shiny-for-python-seattle.jpg
+  data-background-position: bottom left
+  data-background-size: cover
+format:
+  positconfslides-revealjs: 
+    incremental: false
+    chalkboard: true
+    slide-number: c/t
+    code-copy: true
+    center-title-slide: false
+    highlight-style: a11y
+    width: "1600"
+    height: "900"
+    css: "styles.css"
+    filters:
+      - positconfslides
+      - reveal-auto-agenda
+    auto-agenda:
+      heading: Agenda
+    mermaid-format: svg
+---
+
+```{python}
+# | echo: false
+import os
+import sys
+exercises_path = "./exercises"
+if exercises_path not in sys.path:
+    sys.path.append(exercises_path)
+from helpers import include_shiny_folder, multiple_choice_app, Quiz
+```
+
+# Reactivity overview
+
+
+## How did Shiny do that?
+
+{{< yourview '000-penguins' >}}
+
+
+## How did Shiny do that?
+
+- We told Shiny _what_ to do
+- We didn't tell Shiny _when_ to do it
+
+## How do other frameworks work?
+
+- Streamlit
+
+  - Re-render everything everywhere all the time
+
+- Dash / Panel / Gradio
+
+  - Define callback functions
+
+## Event driven programming
+
+- You have to do it
+- Easy to get wrong
+- Hard to tell when you get it wrong
+
+## What's a better way?
+
+::: {.v-center-container}
+- Infer the relationships between components 
+- Build a computation graph
+:::
+
+## Does that really work?
+
+- You're not wrong to find this suspicious
+- "Does Shiny infer relationships by analyzing the source code?" 
+  - No
+  - Many ways that would break down!
+- For this to work, the inference has to be 100% reliable
+
+## It really works
+
+- We have 10 years of real-world experience with this form of reactivity
+- The underlying mechanism is simple, reliable, and intuitive
+- Not static analysis, but rather, runtime tracing
+- Originally inspired by Meteor.js
+
+## Outputs and recipes
+
+
+```{.python code-line-numbers="5,12"}
+from shiny import Inputs, Outputs, Session, App, render, ui
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n", "N", 0, 100, 20),
+    ui.output_text_verbatim("txt"),
+)
+
+def server(input: Inputs, output: Outputs, session: Session):
+    @output
+    @render.text
+    def txt():
+        return f"n*2 is {input.n() * 2}"
+
+
+app = App(app_ui, server)
+```
+
+## Recipes and inputs
+
+```{.python code-line-numbers="4,13"}
+from shiny import Inputs, Outputs, Session, App, render, ui
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n", "N", 0, 100, 20),
+    ui.output_text_verbatim("txt"),
+)
+
+
+def server(input: Inputs, output: Outputs, session: Session):
+    @output
+    @render.text
+    def txt():
+        return f"n*2 is {input.n() * 2}"
+
+
+app = App(app_ui, server)
+```
+
+
+## Reactive graph
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{mermaid}
+flowchart TD
+  S[Slider] --> R{Recipe}
+  R --> Sc((Text))
+```
+:::
+
+::: {.column width="50%"}
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text))
+```
+:::
+
+::::
+
+
+
+
+## Declarative programming
+
+- Tell Shiny how each output should be filled
+- Trust that the framework will keep everything up-to-date
+- You're setting the menu, not doing the cooking
+
+## Event-driven programming
+
+![](images/carmy-yelling.webp){fig-align="center"}
+
+## Reactive programming
+
+![](images/carmy-whites.png){fig-align="center"}
+
+# Your turn
+
+## Your turn
+
+Draw the graph of this application:
+
+{{< yourview '200-penguins' >}}
+
+# Solution
+
+## Solution: Initial state
+
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+    Sl[Slider]  --> Sc 
+  Sl --> M((Dist Plot))
+  linkStyle 0 display:none
+  linkStyle 1 display:none
+  linkStyle 2 display:none
+```
+
+## Solution: Calculate scatter plot
+
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+    Sl[Slider]  --> Sc 
+  Sl --> M((Dist Plot))
+  linkStyle 0 display:none
+  linkStyle 1 display:none
+  linkStyle 2 display:none
+  classDef changed fill:#f96
+```
+
+## Solution: Calculate scatter plot
+
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+    Sl[Slider]  --> Sc 
+  Sl --> M((Dist Plot))
+  linkStyle 2 display:none
+  classDef changed fill:#f96
+```
+
+## Solution: Calculate distribution
+
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+    Sl[Slider]  --> Sc 
+  Sl --> M((Dist Plot)):::changed
+  linkStyle 2 display:none
+  classDef changed fill:#f96
+```
+
+## Solution: Calculate distribution
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+    Sl[Slider]  --> Sc 
+  Sl --> M((Dist Plot)):::changed
+  classDef changed fill:#f96
+```
+
+
+## Solution: Reactive graph
+
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+    Sl[Slider]  --> Sc 
+  Sl --> M((Dist Plot))
+```
+
+
+## Solution: Slider changes
+
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+  Sl[Slider]:::changed --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+```
+
+## Solution: Invalidated
+
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+  Sl[Slider]:::changed --> Sc 
+  Sl --> M((Dist Plot)):::changed
+  
+  classDef changed fill:#f96
+```
+
+## Solution: Forget dependencies
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+  linkStyle 0 display:none
+  linkStyle 1 display:none
+  linkStyle 2 display:none
+```
+
+## Solution: Recalculate
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+  linkStyle 0 display:none
+  linkStyle 1 display:none
+  linkStyle 2 display:none
+```
+
+## Solution: Recalculate
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+  linkStyle 2 display:none
+```
+
+
+## Solution: Recalculate
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot)):::changed
+  
+  classDef changed fill:#f96
+  linkStyle 2 display:none
+```
+
+## Solution: Recalculate
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot)):::changed
+  
+  classDef changed fill:#f96
+```
+
+## Solution: Updated
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+```
+
+## Solution: Checkbox changes
+```{mermaid}
+flowchart TD
+  C[Checkbox]:::changed --> Sc((Scatter\nPlot))
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+```
+
+## Solution: Invalidated
+
+```{mermaid}
+flowchart TD
+  C[Checkbox]:::changed --> Sc((Scatter\nPlot)):::changed
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+```
+
+## Solution: Forget dependencies
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+  linkStyle 0 display:none
+  linkStyle 1 display:none
+```
+
+## Solution: Recalculate
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+  linkStyle 0 display:none
+  linkStyle 1 display:none
+```
+
+## Solution: Recalculate
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot)):::changed
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+```
+
+## Solution: Updated
+```{mermaid}
+flowchart TD
+  C[Checkbox] --> Sc((Scatter\nPlot))
+  Sl[Slider] --> Sc 
+  Sl --> M((Dist Plot))
+  
+  classDef changed fill:#f96
+```
+

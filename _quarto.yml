@@ -21,7 +21,7 @@ website:
       - text: "Hello, Shiny express!"
         file: docs/shiny-express.qmd
       - text: "Reactivity"
-        file: docs/reactivity.qmd
+        file: docs/reactivity-intro.qmd
       - text: "UI Customization"
         file: docs/ui-customization.qmd
       - text: "Best practices"
@@ -55,8 +55,12 @@ website:
           
     - title: "Reactivity"
       contents:
-        - href: docs/reactivity.qmd
-          text: Slides
+        - section: "Slides"
+          contents:
+          - href: docs/reactivity-intro.qmd
+            text: Reactivity Intro
+          - href: docs/reactivity-calc.qmd
+            text: Reactive Calculations
         - section: "Exercises"
           contents: 
           - docs/exercises/express-201-reactive-calc/index.qmd

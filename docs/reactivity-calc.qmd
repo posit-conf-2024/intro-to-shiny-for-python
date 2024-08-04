@@ -1,0 +1,11 @@
+---
+title: Reactive calculations
+---
+
+To view in full screen, click on the slides then press {{< kbd  f >}}, or <a href = "reactivity-calc-slides.html" target="_blank">open in new tab.</a>
+
+```{=html}
+<iframe class="slide-deck" src="reactivity-calc-slides.html" height="420" width="747" style="border: 1px solid #123233;"></iframe>
+```
+
+{{< yourturnIframeContainer >}}
