@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Hello, Shiny express!</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../docs/reactivity.html"> 
+    <a class="nav-link" href="../../../docs/reactivity-intro.html"> 
 <span class="menu-text">Reactivity</span></a>
   </li>  
   <li class="nav-item">
@@ -187,8 +187,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-305-dynamic-ui/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">305 Dynamic UI</span></a>
+  <a href="../../../docs/exercises/express-305-render-express/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">305 Render express</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -205,14 +205,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-308-layout/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">308 Layout</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/exercises/express-309-ui-composition/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">309 UI composition</span></a>
+  <a href="../../../docs/exercises/express-308-layout-column/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">308 Layout Column</span></a>
   </div>
 </li>
       </ul>
@@ -2322,7 +2316,7 @@ weather = pd.read_csv(infile)
 weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 
 
-card1 = x.ui.card(ui.output_plot("Plot"))
+card1 = ui.card(ui.output_plot("Plot"))
 tab1 = ui.nav(
     "Tab1",
     card1,
@@ -4479,7 +4473,7 @@ weather = pd.read_csv(infile)
 weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 
 
-card1 = x.ui.card(ui.output_plot("Plot"))
+card1 = ui.card(ui.output_plot("Plot"))
 tab1 = ui.nav(
     "Tab1",
     card1,
@@ -6635,7 +6629,7 @@ weather = pd.read_csv(infile)
 weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 
 
-card1 = x.ui.card(ui.output_plot("Plot"))
+card1 = ui.card(ui.output_plot("Plot"))
 tab1 = ui.nav(
     "Tab1",
     card1,
