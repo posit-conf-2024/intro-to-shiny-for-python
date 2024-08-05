@@ -116,6 +116,43 @@ Director of Learning, Posit
 
 ::::
 
+# Anatomy of an App
+
+##
+
+Each Shiny app consists of:
+
+1. An HTML UI (i.e., a web page)
+2. A computer that monitors and updates the web page (e.g., a server)  
+
+![](../images/app-architecture.001.png)
+
+##
+
+Each Shiny app consists of:
+
+1. An HTML UI (i.e., a web page)  
+2. A computer that monitors and updates the web page (e.g., a server)  
+
+![](../images/app-architecture.002.png)
+
+##
+
+Each Shiny app consists of:
+
+1. An HTML UI (i.e., a web page)
+2. A computer that monitors and updates the web page (e.g., a server)  
+
+![](../images/app-architecture.003.png)
+
+
+## Spreadsheet Analogy
+
+![](../gifs/spreadsheets.gif)
+
+1. Inputs
+2. Outputs
+3. Instructions on how to build outputs from inputs
 
 ## Why Shiny?
 
