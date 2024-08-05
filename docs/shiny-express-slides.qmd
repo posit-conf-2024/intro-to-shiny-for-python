@@ -80,17 +80,42 @@ Director of Learning, Posit
 
 : {.striped}
 
-# Shiny
+# Hello Shiny
 
-## Goals of Session 1
+## Goals
 
-Welcome
+1.  Understand the "whole game"/ big picture
 
-1.  Understand the mechanics of a Shiny app (what to do, not why you do it)
+2.  Identify the resources that will support you
 
-2.  Develop comfort with failure and debugging
+3.  Develop comfort with debugging
 
-3.  You know where to go for help
+## What is a Shiny app? {background-color=`{python} bgcolor`}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+1. Pair up
+2. Run the app
+3. Describe what you see
+4. Note one point of interest
+:::
+
+::: {.column width="50%"}
+
+1. [Reactive plot](https://gallery.shinyapps.io/template-basic-sidebar1/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/basic-sidebar))  
+1. [Restaurant tips dashboard](https://gallery.shinyapps.io/template-dashboard-tips1/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/dashboard-tips))  
+1. [Streaming Database updates](https://shiny.posit.co/py/templates/monitor-database/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/monitor-database))  
+1. [Location Distance Calculator](https://gallery.shinyapps.io/template-map-distance/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/map-distance))  
+1. [Model Scoring](https://gallery.shinyapps.io/template-model-scoring/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/model-scoring))
+1. [Survey form](https://shiny.posit.co/py/templates/survey/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/survey))  
+1. [Shiny Wordle](https://shinylive.io/py/app/#wordle) ([code](https://shinylive.io/py/editor/#wordle))  
+
+:::
+
+::::
+
 
 ## Why Shiny?
 
