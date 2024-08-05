@@ -45,11 +45,6 @@
     background-color: brown;
 }
 
-.reveal div.column {
-    background-color: blueviolet;
-}
-
-
 .reveal svg.mermaid-js {
   /* transform: scale(2) translateX(50%) translateX(50%); */
   background-color: red;
