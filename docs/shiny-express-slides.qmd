@@ -32,12 +32,59 @@ if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 
 from helpers import include_shiny_folder
+
+bgcolor = "whitesmoke"
 ```
 
-# Getting started
+## Today's goal
 
+Learn how to build reactive web apps with Shiny and Python, from the simple to the mission critical.
+
+## Who we are
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![Andrie de Vries](../images/andrie.png){width=80%}  
+Andrie de Vries  
+Director of Product Strategy, Posit
+:::
+
+::: {.column width="50%"}
+![Garrett Grolemund](../images/garrett.png){width=80%}  
+Garrett Grolemund  
+Director of Learning, Posit
+:::
+
+::::
+
+## Who you are {background-color=`{python} bgcolor`}
+- Name
+- What you do
+- Have you used:
+    + Python?
+    + Shiny (for R or Python)?
+    + HTML, CSS, JavaScript?
+
+## Today's Schedule
+
+|                 |               |
+|-----------------|---------------|
+| Hello Shiny     |  9:00 - 10:30 |
+| Coffee break    | 10:30 - 11:00 |
+| Reactivity      | 11:00 - 12:30 |
+| Lunch           | 12:30 - 1:30  |
+| User Interfaces |  1:30 - 3:00  |
+| Coffee break    |  3:00 - 3:30  |
+| Best Practices  |  3:30 - 5:00  |
+
+: {.striped}
+
+# Shiny
 
 ## Goals of Session 1
+
+Welcome
 
 1.  Understand the mechanics of a Shiny app (what to do, not why you do it)
 
@@ -54,16 +101,11 @@ The server watches the web page and responds to user events on that page.
 We need to tell the compute what to do when the user clicks.
 
 
-## How this session works
 
--   This session is going to be exercise based
--   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
--   You can do them on the website or open the apps in the `apps/core` folder
--   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
 
 ## Your turn
 
-{{< yourturn 'express-101-hello-world' >}}
+{{< yourturn 'express-101-run-app' >}}
 
 
 # Hello Shiny
@@ -370,3 +412,12 @@ Most Shiny app development consists of variations of these three things:
 
 {{< yourturn 'express-108-plot' >}}
 
+
+# left over
+
+## How this session works
+
+-   This session is going to be exercise based
+-   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
+-   You can do them on the website or open the apps in the `apps/core` folder
+-   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
