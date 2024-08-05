@@ -325,5 +325,8 @@
   },
   "docs/exercises/express-101-run-app/index.qmd": {
     "index.html": "2fcd7921"
+  },
+  "docs/exercises/express-103-inputs/index.qmd": {
+    "index.html": "bcaf38f4"
   }
 }

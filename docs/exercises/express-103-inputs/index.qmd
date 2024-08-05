@@ -1,5 +1,5 @@
 ---
-title: "103 Debug data frame"
+title: "103 Add input widgets"
 ---
 
 ```{python}
