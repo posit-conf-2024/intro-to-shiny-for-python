@@ -104,11 +104,11 @@ Director of Learning, Posit
 
 ::: {.column width="50%"}
 
-1. [Reactive plot](https://gallery.shinyapps.io/template-basic-sidebar1/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/basic-sidebar))  
+1. [Model Scoring](https://gallery.shinyapps.io/template-model-scoring/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/model-scoring))  
 1. [Restaurant tips dashboard](https://gallery.shinyapps.io/template-dashboard-tips1/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/dashboard-tips))  
+1. [Database Explorer](https://shiny.posit.co/py/templates/database-explorer/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/database-explorer))  
 1. [Streaming Database updates](https://shiny.posit.co/py/templates/monitor-database/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/monitor-database))  
 1. [Location Distance Calculator](https://gallery.shinyapps.io/template-map-distance/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/map-distance))  
-1. [Model Scoring](https://gallery.shinyapps.io/template-model-scoring/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/model-scoring))
 1. [Survey form](https://shiny.posit.co/py/templates/survey/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/survey))  
 1. [Shiny Wordle](https://shinylive.io/py/app/#wordle) ([code](https://shinylive.io/py/editor/#wordle))  
 
@@ -120,7 +120,7 @@ Director of Learning, Posit
 
 ##
 
-Each Shiny app consists of:
+Each Shiny app involves:
 
 1. An HTML UI (i.e., a web page)
 2. A computer that monitors and updates the web page (e.g., a server)  
@@ -129,7 +129,7 @@ Each Shiny app consists of:
 
 ##
 
-Each Shiny app consists of:
+Each Shiny app involves:
 
 1. An HTML UI (i.e., a web page)  
 2. A computer that monitors and updates the web page (e.g., a server)  
@@ -138,13 +138,66 @@ Each Shiny app consists of:
 
 ##
 
-Each Shiny app consists of:
+Each Shiny app involves:
 
 1. An HTML UI (i.e., a web page)
 2. A computer that monitors and updates the web page (e.g., a server)  
 
 ![](../images/app-architecture.003.png)
 
+## Components 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Each Shiny app consists of:
+
+1. Inputs
+:::
+
+::: {.column width="60%"}
+
+![](../images/app-components.001.png)
+:::
+
+::::
+
+## Components 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Each Shiny app consists of:
+
+1. Inputs
+2. Outputs
+:::
+
+::: {.column width="60%"}
+
+![](../images/app-components.002.png)
+:::
+
+::::
+
+## Components 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Each Shiny app consists of:
+
+1. Inputs
+2. Outputs
+3. Instructions on how to build outputs from inputs
+:::
+
+::: {.column width="60%"}
+
+![](../images/app-components.003.png)
+:::
+
+::::
 
 ## Spreadsheet Analogy
 
@@ -153,6 +206,21 @@ Each Shiny app consists of:
 1. Inputs
 2. Outputs
 3. Instructions on how to build outputs from inputs
+
+
+## Attention Check {background-color=`{python} bgcolor`}
+
+![](../images/app-components.004.png)
+
+## Attention Check {background-color=`{python} bgcolor`}
+
+![](../images/app-components.005.png)
+
+## Attention Check {background-color=`{python} bgcolor`}
+
+![](../images/app-components.006.png)
+
+
 
 ## Why Shiny?
 
