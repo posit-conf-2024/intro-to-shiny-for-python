@@ -20,15 +20,6 @@
     margin-bottom: 20px;
 }
 
-.v-center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: brown;
-    color: white
-}
-
 .reveal div.column {
     background-color: blueviolet;
 }
