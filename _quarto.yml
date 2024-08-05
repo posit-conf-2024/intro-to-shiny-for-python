@@ -2,7 +2,7 @@ project:
   type: website
 
 execute:
-  freeze: auto
+  freeze: false
 
 website:
   title: "Intro to Shiny for Python / Conf(2024)"
@@ -21,7 +21,7 @@ website:
       - text: "Hello, Shiny express!"
         file: docs/shiny-express.qmd
       - text: "Reactivity"
-        file: docs/reactivity.qmd
+        file: docs/reactivity-intro.qmd
       - text: "UI Customization"
         file: docs/ui-customization.qmd
       - text: "Best practices"
@@ -49,16 +49,29 @@ website:
           - docs/exercises/express-106-debug/index.qmd
           - docs/exercises/express-107-debug/index.qmd
           - docs/exercises/express-108-plot/index.qmd
+        - section: "Apps"
+          contents:
+          - docs/apps/000-penguins/index.qmd
+          
     - title: "Reactivity"
       contents:
-        - href: docs/reactivity.qmd
-          text: Slides
+        - section: "Slides"
+          contents:
+          - href: docs/reactivity-intro.qmd
+            text: Reactivity Intro
+          - href: docs/reactivity-calc.qmd
+            text: Reactive Calculations
         - section: "Exercises"
           contents: 
           - docs/exercises/express-201-reactive-calc/index.qmd
           - docs/exercises/express-202-reactive-stack/index.qmd
           - docs/exercises/express-208-reactive-event/index.qmd
           - docs/exercises/express-209-reactive-effect/index.qmd
+        - section: "Apps"
+          contents:
+          - docs/apps/200-simple-reactive-calc/index.qmd
+          - docs/apps/201-modal/index.qmd
+          - docs/apps/202-reactive-event/index.qmd
 
     - title: "UI Customization"
       contents:
@@ -70,9 +83,14 @@ website:
           - docs/exercises/express-302-cards/index.qmd
           - docs/exercises/express-303-cards-switch/index.qmd
           - docs/exercises/express-304-layout-columns/index.qmd
-          - docs/exercises/express-305-dynamic-ui/index.qmd
+          - docs/exercises/express-305-render-express/index.qmd
+          - docs/exercises/express-306-navset/index.qmd
+          - docs/exercises/express-307-value-box/index.qmd
+          - docs/exercises/express-308-layout-column/index.qmd
         - section: "Apps"
           contents:
+          - docs/apps/301-cards/index.qmd
+          - docs/apps/302-dynamic-ui/index.qmd
           - docs/apps/303-conditional-panel/index.qmd
     - title: "Best practices"
       contents:
@@ -80,7 +98,7 @@ website:
           text: Slides
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-401-col-width/index.qmd
+          - docs/exercises/express-401-modules/index.qmd
           - docs/exercises/express-402-iterators/index.qmd
           - docs/exercises/express-403-extract-function/index.qmd
 

@@ -1,0 +1,11 @@
+---
+title: Reactivity Intro
+---
+
+To view in full screen, click on the slides then press {{< kbd  f >}}, or <a href = "reactivity-intro-slides.html" target="_blank">open in new tab.</a>
+
+```{=html}
+<iframe class="slide-deck" src="reactivity-intro-slides.html" height="420" width="747" style="border: 1px solid #123233;"></iframe>
+```
+
+{{< yourturnIframeContainer >}}

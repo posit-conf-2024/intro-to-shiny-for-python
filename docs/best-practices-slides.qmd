@@ -171,7 +171,7 @@ app = App(app_ui, None)
 
 ## Your turn
 
-{{< yourturn 'express-401-col-width' >}}
+{{< yourturn 'express-401-modules' >}}
 
 ## Your turn
 
@@ -197,6 +197,7 @@ app = App(app_ui, None)
     - Harder to reason about
 
 ## Pull logic out of the reactive context
+
 - Non-reactive functions are familliar and predictable
 - You can call them in a notebook
 - You can write unit tests 

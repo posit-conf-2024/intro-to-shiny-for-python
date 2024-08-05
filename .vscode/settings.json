@@ -8,5 +8,10 @@
         "behaviour"
     ],
     "liveServer.settings.root": "/_site",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "tests"
+    ]
 }

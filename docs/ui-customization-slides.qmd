@@ -171,14 +171,8 @@ with ui.navset_tab():
 
 ## Navset example
 
-```{python}
-# | echo: false
-# | output: asis
+{{< yourview 'express-300-navset' >}}
 
-include_shiny_folder(
-    "apps/300-navsets", components="viewer", viewer_height=500
-)
-```
 
 
 ## Your turn
@@ -210,19 +204,16 @@ app_ui = ui.page_fluid(
 ```
 
 ## Cards example
-```{python}
-# | echo: false
-# | output: asis
 
-include_shiny_folder(
-    "apps/301-cards", components="viewer", viewer_height=500
-)
-```
+{{< yourview 'express-301-cards' >}}
+
 
 
 ## Your turn
 
-Go to [exercises/9-cards](./exercises/9-cards.html) or run `apps/core/exercises/4-ui-customization/4.2-cards` locally.
+
+{{< yourturn 'express-302-cards' >}}
+
 
 # Rows and columns
 
@@ -319,7 +310,14 @@ ui = ui.fluid_page(ui.navset_tab(tab1, tab2, tab3))
 
 ## Your turn
 
-Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally.
+{{< yourturn 'express-304-layout-columns' >}}
+
+<!-- Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exercises/4-ui-customization/4.3-layout` locally. -->
+
+## Your turn
+
+{{< yourturn 'express-305-render-express' >}}
+
 
 # Review
 
@@ -333,29 +331,29 @@ Go to [exercises/10-layout](./exercises/10-layout.html) or run `apps/core/exerci
 
 ## Your turn
 
-Go to [exercises/11-value-boxes](./exercises/11-value-boxes.html) or run `apps/core/exercises/4-ui-customization/4.5-value-boxes` locally.
+{{< yourturn 'express-307-value-box' >}}
 
-## Dynamic user interfaces
+
+# Dynamic user interfaces
+
+## Why create dynamic UIs?
 
 - Guide the user along a happy path
 - If you don't want them to click on something, don't show it to them
 - Much better to prevent errors than to handle them 
 
-## Dynamic UI
-```{python}
-# | echo: false
-# | output: asis
+## Dynamic UI example
 
-include_shiny_folder("./apps/302-dynamic-ui", components="viewer")
-```
+{{< yourview '302-dynamic-ui' >}}
 
-# Dynamic UI
 
 ## Shiny Dynamic UI
 
-1) **`@render.ui`**: Generate UI elements on the server
-2) **`ui.conditional_panel`**: Hide things on the browser
-3) **`ui.update_*`**: Modify existing UI elements
+Function               | Description
+-------------------    | ----------------
+`@render.ui`           | Generate UI elements on the server
+`ui.conditional_panel` | Hide things on the browser
+`ui.update_*`          | Modify existing UI elements
 
 ## Dynamic UI
 
@@ -365,6 +363,11 @@ include_shiny_folder("./apps/302-dynamic-ui", components="viewer")
 - Referred to like a regular ui element
 
 ## Dynamic UI
+
+{{< yourview '302-dynamic-ui' >}}
+
+
+## UI side
 
 ```{.python code-line-numbers="5-6"}
 from shiny.express import render, ui, input
@@ -379,7 +382,7 @@ with ui.card():
             return ui.input_slider("n", "N", 0, 100, 20)
 ```
 
-## Dynamic UI
+## Server side
 
 ```{.python code-line-numbers="7-10"}
 from shiny.express import render, ui, input
@@ -394,22 +397,15 @@ with ui.card():
             return ui.input_slider("n", "N", 0, 100, 20)
 ```
 
-## Dynamic UI
+## Summary of dynamic UI
 
 - Dynamic UIs can be intimidating, but they follow a familiar pattern:
     - Create a rendering function which returns a UI chunk
     - Decorate the function with and `@render.ui`
+
 - Very powerful, but 
     - Round trip to the server
     - You can lose session state
-
-## Dynamic UI
-```{python}
-# | echo: false
-# | output: asis
-
-include_shiny_folder("apps/302-dynamic-ui", components="viewer")
-```
 
 # Conditional panel
 
@@ -421,12 +417,8 @@ include_shiny_folder("apps/302-dynamic-ui", components="viewer")
 
 ## Conditional panel
 
-```{python}
-# | echo: false
-# | output: asis
+{{< yourview '302-dynamic-ui' >}}
 
-include_shiny_folder("apps/302-dynamic-ui", components="viewer")
-```
 
 ## Conditional panel
 
@@ -460,7 +452,8 @@ app = App(app_ui, server)
 
 ## Your turn
 
-Go to [exercises/12-layout](./exercises/12-layout.html) or run problems `4.6` and `4.7` in `apps/core/exercises/4-ui-customization/`.
+{{< yourturn 'express-308-layout-column' >}}
+
 
 
 # Conclusion

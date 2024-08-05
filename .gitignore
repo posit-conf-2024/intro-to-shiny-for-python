@@ -174,4 +174,9 @@ site_libs
 *:Zone.Identifier
 
 temp/
+
+.quarto/
+docs/*.html
+!docs/include/*.html
+/.jupyter_cache/*
 /.quarto/

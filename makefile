@@ -1,4 +1,4 @@
-.PHONY: clean render preview prerender html docs slds publish
+.PHONY: clean render preview prerender html docs slds publish exer apps all check
 
 SITE := _site
 SLIDES_DIR := slides
@@ -12,6 +12,7 @@ clean:
 	find docs/exercises -type d -name '*_files' -exec rm -rf {} +
 	find . -type f -name '*.Identifier' -exec rm -rf {} +
 	find . -type d -name '__pycache__' -exec rm -rf {} +
+	find . -type d -name '.jupyter_cache' -exec rm -rf {} +
 
 
 render:
@@ -59,3 +60,11 @@ html: index docs slds
 
 publish:
 	quarto publish gh-pages --no-render --no-prompt
+
+all: html exer clean
+
+exer:
+	python make.py
+
+check:
+	python check.py
