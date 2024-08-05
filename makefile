@@ -7,12 +7,12 @@ SITE_SLIDES := $(SITE)/$(SLIDES_DIR)
 SITE_DOCS := $(SITE)/$(DOCS_DIR)
 
 clean:
-	find docs/exercises -type f -name '*.html' -exec rm -f {} +
-	find docs/exercises -type f -name '*.ipynb' -exec rm -f {} +
-	find docs/exercises -type d -name '*_files' -exec rm -rf {} +
-	find . -type f -name '*.Identifier' -exec rm -rf {} +
-	find . -type d -name '__pycache__' -exec rm -rf {} +
-	find . -type d -name '.jupyter_cache' -exec rm -rf {} +
+	@find docs/exercises -type f -name '*.html' -exec rm -f {} +
+	@find docs/exercises -type f -name '*.ipynb' -exec rm -f {} +
+	@find docs/exercises -type d -name '*_files' -exec rm -rf {} +
+	@find . -type f -name '*.Identifier' -exec rm -rf {} +
+	@find . -type d -name '__pycache__' -exec rm -rf {} +
+	@find . -type d -name '.jupyter_cache' -exec rm -rf {} +
 
 
 render:
