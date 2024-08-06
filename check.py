@@ -18,6 +18,7 @@ if errors != 0:
     for name in names:
         print(name)
 
-
+from checks import summary
+summary.write_csv_summary()
   
    
