@@ -36,10 +36,21 @@ from helpers import include_shiny_folder
 bgcolor = "whitesmoke"
 ```
 
+## Exercises
+
+::: {.callout-note}
+
+-   This workshop is exercise based
+-   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
+-   The exercise files are available for download from [github](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises)
+
+:::
+
 ## Today's goal
 
 Learn how to build reactive web apps with Shiny and Python, from the simple to the mission critical.
 
+<!-- 
 ## Who we are
 
 :::: {.columns}
@@ -57,6 +68,7 @@ Director of Learning, Posit
 :::
 
 ::::
+-->
 
 ## Who you are {background-color=`{python} bgcolor`}
 - Name
@@ -66,6 +78,7 @@ Director of Learning, Posit
     + Shiny (for R or Python)?
     + HTML, CSS, JavaScript?
 
+<!--
 ## Today's Schedule
 
 |                 |               |
@@ -79,8 +92,9 @@ Director of Learning, Posit
 | Best Practices  |  3:30 - 5:00  |
 
 : {.striped}
+-->
 
-# Hello Shiny
+# Anatomy of an App
 
 ## Goals
 
@@ -90,46 +104,31 @@ Director of Learning, Posit
 
 3.  Develop comfort with debugging
 
-## Your turns (exercises!)
+## What is a Shiny app? {background-color=`{python} bgcolor`}
 
--   This workshop is exercise based
--   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
--   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
--   Even better: if you need help, raise your hand
+:::: {.columns}
 
-## Your turn
+::: {.column width="50%"}
 
-{{< yourturn 'express-101-run-app' >}}
+1. Pair up
+2. Run the app
+3. Describe what you see
+4. Note one point of interest
+:::
 
-## Run an App
+::: {.column width="50%"}
 
-Shiny for Python apps exist as ...Python files. To build an app from the file run:  
-\  
-\    
-```python
-shiny run app.py
-```
-\ 
-\   
-where `app.py` is the name of your file.
+1. [Model Scoring](https://gallery.shinyapps.io/template-model-scoring/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/model-scoring))  
+1. [Restaurant tips dashboard](https://gallery.shinyapps.io/template-dashboard-tips1/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/dashboard-tips))  
+1. [Database Explorer](https://shiny.posit.co/py/templates/database-explorer/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/database-explorer))  
+1. [Streaming Database updates](https://shiny.posit.co/py/templates/monitor-database/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/monitor-database))  
+1. [Location Distance Calculator](https://gallery.shinyapps.io/template-map-distance/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/map-distance))  
+1. [Survey form](https://shiny.posit.co/py/templates/survey/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/survey))  
+1. [Shiny Wordle](https://shinylive.io/py/app/#wordle) ([code](https://shinylive.io/py/editor/#wordle))  
 
-##
+:::
 
-Today we will do that in an exercise container.
-
-![](../images/exercise-button.png)
-
-##
-
-But you can run this at any command line.
-
-![](../images/vscode-command-line.png)
-
-## 
-
-Or use the VS Code Shiny extension, for a Run App button in VS Code.
-
-![](../images/vscode-button.png)
+::::
 
 
 ## What is a Shiny app?
@@ -158,32 +157,6 @@ Each Shiny app involves:
 2. A computer that watches the web page and responds to user events on that page    
 
 ![](../images/app-architecture.003.png)
-
-## What can a Shiny app do? {background-color=`{python} bgcolor`}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-1. Pair up
-2. Run the app
-3. Describe what you see
-4. Note one point of interest
-:::
-
-::: {.column width="50%"}
-
-1. [Model Scoring](https://gallery.shinyapps.io/template-model-scoring/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/model-scoring))  
-1. [Restaurant tips dashboard](https://gallery.shinyapps.io/template-dashboard-tips1/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/dashboard-tips))  
-1. [Database Explorer](https://shiny.posit.co/py/templates/database-explorer/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/database-explorer))  
-1. [Streaming Database updates](https://shiny.posit.co/py/templates/monitor-database/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/monitor-database))  
-1. [Location Distance Calculator](https://gallery.shinyapps.io/template-map-distance/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/map-distance))  
-1. [Survey form](https://shiny.posit.co/py/templates/survey/) ([code](https://github.com/posit-dev/py-shiny-templates/tree/main/survey))  
-1. [Shiny Wordle](https://shinylive.io/py/app/#wordle) ([code](https://shinylive.io/py/editor/#wordle))  
-
-:::
-
-::::
 
 # Anatomy of an App
 
@@ -241,13 +214,11 @@ Each Shiny app consists of:
 
 ::::
 
-## Components 
+## Reactivity 
 
 :::: {.columns}
 
 ::: {.column width="40%"}
-Reactivity:
-
 When an input changes, Shiny reacts by rebuilding just the outputs that depend on it.
 :::
 
@@ -290,7 +261,7 @@ Shiny lets you quickly create reactive web apps without worrying about:
 - callbacks 
 — or even HTML, CSS, and JavaScript
 
-And, these apps can scale from prototype to production ready.
+And, these apps can scale from prototype to production-ready.
 
 ## Quiz {background-color=`{python} bgcolor`}
 
@@ -304,25 +275,42 @@ And, these apps can scale from prototype to production ready.
 
 ![](../images/app-components.006.png)
 
-# Run an App
+# Your first App
 
 ## Your turn
 
 {{< yourturn 'express-101-run-app' >}}
 
+## Run an App
 
-
-
-## What is a Shiny app?
-
-```{python}
-# | echo: false
-# | output: asis
-
-include_shiny_folder(
-    "apps/000-penguins/problem", components="viewer", viewer_height=700
-)
+Shiny for Python apps exist as ...Python files. To build an app from the file run:  
+\  
+\    
+```python
+shiny run app.py
 ```
+\ 
+\   
+where `app.py` is the name of your file.
+
+##
+
+Today we will do that in an exercise container.
+
+![](../images/exercise-button.png)
+
+##
+
+But you can run this at any command line.
+
+![](../images/vscode-command-line.png)
+
+## 
+
+Or use the VS Code Shiny extension, for a Run App button in VS Code.
+
+![](../images/vscode-button.png)
+
 
 
 
