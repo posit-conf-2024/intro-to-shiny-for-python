@@ -1,0 +1,67 @@
+---
+title: "Workflow introduction"
+title-slide-attributes: 
+  data-background-image:  images/shiny-for-python-seattle.jpg
+  data-background-position: bottom left
+  data-background-size: cover
+format:
+  positconfslides-revealjs: 
+    incremental: false
+    chalkboard: true
+    slide-number: c/t
+    code-copy: true
+    center-title-slide: false
+    code-link: true
+    highlight-style: a11y
+    width: "1600"
+    height: "900"
+    css: "styles.css"
+    filters:
+      - positconfslides
+      - reveal-auto-agenda
+    auto-agenda:
+      heading: Agenda
+---
+```{python}
+# | echo: false
+import os
+import sys
+exercises_path = "./exercises"
+if exercises_path not in sys.path:
+    sys.path.append(exercises_path)
+from helpers import include_shiny_folder
+```
+
+# Introduction
+
+## Goals
+
+- Learn some Shiny best practices
+- Get a sense of how large complicated apps are structured
+- Know when you need to refactor your application
+
+# Refactoring
+
+## Avoid premature refactoring
+
+- Start by just getting your app to work
+- Take small steps to avoid repetition
+- Ultimately you're the one who needs to work with the code
+
+## When should you refactor?
+- You're trying to hold too much in your head
+- Changing the app is difficult
+- Other people don't understand your code
+- You don't understand your code!
+
+## Three main techniques
+- Use functions to generate UI
+- Separate reactive and non-reactive code
+- Modules
+
+## We're only going to cover two
+::: {.nonincremental}
+- Use functions to generate UI
+- Separate reactive and non-reactive code
+- ~~Modules~~
+:::

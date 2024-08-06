@@ -1,5 +1,5 @@
 ---
-title: "Workflow best practices"
+title: "Iterating over UI elements"
 title-slide-attributes: 
   data-background-image:  images/shiny-for-python-seattle.jpg
   data-background-position: bottom left
@@ -32,40 +32,6 @@ if exercises_path not in sys.path:
 from helpers import include_shiny_folder
 ```
 
-# Introduction
-
-## Goals
-
-- Learn some Shiny best practices
-- Get a sense of how large complicated apps are structured
-- Know when you need to refactor your application
-
-# Refactoring
-
-## Avoid premature refactoring
-
-- Start by just getting your app to work
-- Take small steps to avoid repetition
-- Ultimately you're the one who needs to work with the code
-
-## When should you refactor?
-- You're trying to hold too much in your head
-- Changing the app is difficult
-- Other people don't understand your code
-- You don't understand your code!
-
-## Three main techniques
-- Use functions to generate UI
-- Separate reactive and non-reactive code
-- Modules
-
-## We're only going to cover two
-::: {.nonincremental}
-- Use functions to generate UI
-- Separate reactive and non-reactive code
-- ~~Modules~~
-:::
-
 # UI Functions
 
 ## Background on functions
@@ -81,7 +47,7 @@ from helpers import include_shiny_folder
 <br><br>
 
 :::{.large}
-Data scientists forget funcitons when writing Shiny UIs
+Data scientists forget functions when writing Shiny UIs
 :::
 
 ## UI elements are just values
@@ -169,64 +135,8 @@ app = App(app_ui, None)
 - Clarifies how components interact with each other
  -->
 
-## Your turn
-
-{{< yourturn 'express-401-modules' >}}
 
 ## Your turn
 
 {{< yourturn 'express-402-iterators' >}}
 
-
-## Separate Reactive and Non-reactive logic
-
-- Most Shiny app code is non-reactive
-    - Drawing plots
-    - Summarizing data
-    - Interacting with databases
-    - (Really, everything except the actual reading of reactive inputs and calcs)
-- It's fine to include this code inside reactive functions
-- As your app grows you should separate them
-
-## Reactivity makes everything harder
-
-- Reactive context makes them inherently more difficult
-    - Harder to debug
-    - Harder to test
-    - Harder to document
-    - Harder to reason about
-
-## Pull logic out of the reactive context
-
-- Non-reactive functions are familliar and predictable
-- You can call them in a notebook
-- You can write unit tests 
-- Makes your reactive code much clearer
-- You can reuse them in other contexts
-
-## Your turn
-
-{{< yourturn 'express-403-extract-function' >}}
-
-
-
-# Modules
-
-## Modules
-
-- Not going to teach them, but you should know about them
-- Used when you want to encapsulate _both_ UI _and_ server logic together
-- Allows you to package and re-use parts of your application
-- Great for working with teams of developers
-- Essential for large applications
-
-# Question and Answer
-
-## Any questions?
-
-# Conclusion
-
-## Thank you!
-
-Also, please fill out the survey:  
-[https://pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)
