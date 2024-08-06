@@ -90,6 +90,48 @@ Director of Learning, Posit
 
 3.  Develop comfort with debugging
 
+## Your turns (exercises!)
+
+-   This workshop is exercise based
+-   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
+-   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
+-   Even better: if you need help, raise your hand
+
+## Your turn
+
+{{< yourturn 'express-101-run-app' >}}
+
+## Run an App
+
+Shiny for Python apps exist as ...Python files. To build an app from the file run:  
+\  
+\    
+```python
+shiny run app.py
+```
+\ 
+\   
+where `app.py` is the name of your file.
+
+##
+
+Today we will do that in an exercise container.
+
+![](../images/exercise-button.png)
+
+##
+
+But you can run this at any command line.
+
+![](../images/vscode-command-line.png)
+
+## 
+
+Or use the VS Code Shiny extension, for a Run App button in VS Code.
+
+![](../images/vscode-button.png)
+
+
 ## What is a Shiny app?
 
 Each Shiny app involves:
@@ -199,6 +241,23 @@ Each Shiny app consists of:
 
 ::::
 
+## Components 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Reactivity:
+
+When an input changes, Shiny reacts by rebuilding just the outputs that depend on it.
+:::
+
+::: {.column width="60%"}
+
+![](../images/app-components.003.png)
+:::
+
+::::
+
 ## Spreadsheet Analogy
 
 ![](../gifs/spreadsheets.gif)
@@ -245,13 +304,14 @@ And, these apps can scale from prototype to production ready.
 
 ![](../images/app-components.006.png)
 
+# Run an App
 
 ## Your turn
 
 {{< yourturn 'express-101-run-app' >}}
 
 
-# Hello Shiny
+
 
 ## What is a Shiny app?
 
@@ -265,34 +325,7 @@ include_shiny_folder(
 ```
 
 
-## Why Shiny for Python?
 
-Shiny is great because it lets you quickly create web apps without worrying about maintaining cache, managing state, and callbacks — or even HTML, CSS, and JavaScript.
-
--   Shiny is designed to take you from prototype to production
--   Easy enough to use for prototypes
--   Efficient enough to handle complexity
--   Everything you need to build production quality apps
--   You don't need to throw away your Shiny apps
-
-# Anatomy of a Shiny App
-
-## You need three things
-
-To make a Shiny app work you need to do three things:
-
-1.  Create a **UI section** that describes inputs and outputs
-
-    - Can contain text, plots, buttons, sliders, etc.
-
-2. Create a **server section**
-
-    - Contains your application logic
-    - In particular, it contains **rendering functions** that turn inputs into outputs
-
-3.  Link the server section and UI section
-
-    - by referring to the inputs in the server section
 
 
 ## Inputs using shiny express
