@@ -36,7 +36,7 @@ from helpers import include_shiny_folder
 bgcolor = "whitesmoke"
 ```
 
-## Exercises
+##
 
 ::: {.callout-note}
 
@@ -48,7 +48,8 @@ bgcolor = "whitesmoke"
 
 ## Today's goal
 
-Learn how to build reactive web apps with Shiny and Python, from the simple to the mission critical.
+Learn how to build reactive web apps with Shiny for Python,\
+from the simple to the mission critical.
 
 <!-- 
 ## Who we are
@@ -94,8 +95,6 @@ Director of Learning, Posit
 : {.striped}
 -->
 
-# Anatomy of an App
-
 ## Goals
 
 1.  Understand the "whole game"/ big picture
@@ -103,6 +102,8 @@ Director of Learning, Posit
 2.  Identify the resources that will support you
 
 3.  Develop comfort with debugging
+
+# Anatomy of an App
 
 ## What is a Shiny app? {background-color=`{python} bgcolor`}
 
@@ -217,7 +218,7 @@ Each Shiny app consists of:
 :::: {.columns}
 
 ::: {.column width="40%"}
-When an input changes, Shiny reacts by rebuilding just the outputs that depend on it.
+When an input changes, Shiny reacts by rebuilding the outputs that depend on it, and _only those outputs_.
 :::
 
 ::: {.column width="60%"}
@@ -239,10 +240,10 @@ When an input changes, Shiny reacts by rebuilding just the outputs that depend o
 
 ![](../gifs/spreadsheets-2.gif)
 
-Shiny only updates:
+Updates:
 
 1. When an input changes
-2. The parts of the app that depend on the input
+2. Only the parts of the app that depend on the input
 
 ## Key features of reactivity
 
@@ -256,8 +257,8 @@ Shiny lets you quickly create reactive web apps without worrying about:
 
 - cache
 - state
-- callbacks 
-— or even HTML, CSS, and JavaScript
+- callbacks  
+- ...or even HTML, CSS, and JavaScript
 
 And, these apps can scale from prototype to production-ready.
 
@@ -281,7 +282,7 @@ And, these apps can scale from prototype to production-ready.
 
 ## Run an App
 
-Shiny for Python apps exist as ...Python files. To build an app from the file run:  
+Shiny for Python apps exist as ...Python files. To build an app from the file run at the command line:  
 \  
 \    
 ```python
@@ -293,13 +294,13 @@ where `app.py` is the name of your file.
 
 ##
 
-Today we will do that in an exercise container.
+Today, we will do that in an exercise container.
 
 ![](../images/exercise-button.png)
 
 ##
 
-But you can run this at any command line.
+But you can run `shiny run app.py` at any command line.
 
 ![](../images/vscode-command-line.png)
 
@@ -310,8 +311,259 @@ Or use the VS Code Shiny extension, for a Run App button in VS Code.
 ![](../images/vscode-button.png)
 
 
+## The Important accounts data
 
 
+## Quiz {background-color=`{python} bgcolor`}
+
+Let's build an app.  
+  
+Who remembers the three components of an app?
+
+##
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![](../images/app-components.001.png)
+
+Inputs
+:::
+
+::: {.column width="30%"}
+![](../images/app-components.002.png)
+
+Outputs
+:::
+
+::: {.column width="30%"}
+![](../images/app-components.003.png)
+
+Instructions
+:::
+
+::::
+
+## UI functions
+
+-   The `ui` submodule contains functions to create UI elements
+-   Functions like `ui.h1()` or `ui.markdown()` add static HTML to the app
+-   We'll get to layout functions in Session 3
+
+<https://shiny.posit.co/py/api/express/express.ui.input_select.html>
+
+## Your turn
+
+{{< yourturn 'express-102-ui-module' >}}
+
+# Inputs
+
+## Inputs component gallery
+
+![](images/input-component-gallery.png)
+
+<https://shiny.posit.co/py/components/>
+
+## Demo
+
+## Inputs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 150
+
+from shiny.express import ui
+
+ui.input_slider("n", "N", 0, 100, 20)
+```
+
+```python
+ui.input_slider("n", "N", min=0, max=100, value=20)
+```
+:::
+
+::: {.column width="50%"}
+Notice:
+
+- Inputs all begin with `ui.Input_`.
+- Every input requires:
+    1.  A name for the value to collect  
+    1.  A label to display  
+    1.  Input specific options
+:::
+
+::::
+
+## The Shiny function reference 
+
+How can you learn about input specific options?
+
+<https://shiny.posit.co/py/api/express/>
+
+![](../images/shiny-function-reference.png)
+
+## Your turn
+
+{{< yourturn 'express-103-debug' >}}
+
+## Quiz {background-color=`{python} bgcolor`}
+
+What is the second thing a Shiny app needs?
+
+# Outputs
+
+## Outputs component gallery
+
+![](images/output-component-gallery.png)
+
+<https://shiny.posit.co/py/components/>
+
+## Outputs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 150
+
+from shiny.express import render
+
+@render.code  
+def text():
+    txt="Code text output"
+    return txt
+```
+
+```python
+@render.code  
+def text():
+    # ...
+    txt="Code text output"
+    return txt
+```
+:::
+
+::: {.column width="50%"}
+Notice:
+
+- Outputs are created by a `@render.` decorator
+- Pass the decorator a _set of instructions for building the output_ (in the form of a function that returns the contents of the output)
+:::
+
+::::
+
+## What is a decorator? {background-color=`{python} bgcolor`}
+
+Can any of our Python users explain?
+
+## Decorators are just functions
+
+A decorator is a function that wraps another function and changes its behavior. Decorators can take additional arguments. 
+  
+Python has a convenient syntax for decorators. So these would do the same thing:
+
+```python
+decorator(function, args)
+```
+
+```python
+@decorator(args)
+function
+```
+
+## Output demo
+
+## Your turn
+
+{{< yourturn 'express-104-filter' >}}
+
+# Reactivity
+
+## To make an app reactive...
+
+## To make an app reactive...
+
+Use an input value to build an output.
+
+- You can access an input's current value as `input.<name>()` where `<name>` is the string you passed to the input, e.g. `input.value()`.
+-   Inputs are read by calling them like a function: `input.n()`, not `input.n`
+-   Referring to an input creates a reactive link between that input and the rendering function
+-   When the input changes, the rendering function will re-execute
+-   You can use multiple inputs in the same rendering function
+
+##
+
+Sample code
+
+## Your turn
+
+{{< yourturn 'express-104-filter' >}}
+
+## Which input will cause the app to update? {background-color=`{python} bgcolor`}
+
+## How about now?
+
+## The components of an app
+
+Can we spot them in our sample code?
+
+# What can go wrong?
+
+## Common problems
+
+-   An output doesn't render
+-   An output doesn't update when an input changes
+-   There's some weird error
+
+
+
+
+
+
+
+
+## Your turn
+
+{{< yourturn 'express-105-connect-filter' >}}
+
+
+## Your turn
+
+{{< yourturn 'express-106-debug' >}}
+
+
+## Your turn
+
+{{< yourturn 'express-107-debug' >}}
+
+
+# Recap
+
+## Summary
+
+Most Shiny app development consists of variations of these three things:
+
+1.  Add Inputs and other UI elements
+2.  Define outputs with render functions
+3.  Connect inputs and outputs
+
+## Your turn
+
+{{< yourturn 'express-108-plot' >}}
+
+<!--
+# left over
+
+## How this session works
+
+-   This session is going to be exercise based
+-   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
+-   You can do them on the website or open the apps in the `apps/core` folder
+-   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
 
 
 ## Inputs using shiny express
@@ -413,81 +665,6 @@ def txt():
     return f"2 * n is {input.n() * 2}"
 ```
 
-## UI functions
-
--   The `ui` submodule contains functions to create UI elements
--   Inputs start with `ui.input_*()` and take an `id` and options
--   Other functions like `ui.h1()` or `ui.p()` add static HTML to the app
--   We'll get to layout functions in Session 3
-
-<https://shiny.posit.co/py/api/express/express.ui.input_select.html>
-
-## Inputs component gallery
-
-![](images/input-component-gallery.png)
-
-<https://shiny.posit.co/py/components/>
-
-
-## Render functions for outputs
-
-The render functions define the outputs of the app.
-
--   Outputs start with `render_*()` and usually just take an id
-
-<https://shiny.posit.co/py/api/express/express.render.plot.html>
-
-
-## Outputs component gallery
-
-![](images/output-component-gallery.png)
-
-<https://shiny.posit.co/py/components/>
-
-
-## Your turn
-
-{{< yourturn 'express-102-data-frame' >}}
-
-
-# Rendering functions on the server side
-
-## Server function
-
--   Every Shiny app needs a `server` function
--   The server function executes for each user session
--   This function contains **rendering functions** which define how to turn inputs into outputs
-
-## Rendering functions
-
-``` python
-def server(input, output, session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
-```
-
--   Functions are defined inside the main `server` function
--   They need to be **decorated** with `@output` and `@render.*` in that order
--   The function **name** should match the output id
--   The return value is sent to the Shiny UI
-
-## Decorators are just functions
-
-``` python
-    @output
-    @render.plot(alt="A body mass plot of penguins")
-    def mass_plot():
-        df = sample_data(penguins.copy(), input.sample())
-        df = df.loc[df["body_mass"] < input.mass()]
-        return dist_plot(df)
-```
-
--   Decorators are functions which take other functions
--   Shiny uses them to identify reactive functions
--   They can take arguments
-
 ## Simple app example
 
 ``` {.python code-line-numbers="5,10-13"}
@@ -507,16 +684,6 @@ def server(input, output, session):
 app = App(app_ui, server)
 ```
 
-## Common problems
-
--   An output doesn't render
--   An output doesn't update when an input changes
--   There's some weird error
-
-## Your turn
-
-{{< yourturn 'express-103-debug' >}}
-
 
 # Making the link
 
@@ -529,52 +696,4 @@ def server(input: Inputs, output: Outputs, session: Session):
     def txt():
         return f"n*2 is {input.n() * 2}"
 ```
-
--   Inputs are read by calling them like a function: `input.n()`, not `input.n`
--   Referring to an input creates a reactive link between that input and the rendering function
--   When the input changes, the rendering function will re-execute
--   You can use multiple inputs in the same rendering function
-
-## Your turn
-
-{{< yourturn 'express-104-filter' >}}
-
-
-## Your turn
-
-{{< yourturn 'express-105-connect-filter' >}}
-
-
-## Your turn
-
-{{< yourturn 'express-106-debug' >}}
-
-
-## Your turn
-
-{{< yourturn 'express-107-debug' >}}
-
-
-# Recap
-
-## Summary
-
-Most Shiny app development consists of variations of these three things:
-
-1.  Add UI elements
-2.  Add rendering functions
-3.  Connect inputs and outputs
-
-## Your turn
-
-{{< yourturn 'express-108-plot' >}}
-
-
-# left over
-
-## How this session works
-
--   This session is going to be exercise based
--   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
--   You can do them on the website or open the apps in the `apps/core` folder
--   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
+-->
