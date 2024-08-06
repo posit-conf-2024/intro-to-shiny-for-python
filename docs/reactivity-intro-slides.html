@@ -415,10 +415,19 @@
 <p>Reactivity overview</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
+<p>How do other frameworks work?</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Reactive programming</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Walking the graph</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
 <p>Your turn</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>Solution</p>
+<p>Conclusion</p>
 </div></li>
 </ul>
 </div>
@@ -443,9 +452,39 @@
 <li>We told Shiny <em>what</em> to do</li>
 <li>We didn’t tell Shiny <em>when</em> to do it</li>
 </ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>How do other frameworks work?</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-active">
+<p>How do other frameworks work?</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Reactive programming</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Walking the graph</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Conclusion</p>
+</div></li>
+</ul>
+</div>
 </section>
-<section id="how-do-other-frameworks-work" class="slide level2">
+<section id="how-do-other-frameworks-work-1" class="slide level2">
 <h2>How do other frameworks work?</h2>
+<p>Other web application frameworks use event-driven programming:</p>
 <ul>
 <li><p>Streamlit</p>
 <ul>
@@ -456,17 +495,78 @@
 <li>Define callback functions</li>
 </ul></li>
 </ul>
-</section>
-<section id="event-driven-programming" class="slide level2">
-<h2>Event driven programming</h2>
+
+<aside><div>
+<p>See also: <a href="https://shiny.posit.co/py/docs/comp-streamlit.html" class="uri">https://shiny.posit.co/py/docs/comp-streamlit.html</a></p>
+</div></aside></section>
+<section id="using-callback-functions-is-hard" class="slide level2">
+<h2>Using callback functions is hard!</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Every callback introduces side effects</li>
+<li>Callbacks are hard to reason about, hard to compose</li>
+<li>Bugs are subtle, conditional on sequences of events</li>
+<li>In short: “callback hell”</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r smaller number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># This is not how shiny works!</span></span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(gWidgets)</span>
+<span id="cb1-3"><a></a>txt <span class="ot">&lt;-</span> <span class="fu">gtext</span>(<span class="st">"Customize me"</span>, <span class="at">container =</span> <span class="fu">gwindow</span>(),</span>
+<span id="cb1-4"><a></a>  <span class="at">handler =</span> <span class="cf">function</span>(h, ...) {</span>
+<span id="cb1-5"><a></a>    <span class="co"># Do something in response to text changing</span></span>
+<span id="cb1-6"><a></a>  }</span>
+<span id="cb1-7"><a></a>)</span>
+<span id="cb1-8"><a></a>btn <span class="ot">&lt;-</span> <span class="fu">gbutton</span>(<span class="st">"Click me"</span>, <span class="at">container =</span> <span class="fu">gwindow</span>(),</span>
+<span id="cb1-9"><a></a>  <span class="at">handler =</span> <span class="cf">function</span>(h, ...) {</span>
+<span id="cb1-10"><a></a>    <span class="co"># Do something in response to a button click</span></span>
+<span id="cb1-11"><a></a>  }</span>
+<span id="cb1-12"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+
+<aside><div>
+<p>Source: <a href="https://jcheng.shinyapps.io/reactivity-dsc2014" class="uri">https://jcheng.shinyapps.io/reactivity-dsc2014</a></p>
+</div></aside></section>
+<section id="event-driven-programming-summary" class="slide level2">
+<h2>Event driven programming: summary</h2>
 <ul>
 <li>You have to do it</li>
 <li>Easy to get wrong</li>
 <li>Hard to tell when you get it wrong</li>
 </ul>
+
+<img data-src="images/carmy-yelling.webp" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Reactive programming</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>How do other frameworks work?</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Reactive programming</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Walking the graph</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Conclusion</p>
+</div></li>
+</ul>
+</div>
 </section>
-<section id="whats-a-better-way" class="slide level2">
-<h2>What’s a better way?</h2>
+<section id="is-there-a-better-way" class="slide level2">
+<h2>Is there a better way?</h2>
 <div class="v-center-container">
 <ul>
 <li>Infer the relationships between components</li>
@@ -474,68 +574,36 @@
 </ul>
 </div>
 </section>
-<section id="does-that-really-work" class="slide level2">
-<h2>Does that really work?</h2>
+<section id="the-better-way-reactivity" class="slide level2">
+<h2>The better way: reactivity</h2>
 <ul>
-<li>You’re not wrong to find this suspicious</li>
-<li>“Does Shiny infer relationships by analyzing the source code?”
+<li>Shiny does <strong>not</strong> infer relationships by analyzing the source code
 <ul>
-<li>No</li>
 <li>Many ways that would break down!</li>
 </ul></li>
-<li>For this to work, the inference has to be 100% reliable</li>
-</ul>
-</section>
-<section id="it-really-works" class="slide level2">
-<h2>It really works</h2>
+<li>Not static analysis, but rather, runtime tracing
 <ul>
-<li>We have 10 years of real-world experience with this form of reactivity</li>
 <li>The underlying mechanism is simple, reliable, and intuitive</li>
-<li>Not static analysis, but rather, runtime tracing</li>
-<li>Originally inspired by Meteor.js</li>
+<li>The <code>shiny</code> team have more than 10 years of real-world experience with this form of reactivity</li>
+</ul></li>
 </ul>
-</section>
-<section id="outputs-and-recipes" class="slide level2">
-<h2>Outputs and recipes</h2>
-<div class="sourceCode" id="cb1" data-code-line-numbers="5,12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> Inputs, Outputs, Session, App, render, ui</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb1-4"><a></a>    ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb1-5"><a></a>    ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
-<span id="cb1-6"><a></a>)</span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="kw">def</span> server(<span class="bu">input</span>: Inputs, output: Outputs, session: Session):</span>
-<span id="cb1-9"><a></a>    <span class="at">@output</span></span>
-<span id="cb1-10"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb1-11"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb1-12"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb1-13"><a></a></span>
-<span id="cb1-14"><a></a></span>
-<span id="cb1-15"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="recipes-and-inputs" class="slide level2">
-<h2>Recipes and inputs</h2>
-<div class="sourceCode" id="cb2" data-code-line-numbers="4,13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> shiny <span class="im">import</span> Inputs, Outputs, Session, App, render, ui</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb2-4"><a></a>    ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb2-5"><a></a>    ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
-<span id="cb2-6"><a></a>)</span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="kw">def</span> server(<span class="bu">input</span>: Inputs, output: Outputs, session: Session):</span>
-<span id="cb2-10"><a></a>    <span class="at">@output</span></span>
-<span id="cb2-11"><a></a>    <span class="at">@render.text</span></span>
-<span id="cb2-12"><a></a>    <span class="kw">def</span> txt():</span>
-<span id="cb2-13"><a></a>        <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb2-14"><a></a></span>
-<span id="cb2-15"><a></a></span>
-<span id="cb2-16"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="reactive-graph" class="slide level2">
-<h2>Reactive graph</h2>
+
+<aside><div>
+<p>The reactivity in <code>shiny</code> was originally inspired by <a href="https://v3-docs.meteor.com/">meteor.js</a></p>
+</div></aside></section>
+<section id="drawing-a-reactive-graph" class="slide level2">
+<h2>Drawing a reactive graph</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column smaller" style="width:60%;">
+<p>Shiny express app:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> <span class="bu">input</span>, render, ui</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
+<span id="cb2-4"><a></a><span class="at">@render.text</span></span>
+<span id="cb2-5"><a></a><span class="kw">def</span> txt():</span>
+<span id="cb2-6"><a></a>    <span class="cf">return</span> <span class="ss">f"2 * n is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:40%;">
+<p>Reactive graph:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -570,14 +638,104 @@
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+</div></div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Walking the graph</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>How do other frameworks work?</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactive programming</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Walking the graph</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Conclusion</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="initial-state" class="slide level2">
+<h2>Initial state</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-22" height="480">
-<style>#mermaid-figure-22{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-22 .error-icon{fill:#552222;}#mermaid-figure-22 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-22 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-22 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-22 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-22 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-22 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-22 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-22 .marker.cross{stroke:#333333;}#mermaid-figure-22 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-22 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-22 .cluster-label text{fill:#333;}#mermaid-figure-22 .cluster-label span,#mermaid-figure-22 p{color:#333;}#mermaid-figure-22 .label text,#mermaid-figure-22 span,#mermaid-figure-22 p{fill:#333;color:#333;}#mermaid-figure-22 .node rect,#mermaid-figure-22 .node circle,#mermaid-figure-22 .node ellipse,#mermaid-figure-22 .node polygon,#mermaid-figure-22 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-22 .flowchart-label text{text-anchor:middle;}#mermaid-figure-22 .node .label{text-align:center;}#mermaid-figure-22 .node.clickable{cursor:pointer;}#mermaid-figure-22 .arrowheadPath{fill:#333333;}#mermaid-figure-22 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-22 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-22 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-22 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-22 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-22 .cluster text{fill:#333;}#mermaid-figure-22 .cluster span,#mermaid-figure-22 p{color:#333;}#mermaid-figure-22 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-22 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-22 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-30" height="480">
+<style>#mermaid-figure-30{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-30 .error-icon{fill:#552222;}#mermaid-figure-30 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-30 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-30 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-30 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-30 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-30 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-30 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-30 .marker.cross{stroke:#333333;}#mermaid-figure-30 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-30 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-30 .cluster-label text{fill:#333;}#mermaid-figure-30 .cluster-label span,#mermaid-figure-30 p{color:#333;}#mermaid-figure-30 .label text,#mermaid-figure-30 span,#mermaid-figure-30 p{fill:#333;color:#333;}#mermaid-figure-30 .node rect,#mermaid-figure-30 .node circle,#mermaid-figure-30 .node ellipse,#mermaid-figure-30 .node polygon,#mermaid-figure-30 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-30 .flowchart-label text{text-anchor:middle;}#mermaid-figure-30 .node .label{text-align:center;}#mermaid-figure-30 .node.clickable{cursor:pointer;}#mermaid-figure-30 .arrowheadPath{fill:#333333;}#mermaid-figure-30 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-30 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-30 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-30 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-30 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-30 .cluster text{fill:#333;}#mermaid-figure-30 .cluster span,#mermaid-figure-30 p{color:#333;}#mermaid-figure-30 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-30 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-30 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-30 .changed>*{fill:#f96!important;}#mermaid-figure-30 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="display:none;fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default default flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default default flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-the-text" class="slide level2">
+<h2>Calculate the text</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-29" height="480">
+<style>#mermaid-figure-29{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-29 .error-icon{fill:#552222;}#mermaid-figure-29 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-29 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-29 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-29 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-29 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-29 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-29 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-29 .marker.cross{stroke:#333333;}#mermaid-figure-29 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-29 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-29 .cluster-label text{fill:#333;}#mermaid-figure-29 .cluster-label span,#mermaid-figure-29 p{color:#333;}#mermaid-figure-29 .label text,#mermaid-figure-29 span,#mermaid-figure-29 p{fill:#333;color:#333;}#mermaid-figure-29 .node rect,#mermaid-figure-29 .node circle,#mermaid-figure-29 .node ellipse,#mermaid-figure-29 .node polygon,#mermaid-figure-29 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-29 .flowchart-label text{text-anchor:middle;}#mermaid-figure-29 .node .label{text-align:center;}#mermaid-figure-29 .node.clickable{cursor:pointer;}#mermaid-figure-29 .arrowheadPath{fill:#333333;}#mermaid-figure-29 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-29 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-29 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-29 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-29 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-29 .cluster text{fill:#333;}#mermaid-figure-29 .cluster span,#mermaid-figure-29 p{color:#333;}#mermaid-figure-29 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-29 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-29 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-29 .changed>*{fill:#f96!important;}#mermaid-figure-29 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default default flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default changed flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="final-state" class="slide level2">
+<h2>Final state</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-28" height="480">
+<style>#mermaid-figure-28{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-28 .error-icon{fill:#552222;}#mermaid-figure-28 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-28 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-28 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-28 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-28 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-28 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-28 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-28 .marker.cross{stroke:#333333;}#mermaid-figure-28 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-28 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-28 .cluster-label text{fill:#333;}#mermaid-figure-28 .cluster-label span,#mermaid-figure-28 p{color:#333;}#mermaid-figure-28 .label text,#mermaid-figure-28 span,#mermaid-figure-28 p{fill:#333;color:#333;}#mermaid-figure-28 .node rect,#mermaid-figure-28 .node circle,#mermaid-figure-28 .node ellipse,#mermaid-figure-28 .node polygon,#mermaid-figure-28 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-28 .flowchart-label text{text-anchor:middle;}#mermaid-figure-28 .node .label{text-align:center;}#mermaid-figure-28 .node.clickable{cursor:pointer;}#mermaid-figure-28 .arrowheadPath{fill:#333333;}#mermaid-figure-28 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-28 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-28 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-28 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-28 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-28 .cluster text{fill:#333;}#mermaid-figure-28 .cluster span,#mermaid-figure-28 p{color:#333;}#mermaid-figure-28 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-28 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-28 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-28 .changed>*{fill:#f96!important;}#mermaid-figure-28 .changed span{fill:#f96!important;}</style>
 <g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
 <div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span class="edgeLabel"></span>
@@ -597,24 +755,181 @@
 </div>
 </div>
 </div>
-</div></div>
 </section>
-<section id="declarative-programming" class="slide level2">
-<h2>Declarative programming</h2>
-<ul>
-<li>Tell Shiny how each output should be filled</li>
-<li>Trust that the framework will keep everything up-to-date</li>
-<li>You’re setting the menu, not doing the cooking</li>
-</ul>
+<section id="slider-changes" class="slide level2">
+<h2>Slider changes</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-27" height="480">
+<style>#mermaid-figure-27{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-27 .error-icon{fill:#552222;}#mermaid-figure-27 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-27 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-27 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-27 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-27 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-27 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-27 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-27 .marker.cross{stroke:#333333;}#mermaid-figure-27 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-27 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-27 .cluster-label text{fill:#333;}#mermaid-figure-27 .cluster-label span,#mermaid-figure-27 p{color:#333;}#mermaid-figure-27 .label text,#mermaid-figure-27 span,#mermaid-figure-27 p{fill:#333;color:#333;}#mermaid-figure-27 .node rect,#mermaid-figure-27 .node circle,#mermaid-figure-27 .node ellipse,#mermaid-figure-27 .node polygon,#mermaid-figure-27 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-27 .flowchart-label text{text-anchor:middle;}#mermaid-figure-27 .node .label{text-align:center;}#mermaid-figure-27 .node.clickable{cursor:pointer;}#mermaid-figure-27 .arrowheadPath{fill:#333333;}#mermaid-figure-27 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-27 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-27 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-27 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-27 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-27 .cluster text{fill:#333;}#mermaid-figure-27 .cluster span,#mermaid-figure-27 p{color:#333;}#mermaid-figure-27 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-27 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-27 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-27 .changed>*{fill:#f96!important;}#mermaid-figure-27 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default changed flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default default flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
-<section id="event-driven-programming-1" class="slide level2">
-<h2>Event-driven programming</h2>
-
-<img data-src="images/carmy-yelling.webp" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="reactive-programming" class="slide level2">
-<h2>Reactive programming</h2>
-
-<img data-src="images/carmy-whites.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section id="invalidates" class="slide level2">
+<h2>Invalidates</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-26" height="480">
+<style>#mermaid-figure-26{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-26 .error-icon{fill:#552222;}#mermaid-figure-26 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-26 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-26 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-26 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-26 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-26 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-26 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-26 .marker.cross{stroke:#333333;}#mermaid-figure-26 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-26 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-26 .cluster-label text{fill:#333;}#mermaid-figure-26 .cluster-label span,#mermaid-figure-26 p{color:#333;}#mermaid-figure-26 .label text,#mermaid-figure-26 span,#mermaid-figure-26 p{fill:#333;color:#333;}#mermaid-figure-26 .node rect,#mermaid-figure-26 .node circle,#mermaid-figure-26 .node ellipse,#mermaid-figure-26 .node polygon,#mermaid-figure-26 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-26 .flowchart-label text{text-anchor:middle;}#mermaid-figure-26 .node .label{text-align:center;}#mermaid-figure-26 .node.clickable{cursor:pointer;}#mermaid-figure-26 .arrowheadPath{fill:#333333;}#mermaid-figure-26 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-26 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-26 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-26 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-26 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-26 .cluster text{fill:#333;}#mermaid-figure-26 .cluster span,#mermaid-figure-26 p{color:#333;}#mermaid-figure-26 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-26 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-26 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-26 .changed>*{fill:#f96!important;}#mermaid-figure-26 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default changed flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default changed flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="forget-dependencies" class="slide level2">
+<h2>Forget dependencies</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-25" height="480">
+<style>#mermaid-figure-25{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-25 .error-icon{fill:#552222;}#mermaid-figure-25 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-25 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-25 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-25 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-25 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-25 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-25 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-25 .marker.cross{stroke:#333333;}#mermaid-figure-25 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-25 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-25 .cluster-label text{fill:#333;}#mermaid-figure-25 .cluster-label span,#mermaid-figure-25 p{color:#333;}#mermaid-figure-25 .label text,#mermaid-figure-25 span,#mermaid-figure-25 p{fill:#333;color:#333;}#mermaid-figure-25 .node rect,#mermaid-figure-25 .node circle,#mermaid-figure-25 .node ellipse,#mermaid-figure-25 .node polygon,#mermaid-figure-25 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-25 .flowchart-label text{text-anchor:middle;}#mermaid-figure-25 .node .label{text-align:center;}#mermaid-figure-25 .node.clickable{cursor:pointer;}#mermaid-figure-25 .arrowheadPath{fill:#333333;}#mermaid-figure-25 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-25 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-25 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-25 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-25 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-25 .cluster text{fill:#333;}#mermaid-figure-25 .cluster span,#mermaid-figure-25 p{color:#333;}#mermaid-figure-25 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-25 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-25 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-25 .changed>*{fill:#f96!important;}#mermaid-figure-25 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="display:none;fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default default flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default default flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="recalculate" class="slide level2">
+<h2>Recalculate</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-24" height="480">
+<style>#mermaid-figure-24{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-24 .error-icon{fill:#552222;}#mermaid-figure-24 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-24 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-24 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-24 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-24 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-24 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-24 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-24 .marker.cross{stroke:#333333;}#mermaid-figure-24 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-24 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-24 .cluster-label text{fill:#333;}#mermaid-figure-24 .cluster-label span,#mermaid-figure-24 p{color:#333;}#mermaid-figure-24 .label text,#mermaid-figure-24 span,#mermaid-figure-24 p{fill:#333;color:#333;}#mermaid-figure-24 .node rect,#mermaid-figure-24 .node circle,#mermaid-figure-24 .node ellipse,#mermaid-figure-24 .node polygon,#mermaid-figure-24 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-24 .flowchart-label text{text-anchor:middle;}#mermaid-figure-24 .node .label{text-align:center;}#mermaid-figure-24 .node.clickable{cursor:pointer;}#mermaid-figure-24 .arrowheadPath{fill:#333333;}#mermaid-figure-24 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-24 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-24 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-24 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-24 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-24 .cluster text{fill:#333;}#mermaid-figure-24 .cluster span,#mermaid-figure-24 p{color:#333;}#mermaid-figure-24 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-24 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-24 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-24 .changed>*{fill:#f96!important;}#mermaid-figure-24 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="display:none;fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default default flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default changed flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="recompute-the-graph" class="slide level2">
+<h2>Recompute the graph</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-23" height="480">
+<style>#mermaid-figure-23{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-23 .error-icon{fill:#552222;}#mermaid-figure-23 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-23 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-23 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-23 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-23 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-23 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-23 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-23 .marker.cross{stroke:#333333;}#mermaid-figure-23 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-23 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-23 .cluster-label text{fill:#333;}#mermaid-figure-23 .cluster-label span,#mermaid-figure-23 p{color:#333;}#mermaid-figure-23 .label text,#mermaid-figure-23 span,#mermaid-figure-23 p{fill:#333;color:#333;}#mermaid-figure-23 .node rect,#mermaid-figure-23 .node circle,#mermaid-figure-23 .node ellipse,#mermaid-figure-23 .node polygon,#mermaid-figure-23 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-23 .flowchart-label text{text-anchor:middle;}#mermaid-figure-23 .node .label{text-align:center;}#mermaid-figure-23 .node.clickable{cursor:pointer;}#mermaid-figure-23 .arrowheadPath{fill:#333333;}#mermaid-figure-23 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-23 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-23 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-23 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-23 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-23 .cluster text{fill:#333;}#mermaid-figure-23 .cluster span,#mermaid-figure-23 p{color:#333;}#mermaid-figure-23 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-23 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-23 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-23 .changed>*{fill:#f96!important;}#mermaid-figure-23 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default default flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default changed flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="updated-state" class="slide level2">
+<h2>Updated state</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="-8 -8 71.90625 143.34375" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-22" height="480">
+<style>#mermaid-figure-22{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-figure-22 .error-icon{fill:#552222;}#mermaid-figure-22 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-22 .edge-thickness-normal{stroke-width:2px;}#mermaid-figure-22 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-22 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-22 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-22 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-22 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-22 .marker.cross{stroke:#333333;}#mermaid-figure-22 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-figure-22 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-22 .cluster-label text{fill:#333;}#mermaid-figure-22 .cluster-label span,#mermaid-figure-22 p{color:#333;}#mermaid-figure-22 .label text,#mermaid-figure-22 span,#mermaid-figure-22 p{fill:#333;color:#333;}#mermaid-figure-22 .node rect,#mermaid-figure-22 .node circle,#mermaid-figure-22 .node ellipse,#mermaid-figure-22 .node polygon,#mermaid-figure-22 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-22 .flowchart-label text{text-anchor:middle;}#mermaid-figure-22 .node .label{text-align:center;}#mermaid-figure-22 .node.clickable{cursor:pointer;}#mermaid-figure-22 .arrowheadPath{fill:#333333;}#mermaid-figure-22 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-22 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-22 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-figure-22 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-figure-22 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-22 .cluster text{fill:#333;}#mermaid-figure-22 .cluster span,#mermaid-figure-22 p{color:#333;}#mermaid-figure-22 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-22 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-22 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-22 .changed>*{fill:#f96!important;}#mermaid-figure-22 .changed span{fill:#f96!important;}</style>
+<g><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="10" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="0" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart" id="flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart" id="flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-Sc" id="L-S-Sc-0" d="M27.953125,33L27.953125,37.166666666666664C27.953125,41.333333333333336,27.953125,49.666666666666664,27.953125,58C27.953125,66.33333333333333,27.953125,74.66666666666667,27.953125,78.83333333333333L27.953125,83"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(27.953125, 16.5)" id="flowchart-S-4" class="node default default flowchart-label"><rect height="33" width="55.90625" y="-16.5" x="-27.953125" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-20.453125, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="40.90625">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Slider</span>
+</div>
+</foreignobject></g></g><g transform="translate(27.953125, 105.171875)" id="flowchart-Sc-5" class="node default default flowchart-label"><circle height="33" width="44.34375" r="22.171875" ry="0" rx="0" style=""></circle><g transform="translate(-14.671875, -9)" style="" class="label"><rect></rect><foreignobject height="18" width="29.34375">
+<div style="display: inline-block; white-space: nowrap;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">Text</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section></section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
 <h1>Your turn</h1>
@@ -626,11 +941,20 @@
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Reactivity overview</p>
 </div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>How do other frameworks work?</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactive programming</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Walking the graph</p>
+</div></li>
 <li><div class="agenda-active">
 <p>Your turn</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>Solution</p>
+<p>Conclusion</p>
 </div></li>
 </ul>
 </div>
@@ -649,26 +973,7 @@
 <img data-src="../images/keep-calm-and-view-the-app.png">
 </div>
 </div>
-</section></section>
-<section>
-<section class="title-slide slide level1 agenda-slide">
-<h1>Solution</h1>
-<div class="agenda-heading">
-<p>Agenda</p>
-</div>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Reactivity overview</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Your turn</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Solution</p>
-</div></li>
-</ul>
-</div>
+<p>Hint: you need 4 elements and draw the arrows between these.</p>
 </section>
 <section id="solution-initial-state" class="slide level2">
 <h2>Solution: Initial state</h2>
@@ -1569,8 +1874,49 @@
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Conclusion</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactivity overview</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>How do other frameworks work?</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Reactive programming</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Walking the graph</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Your turn</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Conclusion</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="summary-reactive-programming" class="slide level2">
+<h2>Summary: reactive programming</h2>
+<ul>
+<li>Tell Shiny how each output should be filled</li>
+<li>Trust that the framework will keep everything up-to-date</li>
+<li>You’re setting the menu, not doing the cooking</li>
+</ul>
+</section>
+<section id="reactive-programming-1" class="slide level2">
+<h2>Reactive programming</h2>
 
-<div class="quarto-auto-generated-content">
+
+<img data-src="images/carmy-whites.png" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
