@@ -90,7 +90,34 @@ Director of Learning, Posit
 
 3.  Develop comfort with debugging
 
-## What is a Shiny app? {background-color=`{python} bgcolor`}
+## What is a Shiny app?
+
+Each Shiny app involves:
+
+1. A web page
+2. A computer that watches the web page and responds to user events on that page  
+
+![](../images/app-architecture.001.png)
+
+## What is a Shiny app?
+
+Each Shiny app involves:
+
+1. A web page
+2. A computer that watches the web page and responds to user events on that page    
+
+![](../images/app-architecture.002.png)
+
+## What is a Shiny app?
+
+Each Shiny app involves:
+
+1. A web page
+2. A computer that watches the web page and responds to user events on that page    
+
+![](../images/app-architecture.003.png)
+
+## What can a Shiny app do? {background-color=`{python} bgcolor`}
 
 :::: {.columns}
 
@@ -117,33 +144,6 @@ Director of Learning, Posit
 ::::
 
 # Anatomy of an App
-
-##
-
-Each Shiny app involves:
-
-1. An HTML UI (i.e., a web page)
-2. A computer that monitors and updates the web page (e.g., a server)  
-
-![](../images/app-architecture.001.png)
-
-##
-
-Each Shiny app involves:
-
-1. An HTML UI (i.e., a web page)  
-2. A computer that monitors and updates the web page (e.g., a server)  
-
-![](../images/app-architecture.002.png)
-
-##
-
-Each Shiny app involves:
-
-1. An HTML UI (i.e., a web page)
-2. A computer that monitors and updates the web page (e.g., a server)  
-
-![](../images/app-architecture.003.png)
 
 ## Components 
 
@@ -207,30 +207,43 @@ Each Shiny app consists of:
 2. Outputs
 3. Instructions on how to build outputs from inputs
 
+## Spreadsheet Analogy
 
-## Attention Check {background-color=`{python} bgcolor`}
+![](../gifs/spreadsheets-2.gif)
+
+Shiny only updates:
+
+1. When an input changes
+2. The parts of the app that depend on the input
+
+## Key features of reactivity
+
+-   Easy enough to use for prototypes
+-   Efficient enough to handle complexity
+-   Scales to build production quality apps
+
+## Why Shiny for Python?
+
+Shiny lets you quickly create reactive web apps without worrying about:
+
+- cache
+- state
+- callbacks 
+— or even HTML, CSS, and JavaScript
+
+And, these apps can scale from prototype to production ready.
+
+## Quiz {background-color=`{python} bgcolor`}
 
 ![](../images/app-components.004.png)
 
-## Attention Check {background-color=`{python} bgcolor`}
+## Quiz {background-color=`{python} bgcolor`}
 
 ![](../images/app-components.005.png)
 
-## Attention Check {background-color=`{python} bgcolor`}
+## Quiz {background-color=`{python} bgcolor`}
 
 ![](../images/app-components.006.png)
-
-
-
-## Why Shiny?
-
-Introduce the end state / whole game / bigger picture: web page with a server. 
-
-The server watches the web page and responds to user events on that page.
-
-We need to tell the compute what to do when the user clicks.
-
-
 
 
 ## Your turn
@@ -251,11 +264,6 @@ include_shiny_folder(
 )
 ```
 
-## Key features of Shiny
-
--   Easy to develop
--   Extensible
--   Efficient
 
 ## Why Shiny for Python?
 
