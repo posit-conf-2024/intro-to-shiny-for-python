@@ -158,8 +158,6 @@ Each Shiny app involves:
 
 ![](../images/app-architecture.003.png)
 
-# Anatomy of an App
-
 ## Components 
 
 :::: {.columns}

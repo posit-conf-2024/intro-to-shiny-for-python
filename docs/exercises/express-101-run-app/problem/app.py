@@ -1,9 +1,9 @@
-from shiny.express import ui
+from shiny.express import ui, render, input
 
-"""
-Why Shiny for Python? Shiny lets you make pure Python web apps 
-quickly, without worrying about cache, state, callbacks ...or 
-even HTML, CSS, and JavaScript.
-"""
+ui.input_text("name", "Type a name", value="world")
+
+@render.text
+def greeting():
+  return f"Hello {input.name()}!"
 
 
