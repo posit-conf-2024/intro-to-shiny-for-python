@@ -77,6 +77,8 @@ def _include_shiny_folder(
 ) -> QuartoPrint:
     folder_path = Path(__name__).parent / path
 
+    additional_exclude = ['app-core.py', 'app-solution-core.py']
+
     # Start with the header
     block = QuartoPrint(
         [
@@ -91,7 +93,7 @@ def _include_shiny_folder(
     # Print contents of the main application
     block.append_file(folder_path / file_name, None)
 
-    exclude_list = ["__pycache__"] + [file_name] + exclusions
+    exclude_list = ["__pycache__"] + [file_name] + exclusions + additional_exclude
 
     files = list_files(path)
 
