@@ -1,1 +1,1 @@
-Extract the filtering logic into its own function non-reactive function.
+The function `filtered_data()` is doing too much. Separate the non-reactive code from the reactive code, by creatinga  new function that takes two arguments (cities and dates).

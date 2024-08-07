@@ -1,115 +1,61 @@
-from shiny import ui, render, reactive, App
+from shiny.express import ui, render, input
+from shiny import reactive
 import pandas as pd
 from pathlib import Path
 import plots
-import shiny.experimental as x
 
 infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
 weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 
 
-def val_box_col(id, n_boxes):
-    width = 12 // n_boxes
-    card_title = id.replace("_", " ").title()
-    return ui.column(width, ui.value_box(card_title, ui.output_text(id)))
+ui.page_opts(title="Weather error")
+with ui.layout_sidebar():
+    with ui.sidebar():
+        ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+        ui.input_selectize(
+            "cities",
+            "Select Cities",
+            weather["city"].unique().tolist(),
+            selected="BUFFALO",
+            multiple=True,
+        )
 
+    with ui.navset_tab():
+        with ui.nav_panel("Error"):
 
-boxes = ["hot_days", "cold_days", "mean_error"]
-
-data_tab = ui.nav("Data", ui.output_data_frame("data"))
-error_tab = ui.nav(
-    "Error",
-    ui.row([val_box_col(box, len(boxes)) for box in boxes]),
-    ui.row(
-        ui.column(
-            6,
-            ui.card(
+            # Change the layout of these cards into a column <---------------------
+                
+            with ui.card():
                 ui.card_header("Distribution"),
-                ui.output_plot("error_distribution"),
-            ),
-        ),
-        ui.column(
-            6,
-            ui.card(
-                ui.card_header("Error by day"),
-                ui.output_plot("error_by_day"),
-                ui.input_slider("alpha", "Plot Alpha", value=0.5, min=0, max=1),
-            ),
-        ),
-    ),
-)
-
-app_ui = ui.page_fluid(
-    ui.panel_title("Weather error"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
-            ui.input_selectize(
-                "cities",
-                "Select Cities",
-                weather["city"].unique().tolist(),
-                selected="BUFFALO",
-                multiple=True,
-            ),
-            width=3,
-        ),
-        ui.panel_main(
-            ui.navset_tab(
-                error_tab,
-                data_tab,
-            )
-        ),
-    ),
-)
+                @render.plot
+                def error_distribution():
+                    return plots.temp_distribution(filtered_data())
 
 
-def server(input, output, session):
-    @reactive.Calc
-    def filtered_data() -> pd.DataFrame:
-        return filter_weather(weather, input.cities(), input.dates())
+            with ui.card():
+                ui.card_header("Error by day")
+                @render.plot
+                def error_by_day():
+                    return plots.daily_error(filtered_data(), input.alpha())
+                
+                ui.input_slider("alpha", "Plot Alpha", value=0.5, min=0, max=1)
 
-    @output
-    @render.plot
-    def error_distribution():
-        return plots.temp_distribution(filtered_data())
-
-    @output
-    @render.plot
-    def error_by_day():
-        return plots.daily_error(filtered_data(), input.alpha())
-
-    @output
-    @render.data_frame
-    def data():
-        return filtered_data()
-
-    @output
-    @render.text
-    def mean_error():
-        mean_error = filtered_data()["error"].mean()
-        return round(mean_error, 2)
-
-    @output
-    @render.text
-    def hot_days():
-        hot_days = filtered_data()["error"] > 0
-        return sum(hot_days)
-
-    @output
-    @render.text
-    def cold_days():
-        hot_days = filtered_data()["error"] < 0
-        return sum(hot_days)
+        with ui.nav_panel("Data"):
+            @render.data_frame
+            def data():
+                return filtered_data()
+    
 
 
-def filter_weather(data, cities, dates):
-    df = data.copy()
+@reactive.calc
+def filtered_data():
+    return filter_weather(input.cities(), input.dates())
+
+def filter_weather(cities, dates):
+    df = weather.copy()
     df = df[df["city"].isin(cities)]
     df["date"] = pd.to_datetime(df["date"])
     dates = pd.to_datetime(dates)
     df = df[(df["date"] > dates[0]) & (df["date"] <= dates[1])]
     return df
-
-
-app = App(app_ui, server)
