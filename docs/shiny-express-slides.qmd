@@ -41,7 +41,7 @@ bgcolor = "whitesmoke"
 ::: {.callout-note}
 
 -   This workshop is exercise based
--   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
+-   All of the exercises and slides are running live on this [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
 -   The exercise files are available for download from [github](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises)
 
 :::
@@ -311,7 +311,22 @@ Or use the VS Code Shiny extension, for a Run App button in VS Code.
 ![](../images/vscode-button.png)
 
 
-## The Important accounts data
+## The Important Accounts data
+
+How well did we predict the Product Score for each sub-account?
+
+```{python}
+#| output: asis
+#| class-output: striped
+
+import pandas as pd
+from tabulate import tabulate
+
+df = pd.read_csv("simulated-data.csv")
+df = df.drop(columns=["text", "id"]).head(5)
+
+print(tabulate(df, headers='keys', tablefmt='github', showindex=False))
+```
 
 
 ## Quiz {background-color=`{python} bgcolor`}
@@ -350,7 +365,7 @@ Instructions
 -   Functions like `ui.h1()` or `ui.markdown()` add static HTML to the app
 -   We'll get to layout functions in Session 3
 
-<https://shiny.posit.co/py/api/express/express.ui.input_select.html>
+<https://shiny.posit.co/py/api/express/express.ui.markdown.html>
 
 ## Your turn
 
