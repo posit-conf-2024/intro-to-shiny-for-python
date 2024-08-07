@@ -552,149 +552,23 @@ Most Shiny app development consists of variations of these three things:
 2.  Define outputs with render functions
 3.  Tell Shiny how to use inputs to build outputs
 
+## Weather data
+
+How accurate are forecasts?
+
+```{python}
+#| output: asis
+#| class-output: striped
+
+import pandas as pd
+from tabulate import tabulate
+
+df = pd.read_csv("weather.csv")
+df = df.head(5)
+
+print(tabulate(df, headers='keys', tablefmt='github', showindex=False))
+```
+
 ## Your turn
 
-{{< yourturn 'express-108-plot' >}}
-
-<!--
-# left over
-
-## How this session works
-
--   This session is going to be exercise based
--   All of the exercises and slides are running live on the [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
--   You can do them on the website or open the apps in the `apps/core` folder
--   If you need help, put a red sticker on your laptop; when you're done, put up a green sticker
-
-
-## Inputs using shiny express
-
-```{.python filename="app.py" code-line-numbers="3-4"}
-from shiny.express import input, render, ui
-
-# UI section
-ui.input_slider(id = "n", label = "N", min = 0, max = 100, value = 20)
-
-## Server section
-@render.text
-def txt():
-    return f"2 * n is {input.n() * 2}"
-```
-
-<br />
-
-
-```{shinylive-python}
-#| standalone: true
-#| viewerHeight: 150
-
-from shiny.express import input, render, ui
-
-# UI section
-ui.input_slider("n", "N", 0, 100, 20)
-
-## Server section
-@render.text
-def txt():
-    return f"2 * n is {input.n() * 2}"
-```
-
-## Server section using shiny express
-
-``` {.python filename="app.py" code-line-numbers="6-9"}
-from shiny.express import input, render, ui
-
-# UI section
-ui.input_slider(id = "n", label = "N", min = 0, max = 100, value = 20)
-
-## Server section
-@render.text
-def txt():
-    return f"2 * n is {input.n() * 2}"
-```
-
-<br />
-
-```{shinylive-python}
-#| standalone: true
-#| viewerHeight: 150
-
-from shiny.express import input, render, ui
-
-# UI section
-ui.input_slider("n", "N", 0, 100, 20)
-
-## Server section
-@render.text
-def txt():
-    return f"2 * n is {input.n() * 2}"
-```
-
-## Refer to inputs
-
-Your render function can refer to the input by calling it like a function.
-
-In this case, the `input_slider` has the name `"n"`, so you refer to it as `input.n()`.
-
-
-```{.python filename="app.py" code-line-numbers="9"}
-from shiny.express import input, render, ui
-
-# UI section
-ui.input_slider(id = "n", label = "N", min = 0, max = 100, value = 20)
-
-## Server section
-@render.text
-def txt():
-    return f"2 * n is {input.n() * 2}"
-```
-
-<br />
-
-```{shinylive-python}
-#| standalone: true
-#| viewerHeight: 150
-
-from shiny.express import input, render, ui
-
-# UI section
-ui.input_slider("n", "N", 0, 100, 20)
-
-## Server section
-@render.text
-def txt():
-    return f"2 * n is {input.n() * 2}"
-```
-
-## Simple app example
-
-``` {.python code-line-numbers="5,10-13"}
-from shiny import Inputs, Outputs, Session, App, render, ui
-
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 20),
-    ui.output_text_verbatim("txt"),
-)
-
-def server(input, output, session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
-
-app = App(app_ui, server)
-```
-
-
-# Making the link
-
-## Connecting inputs to outputs
-
-``` {.python code-line-numbers="5"}
-def server(input: Inputs, output: Outputs, session: Session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
-```
--->
+{{< yourturn 'express-110-app' >}}
