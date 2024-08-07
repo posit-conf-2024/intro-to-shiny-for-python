@@ -1,5 +1,5 @@
 ---
-title: "402 Shiny modules"
+title: "404 Insert a shiny module into a more complex app"
 ---
 
 ```{python}

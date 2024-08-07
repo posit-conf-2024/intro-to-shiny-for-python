@@ -1,10 +1,7 @@
 from shiny.express import ui, render, module
-from shiny import reactive
-
-## modules -------------
 
 @module
-def card_mod(input, output, session, title, body, fn):
+def card_mod(input, output, session, title, body:
     with ui.card():
         ui.card_header(title)
         body

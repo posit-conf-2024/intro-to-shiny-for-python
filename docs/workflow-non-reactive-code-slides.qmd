@@ -32,7 +32,9 @@ if exercises_path not in sys.path:
 from helpers import include_shiny_folder
 ```
 
-## Separate Reactive and Non-reactive logic
+# Introduction to refactoring non-reactive code
+
+## Separate reactive and non-reactive logic
 
 - Most Shiny app code is non-reactive
     - Drawing plots
@@ -52,35 +54,19 @@ from helpers import include_shiny_folder
 
 ## Pull logic out of the reactive context
 
-- Non-reactive functions are familliar and predictable
-- You can call them in a notebook
-- You can write unit tests 
-- Makes your reactive code much clearer
-- You can reuse them in other contexts
+Non-reactive functions are familiar and predictable
+
+You can:
+
+- call them in a notebook
+- write unit tests 
+- reuse them in other contexts
+
+In turn, this makes your reactive code much clearer
+
 
 ## Your turn
 
-{{< yourturn 'express-403-extract-function' >}}
+{{< yourturn 'express-401-extract-function' >}}
 
 
-
-# Modules
-
-## Modules
-
-- Not going to teach them, but you should know about them
-- Used when you want to encapsulate _both_ UI _and_ server logic together
-- Allows you to package and re-use parts of your application
-- Great for working with teams of developers
-- Essential for large applications
-
-# Question and Answer
-
-## Any questions?
-
-# Conclusion
-
-## Thank you!
-
-Also, please fill out the survey:  
-[https://pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)
