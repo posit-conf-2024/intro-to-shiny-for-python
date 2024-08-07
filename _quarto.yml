@@ -16,18 +16,14 @@ website:
     logo: https://d33wubrfki0l68.cloudfront.net/71003073848110093780ea9a1c721439ad6b64f3/655ba/shiny-for-python.svg
     search: true
     right:
-      - text: Pre-requisites
-        file: docs/pre-requisites.qmd
-      - text: "Hello, Shiny express!"
-        file: docs/shiny-express.qmd
+      - docs/pre-requisites.qmd
+      - docs/shiny-express.qmd
       - text: "Reactivity"
         file: docs/reactivity-intro.qmd
       - text: "UI Customization"
         file: docs/ui-layout.qmd
-      - text: "Best practices"
-        file: docs/best-practices.qmd
-      # - text: "Test"
-      #   file: docs/test.qmd
+      - text: "Workflow"
+        file: docs/workflow-intro.qmd
     tools: 
       - icon: github
         href: https://github.com/posit-conf-2024/intro-to-shiny-for-python
@@ -98,15 +94,20 @@ website:
           - docs/apps/301-cards/index.qmd
           - docs/apps/302-dynamic-ui/index.qmd
           - docs/apps/303-conditional-panel/index.qmd
-    - title: "Best practices"
+    - title: "Worflow"
       contents:
-        - href: docs/best-practices.qmd
-          text: Slides
+        - section: "Slides"
+          contents:
+          - docs/workflow-intro.qmd
+          - docs/workflow-non-reactive-code.qmd
+          - docs/workflow-modules.qmd
+          - docs/workflow-iterators.qmd
+          - docs/workflow-deploy.qmd
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-401-modules/index.qmd
-          - docs/exercises/express-402-iterators/index.qmd
-          - docs/exercises/express-403-extract-function/index.qmd
+          - docs/exercises/express-401-extract-function/index.qmd
+          - docs/exercises/express-402-modules/index.qmd
+          - docs/exercises/express-403-iterators/index.qmd
 
 filters:
   - shinylive
