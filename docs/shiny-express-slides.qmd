@@ -388,15 +388,20 @@ Instructions
 ::: {.column width="50%"}
 ```{shinylive-python}
 #| standalone: true
-#| viewerHeight: 150
 
 from shiny.express import ui
 
-ui.input_slider("n", "N", 0, 100, 20)
+ui.input_slider("n", "Choose n", 0, 100, 20)
 ```
 
 ```python
-ui.input_slider("n", "N", min=0, max=100, value=20)
+ui.input_slider(
+    id="n", 
+    label="Choose n", 
+    min=0, 
+    max=100, 
+    value=20
+)
 ```
 :::
 
@@ -405,7 +410,7 @@ Notice:
 
 - Inputs all begin with `ui.Input_`.
 - Every input requires:
-    1.  A name for the value to collect  
+    1.  An id for the value to collect  
     1.  A label to display  
     1.  Input specific options
 :::
@@ -422,7 +427,7 @@ How can you learn about input specific options?
 
 ## Your turn
 
-{{< yourturn 'express-103-debug' >}}
+{{< yourturn 'express-103-inputs' >}}
 
 ## Quiz {background-color=`{python} bgcolor`}
 
