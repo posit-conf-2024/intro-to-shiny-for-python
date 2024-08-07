@@ -457,7 +457,11 @@ function
 
 ## Your turn
 
-{{< yourturn 'express-104-filter' >}}
+{{< yourturn 'express-104-outputs' >}}
+
+## Quiz {background-color=`{python} bgcolor`}
+
+Where are the instructions on how to build the outputs in this app?
 
 # Reactivity
 
@@ -465,25 +469,40 @@ function
 
 ## To make an app reactive...
 
-Use an input value to build an output.
+Use an input value to build an output.  
 
-- You can access an input's current value as `input.<name>()` where `<name>` is the string you passed to the input, e.g. `input.value()`.
--   Inputs are read by calling them like a function: `input.n()`, not `input.n`
--   Referring to an input creates a reactive link between that input and the rendering function
--   When the input changes, the rendering function will re-execute
--   You can use multiple inputs in the same rendering function
-
-##
-
-Sample code
+\
+To access an input's value, call `input.<id>()` where `<id>` is the string you passed to the input, e.g:
+\
+```python
+ui.input_slider(
+    id="n", 
+    label="Choose n", 
+    min=0, 
+    max=100, 
+    value=20
+)
+```
+\
+Value:
+```python
+input.n()
+```
 
 ## Your turn
 
-{{< yourturn 'express-104-filter' >}}
+{{< yourturn 'express-105-reactivity' >}}
+
+## Reactive values are special
+
+1. Only call reactive values from within a function that can handle them (e.g. a render function)
+\  
+2. Call them like a function: `input.n()`, not `input.n`
+
 
 ## Which input will cause the app to update? {background-color=`{python} bgcolor`}
 
-## How about now?
+## What if...? {background-color=`{python} bgcolor`}
 
 ## The components of an app
 
@@ -496,13 +515,6 @@ Can we spot them in our sample code?
 -   An output doesn't render
 -   An output doesn't update when an input changes
 -   There's some weird error
-
-
-
-
-
-
-
 
 ## Your turn
 
@@ -527,7 +539,7 @@ Most Shiny app development consists of variations of these three things:
 
 1.  Add Inputs and other UI elements
 2.  Define outputs with render functions
-3.  Connect inputs and outputs
+3.  Tell Shiny how to use inputs to build outputs
 
 ## Your turn
 
