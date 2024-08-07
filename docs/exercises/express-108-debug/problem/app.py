@@ -1,4 +1,4 @@
-from shiny.express import input, render, ui
+from shiny.express import input, render
 from shinywidgets import render_widget
 
 from data_import import df # loads accounts data
@@ -27,10 +27,10 @@ ui.input_radio_buttons(
 
 @render_widget
 def plot():
-    tbl=df[df.account == input.account]
-    return plot_var_distribution(tbl, var=input.variable)
+    tbl=df[df.account == input.account()]
+    return plot_var_distribution(tbl, var=input.variable())
 
 @render.data_frame
 def table():
-    tbl=df[df.account == input.account]
+    tbl=df[df.account == input.account()]
     return tbl

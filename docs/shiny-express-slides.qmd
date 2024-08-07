@@ -516,10 +516,12 @@ Can we spot them in our sample code?
 -   An output doesn't update when an input changes
 -   There's some weird error
 
-## Your turn
+## Common problems
 
-{{< yourturn 'express-105-connect-filter' >}}
-
+-   ~~An output doesn't render~~
+-   ~~An output doesn't update when an input changes~~
+-   ~~There's some weird error~~
+-   Syntax errors
 
 ## Your turn
 
@@ -529,6 +531,15 @@ Can we spot them in our sample code?
 ## Your turn
 
 {{< yourturn 'express-107-debug' >}}
+
+
+## Your turn
+
+{{< yourturn 'express-108-debug' >}}
+
+## Your turn
+
+{{< yourturn 'express-109-debug' >}}
 
 
 # Recap

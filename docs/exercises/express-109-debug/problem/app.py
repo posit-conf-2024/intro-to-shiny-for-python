@@ -25,12 +25,12 @@ ui.input_radio_buttons(
     }
 )
 
+tbl=df[df.account == input.account()]
+
 @render_widget
 def plot():
-    tbl=df[df.account == input.account]
-    return plot_var_distribution(tbl, var=input.variable)
+    return plot_var_distribution(tbl, var=input.variable())
 
 @render.data_frame
 def table():
-    tbl=df[df.account == input.account]
     return tbl

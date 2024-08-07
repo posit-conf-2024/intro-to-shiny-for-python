@@ -25,12 +25,17 @@ ui.input_radio_buttons(
     }
 )
 
+## No current reactive context means you've called 
+## a reactive value, like input.account(), from outside
+## of a function that knows how to handle reactive values,
+## like a render function.
+
 @render_widget
 def plot():
-    tbl=df[df.account == input.account]
-    return plot_var_distribution(tbl, var=input.variable)
+    tbl=df[df.account == input.account()]
+    return plot_var_distribution(tbl, var=input.variable())
 
 @render.data_frame
 def table():
-    tbl=df[df.account == input.account]
+    tbl=df[df.account == input.account()]
     return tbl
