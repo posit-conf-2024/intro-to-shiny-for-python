@@ -1,0 +1,86 @@
+---
+title: "Refactor non-reactive code"
+title-slide-attributes: 
+  data-background-image:  images/shiny-for-python-seattle.jpg
+  data-background-position: bottom left
+  data-background-size: cover
+format:
+  positconfslides-revealjs: 
+    incremental: false
+    chalkboard: true
+    slide-number: c/t
+    code-copy: true
+    center-title-slide: false
+    code-link: true
+    highlight-style: a11y
+    width: "1600"
+    height: "900"
+    css: "styles.css"
+    filters:
+      - positconfslides
+      - reveal-auto-agenda
+    auto-agenda:
+      heading: Agenda
+---
+```{python}
+# | echo: false
+import os
+import sys
+exercises_path = "./exercises"
+if exercises_path not in sys.path:
+    sys.path.append(exercises_path)
+from helpers import include_shiny_folder
+```
+
+## Separate Reactive and Non-reactive logic
+
+- Most Shiny app code is non-reactive
+    - Drawing plots
+    - Summarizing data
+    - Interacting with databases
+    - (Really, everything except the actual reading of reactive inputs and calcs)
+- It's fine to include this code inside reactive functions
+- As your app grows you should separate them
+
+## Reactivity makes everything harder
+
+- Reactive context makes them inherently more difficult
+    - Harder to debug
+    - Harder to test
+    - Harder to document
+    - Harder to reason about
+
+## Pull logic out of the reactive context
+
+- Non-reactive functions are familliar and predictable
+- You can call them in a notebook
+- You can write unit tests 
+- Makes your reactive code much clearer
+- You can reuse them in other contexts
+
+## Your turn
+
+{{< yourturn 'express-403-extract-function' >}}
+
+
+
+# Modules
+
+## Modules
+
+- Not going to teach them, but you should know about them
+- Used when you want to encapsulate _both_ UI _and_ server logic together
+- Allows you to package and re-use parts of your application
+- Great for working with teams of developers
+- Essential for large applications
+
+# Question and Answer
+
+## Any questions?
+
+# Conclusion
+
+## Thank you!
+
+Also, please fill out the survey:  
+[https://pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)

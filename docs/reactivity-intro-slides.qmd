@@ -46,7 +46,12 @@ from helpers import include_shiny_folder, multiple_choice_app, Quiz
 - We told Shiny _what_ to do
 - We didn't tell Shiny _when_ to do it
 
+
+# How do other frameworks work?
+
 ## How do other frameworks work?
+
+Other web application frameworks use event-driven programming:
 
 - Streamlit
 
@@ -56,82 +61,98 @@ from helpers import include_shiny_folder, multiple_choice_app, Quiz
 
   - Define callback functions
 
-## Event driven programming
+
+::: aside
+See also: <https://shiny.posit.co/py/docs/comp-streamlit.html>
+:::
+
+
+## Using callback functions is hard!
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- Every callback introduces side effects
+- Callbacks are hard to reason about, hard to compose
+- Bugs are subtle, conditional on sequences of events
+- In short: "callback hell"
+:::
+
+::: {.column width="60%"}
+```{.r .smaller}
+# This is not how shiny works!
+library(gWidgets)
+txt <- gtext("Customize me", container = gwindow(),
+  handler = function(h, ...) {
+    # Do something in response to text changing
+  }
+)
+btn <- gbutton("Click me", container = gwindow(),
+  handler = function(h, ...) {
+    # Do something in response to a button click
+  }
+)
+```
+:::
+
+:::: 
+
+
+::: aside
+Source: <https://jcheng.shinyapps.io/reactivity-dsc2014>
+:::
+
+## Event driven programming: summary
 
 - You have to do it
 - Easy to get wrong
 - Hard to tell when you get it wrong
 
-## What's a better way?
+
+![](images/carmy-yelling.webp){fig-align="center"}
+
+# Reactive programming
+
+## Is there a better way?
 
 ::: {.v-center-container}
 - Infer the relationships between components 
 - Build a computation graph
 :::
 
-## Does that really work?
+## The better way: reactivity
 
-- You're not wrong to find this suspicious
-- "Does Shiny infer relationships by analyzing the source code?" 
-  - No
+- Shiny does **not** infer relationships by analyzing the source code
   - Many ways that would break down!
-- For this to work, the inference has to be 100% reliable
-
-## It really works
-
-- We have 10 years of real-world experience with this form of reactivity
-- The underlying mechanism is simple, reliable, and intuitive
 - Not static analysis, but rather, runtime tracing
-- Originally inspired by Meteor.js
+  - The underlying mechanism is simple, reliable, and intuitive
+  - The `shiny` team have more than 10 years of real-world experience with this form of reactivity
 
-## Outputs and recipes
+::: aside
+The reactivity in `shiny` was originally inspired by [meteor.js](https://v3-docs.meteor.com/)
+:::
 
-
-```{.python code-line-numbers="5,12"}
-from shiny import Inputs, Outputs, Session, App, render, ui
-
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 20),
-    ui.output_text_verbatim("txt"),
-)
-
-def server(input: Inputs, output: Outputs, session: Session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
-
-
-app = App(app_ui, server)
-```
-
-## Recipes and inputs
-
-```{.python code-line-numbers="4,13"}
-from shiny import Inputs, Outputs, Session, App, render, ui
-
-app_ui = ui.page_fluid(
-    ui.input_slider("n", "N", 0, 100, 20),
-    ui.output_text_verbatim("txt"),
-)
-
-
-def server(input: Inputs, output: Outputs, session: Session):
-    @output
-    @render.text
-    def txt():
-        return f"n*2 is {input.n() * 2}"
-
-
-app = App(app_ui, server)
-```
-
-
-## Reactive graph
+## Drawing a reactive graph
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="60%" .smaller}
+
+Shiny express app:
+
+```{.python}
+from shiny.express import input, render, ui
+
+ui.input_slider("n", "N", 0, 100, 20)
+@render.text
+def txt():
+    return f"2 * n is {input.n() * 2}"
+```
+:::
+
+::: {.column width="40%"}
+Reactive graph:
+
 ```{mermaid}
 flowchart TD
   S[Slider] --> R{Recipe}
@@ -139,31 +160,92 @@ flowchart TD
 ```
 :::
 
-::: {.column width="50%"}
-```{mermaid}
-flowchart TD
-  S[Slider] --> Sc((Text))
-```
-:::
-
 ::::
 
 
+# Walking the graph
+
+## Initial state
+
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text))
+  linkStyle 0 display:none
+  classDef changed fill:#f96
+```
 
 
-## Declarative programming
+## Calculate the text
 
-- Tell Shiny how each output should be filled
-- Trust that the framework will keep everything up-to-date
-- You're setting the menu, not doing the cooking
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text)):::changed
+  classDef changed fill:#f96
+```
 
-## Event-driven programming
 
-![](images/carmy-yelling.webp){fig-align="center"}
+## Final state
 
-## Reactive programming
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text))
+  classDef changed fill:#f96
+```
 
-![](images/carmy-whites.png){fig-align="center"}
+## Slider changes
+
+```{mermaid}
+flowchart TD
+  S[Slider]:::changed --> Sc((Text))
+  classDef changed fill:#f96
+```
+
+## Invalidates
+
+```{mermaid}
+flowchart TD
+  S[Slider]:::changed --> Sc((Text)):::changed
+  classDef changed fill:#f96
+```
+
+## Forget dependencies
+
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text))
+  linkStyle 0 display:none
+  classDef changed fill:#f96
+```
+
+
+## Recalculate
+
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text)):::changed
+  linkStyle 0 display:none
+  classDef changed fill:#f96
+```
+
+## Recompute the graph
+
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text)):::changed
+  classDef changed fill:#f96
+```
+
+## Updated state
+
+```{mermaid}
+flowchart TD
+  S[Slider] --> Sc((Text))
+  classDef changed fill:#f96
+```
+
+
+
+
 
 # Your turn
 
@@ -173,7 +255,8 @@ Draw the graph of this application:
 
 {{< yourview '200-penguins' >}}
 
-# Solution
+Hint: you need 4 elements and draw the arrows between these.
+
 
 ## Solution: Initial state
 
@@ -398,3 +481,16 @@ flowchart TD
   classDef changed fill:#f96
 ```
 
+
+# Conclusion
+
+## Summary: reactive programming
+
+- Tell Shiny how each output should be filled
+- Trust that the framework will keep everything up-to-date
+- You're setting the menu, not doing the cooking
+
+
+## Reactive programming
+
+![](images/carmy-whites.png){fig-align="center"}

@@ -23,7 +23,7 @@ website:
       - text: "Reactivity"
         file: docs/reactivity-intro.qmd
       - text: "UI Customization"
-        file: docs/ui-customization.qmd
+        file: docs/ui-layout.qmd
       - text: "Best practices"
         file: docs/best-practices.qmd
       # - text: "Test"
@@ -75,8 +75,14 @@ website:
 
     - title: "UI Customization"
       contents:
-        - href: docs/ui-customization.qmd
-          text: Slides
+        - section: "Slides"
+          contents:
+          - href: docs/ui-layout.qmd
+            text: UI Layout
+          - href: docs/ui-themes.qmd
+            text: UI Themes
+          - href: docs/ui-dynamic.qmd
+            text: Dynamic UI
         - section: "Exercises"
           contents: 
           - docs/exercises/express-301-sidebar/index.qmd

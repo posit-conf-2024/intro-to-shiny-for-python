@@ -180,3 +180,4 @@ docs/*.html
 !docs/include/*.html
 /.jupyter_cache/*
 /.quarto/
+results.csv
