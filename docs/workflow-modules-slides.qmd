@@ -100,7 +100,15 @@ Notice that:
 :::
 
 
-## Your turn
+## Your turn: create a simple shiny module
 
-{{< yourturn 'express-402-modules' >}}
+{{< yourturn 'express-402-simple-module' >}}
+
+## Your turn: create a more complicated shiny module
+
+{{< yourturn 'express-403-module-fn' >}}
+
+## Your turn: insert the shiny module into your weather
+
+{{< yourturn 'express-404-module-app' >}}
 

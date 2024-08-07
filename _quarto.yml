@@ -106,8 +106,10 @@ website:
         - section: "Exercises"
           contents: 
           - docs/exercises/express-401-extract-function/index.qmd
-          - docs/exercises/express-402-modules/index.qmd
-          - docs/exercises/express-403-iterators/index.qmd
+          - docs/exercises/express-402-simple-module/index.qmd
+          - docs/exercises/express-403-module-fn/index.qmd
+          - docs/exercises/express-404-module-app/index.qmd
+          - docs/exercises/express-405-iterators/index.qmd
 
 filters:
   - shinylive
