@@ -1,11 +1,6 @@
 from shiny.express import render, ui
-import pandas as pd
-from pathlib import Path
-from data_import import df
+from data_import import df # loads accounts data
 
-# All the inputs start with `ui.input_*`, which adds an input to the app.
-# Note that this input doesn't do anything because we haven't connected it
-# to a rendering function.
 
 ui.input_select(
     id="account",
@@ -19,8 +14,15 @@ ui.input_select(
     ],
 )
 
+ui.input_radio_buttons(
+    "variable",
+    "Select a variable to plot",
+    choices={
+        "product_score": "Product Score", 
+        "training_score": "Training Score"
+    }
+)
 
 @render.data_frame
 def table():
-    account_counts = df.groupby("account").size().reset_index(name="counts")
-    return account_counts
+    return df

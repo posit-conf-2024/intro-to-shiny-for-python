@@ -1,2 +1,1 @@
-Add a select input to the app that lets the user select one of the accounts. For reference the account list is:
-`["Berge & Berge",  "Fritsch & Fritsch", "Hintz & Hintz", "Mosciski and Sons", "Wolff Ltd"]`
+I've provided the Important Accounts data set as a data frame named `df`. Can you add a data frame output that displays the data? Remember to load the submodule you will use.

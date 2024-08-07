@@ -1,4 +1,4 @@
-from shiny.express import ui, render
+from shiny.express import ui
 
 accounts=[
     "Berge & Berge",
