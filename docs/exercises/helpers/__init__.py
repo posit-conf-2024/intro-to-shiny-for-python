@@ -203,6 +203,16 @@ def problem_tabs_express(folder_name:str, app:bool = False) -> None:
                 exclusions=["app.py", "README"]
             )
         )
+    else:
+        block.append("## Edit this app")
+        block.extend(
+            _include_shiny_folder(
+                path, 
+                "app.py", 
+                exclusions=["app.py", "README"]
+            )
+        )
+
     block.append("## {{< bi github >}}")
 
     if app:
