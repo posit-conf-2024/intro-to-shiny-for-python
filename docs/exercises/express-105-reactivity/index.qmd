@@ -1,5 +1,5 @@
 ---
-title: "105 Connect input"
+title: "105 Connect inputs to outputs"
 ---
 
 ```{python}

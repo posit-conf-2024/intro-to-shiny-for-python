@@ -16,7 +16,7 @@ ui.input_radio_buttons(
     "variable",
     "Select a variable to plot",
     choices={
-        "product_score": "Product Score", 
+        "prod_score": "Product Score", 
         "training_score": "Training Score"
     }
 )

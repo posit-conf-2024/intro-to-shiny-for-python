@@ -1,0 +1,6 @@
+Update the app to make it reactive. Ensure that:
+
+- Both the plot and table show data related to the chosen account
+- The plot shows the requested variable
+
+Don't forget to import any new submodules that you use.
