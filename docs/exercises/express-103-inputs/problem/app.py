@@ -1,5 +1,7 @@
-from shiny.express import ui
-
-@render.plot
-def penguins_df():
-    return df
+accounts=[
+    "Berge & Berge",
+    "Fritsch & Fritsch",
+    "Hintz & Hintz",
+    "Mosciski and Sons",
+    "Wolff Ltd",
+]

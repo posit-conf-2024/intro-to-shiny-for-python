@@ -1,1 +1,4 @@
-This app is not rendering properly, can you figure out what's wrong?
+Add to app.py to recreate this app.  
+
+- Don't forget to load the submodules you will need.
+- Arrange for the second widget to store the value `"product_score"` when Product Score is selected, and the value `"training_score"` when Training Score is selected.
