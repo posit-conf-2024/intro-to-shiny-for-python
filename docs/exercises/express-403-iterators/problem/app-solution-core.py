@@ -17,8 +17,8 @@ def val_box_col(id, n_boxes):
 
 boxes = ["hot_days", "cold_days", "mean_error"]
 
-data_tab = ui.nav("Data", ui.output_data_frame("data"))
-error_tab = ui.nav(
+data_tab = ui.nav_panel("Data", ui.output_data_frame("data"))
+error_tab = ui.nav_panel(
     "Error",
     ui.row([val_box_col(box, len(boxes)) for box in boxes]),
     ui.row(
