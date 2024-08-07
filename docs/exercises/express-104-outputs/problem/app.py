@@ -1,6 +1,6 @@
 from shiny.express import render, ui
-from data_import import df # loads accounts data
 
+from data_import import df # loads accounts data
 
 ui.input_select(
     id="account",
@@ -25,4 +25,5 @@ ui.input_radio_buttons(
 
 @render.data_frame
 def table():
-    return df
+    tbl=df[df.account == "Wolff Ltd"]
+    return tbl

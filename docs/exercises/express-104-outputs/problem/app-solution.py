@@ -1,5 +1,8 @@
-from shiny.express import ui
+from shiny.express import render, ui
+from shinywidgets import render_widget
+
 from data_import import df # loads accounts data
+from plots import plot_var_distribution # loads helper function
 
 ui.input_select(
     id="account",
@@ -21,3 +24,14 @@ ui.input_radio_buttons(
         "training_score": "Training Score"
     }
 )
+
+@render_widget
+def plot():
+    tbl=df[df.account == "Wolff Ltd"]
+    return plot_var_distribution(tbl, var="training_score")
+
+@render.data_frame
+def table():
+    tbl=df[df.account == "Wolff Ltd"]
+    return tbl
+
