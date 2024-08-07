@@ -451,6 +451,10 @@ decorator(function, args)
 function
 ```
 
+## Syntax
+
+{{< yourview '103-table' >}}
+
 ## Your turn
 
 {{< yourturn 'express-104-filter' >}}
