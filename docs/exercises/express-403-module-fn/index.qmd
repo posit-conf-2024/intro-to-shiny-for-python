@@ -2,6 +2,8 @@
 title: "403 Shiny module with reactive output"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis

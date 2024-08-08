@@ -2,6 +2,8 @@
 title: "106 Debug"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis

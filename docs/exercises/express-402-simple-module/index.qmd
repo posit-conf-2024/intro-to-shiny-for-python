@@ -2,6 +2,8 @@
 title: "402 Simply shiny module"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis

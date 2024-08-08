@@ -2,6 +2,8 @@
 title: "208 Reactive event"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis

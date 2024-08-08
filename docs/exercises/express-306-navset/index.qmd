@@ -2,6 +2,8 @@
 title: "306 Navset"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis

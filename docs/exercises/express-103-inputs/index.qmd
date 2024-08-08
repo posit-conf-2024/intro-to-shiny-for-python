@@ -2,6 +2,8 @@
 title: "103 Add input widgets"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis

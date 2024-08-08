@@ -2,6 +2,8 @@
 title: "104 Add outputs"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis
