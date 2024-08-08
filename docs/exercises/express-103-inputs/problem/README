@@ -1,0 +1,4 @@
+Add to app.py to recreate this app.  
+
+- Don't forget to load the submodules you will need.
+- Arrange for the second widget to store the value `"prod_score"` when Product Score is selected, and the value `"training_score"` when Training Score is selected.

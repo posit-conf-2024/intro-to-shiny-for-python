@@ -1,0 +1,4 @@
+I've provided the Important Accounts data set as a data frame named `df`, and have added the portion that refers to the `Wolff Ltd` account as a table. 
+Use `plot_var_distribution()` to add a plot of the `training_scores` for the `Wolff Ltd` account. 
+
+Hint: You will need to use a special render function. Where could you discover this?

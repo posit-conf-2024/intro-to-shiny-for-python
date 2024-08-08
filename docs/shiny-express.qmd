@@ -1,5 +1,5 @@
 ---
-title: Shiny express
+title: Shiny Express
 ---
 
 To view in full screen, click on the slides then press {{< kbd  f >}}, or <a href = "shiny-express-slides.html" target="_blank">open in new tab.</a>
