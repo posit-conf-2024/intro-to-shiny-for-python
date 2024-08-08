@@ -13,7 +13,7 @@ weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 ui.page_opts(title="Weather error")
 with ui.layout_sidebar():
     with ui.sidebar():
-        ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+        ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30")
         ui.input_selectize(
             "cities",
             "Select Cities",
@@ -25,10 +25,8 @@ with ui.layout_sidebar():
     with ui.navset_tab():
         with ui.nav_panel("Error"):
 
-            # Change the layout of these cards into a column <---------------------
-                
             with ui.card():
-                ui.card_header("Distribution"),
+                ui.card_header("Distribution")
                 @render.plot
                 def error_distribution():
                     return plots.temp_distribution(filtered_data())
