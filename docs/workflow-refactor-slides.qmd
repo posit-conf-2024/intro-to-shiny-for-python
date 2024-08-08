@@ -1,5 +1,5 @@
 ---
-title: "Workflow introduction"
+title: "Refactor shiny apps"
 title-slide-attributes: 
   data-background-image:  images/shiny-for-python-seattle.jpg
   data-background-position: bottom left
@@ -72,4 +72,42 @@ Avoid premature refactoring
 1. Separate reactive and non-reactive code
 1. Use `shiny` modules
 1. Use functions to generate UI
+
+
+# Introduction to refactoring non-reactive code
+
+## Separate reactive and non-reactive logic
+
+- Most Shiny app code is non-reactive
+    - Drawing plots
+    - Summarizing data
+    - Interacting with databases
+    - (Really, everything except the actual reading of reactive inputs and calcs)
+- It's fine to include this code inside reactive functions
+- As your app grows you should separate them
+
+## Reactivity makes everything harder
+
+- Reactive context makes them inherently more difficult
+    - Harder to debug
+    - Harder to test
+    - Harder to document
+    - Harder to reason about
+
+## Pull logic out of the reactive context
+
+Non-reactive functions are familiar and predictable
+
+You can:
+
+- call them in a notebook
+- write unit tests 
+- reuse them in other contexts
+
+In turn, this makes your reactive code much clearer
+
+
+## Your turn
+
+{{< yourturn 'express-401-extract-function' >}}
 
