@@ -11,6 +11,11 @@ $presentation-title-slide-text-align: left;
 $presentation-heading-font-weight: 300;
 $code-block-font-size: 0.80em;
 
+$presentation-heading-line-height: 2;
+$presentation-font-size-root: 36px;
+$code-block-bg: #f4f4f4;
+$code-block-font-size: 0.55em;
+
 // colors
 $body-bg: #FFFFFF;
 $body-color: #404041;
@@ -104,4 +109,12 @@ section div.has-dark-background blockquote {
   > tbody > tr:nth-of-type(even) > * {
     background-color: #f2f2f2;
   }
+}
+
+.callout-content {
+  font-size: 1.25em;
+}
+
+.reveal h1.title {
+  line-height: 1.2;
 }
