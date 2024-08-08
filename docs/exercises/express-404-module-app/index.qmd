@@ -1,5 +1,5 @@
 ---
-title: "403 Extract function"
+title: "404 Insert a shiny module into a more complex app"
 ---
 
 ```{python}

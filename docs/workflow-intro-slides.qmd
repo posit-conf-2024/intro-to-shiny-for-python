@@ -22,46 +22,54 @@ format:
     auto-agenda:
       heading: Agenda
 ---
-```{python}
-# | echo: false
-import os
-import sys
-exercises_path = "./exercises"
-if exercises_path not in sys.path:
-    sys.path.append(exercises_path)
-from helpers import include_shiny_folder
-```
 
-# Introduction
+# Goals
 
 ## Goals
 
-- Learn some Shiny best practices
-- Get a sense of how large complicated apps are structured
-- Know when you need to refactor your application
+Learn some Shiny best practices:
+
+- How and when to refactor your app
+- Understand `shiny` modules
+- Iterate over lists to generate UI
+- Understand scoping rules
+- Deploy your app to the cloud
+    - For example, to <https://connect.posit.cloud/>
 
 # Refactoring
 
-## Avoid premature refactoring
+## Introduction to refactoring
 
-- Start by just getting your app to work
-- Take small steps to avoid repetition
-- Ultimately you're the one who needs to work with the code
+From [wikipedia](en.wikipedia.org/wiki/Code_refactoring):
 
-## When should you refactor?
+> In computer programming and software design, **code refactoring** is the process of restructuring existing source code - changing the factoring  - without changing its external behavior.
+
+For example:
+
+- Convert repeating scripts to a function
+- Split a long function into smaller functions
+- Separating code into python modules or `shiny` modules
+
+## Refactoring a shiny app
+
+When should you refactor?
+
 - You're trying to hold too much in your head
 - Changing the app is difficult
 - Other people don't understand your code
 - You don't understand your code!
 
-## Three main techniques
-- Use functions to generate UI
-- Separate reactive and non-reactive code
-- Modules
+Avoid premature refactoring
 
-## We're only going to cover two
-::: {.nonincremental}
-- Use functions to generate UI
-- Separate reactive and non-reactive code
-- ~~Modules~~
-:::
+- Start by just getting your app to work
+- Take small steps to avoid repetition
+- Ultimately you're the one who needs to work with the code
+
+
+
+## Three main techniques
+
+1. Separate reactive and non-reactive code
+1. Use `shiny` modules
+1. Use functions to generate UI
+

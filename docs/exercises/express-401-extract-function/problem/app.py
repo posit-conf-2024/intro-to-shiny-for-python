@@ -1,3 +1,4 @@
+
 from shiny.express import ui, render, input
 from shiny import reactive
 import pandas as pd
@@ -47,6 +48,7 @@ with ui.layout_sidebar():
                 return filtered_data()
     
 
+# Refactor this reactive calc into a function  \\//
 
 @reactive.calc
 def filtered_data():
@@ -56,3 +58,6 @@ def filtered_data():
     dates = pd.to_datetime(input.dates())
     df = df[(df["date"] > dates[0]) & (df["date"] <= dates[1])]
     return df
+
+
+

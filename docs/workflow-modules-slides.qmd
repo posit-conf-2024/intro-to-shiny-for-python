@@ -22,15 +22,6 @@ format:
     auto-agenda:
       heading: Agenda
 ---
-```{python}
-# | echo: false
-import os
-import sys
-exercises_path = "./exercises"
-if exercises_path not in sys.path:
-    sys.path.append(exercises_path)
-from helpers import include_shiny_folder
-```
 
 
 
@@ -38,8 +29,86 @@ from helpers import include_shiny_folder
 
 ## Modules
 
-- Not going to teach them, but you should know about them
-- Used when you want to encapsulate _both_ UI _and_ server logic together
-- Allows you to package and re-use parts of your application
+A `shiny` module provides you with a way to encapsulate both:
+
+- UI logic
+- Render logic
+
+This allows you to:
+
+1. Create re-usable components
+2. Abstract large parts of code into a separate unit
+
+
+This is:
+
 - Great for working with teams of developers
 - Essential for large applications
+
+## Module example
+
+Create a shiny module:
+
+ ```{.python}
+from shiny.express import ui, render
+
+from shiny express import input, output, session, module
+
+@module
+def card_module(input, output, session, title, fn):
+    with ui.card():
+        ui.card_header(title)
+        @render.plot
+        def _plot_out():
+            return fn()
+```
+
+Call the module like you call a function:
+
+```{.python}
+card_module('id', 'title', fn)
+```
+
+## Look carefully at the definition and the call:
+
+Create a shiny module:
+
+ ```{.python}
+@module
+def card_module(input, output, session, title, fn):
+    ...
+```
+
+
+\
+
+Call the module like you call a function:
+
+```{.python}
+card_module('id1', 'title', fn)
+
+```
+
+\
+
+::: {.callout-important}
+Notice that:
+
+1. You don't pass `input`, `output` or `session` to the module
+2. You pass an `id` that must be unique in the namespace
+3. And then you pass the other arguments
+:::
+
+
+## Your turn: create a simple shiny module
+
+{{< yourturn 'express-402-simple-module' >}}
+
+## Your turn: create a more complicated shiny module
+
+{{< yourturn 'express-403-module-fn' >}}
+
+## Your turn: insert the shiny module into your weather
+
+{{< yourturn 'express-404-module-app' >}}
+

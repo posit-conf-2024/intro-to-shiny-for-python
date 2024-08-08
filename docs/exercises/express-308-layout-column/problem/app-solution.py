@@ -54,19 +54,3 @@ def filtered_data():
     dates = pd.to_datetime(input.dates())
     df = df[(df["date"] > dates[0]) & (df["date"] <= dates[1])]
     return df
-
-    # @output
-    # @render.plot
-    # def error_distribution():
-    #     return temp_distribution(filtered_data())
-
-    # @output
-    # @render.plot
-    # def error_by_day():
-    #     return daily_error(filtered_data(), input.alpha())
-
-    # @output
-    # @render.data_frame
-    # def data():
-    #     return filtered_data()
-

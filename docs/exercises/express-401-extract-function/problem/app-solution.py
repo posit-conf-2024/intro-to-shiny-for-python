@@ -50,9 +50,12 @@ with ui.layout_sidebar():
 
 @reactive.calc
 def filtered_data():
+    return filter_weather(input.cities(), input.dates())
+
+def filter_weather(cities, dates):
     df = weather.copy()
-    df = df[df["city"].isin(input.cities())]
+    df = df[df["city"].isin(cities)]
     df["date"] = pd.to_datetime(df["date"])
-    dates = pd.to_datetime(input.dates())
+    dates = pd.to_datetime(dates)
     df = df[(df["date"] > dates[0]) & (df["date"] <= dates[1])]
     return df
