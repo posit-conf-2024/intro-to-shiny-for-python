@@ -35,7 +35,7 @@ website:
         href: https://discord.gg/AQVJzG2bnN
 
   sidebar:
-    - title: "Hallo, Shiny express!"
+    - title: "Hello, Shiny express!"
       contents:      
         - href: docs/shiny-express.qmd
           text: Slides
@@ -44,14 +44,18 @@ website:
           - docs/exercises/express-101-run-app/index.qmd
           - docs/exercises/express-102-ui-module/index.qmd
           - docs/exercises/express-103-inputs/index.qmd
-          - docs/exercises/express-104-filter/index.qmd
-          - docs/exercises/express-105-connect-filter/index.qmd
+          - docs/exercises/express-104-outputs/index.qmd
+          - docs/exercises/express-105-reactivity/index.qmd
           - docs/exercises/express-106-debug/index.qmd
           - docs/exercises/express-107-debug/index.qmd
-          - docs/exercises/express-108-plot/index.qmd
+          - docs/exercises/express-108-debug/index.qmd
+          - docs/exercises/express-109-debug/index.qmd
+          - docs/exercises/express-110-app/index.qmd
         - section: "Apps"
           contents:
-          - docs/apps/000-penguins/index.qmd
+          - docs/apps/101-input/index.qmd
+          - docs/apps/102-output/index.qmd
+          - docs/apps/103-table/index.qmd
           
     - title: "Reactivity"
       contents:
