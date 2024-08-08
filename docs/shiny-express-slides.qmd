@@ -282,14 +282,19 @@ And, these apps can scale from prototype to production-ready.
 
 ## Run an App
 
-Shiny for Python apps exist as ...Python files. To build an app from the file run at the command line:  
-\  
+Shiny for Python apps exist as ... Python files. 
+
+To build an app from the file run at the command line:  
+
 \    
-```python
+
+```bash
 shiny run app.py
 ```
+
 \ 
-\   
+
+
 where `app.py` is the name of your file.
 
 ##
@@ -302,19 +307,22 @@ Today, we will do that in an exercise container.
 
 But you can run `shiny run app.py` at any command line.
 
-![](../images/vscode-command-line.png)
+![](../images/vscode-command-line.png){height=700 fig-align="center"}
 
 ## 
 
 Or use the VS Code Shiny extension, for a Run App button in VS Code.
 
-![](../images/vscode-button.png)
+![](../images/vscode-button.png){height=700 fig-align="center"}
 
 
 ## The Important Accounts data
 
 How well did we predict the Product Score for each sub-account?
 
+\
+
+::: {.smaller}
 ```{python}
 #| output: asis
 #| class-output: striped
@@ -327,7 +335,7 @@ df = df.drop(columns=["text", "id"]).head(5)
 
 print(tabulate(df, headers='keys', tablefmt='github', showindex=False))
 ```
-
+:::
 
 ## Quiz {background-color=`{python} bgcolor`}
 
@@ -365,7 +373,9 @@ Instructions
 -   Functions like `ui.h1()` or `ui.markdown()` add static HTML to the app
 -   We'll get to layout functions in Session 3
 
+::: aside
 <https://shiny.posit.co/py/api/express/express.ui.markdown.html>
+:::
 
 ## Your turn
 
@@ -375,9 +385,12 @@ Instructions
 
 ## Inputs component gallery
 
-![](images/input-component-gallery.png)
+![](images/input-component-gallery.png){height=700 fig-align="center"}
 
+::: aside
 <https://shiny.posit.co/py/components/>
+:::
+
 
 ## Demo
 
@@ -399,9 +412,12 @@ Notice:
 
 How can you learn about input specific options?
 
-<https://shiny.posit.co/py/api/express/>
 
-![](../images/shiny-function-reference.png)
+![](../images/shiny-function-reference.png){height=700 fig-align="center"}
+
+::: aside
+<https://shiny.posit.co/py/api/express/>
+:::
 
 ## Your turn
 
@@ -415,9 +431,11 @@ What is the second thing a Shiny app needs?
 
 ## Outputs component gallery
 
-![](images/output-component-gallery.png)
+![](images/output-component-gallery.png){height=700 fig-align="center"}
 
+::: aside
 <https://shiny.posit.co/py/components/>
+:::
 
 ## Syntax
 
@@ -436,7 +454,9 @@ Can any of our Python users explain?
 
 ## Decorators are just functions
 
+::: {.callout-important}
 A decorator is a function that wraps another function and changes its behavior. 
+:::
 
 \ 
 
@@ -495,9 +515,13 @@ input.n()
 
 ## Reactive values are special
 
+::: {.callout-important}
 1. Only call reactive values from within a function that can handle them (e.g. a render function)
 \  
 2. Call them like a function: `input.n()`, not `input.n`
+
+:::
+
 
 
 ## Which input will cause the app to update? {background-color=`{python} bgcolor`}
