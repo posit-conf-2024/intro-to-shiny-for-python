@@ -68,3 +68,9 @@ exer:
 
 check:
 	python check.py
+
+test:
+	quarto render index.qmd --log-level warning
+	quarto render docs/exercises/express-101-run-app --log-level warning
+	quarto render docs/test.qmd --log-level warning
+	quarto render docs/test-slides.qmd --log-level warning

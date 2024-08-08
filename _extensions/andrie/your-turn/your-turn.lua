@@ -1,9 +1,3 @@
-quarto.doc.add_html_dependency({
-  name = "yourturnIframeContainer",
-  version = "0.1.0",
-  scripts = {"yourturn-iframeContainer.js"},
-})
-
 
 -- workhorse function
 insert_it = function(type, name, use_index) 
@@ -98,6 +92,15 @@ end
 
 
 insert_container = function(args, kwargs, meta)
+  quarto.doc.add_html_dependency({
+    name = "yourturnIframeContainer",
+    version = "0.1.0",
+    scripts = {
+      "yourturn-iframeContainer.js",
+      "iframe-resizer.parent.js"
+    },
+  })
+
   local msg = pandoc.Div(
     '',
     pandoc.Attr(
@@ -117,10 +120,22 @@ insert_container = function(args, kwargs, meta)
   return {msg, iframe}
 end
 
+insert_child = function(args, kwargs, meta)
+  quarto.doc.add_html_dependency({
+    name = "yourturnIframeChild",
+    version = "0.1.0",
+    scripts = {
+      "iframe-resizer.child.js"
+    },
+  })
+  return ''
+end
+
 
 return {
   ['yourturn'] = insert_your_turn,
   ['yourview'] = insert_view_app,
-  ['yourturnIframeContainer'] = insert_container
+  ['yourturnIframeContainer'] = insert_container,
+  ['yourturnChild'] = insert_child
 }
 
