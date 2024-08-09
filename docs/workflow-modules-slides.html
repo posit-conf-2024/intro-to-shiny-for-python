@@ -8,7 +8,6 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/yourturn-iframeContainer.js"></script>
 <script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script>
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
@@ -31,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="styles.css">
@@ -353,13 +417,111 @@
 </section>
 <section id="modules-1" class="slide level2">
 <h2>Modules</h2>
+<p>A <code>shiny</code> module provides you with a way to encapsulate both:</p>
 <ul>
-<li>Not going to teach them, but you should know about them</li>
-<li>Used when you want to encapsulate <em>both</em> UI <em>and</em> server logic together</li>
-<li>Allows you to package and re-use parts of your application</li>
+<li>UI logic</li>
+<li>Render logic</li>
+</ul>
+<p>This allows you to:</p>
+<ol type="1">
+<li>Create re-usable components</li>
+<li>Abstract large parts of code into a separate unit</li>
+</ol>
+<p>This is:</p>
+<ul>
 <li>Great for working with teams of developers</li>
 <li>Essential for large applications</li>
 </ul>
+</section>
+<section id="module-example" class="slide level2">
+<h2>Module example</h2>
+<p>Create a shiny module:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> ui, render</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a><span class="im">from</span> shiny express <span class="im">import</span> <span class="bu">input</span>, output, session, module</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="at">@module</span></span>
+<span id="cb1-6"><a></a><span class="kw">def</span> card_module(<span class="bu">input</span>, output, session, title, fn):</span>
+<span id="cb1-7"><a></a>   <span class="cf">with</span> ui.card():</span>
+<span id="cb1-8"><a></a>       ui.card_header(title)</span>
+<span id="cb1-9"><a></a>       <span class="at">@render.plot</span></span>
+<span id="cb1-10"><a></a>       <span class="kw">def</span> _plot_out():</span>
+<span id="cb1-11"><a></a>           <span class="cf">return</span> fn()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Call the module like you call a function:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>card_module(<span class="st">'id'</span>, <span class="st">'title'</span>, fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="look-carefully-at-the-definition-and-the-call" class="slide level2">
+<h2>Look carefully at the definition and the call:</h2>
+<p>Create a shiny module:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="at">@module</span></span>
+<span id="cb3-2"><a></a><span class="kw">def</span> card_module(<span class="bu">input</span>, output, session, title, fn):</span>
+<span id="cb3-3"><a></a>   ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
+<p>Call the module like you call a function:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>card_module(<span class="st">'id1'</span>, <span class="st">'title'</span>, fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Notice that:</p>
+<ol type="1">
+<li>You don’t pass <code>input</code>, <code>output</code> or <code>session</code> to the module</li>
+<li>You pass an <code>id</code> that must be unique in the namespace</li>
+<li>And then you pass the other arguments</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-create-a-simple-shiny-module" class="slide level2">
+<h2>Your turn: create a simple shiny module</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-402-simple-module/index.html" target="_blank">express-402-simple-module</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-402-simple-module/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section>
+<section id="your-turn-create-a-more-complicated-shiny-module" class="slide level2">
+<h2>Your turn: create a more complicated shiny module</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-403-module-fn/index.html" target="_blank">express-403-module-fn</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-403-module-fn/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section>
+<section id="your-turn-insert-the-shiny-module-into-your-weather" class="slide level2">
+<h2>Your turn: insert the shiny module into your weather</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-404-module-app/index.html" target="_blank">express-404-module-app</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-404-module-app/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newIframe.height = "1200px";
         newIframe.width = "100%";
         newIframe.style.border = "1px solid #123233";
+        newIframe.id = "yourturnIframe";
         
         // Insert the new iframe into the DOM
         var iframeContainer = document.getElementById('yourturnContainer');
@@ -32,5 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // change Z index of quarto sidebar
         document.getElementById("yourturnContainer").style.zIndex = 1
     }
+    // Resize the iframe
+    iframeResize({
+      license: 'GPLv3',
+      waitForLoad: true,
+    }, '#yourturnIframe');
   }
 });
+
+

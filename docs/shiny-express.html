@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Shiny express – Intro to Shiny for Python / Conf(2024)</title>
+<title>Shiny Express – Intro to Shiny for Python / Conf(2024)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,6 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/yourturn-iframeContainer.js"></script>
+<script src="../site_libs/quarto-contrib/yourturnIframeContainer-0.1.0/iframe-resizer.parent.js"></script>
 <script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -100,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../docs/shiny-express.html" aria-current="page"> 
-<span class="menu-text">Hello, Shiny express!</span></a>
+<span class="menu-text">Shiny Express</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../docs/reactivity-intro.html"> 
@@ -111,8 +112,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">UI Customization</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/best-practices.qmd"> 
-<span class="menu-text">Best practices</span></a>
+    <a class="nav-link" href="../docs/workflow-intro.qmd"> 
+<span class="menu-text">Workflow</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -159,32 +160,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-101-hello-world/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">101 Hello Shiny</span></a>
+  <a href="../docs/exercises/express-101-run-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">101 Run app</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-102-data-frame/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">102 Render data frame</span></a>
+  <a href="../docs/exercises/express-102-ui-module/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">102 The ui module</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-103-debug/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">103 Debug data frame</span></a>
+  <a href="../docs/exercises/express-103-inputs/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">103 Add input widgets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-104-filter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">104 Add filter input</span></a>
+  <a href="../docs/exercises/express-104-outputs/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">104 Add outputs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-105-connect-filter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">105 Connect input</span></a>
+  <a href="../docs/exercises/express-105-reactivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">105 Connect inputs to outputs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -201,8 +202,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/exercises/express-108-plot/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">108 Add plot</span></a>
+  <a href="../docs/exercises/express-108-debug/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">108 Debug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/exercises/express-109-debug/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">109 Debug</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/exercises/express-110-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">110 Build an app</span></a>
   </div>
 </li>
       </ul>
@@ -218,8 +231,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/apps/000-penguins/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">000 Penguins</span></a>
+  <a href="../docs/apps/101-input/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">101 Input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/102-output/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">102 Output</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/103-table/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">103 Table</span></a>
   </div>
 </li>
       </ul>
@@ -237,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Shiny express</h1>
+<h1 class="title">Shiny Express</h1>
 </div>
 
 
