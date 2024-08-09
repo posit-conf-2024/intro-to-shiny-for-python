@@ -81,8 +81,6 @@ website:
             text: UI Layout
           - href: docs/ui-themes.qmd
             text: UI Themes
-          - href: docs/ui-dynamic.qmd
-            text: Dynamic UI
         - section: "Exercises"
           contents: 
           - docs/exercises/express-301-sidebar/index.qmd
@@ -98,7 +96,7 @@ website:
           - docs/apps/301-cards/index.qmd
           - docs/apps/302-dynamic-ui/index.qmd
           - docs/apps/303-conditional-panel/index.qmd
-    - title: "Worflow"
+    - title: "Workflow"
       contents:
         - section: "Slides"
           contents:
