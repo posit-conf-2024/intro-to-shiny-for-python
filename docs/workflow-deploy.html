@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">UI Customization</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/workflow-intro.qmd"> 
+    <a class="nav-link active" href="../docs/workflow-refactor.html" aria-current="page"> 
 <span class="menu-text">Workflow</span></a>
   </li>  
 </ul>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Slides</li><li class="breadcrumb-item"><a href="../docs/workflow-deploy.html">Deploy your shiny app</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/workflow-refactor.html">Slides</a></li><li class="breadcrumb-item"><a href="../docs/workflow-deploy.html">Deploy your shiny app</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -153,11 +153,11 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">docs/workflow-intro.qmd</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">docs/workflow-non-reactive-code.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../docs/workflow-refactor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Refactor shiny apps</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/workflow-modules.html" class="sidebar-item-text sidebar-link">
@@ -230,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Slides</li><li class="breadcrumb-item"><a href="../docs/workflow-deploy.html">Deploy your shiny app</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/workflow-refactor.html">Slides</a></li><li class="breadcrumb-item"><a href="../docs/workflow-deploy.html">Deploy your shiny app</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Deploy your shiny app</h1>
 </div>
@@ -353,7 +353,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -750,7 +750,7 @@ Director of Learning, Posit
 <p><br>
 </p>
 <div class="smaller">
-<div id="f2de49b8" class="cell" data-class-output="striped" data-execution_count="2">
+<div id="03fd7ae0" class="cell" data-class-output="striped" data-execution_count="2">
 <table class="caption-top">
 <colgroup>
 <col style="width: 16%">
@@ -1335,7 +1335,7 @@ Value:</p>
 <section id="weather-data" class="slide level2">
 <h2>Weather data</h2>
 <p>How accurate are forecasts?</p>
-<div id="9f332cb0" class="cell" data-class-output="striped" data-execution_count="3">
+<div id="4a2fa683" class="cell" data-class-output="striped" data-execution_count="3">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -1710,7 +1710,7 @@ Value:</p>
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

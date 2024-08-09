@@ -115,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">UI Customization</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../docs/workflow-intro.qmd"> 
+    <a class="nav-link" href="../../../docs/workflow-refactor.html"> 
 <span class="menu-text">Workflow</span></a>
   </li>  
 </ul>
@@ -353,6 +353,16 @@ with ui.card():
             )
 
     ui.input_select("metric", "Metric", choices=["ROC Curve", "Precision Recall"])
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "simulated-data.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -416,16 +426,6 @@ def plot_api_response(df):
     fig = px.histogram(df, x="Value", nbins=50, title="API response time")
     fig.update_layout(xaxis_title="Seconds", yaxis_title="Density")
     return fig
-
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "simulated-data.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
 
 ## file: requirements.txt
 pandas
@@ -1474,6 +1474,16 @@ with ui.card():
         account_subset = df[df["account"] == input.account()]
         return plot_auc_curve(account_subset, "is_electronics", "training_score")
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "simulated-data.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -1537,16 +1547,6 @@ def plot_api_response(df):
     fig = px.histogram(df, x="Value", nbins=50, title="API response time")
     fig.update_layout(xaxis_title="Seconds", yaxis_title="Density")
     return fig
-
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "simulated-data.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
 
 ## file: requirements.txt
 pandas
@@ -2593,6 +2593,16 @@ with ui.card():
             )
 
     ui.input_select("metric", "Metric", choices=["ROC Curve", "Precision Recall"])
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "simulated-data.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -2656,16 +2666,6 @@ def plot_api_response(df):
     fig = px.histogram(df, x="Value", nbins=50, title="API response time")
     fig.update_layout(xaxis_title="Seconds", yaxis_title="Density")
     return fig
-
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "simulated-data.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
 
 ## file: requirements.txt
 pandas
@@ -3776,7 +3776,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
