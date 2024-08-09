@@ -1,7 +1,7 @@
 from shiny.express import ui, render, module
 
 @module
-def card_mod(input, output, session, title, body:
+def card_mod(input, output, session, title, body, fn):
     with ui.card():
         ui.card_header(title)
         body

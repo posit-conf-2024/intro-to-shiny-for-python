@@ -14,7 +14,7 @@ ui.page_opts(title = "Weather error")
 
 with ui.layout_sidebar():
     with ui.sidebar():
-        ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+        ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30")
         ui.input_selectize(
             "cities",
             "Select Cities",

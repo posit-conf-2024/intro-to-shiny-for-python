@@ -23,7 +23,7 @@ ui.navset_tab(tab1, tab2, tab3)
 app_ui = ui.page_fluid(
     ui.layout_sidebar(
         ui.panel_sidebar(
-            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30"),
+            ui.input_date_range("dates", "Date", start="2022-01-01", end="2022-01-30")
             ui.input_selectize(
                 "cities",
                 "Select Cities",

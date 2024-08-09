@@ -2,6 +2,8 @@
 title: "404 Insert a shiny module into a more complex app"
 ---
 
+{{< yourturnChild >}}
+
 ```{python}
 # | echo: false
 # | output: asis
