@@ -9,8 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script>
-<link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet">
-<script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script><meta charset="utf-8">
+<link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
   <title>Intro to Shiny for Python / Conf(2024) – Test</title>
@@ -410,21 +409,6 @@
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>QR codes</h2>
-<p>jmbhur.de</p>
-<div id="qr1" class="qrcode"></div>
-<script type="text/javascript">
-var qrcode = new QRCode("qr1", {"colorLight":"#ffffff","text":"https://jmbuhr.de","width":"200","height":"200","colorDark":"#000000"});
-</script>
-    
-<p>shiney.posit.co/py/templates</p>
-<div id="qr2" class="qrcode"></div>
-<script type="text/javascript">
-var qrcode = new QRCode("qr2", {"colorLight":"#ffffff","text":"https://shiny.posit.co/py/templates/","width":"200","height":"200","colorDark":"#000000"});
-</script>
-    
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -733,7 +717,7 @@ var qrcode = new QRCode("qr2", {"colorLight":"#ffffff","text":"https://shiny.pos
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
