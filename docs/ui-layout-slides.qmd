@@ -37,13 +37,14 @@ from helpers import include_shiny_folder
 
 ## Goals
 
-- So far we've learned:
-    - How to build an app
-    - How Shiny renders things
-- This session is all about how they look
-- We're going to cover a lot of UI elements quickly
-    - Just know that these exist
-    - Don't worry too much about remembering how they work
+You can fill your app with content, but can you organize it?
+\
+\
+This section is a bit of a survey. Just know:  
+
+- That these exist
+- What it feels like to use them
+- And where to rediscover them when you need them
 
 ## Why care about UI design?
 - It's what your stakeholders care about!
@@ -52,97 +53,45 @@ from helpers import include_shiny_folder
 
 ## Where we're headed
 
-{{< yourview '303-conditional-panel' >}}
+{{< yourview '300-target-app' >}}
 
+## Where we are starting
 
-# Anatomy of Shiny UI
+{{< yourview '300-starting-app' >}}
 
-## Anatomy of Shiny UI
+## How we will get there
 
-:::: {.columns}
-::: column
-```{.python}
-app_ui = ui.page_fluid(
-    ui.panel_title("Hello Penguins!"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("mass", "Mass"
-            ),
-            ui.input_action_button("reset", "Reset Slider"),
-        ),
-        ui.panel_main(
-            ui.output_data_frame("table"),
-        ),
-    ),
-)
-```
-:::
-::: column
-- The UI is separate from the server
-- UI is made up of pure functions
-    - You can break them into objects
-    - You can create them with functions
-- Opinionated
-    - Your inputs get labels
-    - Reasonable look and feel
-- Customizable 
-    - Everything can be styled with CSS
-    - If you know JavaScript, you can use JavaScript
-:::
-::::
+The UI module
 
-## Some nomenclature
-
-- **Container functions**: organize **child** elements
-- **Element functions**: generate a UI object like input and outputs
-- **Child**: elements contained by a container function
-- **Parent**: the container one level up from a particular element or container
-
-## Element functions
-
-```{.python code-line-numbers="2,5,7,10"}
-app_ui = ui.page_fluid(
-    ui.panel_title("Hello Penguins!"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("mass", "Mass"
-            ),
-            ui.input_action_button("reset", "Reset Slider"),
-        ),
-        ui.panel_main(
-            ui.output_data_frame("table"),
-        ),
-    ),
-)
+```python
+from shiny.express import ui
 ```
 
-## Container functions
+## 
 
-```{.python code-line-numbers="1,3,4,9"}
-app_ui = ui.page_fluid(
-    ui.panel_title("Hello Penguins!"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("mass", "Mass"
-            ),
-            ui.input_action_button("reset", "Reset Slider"),
-        ),
-        ui.panel_main(
-            ui.output_data_frame("table"),
-        ),
-    ),
-)
+An app is a web page. `ui` functions emit HTML.
+
+- non-reactive
+- can be styled with CSS
+
+```{python}
+from shiny.express import ui
+```
+
+```{python}
+#| echo: true
+
+ui.HTML('<a href="https://posit.co">Visit posit.co</a>')
+```
+\
+```{python}
+#| echo: true
+
+ui.tags.a("Visit posit.co", href="https://posit.co")
 ```
 
 
-## Container functions
-- Some layout functions take any child elements and lay them out in order
-    - `ui.page_fluid`
-    - `ui.panel_sidebar`
-    - `ui.panel_main`
-- Some, like `layout_sidebar`, take specific children
-    - `panel_sidebar` defines the sidebar
-    - `panel_main` defines the main panel
+
 
 # Navsets
 
