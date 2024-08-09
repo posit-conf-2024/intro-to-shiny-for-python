@@ -1,0 +1,142 @@
+---
+title: "Iterating over UI elements"
+title-slide-attributes: 
+  data-background-image:  images/shiny-for-python-seattle.jpg
+  data-background-position: bottom left
+  data-background-size: cover
+format:
+  positconfslides-revealjs: 
+    incremental: false
+    chalkboard: true
+    slide-number: c/t
+    code-copy: true
+    center-title-slide: false
+    code-link: true
+    highlight-style: a11y
+    width: "1600"
+    height: "900"
+    css: "styles.css"
+    filters:
+      - positconfslides
+      - reveal-auto-agenda
+    auto-agenda:
+      heading: Agenda
+---
+```{python}
+# | echo: false
+import os
+import sys
+exercises_path = "./exercises"
+if exercises_path not in sys.path:
+    sys.path.append(exercises_path)
+from helpers import include_shiny_folder
+```
+
+# UI Functions
+
+## Background on functions
+
+- In Python, functions are the best way to improve code quality
+    - Don't Repeat Yourself (DRY) principle
+    - Can define variables within the function scope
+    - Can write tests against them
+    - Easy to use in list comprehensions
+- If your code is getting crazy, start refactoring into functions
+
+## Data Science blind spot
+<br><br>
+
+:::{.large}
+Data scientists forget functions when writing Shiny UIs
+:::
+
+## UI elements are just values
+
+- Recall that Shiny UI elements are just values
+    - They can be saved as variables
+    - They can be stored in lists
+    - They can be passed into functions 
+    - They can be returned by functions
+
+## Using functions
+
+```{.python}
+from shiny import App, render, ui
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n1", "N", 0, 100, 20),
+    ui.input_slider("n2", "N", 0, 100, 20),
+    ui.input_slider("n3", "N", 0, 100, 20),
+    ui.input_slider("n4", "N", 0, 100, 20),
+    ui.input_slider("n5", "N", 0, 100, 20),
+    ui.input_slider("n6", "N", 0, 100, 20),
+)
+
+app = App(app_ui, None)
+```
+
+## Using functions
+
+```{.python}
+from shiny import App, render, ui
+
+def my_slider(id, label):
+    return ui.input_slider(id, "N", 0, 100, 20)
+
+app_ui = ui.page_fluid(
+    my_slider("n1"),
+    my_slider("n2"),
+    my_slider("n3"),
+    my_slider("n4"),
+    my_slider("n5"),
+)
+
+app = App(app_ui, None)
+```
+
+## Applying a function over a list
+
+```{.python}
+from shiny import App, render, ui
+
+def my_slider(id):
+    return ui.input_slider(id, "N", 0, 100, 20)
+
+ids = ["n1", "n2", "n3", "n4", "n5"]
+
+app_ui = ui.page_fluid(
+    [my_slider(x) for x in ids]
+)
+
+app = App(app_ui, None)
+```
+
+## Iterating across two lists
+
+```{.python}
+from shiny import App, render, ui
+
+def my_slider(id, label):
+    return ui.input_slider(id, label + "Number", 0, 100, 20)
+
+numbers = ["n1", "n2", "n3", "n4", "n5", "n6"]
+labels = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth"]
+
+app_ui = ui.page_fluid(
+    [my_slider(x, y) for x, y in zip(numbers, labels)]
+)
+
+app = App(app_ui, None)
+```
+<!-- 
+## Benefits of functions
+- Defines the the logic in one place
+- First step on the abstraction ladder
+- Clarifies how components interact with each other
+ -->
+
+
+## Your turn
+
+{{< yourturn 'express-405-iterators' >}}
+
