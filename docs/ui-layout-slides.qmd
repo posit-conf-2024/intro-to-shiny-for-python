@@ -57,11 +57,11 @@ This section is a bit of a survey. Just know:
 
 ## Where we're headed
 
-{{< yourview '300-target-app' >}}
+{{< yourview '310-target-app' >}}
 
 ## Where we're starting
 
-{{< yourview '300-starting-app' >}}
+{{< yourview '311-starting-app' >}}
 
 ## How we will get there{background-color=`{python} bgcolor`}
 
@@ -229,7 +229,7 @@ with ui.card():
 
 ## Value boxes in action
 
-{{< yourview '300-starting-app' >}}
+{{< yourview '312-value-boxes' >}}
 
 ::: {.callout-tip}
 The `faicons` package provides [fontawesome](https://fontawesome.com/) icons.
@@ -254,7 +254,7 @@ What if you want to customize your layout more generally?
 
 ## `ui.layout_columns()`
 
-{{< yourview '300-starting-app' >}}
+{{< yourview '313-columns' >}}
 
 ## Columns are built on the Bootstrap grid
 
@@ -319,11 +319,10 @@ with ui.nav_panel("A"):
 
 ## Nav panels
 
-{{< yourview '300-starting-app' >}}
+{{< yourview '313-columns' >}}
 
 ## Navigation functions
 
-1. `ui.navset_bar()`
 1. `ui.navset_tab()`, `ui.navset_card_tab()`
 1. `ui.navset_pill()`, `ui.navset_card_pill()`
 1. `ui.navset_pill_list()`
@@ -367,6 +366,44 @@ Would you like to control how elements resize as the viewer's screen size change
 Explore this topic [here](https://shiny.posit.co/py/layouts/arrange/#controlling-for-page-width-and-height).
 \
 ![](images/page-control.png)
+
+# Recap
+
+## Common Tasks
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![Cards](images/layouts/cards.png)
+`ui.card()`  
+\
+![Tabsets](images/layouts/tabsets.png)
+`ui.navset_tab()`  
+\
+:::
+
+::: {.column width="30%"}
+![Sidebars](images/layouts/sidebars.png)
+`ui.sidebar()`    
+\
+![Navbars](images/layouts/navbars.png)
+`ui.navset_bar()` 
+\
+:::
+
+::: {.column width="30%"}
+![Rows and Columns](images/layouts/columns.png)
+`ui.layout_columns()`  
+\
+```python
+with ui.nav_panel("A"):
+    Contents
+```
+\
+:::
+
+::::
+
 
 <!--
 ```{.python}

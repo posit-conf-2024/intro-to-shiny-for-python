@@ -35,9 +35,16 @@ from helpers import include_shiny_folder
 bgcolor = "whitesmoke"
 ```
 
+
+# Review
+
+## Combine what you've learned
+
+{{< yourturn 'express-306-new-app' >}}
+
 ## Where we're headed
 
-{{< yourview '300-target-app' >}}
+{{< yourview '314-target-app' >}}
 
 ## 
 
@@ -74,7 +81,7 @@ theme.darkly()
 
 ## Your Turn
 
-{{< yourturn 'express-306-theme' >}}
+{{< yourturn 'express-307-theme' >}}
 
 ## But what about plots?
 
@@ -101,7 +108,7 @@ Use tab completion to explore the color options.
 
 ## Your Turn
 
-{{< yourturn 'express-307-harmonize' >}}
+{{< yourturn 'express-308-harmonize' >}}
 
 ## That's it
 
@@ -139,7 +146,7 @@ Assign styles to:
 
 ## Adding CSS to a Shiny app
 
-{{< yourview '300-target-app' >}}
+{{< yourview '315-css' >}}
 
 ## To link an external style sheet
 
@@ -186,7 +193,7 @@ See <https://getbootstrap.com/docs/5.3/utilities/colors/> to begin your search f
 
 ## Your Turn
 
-{{< yourturn 'express-308-valuebox-color' >}}
+{{< yourturn 'express-309-valuebox-color' >}}
 
 # Fonts
 
@@ -241,4 +248,4 @@ This makes `www` a very good place to store things needed by a browser, like:
 
 ## Your Turn
 
-{{< yourturn 'express-308-style' >}}
+{{< yourturn 'express-310-style' >}}
