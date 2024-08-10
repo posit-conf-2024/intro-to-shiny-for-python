@@ -5,7 +5,8 @@ execute:
   freeze: false
 
 website:
-  title: "Intro to Shiny for Python / Conf(2024)"
+  title: "Intro to Shiny for Python\nConf(2024)"
+  # subtitle: "Conf 2024"
   announcement: 
     icon: info-circle
     dismissable: true
@@ -23,7 +24,8 @@ website:
       - text: "UI Customization"
         file: docs/ui-layout.qmd
       - text: "Workflow"
-        file: docs/workflow-intro.qmd
+        file: docs/workflow-refactor.qmd
+      # - docs/test.qmd
     tools: 
       - icon: github
         href: https://github.com/posit-conf-2024/intro-to-shiny-for-python
@@ -100,18 +102,25 @@ website:
       contents:
         - section: "Slides"
           contents:
-          - docs/workflow-intro.qmd
-          - docs/workflow-non-reactive-code.qmd
+          - docs/workflow-refactor.qmd
           - docs/workflow-modules.qmd
-          - docs/workflow-iterators.qmd
+          # - docs/workflow-iterators.qmd
           - docs/workflow-deploy.qmd
         - section: "Exercises"
           contents: 
           - docs/exercises/express-401-extract-function/index.qmd
-          - docs/exercises/express-402-simple-module/index.qmd
-          - docs/exercises/express-403-module-fn/index.qmd
-          - docs/exercises/express-404-module-app/index.qmd
-          - docs/exercises/express-405-iterators/index.qmd
+          - docs/exercises/express-402-python-module/index.qmd
+          - docs/exercises/express-403-simple-module/index.qmd
+          - docs/exercises/express-404-module-fn/index.qmd
+          - docs/exercises/express-405-module-lambda/index.qmd
+          # - docs/exercises/express-406-module-app/index.qmd
+          # - docs/exercises/express-410-iterators/index.qmd
+    - title: "Test"
+      contents:      
+        - docs/test.qmd
+        - section: "Exercises"
+          contents: 
+          - docs/exercises/express-101-run-app/index.qmd
 
 filters:
   - shinylive
