@@ -244,7 +244,7 @@ Value boxes can have:
 1. An icon
 2. A value
 3. Supporting text
-4. A fill color (as we will learn later)
+4. A fill color (a "theme")
 
 
 ## Value boxes in action
