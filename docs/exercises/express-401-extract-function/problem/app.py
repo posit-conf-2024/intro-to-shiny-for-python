@@ -9,6 +9,16 @@ infile = Path(__file__).parent / "weather.csv"
 weather = pd.read_csv(infile)
 weather["error"] = weather["observed_temp"] - weather["forecast_temp"]
 
+# Refactor this reactive calc into a function  \\//
+
+@reactive.calc
+def filtered_data():
+    df = weather.copy()
+    df = df[df["city"].isin(input.cities())]
+    df["date"] = pd.to_datetime(df["date"])
+    dates = pd.to_datetime(input.dates())
+    df = df[(df["date"] > dates[0]) & (df["date"] <= dates[1])]
+    return df
 
 ui.page_opts(title="Weather error")
 with ui.layout_sidebar():
@@ -45,17 +55,3 @@ with ui.layout_sidebar():
             def data():
                 return filtered_data()
     
-
-# Refactor this reactive calc into a function  \\//
-
-@reactive.calc
-def filtered_data():
-    df = weather.copy()
-    df = df[df["city"].isin(input.cities())]
-    df["date"] = pd.to_datetime(df["date"])
-    dates = pd.to_datetime(input.dates())
-    df = df[(df["date"] > dates[0]) & (df["date"] <= dates[1])]
-    return df
-
-
-

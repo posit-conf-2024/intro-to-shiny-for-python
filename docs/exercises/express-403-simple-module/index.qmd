@@ -1,0 +1,17 @@
+---
+title: "403 Simple shiny module"
+---
+
+{{< yourturnChild >}}
+
+```{python}
+# | echo: false
+# | output: asis
+import sys
+helpers_path = "../"
+if helpers_path not in sys.path:
+    sys.path.append(helpers_path)
+from helpers import problem_tabs_express, getcwd
+
+problem_tabs_express(getcwd())
+```

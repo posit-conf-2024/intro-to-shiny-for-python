@@ -1,11 +1,11 @@
-# modify to also import the module function
-from shiny.express import ui, render, module
+# Part 1: modify to also import the module function
+from shiny.express import ui, render
 
 
-# Fix this module:
+# Part 2: fix this module:
 # 1. Use the `@module` decorator to define a module function.
 # 2. The module function should take the following arguments:
-#    - `input`
+#    - `input``
 #    - `output`
 #    - `session`
 #    - `title`
@@ -24,16 +24,11 @@ with ui.card():
     "Card 1 is a basic card"
 
 
-# Now insert a card using the module function.
+# Part 3: Insert a card using the module function.
 insert_card(
     ---, # unique id
     ---, # title
-    ---,
+    ---, # body
 )
 
-# Bonus points: 
-insert_card(
-    "card3", # id
-    "Also made by module", # title
-    "This is the body of card 3",
-)
+# Part 4: bonus points for inserting another card

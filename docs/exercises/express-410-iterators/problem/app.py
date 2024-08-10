@@ -18,6 +18,21 @@ def card_module(input, output, session, title, fn):
         @render.plot
         def _plot_out():
             return fn()
+        
+
+# Task: Complete the module
+# The module must return a `ui.value_box` with a title and value
+@module
+def value_box_module(input, output, session, title, value):
+    ---
+
+# Task: do not change this list, but use the values to insert value boxes in a loop into the app
+value_boxes = [
+    {"id": "box1", "title": "Temperature", "value": "25°C"},
+    {"id": "box2", "title": "Humidity", "value": "60%"},
+    {"id": "box3", "title": "Wind Speed", "value": "15 km/h"}
+]
+
 
 ## server ------------------
 
@@ -45,6 +60,13 @@ with ui.layout_sidebar():
         )
     with ui.navset_tab():        
         with ui.nav_panel("Error"):
+            with ui.layout_columns():
+
+                # Task: Loop over the value boxes
+                # ass the information to the value_box_module function
+                for box in value_boxes:
+                    ---
+
             card_module(
                 "card_1", 
                 "Distribution", 
@@ -68,4 +90,6 @@ with ui.layout_sidebar():
             @render.data_frame
             def data():
                 return filtered_data()
+
+
 
