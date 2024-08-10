@@ -57,11 +57,11 @@ This section is a bit of a survey. Just know:
 
 ## Where we're headed
 
-{{< yourview '310-target-app' >}}
+{{< yourview '330-target-app' >}}
 
 ## Where we're starting
 
-{{< yourview '311-starting-app' >}}
+{{< yourview '331-starting-app' >}}
 
 ## How we will get there{background-color=`{python} bgcolor`}
 
@@ -229,7 +229,7 @@ with ui.card():
 
 ## Value boxes in action
 
-{{< yourview '312-value-boxes' >}}
+{{< yourview '332-value-boxes' >}}
 
 ::: {.callout-tip}
 The `faicons` package provides [fontawesome](https://fontawesome.com/) icons.
@@ -254,7 +254,7 @@ What if you want to customize your layout more generally?
 
 ## `ui.layout_columns()`
 
-{{< yourview '313-columns' >}}
+{{< yourview '333-columns' >}}
 
 ## Columns are built on the Bootstrap grid
 
@@ -319,7 +319,7 @@ with ui.nav_panel("A"):
 
 ## Nav panels
 
-{{< yourview '313-columns' >}}
+{{< yourview '333-columns' >}}
 
 ## Navigation functions
 
