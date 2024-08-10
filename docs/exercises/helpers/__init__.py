@@ -143,13 +143,19 @@ def problem_app_express(folder_name) -> None:
 # Parameters:
 #    - folder_name:  relative folder path
 #    - app: If True, expects an app (app.py) and if False, expects a problem (app.py and app-solution.py)
-def problem_tabs_express(folder_name:str, app:bool = False) -> None:
+def problem_tabs_express(
+        folder_name:str, 
+        app:bool = False,
+        app_exclusions:list = [],
+        sol_exclusions:list = [],
+    ) -> None:
     path = os.path.basename(folder_name)
     path = os.path.join(path, "problem")
     path = "problem"
-    # path = 
-    # path = folder_name
-    # folder_name = path
+
+    app_exclusions = ["app-solution.py", "README"] + app_exclusions
+    sol_exclusions = ["app.py", "README"] + sol_exclusions
+
     
     prompt = parse_readme("problem")
 
@@ -181,7 +187,8 @@ def problem_tabs_express(folder_name:str, app:bool = False) -> None:
             _include_shiny_folder(
                 path, 
                 "app.py", 
-                exclusions=["app-solution.py", "README"]
+                exclusions=app_exclusions
+                # exclusions=["app-solution.py", "README"]
             )
         )
     else:
@@ -200,7 +207,7 @@ def problem_tabs_express(folder_name:str, app:bool = False) -> None:
             _include_shiny_folder(
                 path, 
                 "app-solution.py", 
-                exclusions=["app.py", "README"]
+                exclusions=sol_exclusions
             )
         )
     else:
