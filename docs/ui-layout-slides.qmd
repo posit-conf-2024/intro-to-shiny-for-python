@@ -201,6 +201,14 @@ with ui.card():
             "Card level sidebar"
 ```
 
+## Aside - Titles
+
+Adding a title to an App also helps to give it structure. Add titles with 
+
+```python
+ui.page_opts(title = "My Title")
+```
+
 # Sidebars
 
 ## Your turn
@@ -227,12 +235,24 @@ with ui.card():
 <https://shiny.posit.co/py/components/>
 :::
 
+## Components
+
+![](images/value-box.png)
+
+Value boxes can have:
+
+1. An icon
+2. A value
+3. Supporting text
+4. A fill color (as we will learn later)
+
+
 ## Value boxes in action
 
 {{< yourview '332-value-boxes' >}}
 
 ::: {.callout-tip}
-The `faicons` package provides [fontawesome](https://fontawesome.com/) icons.
+The `faicons` package provides [fontawesome](https://fontawesome.com/search?) icons.
 :::
 
 ## Your turn

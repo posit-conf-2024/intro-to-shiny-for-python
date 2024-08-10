@@ -42,6 +42,7 @@ with ui.navset_tab():
                 def cold_days():
                     hot_days = filtered_data()["error"] < 0
                     return sum(hot_days)
+            
             with ui.value_box(
                 showcase=fa.icon_svg("temperature-full"), 
                 showcase_layout="left center"
