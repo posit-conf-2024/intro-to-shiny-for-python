@@ -31,8 +31,7 @@ Learn some Shiny best practices:
 
 - How and when to refactor your app
 - Understand `shiny` modules
-- Iterate over lists to generate UI
-- Understand scoping rules
+<!-- - Understand scoping rules -->
 - Deploy your app to the cloud
     - For example, to <https://connect.posit.cloud/>
 
@@ -78,27 +77,32 @@ Avoid premature refactoring
 
 ## Separate reactive and non-reactive logic
 
-- Most Shiny app code is non-reactive
-    - Drawing plots
-    - Summarizing data
-    - Interacting with databases
-    - (Really, everything except the actual reading of reactive inputs and calcs)
-- It's fine to include this code inside reactive functions
-- As your app grows you should separate them
+Most Shiny app code is non-reactive
+
+  - Drawing plots
+  - Summarizing data
+  - Interacting with databases
+  - (Really, everything except the actual reading of reactive inputs and calcs)
+
+
+::: {.callout-note}
+It's fine to include this code inside reactive functions.
+
+But as your app grows you should separate them.
+:::
 
 ## Reactivity makes everything harder
 
-- Reactive context makes them inherently more difficult
-    - Harder to debug
-    - Harder to test
-    - Harder to document
-    - Harder to reason about
+Reactive context makes them inherently harder to:
+
+  - debug
+  - test
+  - document
+  - reason about
 
 ## Pull logic out of the reactive context
 
-Non-reactive functions are familiar and predictable
-
-You can:
+Non-reactive functions are familiar and predictable, since you can:
 
 - call them in a notebook
 - write unit tests 
@@ -110,4 +114,57 @@ In turn, this makes your reactive code much clearer
 ## Your turn
 
 {{< yourturn 'express-401-extract-function' >}}
+
+# Moving code into a python module
+
+## What is a python module?
+
+A python module could be as simple as a single python file.
+
+You can import functions from this file into your shiny app.
+
+Benefits:
+
+- Namespacing
+
+- Testing
+
+- Separation of functionality
+
+- Potential to re-use across multiple applications
+
+
+## Python module example
+
+In a file `example.py`
+
+```{.python}
+def foo(x):
+  # Do something with x
+  return x
+```
+
+
+In your app:
+
+```{.python}
+from example import foo
+
+foo(2)
+```
+
+## Moving code from a shiny app to a python module
+
+::: {.callout-note}
+1. Keep your reactive code in the shiny app
+
+1. Move non-reactive code into python modules
+:::
+
+
+
+## Your turn
+
+{{< yourturn 'express-402-python-module' >}}
+
 

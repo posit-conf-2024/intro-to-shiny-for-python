@@ -25,7 +25,7 @@ format:
 
 
 
-# Modules
+# Introduction to shiny modules
 
 ## Modules
 
@@ -50,8 +50,6 @@ This is:
 Create a shiny module:
 
  ```{.python}
-from shiny.express import ui, render
-
 from shiny express import input, output, session, module
 
 @module
@@ -71,14 +69,18 @@ card_module('id', 'title', fn)
 
 ## Look carefully at the definition and the call:
 
-Create a shiny module:
+::: {.callout-important}
+1. You don't pass `input`, `output` or `session` to the module
+2. You pass an `id` that must be unique in the namespace
+3. And then you pass the other arguments
+:::
 
- ```{.python}
+Create a shiny module:
+```{.python}
 @module
 def card_module(input, output, session, title, fn):
-    ...
+  ...
 ```
-
 
 \
 
@@ -86,29 +88,87 @@ Call the module like you call a function:
 
 ```{.python}
 card_module('id1', 'title', fn)
-
 ```
-
-\
-
-::: {.callout-important}
-Notice that:
-
-1. You don't pass `input`, `output` or `session` to the module
-2. You pass an `id` that must be unique in the namespace
-3. And then you pass the other arguments
-:::
 
 
 ## Your turn: create a simple shiny module
 
-{{< yourturn 'express-402-simple-module' >}}
+{{< yourturn 'express-403-simple-module' >}}
+
+# Including reactivity in your module
 
 ## Your turn: create a more complicated shiny module
 
-{{< yourturn 'express-403-module-fn' >}}
+{{< yourturn 'express-404-module-fn' >}}
+
+
+## Delaying reactivity with `lambda` functions
+
+Define a module: 
+
+```{.python}
+@module
+def card_module(input, output, session, title, fn):
+    with ui.card():
+        ui.card_header(title)
+        @render.plot
+        def _plot_out():
+            return fn()
+```
+
+Calling it like this throws an error:
+
+```{.python}
+card_module(
+    "card_1", 
+    "Distribution", 
+    plots.temp_distribution(filtered_data())
+)
+```
+
+::: {.callout-important}
+RuntimeError: No current reactive context
+:::
+
+## Explaining the `no current reactive context` error
+
+Python performs eager evaluation.
+
+This means that `plots.temp_distribution()` gets evaluated when the `card_module` is instantiated.
+
+```{.python}
+card_module(
+    "card_1", 
+    "Distribution", 
+    plots.temp_distribution(filtered_data())
+)
+```
+
+But you need to delay this evaluation until the shiny app needs to render the value.
+
+## Fixing the `no current reactive context` error
+
+Python evaluation is eager.
+
+But you can delay evaluation to be lazy using a `lambda` inline function:
+
+```{.python}
+card_module(
+    "card_1", 
+    "Distribution", 
+    lambda: plots.temp_distribution(filtered_data())
+)
+```
 
 ## Your turn: insert the shiny module into your weather
 
-{{< yourturn 'express-404-module-app' >}}
+{{< yourturn 'express-405-module-lambda' >}}
+
+# Using a shiny module in your app
+
+## Your turn: insert the shiny module into your weather
+
+{{< yourturn 'express-405-module-app' >}}
+
+# Modules: shiny modules and python modules
 
