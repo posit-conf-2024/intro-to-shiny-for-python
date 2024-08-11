@@ -83,7 +83,7 @@ ui.page_opts(
 
 ## Your Turn
 
-{{< yourturn 'express-307-theme' >}}
+{{< yourturn 'express-307-themes' >}}
 
 # Plots
 
@@ -115,7 +115,7 @@ Use tab completion to explore the color options.
 
 ## Your Turn
 
-{{< yourturn 'express-308-harmonize' >}}
+{{< yourturn 'express-308-plot-themes' >}}
 
 # Value boxes
 
@@ -156,7 +156,7 @@ with ui.value_box(theme = "primary"):
 
 ## Your Turn
 
-{{< yourturn 'express-309-valuebox-color' >}}
+{{< yourturn 'express-309-valuebox-themes' >}}
 
 ## That's it
 
