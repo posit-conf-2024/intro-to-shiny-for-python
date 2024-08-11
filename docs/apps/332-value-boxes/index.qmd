@@ -1,0 +1,17 @@
+---
+title: "332 Value Boxes"
+---
+
+{{< yourturnChild >}}
+
+```{python}
+# | echo: false
+# | output: asis
+import sys
+helpers_path = "../../exercises/"
+if helpers_path not in sys.path:
+    sys.path.append(helpers_path)
+from helpers import problem_app_express, getcwd
+
+problem_app_express(getcwd())
+```

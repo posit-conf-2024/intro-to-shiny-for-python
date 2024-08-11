@@ -6,4 +6,6 @@ seaborn
 plotly
 scikit-learn
 shinywidgets
+shinyswatch
 tabulate
+faicons

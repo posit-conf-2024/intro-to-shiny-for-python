@@ -1,1 +1,0 @@
-Modify the page layout by using `with ui.navset_tab()` and `with ui.nav_panel()` to create a tabbed layout.  Your app should show the plots on a tab called "Error" and the data on a tab called "Data".

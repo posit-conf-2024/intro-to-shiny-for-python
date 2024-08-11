@@ -31,19 +31,24 @@ exercises_path = "./exercises"
 if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 from helpers import include_shiny_folder
+
+bgcolor = "whitesmoke"
 ```
 
 # Introduction
 
 ## Goals
 
-- So far we've learned:
-    - How to build an app
-    - How Shiny renders things
-- This session is all about how they look
-- We're going to cover a lot of UI elements quickly
-    - Just know that these exist
-    - Don't worry too much about remembering how they work
+You can fill your app with content, but can you organize it?
+
+::: {.callout-tip}
+
+This section is a bit of a survey. Just know:  
+
+- That these exist
+- What it feels like to use them
+- And where to rediscover them when you need them
+:::
 
 ## Why care about UI design?
 - It's what your stakeholders care about!
@@ -52,111 +57,382 @@ from helpers import include_shiny_folder
 
 ## Where we're headed
 
-{{< yourview '303-conditional-panel' >}}
+{{< yourview '330-target-app' >}}
 
+## Where we're starting
 
-# Anatomy of Shiny UI
+{{< yourview '331-starting-app' >}}
 
-## Anatomy of Shiny UI
+## How we will get there{background-color=`{python} bgcolor`}
+
+Any guesses which module we will use?
+
+## 
+
+An app is a web page. `ui` functions emit HTML.
+
+- non-reactive
+- can be styled with CSS
+
+::: {.callout-tip}
+## There are even functions to insert HTML
+\
+```{python}
+from shiny.express import ui
+```
+
+```{python}
+#| echo: true
+
+ui.HTML('<a href="https://posit.co">Visit posit.co</a>')
+```
+\
+```{python}
+#| echo: true
+
+ui.tags.a("Visit posit.co", href="https://posit.co")
+```
+:::
+
+# Cards
+
+## Common tasks
 
 :::: {.columns}
-::: column
-```{.python}
-app_ui = ui.page_fluid(
-    ui.panel_title("Hello Penguins!"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("mass", "Mass"
-            ),
-            ui.input_action_button("reset", "Reset Slider"),
-        ),
-        ui.panel_main(
-            ui.output_data_frame("table"),
-        ),
-    ),
-)
-```
+
+::: {.column width="30%"}
+![Cards](images/layouts/cards.png)
+Cards  
+\
+![Tabsets](images/layouts/tabsets.png)
+Tabsets  
+\
 :::
-::: column
-- The UI is separate from the server
-- UI is made up of pure functions
-    - You can break them into objects
-    - You can create them with functions
-- Opinionated
-    - Your inputs get labels
-    - Reasonable look and feel
-- Customizable 
-    - Everything can be styled with CSS
-    - If you know JavaScript, you can use JavaScript
+
+::: {.column width="30%"}
+![Sidebars](images/layouts/sidebars.png)
+Sidebars  
+\
+![Navbars](images/layouts/navbars.png)
+Navbars  
+\
 :::
+
+::: {.column width="30%"}
+![Rows and Columns](images/layouts/columns.png)
+Rows and Columns  
+\
+![Filling page](images/layouts/fill.png)
+Filling the page  
+\
+:::
+
 ::::
 
-## Some nomenclature
+## Layouts gallery
 
-- **Container functions**: organize **child** elements
-- **Element functions**: generate a UI object like input and outputs
-- **Child**: elements contained by a container function
-- **Parent**: the container one level up from a particular element or container
+![](images/layouts-gallery.png){height=700 fig-align="center"}
 
-## Element functions
-
-```{.python code-line-numbers="2,5,7,10"}
-app_ui = ui.page_fluid(
-    ui.panel_title("Hello Penguins!"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("mass", "Mass"
-            ),
-            ui.input_action_button("reset", "Reset Slider"),
-        ),
-        ui.panel_main(
-            ui.output_data_frame("table"),
-        ),
-    ),
-)
-```
-
-## Container functions
-
-```{.python code-line-numbers="1,3,4,9"}
-app_ui = ui.page_fluid(
-    ui.panel_title("Hello Penguins!"),
-    ui.layout_sidebar(
-        ui.panel_sidebar(
-            ui.input_slider("mass", "Mass"
-            ),
-            ui.input_action_button("reset", "Reset Slider"),
-        ),
-        ui.panel_main(
-            ui.output_data_frame("table"),
-        ),
-    ),
-)
-```
-
-
-## Container functions
-- Some layout functions take any child elements and lay them out in order
-    - `ui.page_fluid`
-    - `ui.panel_sidebar`
-    - `ui.panel_main`
-- Some, like `layout_sidebar`, take specific children
-    - `panel_sidebar` defines the sidebar
-    - `panel_main` defines the main panel
-
-# Navsets
-
-## Navsets
-- It's common to put apps in tabs
-- We have a `navset_tab` function which organizes `ui.nav` containers into tabs
-- `ui.nav` is itself a container and allows you lay out the things on the tab
-
-## Navsets
-::: {.nonincremental}
-- It's common to put apps in tabs
-- We have a set of `navset` functions which organize `ui.nav` containers in tabs
-- `ui.nav` is itself a container and allows you lay out the things on the tab
+::: aside
+<https://shiny.posit.co/py/layouts/>
 :::
+
+## Layouts gallery
+
+::: {.callout-warning}
+## Caveat
+The _language_ and _links_ in the layouts gallery tend to describe Shiny Core syntax.
+
+So combine it with [the Shiny Express function reference](https://shiny.posit.co/py/api/express/).
+:::
+
+::: aside
+<https://shiny.posit.co/py/layouts/>
+:::
+
+## Your turn
+
+{{< yourturn 'express-301-cards' >}}
+
+## Cards
+- Cards are just small boxes which contain other elements
+- Useful for grouping inputs and outputs
+- "Dashboards" are just web apps in boxes
+
+::: {.callout-info}
+- Called with `with ui.card():`
+- Cards can take `ui.card_header()` and `ui.card_footer()`
+:::
+
+## What is with? {background-color=`{python} bgcolor`}
+
+Can any of our Python users explain?
+
+```python
+with ui.card(full_screen=True):
+    ui.card_header("This is the header")
+    ui.p("This is the body.")
+    ui.p("This is still the body.")
+    ui.card_footer("This is the footer")
+```
+
+## Context managers
+
+`with` is a convenient way to group multiple functions within a single context.
+
+```python
+with ui.card(full_screen=True):
+    ui.card_header("This is the header")
+    ui.p("This is the body.")
+    ui.p("This is still the body.")
+    ui.card_footer("This is the footer")
+```
+
+## Let's demo `with` with sidebars {background-color=`{python} bgcolor`}
+
+```python
+with ui.sidebar():
+    "App level sidebar"
+
+
+with ui.card():
+    with ui.layout_sidebar():
+        with ui.sidebar():
+            "Card level sidebar"
+```
+
+## Aside - Titles
+
+Adding a title to an App also helps to give it structure. Add titles with 
+
+```python
+ui.page_opts(title = "My Title")
+```
+
+# Sidebars
+
+## Your turn
+
+{{< yourturn 'express-302-sidebars' >}}
+
+# Value boxes
+
+## Is there a better way to emphasize numbers and values? 
+
+```python
+with ui.card():
+    ui.card_header( "Important Value")
+    9
+```
+
+![](images/unemphasized-number.png){height=300 fig-align="center"}
+
+## An "output" that is a layout device
+
+![](images/vb-components-gallery.png){height=700 fig-align="center"}
+
+::: aside
+<https://shiny.posit.co/py/components/>
+:::
+
+## Components
+
+![](images/value-box.png)
+
+Value boxes can have:
+
+1. An icon
+2. A value
+3. Supporting text
+4. A fill color (a "theme")
+
+
+## Value boxes in action
+
+{{< yourview '332-value-boxes' >}}
+
+::: {.callout-tip}
+The `faicons` package provides [fontawesome](https://fontawesome.com/search?) icons.
+:::
+
+## Your turn
+
+{{< yourturn 'express-303-value-boxes' >}}
+
+# Rows and columns
+
+## Rows and columns
+
+What if you want to customize your layout more generally?
+- What about?
+    - Different screen sizes?
+    - Mobile browsers? 
+    - Different zoom levels?
+    - Nested UI containers?
+- What we need is a responsive way to specify the size of things
+- Enter `ui.layout_coilumns()`
+
+## `ui.layout_columns()`
+
+{{< yourview '333-columns' >}}
+
+## Columns are built on the Bootstrap grid
+
+![](images/bootstrap_image.png)
+
+- Assign an integer width for each column  
+- 1 unit = 1/12 of the available space
+- Negative widths insert an empty column (white space)
+- When cumulative widths exceed 12, Shiny begins a new row.
+- You can nest `layout_column` functions
+
+## Quiz - What `col_widths` would create this layout? {background-color=`{python} bgcolor`}
+
+![](images/columns-1.png)
+
+- Assign an integer width for each column  
+- 1 unit = 1/12 of the available space
+- Negative widths insert an empty column (white space)
+- When cumulative widths exceed 12, Shiny begins a new row.
+- You can nest `layout_column` functions
+
+## Quiz - What `col_widths` would create this layout? {background-color=`{python} bgcolor`}
+
+![](images/columns-2.png)
+
+- Assign an integer width for each column  
+- 1 unit = 1/12 of the available space
+- Negative widths insert an empty column (white space)
+- When cumulative widths exceed 12, Shiny begins a new row.
+- You can nest `layout_column` functions
+
+## Quiz - What `col_widths` would create this layout? {background-color=`{python} bgcolor`}
+
+![](images/columns-3.png)
+
+- Assign an integer width for each column  
+- 1 unit = 1/12 of the available space
+- Negative widths insert an empty column (white space)
+- When cumulative widths exceed 12, Shiny begins a new row.
+- You can nest `layout_column` functions
+
+## Row heights
+
+`row_heights` are proportional to each other
+
+## Your turn
+
+{{< yourturn 'express-304-columns' >}}
+
+# Tabsets
+
+## To organize panels in the same space
+
+1. Use `with ui.nav_panel()` to create a panel with a title and contents.
+
+```python
+with ui.nav_panel("A"):
+    "Panel A content"
+```
+
+2. Choose a function to provide navigation between panels.
+
+## Nav panels
+
+{{< yourview '333-columns' >}}
+
+## Navigation functions
+
+1. `ui.navset_bar()`
+1. `ui.navset_tab()`, `ui.navset_card_tab()`
+1. `ui.navset_pill()`, `ui.navset_card_pill()`
+1. `ui.navset_pill_list()`
+1. `ui.navset_underline()`, `ui.navset_card_underline()`
+
+::: aside
+<https://shiny.posit.co/py/layouts/tabs/>
+:::
+
+# Navbars
+
+## 
+
+If there are top level Nav Panels (`with ui.nav_panel("A"):`), Shiny will automatically group them into a multi-page app with a navbar.
+
+::: {.callout-tip}
+Use `ui.page_opts()` to provide a title for the navbar.
+\
+Call `ui.nav_spacer()` to push the panel labels to the right side of the navbar.
+:::
+
+![Navbars](images/layouts/navbars.png)
+
+::: aside
+<https://shiny.posit.co/py/layouts/navbars/>
+:::
+
+## Your turn
+
+{{< yourturn 'express-305-app' >}}
+
+# Two advanced topics
+
+## Can the UI itself react to the user?
+
+Yes, in several ways.
+
+Explore this topic [here](https://shiny.posit.co/py/docs/ui-dynamic.html).
+
+
+![](images/update-input.gif){height=300}
+
+## Planning for screen size
+
+Would you like to control how elements resize as the viewer's screen size changes?
+
+Explore this topic [here](https://shiny.posit.co/py/layouts/arrange/#controlling-for-page-width-and-height).
+\
+![](images/page-control.png)
+
+# Recap
+
+## Common Tasks
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![Cards](images/layouts/cards.png)
+`ui.card()`  
+\
+![Tabsets](images/layouts/tabsets.png)
+`ui.navset_tab()`  
+\
+:::
+
+::: {.column width="30%"}
+![Sidebars](images/layouts/sidebars.png)
+`ui.sidebar()`    
+\
+![Navbars](images/layouts/navbars.png)
+`ui.navset_bar()` 
+\
+:::
+
+::: {.column width="30%"}
+![Rows and Columns](images/layouts/columns.png)
+`ui.layout_columns()`  
+\
+```python
+with ui.nav_panel("A"):
+    Contents
+```
+\
+:::
+
+::::
+
+
+<!--
 ```{.python}
 from shiny.express import ui
 
@@ -168,101 +444,4 @@ with ui.navset_tab():
     with ui.nav_panel("Panel 3"):
         ui.input_action_button("button2", "Button B")
 ```
-
-## Navset example
-
-{{< yourview 'express-300-navset' >}}
-
-
-
-## Your turn
-
-{{< yourturn 'express-306-navset' >}}
-
-
-# Cards
-
-## Cards
-- Cards are just small boxes which contain other elements
-- Useful for grouping inputs and outputs
-- "Dashboards" are just web apps in boxes
-- Called with `ui.card`
-- Cards can take `ui.card_header` and `ui.card_footer`
-
-## Cards
-
-```{.python code-line-numbers="4-8"}
-import shiny.experimental as x
-
-app_ui = ui.page_fluid(
-    ui.card(
-        ui.card_header("Slider card"),
-        ui.input_slider("n", "N", 0, 100, 20),
-        ui.output_text_verbatim("txt"),
-    )
-)
-```
-
-## Cards example
-
-{{< yourview 'express-301-cards' >}}
-
-
-
-## Your turn
-
-
-{{< yourturn 'express-302-cards' >}}
-
-
-# Rows and columns
-
-## Rows and columns
-- Sidebars, navsets and cards are all special purpose containers
-- What if you want to customize your layout more generally?
-- What about?
-    - Different screen sizes?
-    - Mobile browsers? 
-    - Different zoom levels?
-    - Nested UI containers?
-- What we need is a responsive way to specify the size of things
-- Enter the bootstrap grid
-
-## Bootstap grid
-- Divide the screen into rows and columns 
-- Row height expands to fit its children 
-- Column width is relative to its parent 
-
-## Bootstrap grid
-![](images/bootstrap_image.png)
-
-## Rows
-![](images/bootstrap_image.png)
-
-- The shiny `ui.row` container breaks your app into rows
-- Rows always contain `ui.column` 
-
-## Columns 
-![](images/bootstrap_image.png)
-
-- Imagine breaking up the parent container into 12 vertical sections
-- Each column gets an integer **width** from 1-12 
-- This defines how much of the parent the column occupies
-- Reacts to screen size
-- Why 12?
-
-## Rows and columns
-
-```{.python}
-ui.row(
-        ui.column(
-            6,
-            ui.output_text("txt"),
-        ),
-        ui.column(
-            6,
-            ui.output_plot("my_plot"),
-            ),
-        ),
-    ),
-```
+-->

@@ -31,8 +31,273 @@ exercises_path = "./exercises"
 if exercises_path not in sys.path:
     sys.path.append(exercises_path)
 from helpers import include_shiny_folder
+
+bgcolor = "whitesmoke"
 ```
+
+
+# Review
+
+## Combine what you've learned
+
+{{< yourturn 'express-306-new-app' >}}
+
+## Where we're headed
+
+{{< yourview '334-target-app' >}}
+
+## 
+
+::: {.callout-tip}
+As a webpage, a Shiny app is infinitely customizable in theory, but it may require CSS.
+
+In this section, we will cover built in shortcuts and best practices.
+:::
 
 # Themes
 
-## To be completed
+## Shinyswatch
+
+Shinyswatch themes are the easiest way to change the entire look of an app.
+
+![](images/shinyswatch.png){height=600 fig-align="center"}
+
+::: aside
+<https://posit-dev.github.io/py-shinyswatch/>
+:::
+
+## `theme`
+
+Shinyswatch provides 25 bootstrap themes. Apply by name with the `theme` submodule.
+
+```python
+from shiny.express import input, render, ui
+from shinyswatch import theme
+
+ui.page_opts(
+    theme = theme.superhero
+)
+
+# rest of app
+```
+
+## Your Turn
+
+{{< yourturn 'express-307-themes' >}}
+
+# Plots
+
+## But what about plots?
+
+And other elements that use colors, which may not match the theme?  
+\
+Each theme assigns its own set of color classes to predefined names. These are available in the themes `color` submodule. Set colors to these, e.g.  
+\
+```python
+from shinywidgets import theme
+
+app_theme = theme.superhero
+
+ui.page_opts(
+    theme = app_theme
+)
+
+ax.hist(x, input.n(), density=True, color=app_theme.colors.primary)
+```
+
+## 
+
+::: {.callout-tip}
+Use tab completion to explore the color options.
+
+![](images/color-options.png)
+:::
+
+## Your Turn
+
+{{< yourturn 'express-308-plot-themes' >}}
+
+# Value boxes
+
+## What about value boxes?
+
+::: {.callout-tip}
+To ensure a value box always matches the theme, directly set its `theme` to one of the recognized color names:
+
+```python
+with ui.value_box(theme = "primary"):
+```
+:::
+
+:::: {.columns}
+::: {.column width="33%"}
+- primary
+- primary-subtle
+- secondary
+- secondary-subtle
+- success
+- success-subtle
+:::
+::: {.column width="33%"}
+- danger
+- danger-subtle
+- warning
+- warning-subtle
+- info
+- info-subtle
+:::
+::: {.column width="33%"}
+- light
+- light-subtle
+- dark
+- dark-subtle
+:::
+::::
+
+## Your Turn
+
+{{< yourturn 'express-309-valuebox-themes' >}}
+
+## That's it
+
+That's the Pareto Rule for styling Shiny apps.  
+\
+But what if you want more control?
+
+# CSS
+
+## CSS
+
+Cascading Style Sheets (CSS) are a framework for customizing the appearance of a webpage.
+
+![](images/css.png){height=700 fig-align="center"}
+
+## CSS in 30 seconds
+
+::: {.columns}
+::: {.column}
+Define styles in one of three places:
+
+1. Externally in a linked CSS file
+2. Globally in a webpage's header
+3. Locally in a tag's style attribute
+
+:::
+::: {.column}
+Assign styles to:
+
+1. Tags
+2. Classes
+3. id's
+:::
+::: 
+
+## Adding CSS to a Shiny app
+
+{{< yourview '315-css' >}}
+
+## To link an external style sheet
+
+Use `ui.include_css()` 
+
+```python
+from pathlib import Path
+
+ui.include_css(
+  Path(__file__.parent / "my-styles.css")
+)
+```
+
+## To add CSS globally
+
+Use `ui.tags.style()`
+
+```python
+ui.tags.style(
+  ".card-header { color:white; background:#2A2A2A !important; }"
+)
+```
+
+## To add CSS locally to a specifc element
+
+Use the `style=` parameter.
+
+```python
+ui.card_header(
+  "Title", 
+  style = "white; background:#2A2A2A !important;"
+)
+```
+
+# Bootstrap classes
+
+::: {.callout-tip}
+Bootstrap provides many predefined CSS classes. These are collections or coordinated style rules, ready to use pass to an element's `class_` parameter.
+
+```python
+ui.card_header("Title", class_="bg-secondary-subtle"):
+```
+:::
+
+::: aside
+See <https://getbootstrap.com/docs/5.3/utilities/background/> to begin your search for bootstrap class names.
+:::
+
+## Your Turn
+
+{{< yourturn 'express-310-element-themes' >}}
+
+# Fonts
+
+## Best Practice
+
+::: {.callout-important}
+If you use a non-standard font in your app, provide the font to your user's browser. 
+::: 
+\
+There are two methods.
+
+## 1. Import the font file from a service like Google Fonts
+
+```python
+ui.tags.link(
+    rel="stylesheet",
+    href="https://fonts.googleapis.com/css?family=Roboto"
+)
+```
+
+## 2. Include the files with your app
+
+::: {.callout-important}
+This is the required method if your app will be viewed offline.
+:::
+
+## Quiz {background-color=`{python} bgcolor`}
+
+Do any of our R for Shiny users know where to store files to share with the user's browser?
+
+# www
+
+## Who gets what?
+
+The files in your app dorectory are shared with the computer that serves your app (so it can do its job), but not with your user's web browser.
+
+::: {.callout-note}
+To share files with the web browser you must place them in a sub-directory named `www`.
+:::
+
+## 
+
+::: {.callout-note}
+If you include a sub-directory named `www`, Shiny will make its contents available to the the application's UI at `/`.
+:::
+
+This makes `www` a very good place to store things needed by a browser, like:  
+
+- CSS style sheets
+- Images
+- Fonts
+
+## Your Turn
+
+{{< yourturn 'express-310-style' >}}

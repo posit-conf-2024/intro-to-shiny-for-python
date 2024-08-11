@@ -1,0 +1,1 @@
+The functions in plots have been written to accept color names. Update the app to ensure that the plot colors always harmonize with the theme.
