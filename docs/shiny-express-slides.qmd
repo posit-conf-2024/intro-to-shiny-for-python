@@ -482,10 +482,6 @@ decorator(function, args)
 function
 ```
 
-## Syntax
-
-{{< yourview '103-table' >}}
-
 ## Your turn
 
 {{< yourturn 'express-104-outputs' >}}
@@ -583,9 +579,9 @@ Can we spot them in our sample code?
 
 Most Shiny app development consists of variations of these three things:
 
-1.  Add Inputs and other UI elements
-2.  Define outputs with render functions
-3.  Tell Shiny how to use inputs to build outputs
+1.  Add **Inputs** and other UI elements
+2.  Define **outputs** with render functions
+3.  Give Shiny **instructions** on how to use inputs to build outputs
 
 ## Weather data
 
