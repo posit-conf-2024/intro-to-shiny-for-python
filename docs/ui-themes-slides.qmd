@@ -44,7 +44,7 @@ bgcolor = "whitesmoke"
 
 ## Where we're headed
 
-{{< yourview '314-target-app' >}}
+{{< yourview '334-target-app' >}}
 
 ## 
 
@@ -74,7 +74,9 @@ Shinyswatch provides 25 bootstrap themes. Apply by name with the `theme` submodu
 from shiny.express import input, render, ui
 from shinyswatch import theme
 
-theme.darkly() 
+ui.page_opts(
+    theme = theme.superhero
+)
 
 # rest of app
 ```
@@ -82,6 +84,8 @@ theme.darkly()
 ## Your Turn
 
 {{< yourturn 'express-307-theme' >}}
+
+# Plots
 
 ## But what about plots?
 
@@ -92,10 +96,13 @@ Each theme assigns its own set of color classes to predefined names. These are a
 ```python
 from shinywidgets import theme
 
-shiny_theme = theme.cosmo
-shiny_theme()
+app_theme = theme.superhero
 
-ax.hist(x, input.n(), density=True, color=shiny_theme.colors.primary)
+ui.page_opts(
+    theme = app_theme
+)
+
+ax.hist(x, input.n(), density=True, color=app_theme.colors.primary)
 ```
 
 ## 
@@ -109,6 +116,47 @@ Use tab completion to explore the color options.
 ## Your Turn
 
 {{< yourturn 'express-308-harmonize' >}}
+
+# Value boxes
+
+## What about value boxes?
+
+::: {.callout-tip}
+To ensure a value box always matches the theme, directly set its `theme` to one of the recognized color names:
+
+```python
+with ui.value_box(theme = "primary"):
+```
+:::
+
+:::: {.columns}
+::: {.column width="33%"}
+- primary
+- primary-subtle
+- secondary
+- secondary-subtle
+- success
+- success-subtle
+:::
+::: {.column width="33%"}
+- danger
+- danger-subtle
+- warning
+- warning-subtle
+- info
+- info-subtle
+:::
+::: {.column width="33%"}
+- light
+- light-subtle
+- dark
+- dark-subtle
+:::
+::::
+
+## Your Turn
+
+{{< yourturn 'express-309-valuebox-color' >}}
 
 ## That's it
 
@@ -188,12 +236,8 @@ Bootstrap provides many predefined CSS classes. These are collections or coordin
 :::
 
 ::: aside
-See <https://getbootstrap.com/docs/5.3/utilities/colors/> to begin your search for bootstrap class names.
+See <https://getbootstrap.com/docs/5.3/utilities/background/> to begin your search for bootstrap class names.
 :::
-
-## Your Turn
-
-{{< yourturn 'express-309-valuebox-color' >}}
 
 # Fonts
 
