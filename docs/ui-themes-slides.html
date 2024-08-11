@@ -12,7 +12,8 @@
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Intro to Shiny for Python / Conf(2024) – UI Themes</title>
+  <title>Intro to Shiny for Python
+Conf(2024) – UI Themes</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="styles.css">
@@ -338,20 +404,673 @@
 </section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
-<h1>Themes</h1>
+<h1>Review</h1>
 <div class="agenda-heading">
 <p>Agenda</p>
 </div>
 <div class="agenda">
 <ul>
 <li><div class="agenda-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
 <p>Themes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>www</p>
 </div></li>
 </ul>
 </div>
 </section>
-<section id="to-be-completed" class="slide level2">
-<h2>To be completed</h2>
+<section id="combine-what-youve-learned" class="slide level2">
+<h2>Combine what you’ve learned</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-306-new-app/index.html" target="_blank">express-306-new-app</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-306-new-app/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section>
+<section id="where-were-headed" class="slide level2">
+<h2>Where we’re headed</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>View the app on this page:</p>
+<p><a href="apps/334-target-app/index.html" target="_blank">334-target-app</a></p>
+<p>...</p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/334-target-app/index.html', '*')">View the App</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-view-the-app.png">
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>As a webpage, a Shiny app is infinitely customizable in theory, but it may require CSS.</p>
+<p>In this section, we will cover built in shortcuts and best practices.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Themes</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Themes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>www</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="shinyswatch" class="slide level2">
+<h2>Shinyswatch</h2>
+<p>Shinyswatch themes are the easiest way to change the entire look of an app.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/shinyswatch.png" class="quarto-figure quarto-figure-center" height="600"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><a href="https://posit-dev.github.io/py-shinyswatch/" class="uri">https://posit-dev.github.io/py-shinyswatch/</a></p>
+</div></aside></section>
+<section id="theme" class="slide level2">
+<h2><code>theme</code></h2>
+<p>Shinyswatch provides 25 bootstrap themes. Apply by name with the <code>theme</code> submodule.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> <span class="bu">input</span>, render, ui</span>
+<span id="cb1-2"><a></a><span class="im">from</span> shinyswatch <span class="im">import</span> theme</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>ui.page_opts(</span>
+<span id="cb1-5"><a></a>    theme <span class="op">=</span> theme.superhero</span>
+<span id="cb1-6"><a></a>)</span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># rest of app</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your Turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-307-themes/index.html" target="_blank">express-307-themes</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-307-themes/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Plots</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Themes</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>www</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="but-what-about-plots" class="slide level2">
+<h2>But what about plots?</h2>
+<p>And other elements that use colors, which may not match the theme?<br>
+<br>
+Each theme assigns its own set of color classes to predefined names. These are available in the themes <code>color</code> submodule. Set colors to these, e.g.<br>
+<br>
+</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> shinywidgets <span class="im">import</span> theme</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>app_theme <span class="op">=</span> theme.superhero</span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a>ui.page_opts(</span>
+<span id="cb2-6"><a></a>    theme <span class="op">=</span> app_theme</span>
+<span id="cb2-7"><a></a>)</span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a>ax.hist(x, <span class="bu">input</span>.n(), density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span>app_theme.colors.primary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Use tab completion to explore the color options.</p>
+<p><img data-src="images/color-options.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-1" class="slide level2">
+<h2>Your Turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-308-plot-themes/index.html" target="_blank">express-308-plot-themes</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-308-plot-themes/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Value boxes</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Themes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>www</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="what-about-value-boxes" class="slide level2">
+<h2>What about value boxes?</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>To ensure a value box always matches the theme, directly set its <code>theme</code> to one of the recognized color names:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="cf">with</span> ui.value_box(theme <span class="op">=</span> <span class="st">"primary"</span>):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:33%;">
+<ul>
+<li>primary</li>
+<li>primary-subtle</li>
+<li>secondary</li>
+<li>secondary-subtle</li>
+<li>success</li>
+<li>success-subtle</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<ul>
+<li>danger</li>
+<li>danger-subtle</li>
+<li>warning</li>
+<li>warning-subtle</li>
+<li>info</li>
+<li>info-subtle</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<ul>
+<li>light</li>
+<li>light-subtle</li>
+<li>dark</li>
+<li>dark-subtle</li>
+</ul>
+</div></div>
+</section>
+<section id="your-turn-2" class="slide level2">
+<h2>Your Turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-309-valuebox-themes/index.html" target="_blank">express-309-valuebox-themes</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-309-valuebox-themes/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section>
+<section id="thats-it" class="slide level2">
+<h2>That’s it</h2>
+<p>That’s the Pareto Rule for styling Shiny apps.<br>
+<br>
+But what if you want more control?</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>CSS</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Themes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>www</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="css-1" class="slide level2">
+<h2>CSS</h2>
+<p>Cascading Style Sheets (CSS) are a framework for customizing the appearance of a webpage.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/css.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+</section>
+<section id="css-in-30-seconds" class="slide level2">
+<h2>CSS in 30 seconds</h2>
+<div class="columns">
+<div class="column">
+<p>Define styles in one of three places:</p>
+<ol type="1">
+<li>Externally in a linked CSS file</li>
+<li>Globally in a webpage’s header</li>
+<li>Locally in a tag’s style attribute</li>
+</ol>
+</div><div class="column">
+<p>Assign styles to:</p>
+<ol type="1">
+<li>Tags</li>
+<li>Classes</li>
+<li>id’s</li>
+</ol>
+</div></div>
+</section>
+<section id="adding-css-to-a-shiny-app" class="slide level2">
+<h2>Adding CSS to a Shiny app</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>View the app on this page:</p>
+<p><a href="apps/315-css/index.html" target="_blank">315-css</a></p>
+<p>...</p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/315-css/index.html', '*')">View the App</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-view-the-app.png">
+</div>
+</div>
+</section>
+<section id="to-link-an-external-style-sheet" class="slide level2">
+<h2>To link an external style sheet</h2>
+<p>Use <code>ui.include_css()</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a>ui.include_css(</span>
+<span id="cb4-4"><a></a>  Path(<span class="va">__file__</span>.parent <span class="op">/</span> <span class="st">"my-styles.css"</span>)</span>
+<span id="cb4-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="to-add-css-globally" class="slide level2">
+<h2>To add CSS globally</h2>
+<p>Use <code>ui.tags.style()</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>ui.tags.style(</span>
+<span id="cb5-2"><a></a>  <span class="st">".card-header { color:white; background:#2A2A2A !important; }"</span></span>
+<span id="cb5-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="to-add-css-locally-to-a-specifc-element" class="slide level2">
+<h2>To add CSS locally to a specifc element</h2>
+<p>Use the <code>style=</code> parameter.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>ui.card_header(</span>
+<span id="cb6-2"><a></a>  <span class="st">"Title"</span>, </span>
+<span id="cb6-3"><a></a>  style <span class="op">=</span> <span class="st">"white; background:#2A2A2A !important;"</span></span>
+<span id="cb6-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Bootstrap classes</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Themes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>www</p>
+</div></li>
+</ul>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Bootstrap provides many predefined CSS classes. These are collections or coordinated style rules, ready to use pass to an element’s <code>class_</code> parameter.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>ui.card_header(<span class="st">"Title"</span>, class_<span class="op">=</span><span class="st">"bg-secondary-subtle"</span>):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p>See <a href="https://getbootstrap.com/docs/5.3/utilities/background/" class="uri">https://getbootstrap.com/docs/5.3/utilities/background/</a> to begin your search for bootstrap class names.</p>
+</div></aside></section>
+<section id="your-turn-3" class="slide level2">
+<h2>Your Turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-310-element-themes/index.html" target="_blank">express-310-element-themes</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-310-element-themes/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Fonts</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Themes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>www</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="best-practice" class="slide level2">
+<h2>Best Practice</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>If you use a non-standard font in your app, provide the font to your user’s browser.</p>
+</div>
+</div>
+</div>
+<p><br>
+There are two methods.</p>
+</section>
+<section id="import-the-font-file-from-a-service-like-google-fonts" class="slide level2">
+<h2>1. Import the font file from a service like Google Fonts</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>ui.tags.link(</span>
+<span id="cb8-2"><a></a>    rel<span class="op">=</span><span class="st">"stylesheet"</span>,</span>
+<span id="cb8-3"><a></a>    href<span class="op">=</span><span class="st">"https://fonts.googleapis.com/css?family=Roboto"</span></span>
+<span id="cb8-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="include-the-files-with-your-app" class="slide level2">
+<h2>2. Include the files with your app</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>This is the required method if your app will be viewed offline.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="quiz" class="slide level2" data-background-color="whitesmoke">
+<h2>Quiz</h2>
+<p>Do any of our R for Shiny users know where to store files to share with the user’s browser?</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>www</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Review</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Themes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Plots</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>CSS</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Bootstrap classes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Fonts</p>
+</div></li>
+<li><div class="agenda-active">
+<p>www</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="who-gets-what" class="slide level2">
+<h2>Who gets what?</h2>
+<p>The files in your app dorectory are shared with the computer that serves your app (so it can do its job), but not with your user’s web browser.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>To share files with the web browser you must place them in a sub-directory named <code>www</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If you include a sub-directory named <code>www</code>, Shiny will make its contents available to the the application’s UI at <code>/</code>.</p>
+</div>
+</div>
+</div>
+<p>This makes <code>www</code> a very good place to store things needed by a browser, like:</p>
+<ul>
+<li>CSS style sheets</li>
+<li>Images</li>
+<li>Fonts</li>
+</ul>
+</section>
+<section id="your-turn-4" class="slide level2">
+<h2>Your Turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-310-style/index.html" target="_blank">express-310-style</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-310-style/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -663,7 +1382,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

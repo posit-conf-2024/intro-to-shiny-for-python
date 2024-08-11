@@ -12,7 +12,8 @@
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Intro to Shiny for Python / Conf(2024) – Intro to Shiny Modules</title>
+  <title>Intro to Shiny for Python
+Conf(2024) – Intro to Shiny Modules</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -403,19 +404,28 @@
 </section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
-<h1>Modules</h1>
+<h1>Introduction to shiny modules</h1>
 <div class="agenda-heading">
 <p>Agenda</p>
 </div>
 <div class="agenda">
 <ul>
 <li><div class="agenda-active">
-<p>Modules</p>
+<p>Introduction to shiny modules</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Including reactivity in your module</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Using a shiny module in your app</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Modules: shiny modules and python modules</p>
 </div></li>
 </ul>
 </div>
 </section>
-<section id="modules-1" class="slide level2">
+<section id="modules" class="slide level2">
 <h2>Modules</h2>
 <p>A <code>shiny</code> module provides you with a way to encapsulate both:</p>
 <ul>
@@ -436,32 +446,20 @@
 <section id="module-example" class="slide level2">
 <h2>Module example</h2>
 <p>Create a shiny module:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> ui, render</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> shiny express <span class="im">import</span> <span class="bu">input</span>, output, session, module</span>
 <span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="im">from</span> shiny express <span class="im">import</span> <span class="bu">input</span>, output, session, module</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="at">@module</span></span>
-<span id="cb1-6"><a></a><span class="kw">def</span> card_module(<span class="bu">input</span>, output, session, title, fn):</span>
-<span id="cb1-7"><a></a>   <span class="cf">with</span> ui.card():</span>
-<span id="cb1-8"><a></a>       ui.card_header(title)</span>
-<span id="cb1-9"><a></a>       <span class="at">@render.plot</span></span>
-<span id="cb1-10"><a></a>       <span class="kw">def</span> _plot_out():</span>
-<span id="cb1-11"><a></a>           <span class="cf">return</span> fn()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a><span class="at">@module</span></span>
+<span id="cb1-4"><a></a><span class="kw">def</span> card_module(<span class="bu">input</span>, output, session, title, fn):</span>
+<span id="cb1-5"><a></a>   <span class="cf">with</span> ui.card():</span>
+<span id="cb1-6"><a></a>       ui.card_header(title)</span>
+<span id="cb1-7"><a></a>       <span class="at">@render.plot</span></span>
+<span id="cb1-8"><a></a>       <span class="kw">def</span> _plot_out():</span>
+<span id="cb1-9"><a></a>           <span class="cf">return</span> fn()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Call the module like you call a function:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>card_module(<span class="st">'id'</span>, <span class="st">'title'</span>, fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="look-carefully-at-the-definition-and-the-call" class="slide level2">
 <h2>Look carefully at the definition and the call:</h2>
-<p>Create a shiny module:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="at">@module</span></span>
-<span id="cb3-2"><a></a><span class="kw">def</span> card_module(<span class="bu">input</span>, output, session, title, fn):</span>
-<span id="cb3-3"><a></a>   ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br>
-</p>
-<p>Call the module like you call a function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>card_module(<span class="st">'id1'</span>, <span class="st">'title'</span>, fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br>
-</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -471,7 +469,6 @@
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>Notice that:</p>
 <ol type="1">
 <li>You don’t pass <code>input</code>, <code>output</code> or <code>session</code> to the module</li>
 <li>You pass an <code>id</code> that must be unique in the namespace</li>
@@ -480,19 +477,50 @@
 </div>
 </div>
 </div>
+<p>Create a shiny module:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="at">@module</span></span>
+<span id="cb3-2"><a></a><span class="kw">def</span> card_module(<span class="bu">input</span>, output, session, title, fn):</span>
+<span id="cb3-3"><a></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
+<p>Call the module like you call a function:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>card_module(<span class="st">'id1'</span>, <span class="st">'title'</span>, fn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="your-turn-create-a-simple-shiny-module" class="slide level2">
 <h2>Your turn: create a simple shiny module</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-402-simple-module/index.html" target="_blank">express-402-simple-module</a></p>
+<p><a href="exercises/express-403-simple-module/index.html" target="_blank">express-403-simple-module</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-402-simple-module/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-403-simple-module/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
 </div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Including reactivity in your module</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction to shiny modules</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Including reactivity in your module</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Using a shiny module in your app</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Modules: shiny modules and python modules</p>
+</div></li>
+</ul>
 </div>
 </section>
 <section id="your-turn-create-a-more-complicated-shiny-module" class="slide level2">
@@ -500,27 +528,137 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-403-module-fn/index.html" target="_blank">express-403-module-fn</a></p>
+<p><a href="exercises/express-404-module-fn/index.html" target="_blank">express-404-module-fn</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-403-module-fn/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-404-module-fn/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
 </div>
 </div>
 </section>
+<section id="delaying-reactivity-with-lambda-functions" class="slide level2">
+<h2>Delaying reactivity with <code>lambda</code> functions</h2>
+<p>Define a module:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="at">@module</span></span>
+<span id="cb5-2"><a></a><span class="kw">def</span> card_module(<span class="bu">input</span>, output, session, title, fn):</span>
+<span id="cb5-3"><a></a>    <span class="cf">with</span> ui.card():</span>
+<span id="cb5-4"><a></a>        ui.card_header(title)</span>
+<span id="cb5-5"><a></a>        <span class="at">@render.plot</span></span>
+<span id="cb5-6"><a></a>        <span class="kw">def</span> _plot_out():</span>
+<span id="cb5-7"><a></a>            <span class="cf">return</span> fn()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Calling it like this throws an error:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>card_module(</span>
+<span id="cb6-2"><a></a>    <span class="st">"card_1"</span>, </span>
+<span id="cb6-3"><a></a>    <span class="st">"Distribution"</span>, </span>
+<span id="cb6-4"><a></a>    plots.temp_distribution(filtered_data())</span>
+<span id="cb6-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>RuntimeError: No current reactive context</p>
+</div>
+</div>
+</div>
+</section>
+<section id="explaining-the-no-current-reactive-context-error" class="slide level2">
+<h2>Explaining the <code>no current reactive context</code> error</h2>
+<p>Python performs eager evaluation.</p>
+<p>This means that <code>plots.temp_distribution()</code> gets evaluated when the <code>card_module</code> is instantiated.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>card_module(</span>
+<span id="cb7-2"><a></a>    <span class="st">"card_1"</span>, </span>
+<span id="cb7-3"><a></a>    <span class="st">"Distribution"</span>, </span>
+<span id="cb7-4"><a></a>    plots.temp_distribution(filtered_data())</span>
+<span id="cb7-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But you need to delay this evaluation until the shiny app needs to render the value.</p>
+</section>
+<section id="fixing-the-no-current-reactive-context-error" class="slide level2">
+<h2>Fixing the <code>no current reactive context</code> error</h2>
+<p>Python evaluation is eager.</p>
+<p>But you can delay evaluation to be lazy using a <code>lambda</code> inline function:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>card_module(</span>
+<span id="cb8-2"><a></a>    <span class="st">"card_1"</span>, </span>
+<span id="cb8-3"><a></a>    <span class="st">"Distribution"</span>, </span>
+<span id="cb8-4"><a></a>    <span class="kw">lambda</span>: plots.temp_distribution(filtered_data())</span>
+<span id="cb8-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="your-turn-insert-the-shiny-module-into-your-weather" class="slide level2">
 <h2>Your turn: insert the shiny module into your weather</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-404-module-app/index.html" target="_blank">express-404-module-app</a></p>
+<p><a href="exercises/express-405-module-lambda/index.html" target="_blank">express-405-module-lambda</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-404-module-app/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-405-module-lambda/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
 </div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Using a shiny module in your app</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction to shiny modules</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Including reactivity in your module</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Using a shiny module in your app</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Modules: shiny modules and python modules</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="your-turn-insert-the-shiny-module-into-your-weather-1" class="slide level2">
+<h2>Your turn: insert the shiny module into your weather</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-405-module-app/index.html" target="_blank">express-405-module-app</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-405-module-app/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Modules: shiny modules and python modules</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction to shiny modules</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Including reactivity in your module</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Using a shiny module in your app</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Modules: shiny modules and python modules</p>
+</div></li>
+</ul>
 </div>
 
 <div class="quarto-auto-generated-content">
@@ -528,10 +666,7 @@
 
 </div>
 </div>
-<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
-
-</div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -833,7 +968,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

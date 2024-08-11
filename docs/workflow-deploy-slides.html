@@ -12,7 +12,8 @@
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Intro to Shiny for Python / Conf(2024) – Deploy your shiny app</title>
+  <title>Intro to Shiny for Python
+Conf(2024) – Deploy your shiny app</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -336,6 +337,7 @@
 </div>
 
 </section>
+<section>
 <section class="title-slide slide level1 agenda-slide">
 <h1>Introduction</h1>
 <div class="agenda-heading">
@@ -346,16 +348,153 @@
 <li><div class="agenda-active">
 <p>Introduction</p>
 </div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Log in or create an account</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Publish an app</p>
+</div></li>
 </ul>
 </div>
-<p>to be completed</p>
+</section>
+<section id="deployment-options" class="slide level2">
+<h2>Deployment options</h2>
+<ul>
+<li><p>Posit Connect Cloud</p>
+<ul>
+<li><p>Currently in public beta</p></li>
+<li><p>Free for personal use</p></li>
+</ul></li>
+<li><p>Posit Connect (self-hosted commercial solution)</p></li>
+<li><p>Host your own solution</p></li>
+</ul>
+</section>
+<section id="posit-connect-cloud" class="slide level2">
+<h2>Posit Connect Cloud</h2>
+<p>Three simple steps</p>
+<ol type="1">
+<li><p>Create an account</p></li>
+<li><p>Authenticated with github</p></li>
+<li><p>Select a repo to deploy</p></li>
+</ol>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Log in or create an account</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Log in or create an account</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Publish an app</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="go-to-connect-cloud" class="slide level2">
+<h2>Go to Connect Cloud</h2>
+<p>Go to <a href="https://connect.posit.cloud/" class="uri">https://connect.posit.cloud/</a></p>
+
+<img data-src="images/deploy-1-connect-cloud.png" class="r-stretch"></section>
+<section id="sign-up-or-log-in" class="slide level2">
+<h2>Sign up or log in</h2>
+<p>Click on “Sign up for free”</p>
+<ul>
+<li>Or log in</li>
+</ul>
+
+<img data-src="images/deploy-2-sign-up.png" class="r-stretch"><p>Click on “Sign up with github”</p>
+</section>
+<section id="fill-out-the-form" class="slide level2">
+<h2>Fill out the form</h2>
+<p>Fill out the form</p>
+
+<img data-src="images/deploy-3-fill-form.png" class="r-stretch"><p>Click “Get started”</p>
+</section>
+<section id="authenticate-with-github" class="slide level2">
+<h2>Authenticate with github</h2>
+<p>If you are a member of a GitHub organization, you will also be asked if you want to authorize specific organization accounts.</p>
+<p>This is optional.</p>
+<p>Authorizing organizations will enable auto-completion for repository, branch, and primary file for public repositories in these accounts.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Publish an app</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Log in or create an account</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Publish an app</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="ensure-you-have-a-github-repo-with-your-shiny-app" class="slide level2">
+<h2>Ensure you have a github repo with your shiny app</h2>
+<p>Clone a repo</p>
+<p>Or create your own repo</p>
+</section>
+<section id="publish" class="slide level2">
+<h2>Publish</h2>
+<p>The only supported publishing path at this time is pulling code from an existing public GitHub repository.</p>
+</section>
+<section id="publish-1" class="slide level2">
+<h2>Publish</h2>
+<ol type="1">
+<li>Log In to Connect Cloud. This redirects you to your Content page.</li>
+<li>Click the Publish button in the upper right of the screen.</li>
+<li>Select the content type you want to deploy.</li>
+<li>Select your Repository: Use the autocomplete functionality to choose which of your public GitHub repositories you want to publish content from. You can also enter a link to any public GitHub repository.</li>
+<li>Confirm the Branch.</li>
+<li>Select your Primary File: The main file for your application (e.g., app.py) or document (e.g., index.qmd).</li>
+</ol>
+</section>
+<section id="publish-2" class="slide level2">
+<h2>Publish</h2>
+<ol type="1">
+<li>Click Next.</li>
+<li>Select a Python Version, if needed: Python version that you want to deploy with.</li>
+<li>Set Advanced settings, if applicable</li>
+<li>Click Publish.</li>
+</ol>
+
+<aside><div>
+<p>(From <a href="https://docs.posit.co/connect-cloud/user/publish/01-new.html" class="uri">https://docs.posit.co/connect-cloud/user/publish/01-new.html</a>)</p>
+</div></aside></section>
+<section id="note" class="slide level2">
+<h2>Note</h2>
+<p>Python deployments require a <code>requirements.txt</code> dependency file to be included in the repository.</p>
+<p>R deployments require a <code>manifest.json</code> dependency file.</p>
+<p>See Supported Content Types for more information.</p>
+<p>A successful publish results in a URL for your application or document that is accessible by anyone on the web.</p>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn</h2>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</section></section>
     </div>
   </div>
 
@@ -657,7 +796,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

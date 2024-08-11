@@ -12,7 +12,8 @@
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Intro to Shiny for Python / Conf(2024) – Refactor shiny apps</title>
+  <title>Intro to Shiny for Python
+Conf(2024) – Refactor shiny apps</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="styles.css">
@@ -353,6 +419,9 @@
 <li><div class="agenda-inactive agenda-post-active">
 <p>Introduction to refactoring non-reactive code</p>
 </div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Moving code into a python module</p>
+</div></li>
 </ul>
 </div>
 </section>
@@ -361,9 +430,7 @@
 <p>Learn some Shiny best practices:</p>
 <ul>
 <li>How and when to refactor your app</li>
-<li>Understand <code>shiny</code> modules</li>
-<li>Iterate over lists to generate UI</li>
-<li>Understand scoping rules</li>
+<li>Understand <code>shiny</code> modules <!-- - Understand scoping rules --></li>
 <li>Deploy your app to the cloud
 <ul>
 <li>For example, to <a href="https://connect.posit.cloud/" class="uri">https://connect.posit.cloud/</a></li>
@@ -386,6 +453,9 @@
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Introduction to refactoring non-reactive code</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Moving code into a python module</p>
 </div></li>
 </ul>
 </div>
@@ -444,39 +514,49 @@
 <li><div class="agenda-active">
 <p>Introduction to refactoring non-reactive code</p>
 </div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Moving code into a python module</p>
+</div></li>
 </ul>
 </div>
 </section>
 <section id="separate-reactive-and-non-reactive-logic" class="slide level2">
 <h2>Separate reactive and non-reactive logic</h2>
-<ul>
-<li>Most Shiny app code is non-reactive
+<p>Most Shiny app code is non-reactive</p>
 <ul>
 <li>Drawing plots</li>
 <li>Summarizing data</li>
 <li>Interacting with databases</li>
 <li>(Really, everything except the actual reading of reactive inputs and calcs)</li>
-</ul></li>
-<li>It’s fine to include this code inside reactive functions</li>
-<li>As your app grows you should separate them</li>
 </ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>It’s fine to include this code inside reactive functions.</p>
+<p>But as your app grows you should separate them.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="reactivity-makes-everything-harder" class="slide level2">
 <h2>Reactivity makes everything harder</h2>
+<p>Reactive context makes them inherently harder to:</p>
 <ul>
-<li>Reactive context makes them inherently more difficult
-<ul>
-<li>Harder to debug</li>
-<li>Harder to test</li>
-<li>Harder to document</li>
-<li>Harder to reason about</li>
-</ul></li>
+<li>debug</li>
+<li>test</li>
+<li>document</li>
+<li>reason about</li>
 </ul>
 </section>
 <section id="pull-logic-out-of-the-reactive-context" class="slide level2">
 <h2>Pull logic out of the reactive context</h2>
-<p>Non-reactive functions are familiar and predictable</p>
-<p>You can:</p>
+<p>Non-reactive functions are familiar and predictable, since you can:</p>
 <ul>
 <li>call them in a notebook</li>
 <li>write unit tests</li>
@@ -492,6 +572,85 @@
 <p><a href="exercises/express-401-extract-function/index.html" target="_blank">express-401-extract-function</a></p>
 <p>...</p>
 <p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-401-extract-function/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Moving code into a python module</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Goals</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Refactoring</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction to refactoring non-reactive code</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Moving code into a python module</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="what-is-a-python-module" class="slide level2">
+<h2>What is a python module?</h2>
+<p>A python module could be as simple as a single python file.</p>
+<p>You can import functions from this file into your shiny app.</p>
+<p>Benefits:</p>
+<ul>
+<li><p>Namespacing</p></li>
+<li><p>Testing</p></li>
+<li><p>Separation of functionality</p></li>
+<li><p>Potential to re-use across multiple applications</p></li>
+</ul>
+</section>
+<section id="python-module-example" class="slide level2">
+<h2>Python module example</h2>
+<p>In a file <code>example.py</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="kw">def</span> foo(x):</span>
+<span id="cb1-2"><a></a>  <span class="co"># Do something with x</span></span>
+<span id="cb1-3"><a></a>  <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In your app:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> example <span class="im">import</span> foo</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>foo(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="moving-code-from-a-shiny-app-to-a-python-module" class="slide level2">
+<h2>Moving code from a shiny app to a python module</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p>Keep your reactive code in the shiny app</p></li>
+<li><p>Move non-reactive code into python modules</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-1" class="slide level2">
+<h2>Your turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-402-python-module/index.html" target="_blank">express-402-python-module</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-402-python-module/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -808,7 +967,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

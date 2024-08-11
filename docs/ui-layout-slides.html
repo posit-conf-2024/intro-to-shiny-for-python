@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -12,7 +12,8 @@
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
 
-  <title>Intro to Shiny for Python / Conf(2024) – UI Layout</title>
+  <title>Intro to Shiny for Python
+Conf(2024) – UI Layout</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -389,6 +390,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -413,35 +417,53 @@
 <p>Introduction</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
-<p>Anatomy of Shiny UI</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Navsets</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
 <p>Cards</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
 <p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
 </div></li>
 </ul>
 </div>
 </section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
+<p>You can fill your app with content, but can you organize it?</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>This section is a bit of a survey. Just know:</p>
 <ul>
-<li>So far we’ve learned:
-<ul>
-<li>How to build an app</li>
-<li>How Shiny renders things</li>
-</ul></li>
-<li>This session is all about how they look</li>
-<li>We’re going to cover a lot of UI elements quickly
-<ul>
-<li>Just know that these exist</li>
-<li>Don’t worry too much about remembering how they work</li>
-</ul></li>
+<li>That these exist</li>
+<li>What it feels like to use them</li>
+<li>And where to rediscover them when you need them</li>
 </ul>
+</div>
+</div>
+</div>
 </section>
 <section id="why-care-about-ui-design" class="slide level2">
 <h2>Why care about UI design?</h2>
@@ -456,214 +478,66 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>View the app on this page:</p>
-<p><a href="apps/303-conditional-panel/index.html" target="_blank">303-conditional-panel</a></p>
+<p><a href="apps/330-target-app/index.html" target="_blank">330-target-app</a></p>
 <p>...</p>
-<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/303-conditional-panel/index.html', '*')">View the App</button></p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/330-target-app/index.html', '*')">View the App</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-view-the-app.png">
 </div>
 </div>
-</section></section>
-<section>
-<section class="title-slide slide level1 agenda-slide">
-<h1>Anatomy of Shiny UI</h1>
-<div class="agenda-heading">
-<p>Agenda</p>
-</div>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Introduction</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Anatomy of Shiny UI</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Navsets</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Cards</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Rows and columns</p>
-</div></li>
-</ul>
-</div>
 </section>
-<section id="anatomy-of-shiny-ui-1" class="slide level2">
-<h2>Anatomy of Shiny UI</h2>
-<div class="columns">
-<div class="column">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb1-2"><a></a>    ui.panel_title(<span class="st">"Hello Penguins!"</span>),</span>
-<span id="cb1-3"><a></a>    ui.layout_sidebar(</span>
-<span id="cb1-4"><a></a>        ui.panel_sidebar(</span>
-<span id="cb1-5"><a></a>            ui.input_slider(<span class="st">"mass"</span>, <span class="st">"Mass"</span></span>
-<span id="cb1-6"><a></a>            ),</span>
-<span id="cb1-7"><a></a>            ui.input_action_button(<span class="st">"reset"</span>, <span class="st">"Reset Slider"</span>),</span>
-<span id="cb1-8"><a></a>        ),</span>
-<span id="cb1-9"><a></a>        ui.panel_main(</span>
-<span id="cb1-10"><a></a>            ui.output_data_frame(<span class="st">"table"</span>),</span>
-<span id="cb1-11"><a></a>        ),</span>
-<span id="cb1-12"><a></a>    ),</span>
-<span id="cb1-13"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<ul>
-<li>The UI is separate from the server</li>
-<li>UI is made up of pure functions
-<ul>
-<li>You can break them into objects</li>
-<li>You can create them with functions</li>
-</ul></li>
-<li>Opinionated
-<ul>
-<li>Your inputs get labels</li>
-<li>Reasonable look and feel</li>
-</ul></li>
-<li>Customizable
-<ul>
-<li>Everything can be styled with CSS</li>
-<li>If you know JavaScript, you can use JavaScript</li>
-</ul></li>
-</ul>
-</div></div>
-</section>
-<section id="some-nomenclature" class="slide level2">
-<h2>Some nomenclature</h2>
-<ul>
-<li><strong>Container functions</strong>: organize <strong>child</strong> elements</li>
-<li><strong>Element functions</strong>: generate a UI object like input and outputs</li>
-<li><strong>Child</strong>: elements contained by a container function</li>
-<li><strong>Parent</strong>: the container one level up from a particular element or container</li>
-</ul>
-</section>
-<section id="element-functions" class="slide level2">
-<h2>Element functions</h2>
-<div class="sourceCode" id="cb2" data-code-line-numbers="2,5,7,10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb2-2"><a></a>    ui.panel_title(<span class="st">"Hello Penguins!"</span>),</span>
-<span id="cb2-3"><a></a>    ui.layout_sidebar(</span>
-<span id="cb2-4"><a></a>        ui.panel_sidebar(</span>
-<span id="cb2-5"><a></a>            ui.input_slider(<span class="st">"mass"</span>, <span class="st">"Mass"</span></span>
-<span id="cb2-6"><a></a>            ),</span>
-<span id="cb2-7"><a></a>            ui.input_action_button(<span class="st">"reset"</span>, <span class="st">"Reset Slider"</span>),</span>
-<span id="cb2-8"><a></a>        ),</span>
-<span id="cb2-9"><a></a>        ui.panel_main(</span>
-<span id="cb2-10"><a></a>            ui.output_data_frame(<span class="st">"table"</span>),</span>
-<span id="cb2-11"><a></a>        ),</span>
-<span id="cb2-12"><a></a>    ),</span>
-<span id="cb2-13"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="container-functions" class="slide level2">
-<h2>Container functions</h2>
-<div class="sourceCode" id="cb3" data-code-line-numbers="1,3,4,9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb3-2"><a></a>    ui.panel_title(<span class="st">"Hello Penguins!"</span>),</span>
-<span id="cb3-3"><a></a>    ui.layout_sidebar(</span>
-<span id="cb3-4"><a></a>        ui.panel_sidebar(</span>
-<span id="cb3-5"><a></a>            ui.input_slider(<span class="st">"mass"</span>, <span class="st">"Mass"</span></span>
-<span id="cb3-6"><a></a>            ),</span>
-<span id="cb3-7"><a></a>            ui.input_action_button(<span class="st">"reset"</span>, <span class="st">"Reset Slider"</span>),</span>
-<span id="cb3-8"><a></a>        ),</span>
-<span id="cb3-9"><a></a>        ui.panel_main(</span>
-<span id="cb3-10"><a></a>            ui.output_data_frame(<span class="st">"table"</span>),</span>
-<span id="cb3-11"><a></a>        ),</span>
-<span id="cb3-12"><a></a>    ),</span>
-<span id="cb3-13"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="container-functions-1" class="slide level2">
-<h2>Container functions</h2>
-<ul>
-<li>Some layout functions take any child elements and lay them out in order
-<ul>
-<li><code>ui.page_fluid</code></li>
-<li><code>ui.panel_sidebar</code></li>
-<li><code>ui.panel_main</code></li>
-</ul></li>
-<li>Some, like <code>layout_sidebar</code>, take specific children
-<ul>
-<li><code>panel_sidebar</code> defines the sidebar</li>
-<li><code>panel_main</code> defines the main panel</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section class="title-slide slide level1 agenda-slide">
-<h1>Navsets</h1>
-<div class="agenda-heading">
-<p>Agenda</p>
-</div>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Introduction</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Anatomy of Shiny UI</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Navsets</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Cards</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Rows and columns</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="navsets-1" class="slide level2">
-<h2>Navsets</h2>
-<ul>
-<li>It’s common to put apps in tabs</li>
-<li>We have a <code>navset_tab</code> function which organizes <code>ui.nav</code> containers into tabs</li>
-<li><code>ui.nav</code> is itself a container and allows you lay out the things on the tab</li>
-</ul>
-</section>
-<section id="navsets-2" class="slide level2">
-<h2>Navsets</h2>
-<div>
-<ul>
-<li>It’s common to put apps in tabs</li>
-<li>We have a set of <code>navset</code> functions which organize <code>ui.nav</code> containers in tabs</li>
-<li><code>ui.nav</code> is itself a container and allows you lay out the things on the tab</li>
-</ul>
-</div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">from</span> shiny.express <span class="im">import</span> ui</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="cf">with</span> ui.navset_tab():</span>
-<span id="cb4-4"><a></a>    <span class="cf">with</span> ui.nav_panel( <span class="st">"Panel 1"</span>):</span>
-<span id="cb4-5"><a></a>        ui.input_slider(<span class="st">"slider"</span>, <span class="st">"Slider"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>)</span>
-<span id="cb4-6"><a></a>    <span class="cf">with</span> ui.nav_panel(<span class="st">"Panel 2"</span>):</span>
-<span id="cb4-7"><a></a>        ui.input_action_button(<span class="st">"button"</span>, <span class="st">"Button A"</span>)</span>
-<span id="cb4-8"><a></a>    <span class="cf">with</span> ui.nav_panel(<span class="st">"Panel 3"</span>):</span>
-<span id="cb4-9"><a></a>        ui.input_action_button(<span class="st">"button2"</span>, <span class="st">"Button B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="navset-example" class="slide level2">
-<h2>Navset example</h2>
+<section id="where-were-starting" class="slide level2">
+<h2>Where we’re starting</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>View the app on this page:</p>
-<p><a href="apps/express-300-navset/index.html" target="_blank">express-300-navset</a></p>
+<p><a href="apps/331-starting-app/index.html" target="_blank">331-starting-app</a></p>
 <p>...</p>
-<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/express-300-navset/index.html', '*')">View the App</button></p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/331-starting-app/index.html', '*')">View the App</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-view-the-app.png">
 </div>
 </div>
 </section>
-<section id="your-turn" class="slide level2">
-<h2>Your turn</h2>
-<div class="your-turn-container" style="display:flex;">
-<div class="your-turn-link" style="width:70%;">
-<p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-306-navset/index.html" target="_blank">express-306-navset</a></p>
-<p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-306-navset/index.html', '*')">Open Exercise</button></p>
+<section id="how-we-will-get-there" class="slide level2" data-background-color="whitesmoke">
+<h2>How we will get there</h2>
+<p>Any guesses which module we will use?</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>An app is a web page. <code>ui</code> functions emit HTML.</p>
+<ul>
+<li>non-reactive</li>
+<li>can be styled with CSS</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="your-turn-image" style="width:30%;">
-<img data-src="../images/keep-calm-and-take-your-turn.png">
+<p><strong>There are even functions to insert HTML</strong></p>
+</div>
+<div class="callout-content">
+<p><br>
+</p>
+<div id="435a32ce" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>ui.HTML(<span class="st">'&lt;a href="https://posit.co"&gt;Visit posit.co&lt;/a&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<a href="https://posit.co">Visit posit.co</a>
+</div>
+</div>
+<p><br>
+</p>
+<div id="2c60d10b" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>ui.tags.a(<span class="st">"Visit posit.co"</span>, href<span class="op">=</span><span class="st">"https://posit.co"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<a href="https://posit.co">Visit posit.co</a>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section></section>
@@ -678,19 +552,99 @@
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Introduction</p>
 </div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Anatomy of Shiny UI</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Navsets</p>
-</div></li>
 <li><div class="agenda-active">
 <p>Cards</p>
 </div></li>
 <li><div class="agenda-inactive agenda-post-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
 <p>Rows and columns</p>
 </div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
 </ul>
+</div>
+</section>
+<section id="common-tasks" class="slide level2">
+<h2>Common tasks</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/layouts/cards.png" alt="Cards"> Cards<br>
+<br>
+<img data-src="images/layouts/tabsets.png" alt="Tabsets"> Tabsets<br>
+<br>
+</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/layouts/sidebars.png" alt="Sidebars"> Sidebars<br>
+<br>
+<img data-src="images/layouts/navbars.png" alt="Navbars"> Navbars<br>
+<br>
+</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/layouts/columns.png" alt="Rows and Columns"> Rows and Columns<br>
+<br>
+<img data-src="images/layouts/fill.png" alt="Filling page"> Filling the page<br>
+<br>
+</p>
+</div></div>
+</section>
+<section id="layouts-gallery" class="slide level2">
+<h2>Layouts gallery</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/layouts-gallery.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><a href="https://shiny.posit.co/py/layouts/" class="uri">https://shiny.posit.co/py/layouts/</a></p>
+</div></aside></section>
+<section id="layouts-gallery-1" class="slide level2">
+<h2>Layouts gallery</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Caveat</strong></p>
+</div>
+<div class="callout-content">
+<p>The <em>language</em> and <em>links</em> in the layouts gallery tend to describe Shiny Core syntax.</p>
+<p>So combine it with <a href="https://shiny.posit.co/py/api/express/">the Shiny Express function reference</a>.</p>
+</div>
+</div>
+</div>
+
+<aside><div>
+<p><a href="https://shiny.posit.co/py/layouts/" class="uri">https://shiny.posit.co/py/layouts/</a></p>
+</div></aside></section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-301-cards/index.html" target="_blank">express-301-cards</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-301-cards/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
 </div>
 </section>
 <section id="cards-1" class="slide level2">
@@ -699,34 +653,84 @@
 <li>Cards are just small boxes which contain other elements</li>
 <li>Useful for grouping inputs and outputs</li>
 <li>“Dashboards” are just web apps in boxes</li>
-<li>Called with <code>ui.card</code></li>
-<li>Cards can take <code>ui.card_header</code> and <code>ui.card_footer</code></li>
 </ul>
-</section>
-<section id="cards-2" class="slide level2">
-<h2>Cards</h2>
-<div class="sourceCode" id="cb5" data-code-line-numbers="4-8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">import</span> shiny.experimental <span class="im">as</span> x</span>
-<span id="cb5-2"><a></a></span>
-<span id="cb5-3"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
-<span id="cb5-4"><a></a>    ui.card(</span>
-<span id="cb5-5"><a></a>        ui.card_header(<span class="st">"Slider card"</span>),</span>
-<span id="cb5-6"><a></a>        ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb5-7"><a></a>        ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
-<span id="cb5-8"><a></a>    )</span>
-<span id="cb5-9"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="cards-example" class="slide level2">
-<h2>Cards example</h2>
-<div class="your-turn-container" style="display:flex;">
-<div class="your-turn-link" style="width:70%;">
-<p>View the app on this page:</p>
-<p><a href="apps/express-301-cards/index.html" target="_blank">express-301-cards</a></p>
-<p>...</p>
-<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/express-301-cards/index.html', '*')">View the App</button></p>
+<div class="callout-info">
+<ul>
+<li>Called with <code>with ui.card():</code></li>
+<li>Cards can take <code>ui.card_header()</code> and <code>ui.card_footer()</code></li>
+</ul>
 </div>
-<div class="your-turn-image" style="width:30%;">
-<img data-src="../images/keep-calm-and-view-the-app.png">
+</section>
+<section id="what-is-with" class="slide level2" data-background-color="whitesmoke">
+<h2>What is with?</h2>
+<p>Can any of our Python users explain?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="cf">with</span> ui.card(full_screen<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb3-2"><a></a>    ui.card_header(<span class="st">"This is the header"</span>)</span>
+<span id="cb3-3"><a></a>    ui.p(<span class="st">"This is the body."</span>)</span>
+<span id="cb3-4"><a></a>    ui.p(<span class="st">"This is still the body."</span>)</span>
+<span id="cb3-5"><a></a>    ui.card_footer(<span class="st">"This is the footer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="context-managers" class="slide level2">
+<h2>Context managers</h2>
+<p><code>with</code> is a convenient way to group multiple functions within a single context.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="cf">with</span> ui.card(full_screen<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb4-2"><a></a>    ui.card_header(<span class="st">"This is the header"</span>)</span>
+<span id="cb4-3"><a></a>    ui.p(<span class="st">"This is the body."</span>)</span>
+<span id="cb4-4"><a></a>    ui.p(<span class="st">"This is still the body."</span>)</span>
+<span id="cb4-5"><a></a>    ui.card_footer(<span class="st">"This is the footer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="lets-demo-with-with-sidebars" class="slide level2" data-background-color="whitesmoke">
+<h2>Let’s demo <code>with</code> with sidebars</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="cf">with</span> ui.sidebar():</span>
+<span id="cb5-2"><a></a>    <span class="co">"App level sidebar"</span></span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="cf">with</span> ui.card():</span>
+<span id="cb5-6"><a></a>    <span class="cf">with</span> ui.layout_sidebar():</span>
+<span id="cb5-7"><a></a>        <span class="cf">with</span> ui.sidebar():</span>
+<span id="cb5-8"><a></a>            <span class="co">"Card level sidebar"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="aside---titles" class="slide level2">
+<h2>Aside - Titles</h2>
+<p>Adding a title to an App also helps to give it structure. Add titles with</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>ui.page_opts(title <span class="op">=</span> <span class="st">"My Title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Sidebars</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
 </div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Cards</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
 </div>
 </section>
 <section id="your-turn-1" class="slide level2">
@@ -734,9 +738,121 @@
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-302-cards/index.html" target="_blank">express-302-cards</a></p>
+<p><a href="exercises/express-302-sidebars/index.html" target="_blank">express-302-sidebars</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-302-cards/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-302-sidebars/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Value boxes</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Cards</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="is-there-a-better-way-to-emphasize-numbers-and-values" class="slide level2">
+<h2>Is there a better way to emphasize numbers and values?</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="cf">with</span> ui.card():</span>
+<span id="cb7-2"><a></a>    ui.card_header( <span class="st">"Important Value"</span>)</span>
+<span id="cb7-3"><a></a>    <span class="dv">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/unemphasized-number.png" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</section>
+<section id="an-output-that-is-a-layout-device" class="slide level2">
+<h2>An “output” that is a layout device</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/vb-components-gallery.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<p><a href="https://shiny.posit.co/py/components/" class="uri">https://shiny.posit.co/py/components/</a></p>
+</div></aside></section>
+<section id="components" class="slide level2">
+<h2>Components</h2>
+
+<img data-src="images/value-box.png" class="r-stretch"><p>Value boxes can have:</p>
+<ol type="1">
+<li>An icon</li>
+<li>A value</li>
+<li>Supporting text</li>
+<li>A fill color (a “theme”)</li>
+</ol>
+</section>
+<section id="value-boxes-in-action" class="slide level2">
+<h2>Value boxes in action</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>View the app on this page:</p>
+<p><a href="apps/332-value-boxes/index.html" target="_blank">332-value-boxes</a></p>
+<p>...</p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/332-value-boxes/index.html', '*')">View the App</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-view-the-app.png">
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>The <code>faicons</code> package provides <a href="https://fontawesome.com/search?">fontawesome</a> icons.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-2" class="slide level2">
+<h2>Your turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-303-value-boxes/index.html" target="_blank">express-303-value-boxes</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-303-value-boxes/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -755,80 +871,395 @@
 <p>Introduction</p>
 </div></li>
 <li><div class="agenda-inactive agenda-pre-active">
-<p>Anatomy of Shiny UI</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Navsets</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
 <p>Cards</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
 </div></li>
 <li><div class="agenda-active">
 <p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
 </div></li>
 </ul>
 </div>
 </section>
 <section id="rows-and-columns-1" class="slide level2">
 <h2>Rows and columns</h2>
-<ul>
-<li>Sidebars, navsets and cards are all special purpose containers</li>
-<li>What if you want to customize your layout more generally?</li>
-<li>What about?
-<ul>
-<li>Different screen sizes?</li>
-<li>Mobile browsers?</li>
-<li>Different zoom levels?</li>
-<li>Nested UI containers?</li>
-</ul></li>
-<li>What we need is a responsive way to specify the size of things</li>
-<li>Enter the bootstrap grid</li>
-</ul>
+<p>What if you want to customize your layout more generally? - What about? - Different screen sizes? - Mobile browsers? - Different zoom levels? - Nested UI containers? - What we need is a responsive way to specify the size of things - Enter <code>ui.layout_coilumns()</code></p>
 </section>
-<section id="bootstap-grid" class="slide level2">
-<h2>Bootstap grid</h2>
-<ul>
-<li>Divide the screen into rows and columns</li>
-<li>Row height expands to fit its children</li>
-<li>Column width is relative to its parent</li>
-</ul>
+<section id="ui.layout_columns" class="slide level2">
+<h2><code>ui.layout_columns()</code></h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>View the app on this page:</p>
+<p><a href="apps/333-columns/index.html" target="_blank">333-columns</a></p>
+<p>...</p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/333-columns/index.html', '*')">View the App</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-view-the-app.png">
+</div>
+</div>
 </section>
-<section id="bootstrap-grid" class="slide level2">
-<h2>Bootstrap grid</h2>
-
-<img data-src="images/bootstrap_image.png" class="r-stretch"></section>
-<section id="rows" class="slide level2">
-<h2>Rows</h2>
+<section id="columns-are-built-on-the-bootstrap-grid" class="slide level2">
+<h2>Columns are built on the Bootstrap grid</h2>
 
 <img data-src="images/bootstrap_image.png" class="r-stretch"><ul>
-<li>The shiny <code>ui.row</code> container breaks your app into rows</li>
-<li>Rows always contain <code>ui.column</code></li>
+<li>Assign an integer width for each column<br>
+</li>
+<li>1 unit = 1/12 of the available space</li>
+<li>Negative widths insert an empty column (white space)</li>
+<li>When cumulative widths exceed 12, Shiny begins a new row.</li>
+<li>You can nest <code>layout_column</code> functions</li>
 </ul>
 </section>
-<section id="columns" class="slide level2">
-<h2>Columns</h2>
+<section id="quiz---what-col_widths-would-create-this-layout" class="slide level2" data-background-color="whitesmoke">
+<h2>Quiz - What <code>col_widths</code> would create this layout?</h2>
 
-<img data-src="images/bootstrap_image.png" class="r-stretch"><ul>
-<li>Imagine breaking up the parent container into 12 vertical sections</li>
-<li>Each column gets an integer <strong>width</strong> from 1-12</li>
-<li>This defines how much of the parent the column occupies</li>
-<li>Reacts to screen size</li>
-<li>Why 12?</li>
+<img data-src="images/columns-1.png" class="r-stretch"><ul>
+<li>Assign an integer width for each column<br>
+</li>
+<li>1 unit = 1/12 of the available space</li>
+<li>Negative widths insert an empty column (white space)</li>
+<li>When cumulative widths exceed 12, Shiny begins a new row.</li>
+<li>You can nest <code>layout_column</code> functions</li>
 </ul>
 </section>
-<section id="rows-and-columns-2" class="slide level2">
-<h2>Rows and columns</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>ui.row(</span>
-<span id="cb6-2"><a></a>        ui.column(</span>
-<span id="cb6-3"><a></a>            <span class="dv">6</span>,</span>
-<span id="cb6-4"><a></a>            ui.output_text(<span class="st">"txt"</span>),</span>
-<span id="cb6-5"><a></a>        ),</span>
-<span id="cb6-6"><a></a>        ui.column(</span>
-<span id="cb6-7"><a></a>            <span class="dv">6</span>,</span>
-<span id="cb6-8"><a></a>            ui.output_plot(<span class="st">"my_plot"</span>),</span>
-<span id="cb6-9"><a></a>            ),</span>
-<span id="cb6-10"><a></a>        ),</span>
-<span id="cb6-11"><a></a>    ),</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="quiz---what-col_widths-would-create-this-layout-1" class="slide level2" data-background-color="whitesmoke">
+<h2>Quiz - What <code>col_widths</code> would create this layout?</h2>
+
+<img data-src="images/columns-2.png" class="r-stretch"><ul>
+<li>Assign an integer width for each column<br>
+</li>
+<li>1 unit = 1/12 of the available space</li>
+<li>Negative widths insert an empty column (white space)</li>
+<li>When cumulative widths exceed 12, Shiny begins a new row.</li>
+<li>You can nest <code>layout_column</code> functions</li>
+</ul>
+</section>
+<section id="quiz---what-col_widths-would-create-this-layout-2" class="slide level2" data-background-color="whitesmoke">
+<h2>Quiz - What <code>col_widths</code> would create this layout?</h2>
+
+<img data-src="images/columns-3.png" class="r-stretch"><ul>
+<li>Assign an integer width for each column<br>
+</li>
+<li>1 unit = 1/12 of the available space</li>
+<li>Negative widths insert an empty column (white space)</li>
+<li>When cumulative widths exceed 12, Shiny begins a new row.</li>
+<li>You can nest <code>layout_column</code> functions</li>
+</ul>
+</section>
+<section id="row-heights" class="slide level2">
+<h2>Row heights</h2>
+<p><code>row_heights</code> are proportional to each other</p>
+</section>
+<section id="your-turn-3" class="slide level2">
+<h2>Your turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-304-columns/index.html" target="_blank">express-304-columns</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-304-columns/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Tabsets</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Cards</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="to-organize-panels-in-the-same-space" class="slide level2">
+<h2>To organize panels in the same space</h2>
+<ol type="1">
+<li>Use <code>with ui.nav_panel()</code> to create a panel with a title and contents.</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="cf">with</span> ui.nav_panel(<span class="st">"A"</span>):</span>
+<span id="cb8-2"><a></a>    <span class="co">"Panel A content"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Choose a function to provide navigation between panels.</li>
+</ol>
+</section>
+<section id="nav-panels" class="slide level2">
+<h2>Nav panels</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>View the app on this page:</p>
+<p><a href="apps/333-columns/index.html" target="_blank">333-columns</a></p>
+<p>...</p>
+<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/333-columns/index.html', '*')">View the App</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-view-the-app.png">
+</div>
+</div>
+</section>
+<section id="navigation-functions" class="slide level2">
+<h2>Navigation functions</h2>
+<ol type="1">
+<li><code>ui.navset_bar()</code></li>
+<li><code>ui.navset_tab()</code>, <code>ui.navset_card_tab()</code></li>
+<li><code>ui.navset_pill()</code>, <code>ui.navset_card_pill()</code></li>
+<li><code>ui.navset_pill_list()</code></li>
+<li><code>ui.navset_underline()</code>, <code>ui.navset_card_underline()</code></li>
+</ol>
+
+<aside><div>
+<p><a href="https://shiny.posit.co/py/layouts/tabs/" class="uri">https://shiny.posit.co/py/layouts/tabs/</a></p>
+</div></aside></section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Navbars</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Cards</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>If there are top level Nav Panels (<code>with ui.nav_panel("A"):</code>), Shiny will automatically group them into a multi-page app with a navbar.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Use <code>ui.page_opts()</code> to provide a title for the navbar.<br>
+Call <code>ui.nav_spacer()</code> to push the panel labels to the right side of the navbar.</p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/layouts/navbars.png"></p>
+<figcaption>Navbars</figcaption>
+</figure>
+</div>
+
+<aside><div>
+<p><a href="https://shiny.posit.co/py/layouts/navbars/" class="uri">https://shiny.posit.co/py/layouts/navbars/</a></p>
+</div></aside></section>
+<section id="your-turn-4" class="slide level2">
+<h2>Your turn</h2>
+<div class="your-turn-container" style="display:flex;">
+<div class="your-turn-link" style="width:70%;">
+<p>Complete the exercise on this page:</p>
+<p><a href="exercises/express-305-app/index.html" target="_blank">express-305-app</a></p>
+<p>...</p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-305-app/index.html', '*')">Open Exercise</button></p>
+</div>
+<div class="your-turn-image" style="width:30%;">
+<img data-src="../images/keep-calm-and-take-your-turn.png">
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Two advanced topics</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Cards</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="can-the-ui-itself-react-to-the-user" class="slide level2">
+<h2>Can the UI itself react to the user?</h2>
+<p>Yes, in several ways.</p>
+<p>Explore this topic <a href="https://shiny.posit.co/py/docs/ui-dynamic.html">here</a>.</p>
+<p><img data-src="images/update-input.gif" height="300"></p>
+</section>
+<section id="planning-for-screen-size" class="slide level2">
+<h2>Planning for screen size</h2>
+<p>Would you like to control how elements resize as the viewer’s screen size changes?</p>
+<p>Explore this topic <a href="https://shiny.posit.co/py/layouts/arrange/#controlling-for-page-width-and-height">here</a>.<br>
+<img data-src="images/page-control.png"></p>
+</section></section>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Recap</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Cards</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Sidebars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Value boxes</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Rows and columns</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Tabsets</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Navbars</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Two advanced topics</p>
+</div></li>
+<li><div class="agenda-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="common-tasks-1" class="slide level2">
+<h2>Common Tasks</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/layouts/cards.png" alt="Cards"> <code>ui.card()</code><br>
+<br>
+<img data-src="images/layouts/tabsets.png" alt="Tabsets"> <code>ui.navset_tab()</code><br>
+<br>
+</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/layouts/sidebars.png" alt="Sidebars"> <code>ui.sidebar()</code><br>
+<br>
+<img data-src="images/layouts/navbars.png" alt="Navbars"> <code>ui.navset_bar()</code><br>
+</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/layouts/columns.png" alt="Rows and Columns"> <code>ui.layout_columns()</code><br>
+<br>
+</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">with</span> ui.nav_panel(<span class="st">"A"</span>):</span>
+<span id="cb9-2"><a></a>    Contents</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
+</div></div>
+<!--
+```{.python}
+from shiny.express import ui
+
+with ui.navset_tab():
+    with ui.nav_panel( "Panel 1"):
+        ui.input_slider("slider", "Slider", 0, 100, 20)
+    with ui.nav_panel("Panel 2"):
+        ui.input_action_button("button", "Button A")
+    with ui.nav_panel("Panel 3"):
+        ui.input_action_button("button2", "Button B")
+```
+-->
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -1140,7 +1571,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
