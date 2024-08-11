@@ -95,7 +95,7 @@ Director of Learning, Posit
 : {.striped}
 -->
 
-## Goals
+## Goals for this section
 
 1.  Understand the "whole game"/ big picture
 
@@ -262,17 +262,29 @@ Shiny lets you quickly create reactive web apps without worrying about:
 
 And, these apps can scale from prototype to production-ready.
 
-## Quiz {background-color=`{python} bgcolor`}
+## Quiz - Where are the inputs? The Outputs?{background-color=`{python} bgcolor`}
 
 ![](../images/app-components.004.png)
 
-## Quiz {background-color=`{python} bgcolor`}
+## Quiz - Where are the inputs? The Outputs?{background-color=`{python} bgcolor`}
 
 ![](../images/app-components.005.png)
 
-## Quiz {background-color=`{python} bgcolor`}
+## Quiz - Where are the inputs? The Outputs?{background-color=`{python} bgcolor`}
 
 ![](../images/app-components.006.png)
+
+## Tell me about Shiny Express
+
+
+::: {.callout-important}
+Shiny for Python has two _syntaxes_ for writing the same apps:
+
+1. Shiny Express - lightweight syntax informed by notebooks
+1. Shiny Core - more verbose syntax similar to Shiny for R
+:::
+
+Today, we will learn Shiny Express.
 
 # Your first App
 
@@ -408,12 +420,11 @@ Notice:
     1.  A label to display  
     1.  Input specific options
 
-## The Shiny function reference 
+## How can you learn about input specific options?
 
-How can you learn about input specific options?
+The Shiny function reference 
 
-
-![](../images/shiny-function-reference.png){height=700 fig-align="center"}
+![](../images/shiny-function-reference.png){height=650 fig-align="center"}
 
 ::: aside
 <https://shiny.posit.co/py/api/express/>

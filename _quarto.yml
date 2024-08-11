@@ -51,7 +51,6 @@ website:
           contents:
           - docs/apps/101-input/index.qmd
           - docs/apps/102-output/index.qmd
-          - docs/apps/103-table/index.qmd
           
     - title: "Reactivity"
       contents:

@@ -1,3 +1,4 @@
 pandas
+pathlib
 plotly
 shinywidgets
