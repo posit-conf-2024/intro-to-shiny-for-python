@@ -1,0 +1,44 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"307 Themes\"\n",
+        "---\n",
+        "\n",
+        "{{< yourturnChild >}}"
+      ],
+      "id": "10fedf34"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# | echo: false\n",
+        "# | output: asis\n",
+        "import sys\n",
+        "helpers_path = \"../../exercises/\"\n",
+        "if helpers_path not in sys.path:\n",
+        "    sys.path.append(helpers_path)\n",
+        "from helpers import problem_app_express, getcwd\n",
+        "\n",
+        "problem_app_express(getcwd())"
+      ],
+      "id": "67fd0b5e",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/garrettgrolemund/Documents/posit/intro-to-shiny-for-python/.venv/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
