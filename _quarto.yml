@@ -85,14 +85,17 @@ website:
             text: UI Themes
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-301-sidebar/index.qmd
-          - docs/exercises/express-302-cards/index.qmd
-          - docs/exercises/express-303-cards-switch/index.qmd
-          - docs/exercises/express-304-layout-columns/index.qmd
-          - docs/exercises/express-305-render-express/index.qmd
-          - docs/exercises/express-306-navset/index.qmd
-          - docs/exercises/express-307-value-box/index.qmd
-          - docs/exercises/express-308-layout-column/index.qmd
+          - docs/exercises/express-301-cards/index.qmd
+          - docs/exercises/express-302-sidebars/index.qmdi
+          - docs/exercises/express-303-value-boxes/index.qmd
+          - docs/exercises/express-304-columns/index.qmd
+          - docs/exercises/express-305-app/index.qmd
+          - docs/exercises/express-306-app/index.qmd
+          - docs/exercises/express-307-themes/index.qmd
+          - docs/exercises/express-308-plot-themes/index.qmd
+          - docs/exercises/express-309-valuebox-themes/index.qmd
+          - docs/exercises/express-310-element-themes/index.qmd
+          - docs/exercises/express-311-style/index.qmd
         - section: "Apps"
           contents:
           - docs/apps/301-cards/index.qmd

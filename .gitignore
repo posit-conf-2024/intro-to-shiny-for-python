@@ -173,7 +173,7 @@ site_libs
 # windows / wsl zone identifier files
 *:Zone.Identifier
 
-temp/
+temp/*
 
 .quarto/
 docs/*.html
