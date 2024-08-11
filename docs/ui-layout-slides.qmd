@@ -343,6 +343,7 @@ with ui.nav_panel("A"):
 
 ## Navigation functions
 
+1. `ui.navset_bar()`
 1. `ui.navset_tab()`, `ui.navset_card_tab()`
 1. `ui.navset_pill()`, `ui.navset_card_pill()`
 1. `ui.navset_pill_list()`
@@ -354,9 +355,15 @@ with ui.nav_panel("A"):
 
 # Navbars
 
-## `ui.navset_bar()`
+## 
 
-Use `ui.navset_bar()` to organize nav_panels into a multipage app.
+If there are top level Nav Panels (`with ui.nav_panel("A"):`), Shiny will automatically group them into a multi-page app with a navbar.
+
+::: {.callout-tip}
+Use `ui.page_opts()` to provide a title for the navbar.
+\
+Call `ui.nav_spacer()` to push the panel labels to the right side of the navbar.
+:::
 
 ![Navbars](images/layouts/navbars.png)
 
