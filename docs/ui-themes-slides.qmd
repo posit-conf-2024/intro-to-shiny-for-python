@@ -233,11 +233,19 @@ ui.card_header(
 
 ::: {.callout-tip}
 Bootstrap provides many predefined CSS classes. These are collections or coordinated style rules, ready to use pass to an element's `class_` parameter.
+
+```python
+ui.card_header("Title", class_="bg-secondary-subtle"):
+```
 :::
 
 ::: aside
 See <https://getbootstrap.com/docs/5.3/utilities/background/> to begin your search for bootstrap class names.
 :::
+
+## Your Turn
+
+{{< yourturn 'express-310-element-themes' >}}
 
 # Fonts
 
