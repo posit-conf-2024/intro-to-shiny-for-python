@@ -40,7 +40,7 @@ bgcolor = "whitesmoke"
 
 ## Combine what you've learned
 
-{{< yourturn 'express-306-new-app' >}}
+{{< yourturn 'express-306-app' >}}
 
 ## Where we're headed
 
@@ -300,4 +300,4 @@ This makes `www` a very good place to store things needed by a browser, like:
 
 ## Your Turn
 
-{{< yourturn 'express-310-style' >}}
+{{< yourturn 'express-311-style' >}}
