@@ -5,7 +5,7 @@ execute:
   freeze: false
 
 website:
-  title: "Intro to Shiny for Python\nConf(2024)"
+  description: "Intro to Shiny for Python\nConf(2024)"
   # subtitle: "Conf 2024"
   announcement: 
     icon: info-circle
@@ -14,9 +14,10 @@ website:
     type: warning
     position: below-navbar
   navbar:
-    logo: https://d33wubrfki0l68.cloudfront.net/71003073848110093780ea9a1c721439ad6b64f3/655ba/shiny-for-python.svg
+    # logo: https://d33wubrfki0l68.cloudfront.net/71003073848110093780ea9a1c721439ad6b64f3/655ba/shiny-for-python.svg
+    logo: images/intro-to-shiny-for-python.png
     search: true
-    right:
+    left:
       - docs/pre-requisites.qmd
       - docs/shiny-express.qmd
       - text: "Reactivity"
@@ -109,7 +110,7 @@ website:
           contents:
           - docs/workflow-refactor.qmd
           - docs/workflow-modules.qmd
-          # - docs/workflow-iterators.qmd
+          # - docs/_workflow-iterators.qmd
           - docs/workflow-deploy.qmd
         - section: "Exercises"
           contents: 
@@ -118,7 +119,6 @@ website:
           - docs/exercises/express-403-simple-module/index.qmd
           - docs/exercises/express-404-module-fn/index.qmd
           - docs/exercises/express-405-module-lambda/index.qmd
-          # - docs/exercises/express-406-module-app/index.qmd
           # - docs/exercises/express-410-iterators/index.qmd
     - title: "Test"
       contents:      
