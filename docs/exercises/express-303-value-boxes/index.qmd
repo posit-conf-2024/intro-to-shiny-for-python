@@ -1,5 +1,5 @@
 ---
-title: "303 Value boxes"
+title: "302 Sidebars"
 ---
 
 {{< yourturnChild >}}

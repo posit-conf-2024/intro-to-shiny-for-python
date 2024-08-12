@@ -264,15 +264,16 @@ The `faicons` package provides [fontawesome](https://fontawesome.com/search?) ic
 ## Rows and columns
 
 What if you want to customize your layout more generally?
-- What about?
-    - Different screen sizes?
-    - Mobile browsers? 
-    - Different zoom levels?
-    - Nested UI containers?
-- What we need is a responsive way to specify the size of things
-- Enter `ui.layout_coilumns()`
 
-## `ui.layout_columns()`
+- What about?  
+    - Different screen sizes?  
+    - Mobile browsers?  
+    - Different zoom levels?  
+    - Nested UI containers?  
+- What we need is a responsive way to specify the size of things  
+- Enter `ui.layout_columns()`  
+
+## `ui.layout_columns()` demo
 
 {{< yourview '333-columns' >}}
 
