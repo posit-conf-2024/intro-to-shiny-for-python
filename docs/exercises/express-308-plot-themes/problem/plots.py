@@ -23,7 +23,6 @@ def plot_score_distribution(df: DataFrame, color = "blue"):
 
 def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
     fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
-    roc_auc = auc(fpr, tpr)
 
     roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
 
@@ -33,7 +32,6 @@ def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorang
         + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
         + labs(
             title="Receiver Operating Characteristic (ROC)",
-            subtitle=f"AUC: {roc_auc.round(2)}",
             x="False Positive Rate",
             y="True Positive Rate",
         )
