@@ -35,8 +35,6 @@ from helpers import include_shiny_folder
 bgcolor = "whitesmoke"
 ```
 
-# Introduction
-
 ## Goals
 
 You can fill your app with content, but can you organize it?
@@ -54,6 +52,8 @@ This section is a bit of a survey. Just know:
 - It's what your stakeholders care about!
 - Good UI design simplifies your application code 
 - Intuitive UIs mean fewer questions 
+
+# Introduction
 
 ## Where we're headed
 
