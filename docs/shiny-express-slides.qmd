@@ -403,10 +403,7 @@ Instructions
 <https://shiny.posit.co/py/components/>
 :::
 
-
-## Demo
-
-## Syntax
+## Syntax Demo
 
 {{< yourview '101-input' >}}
 
@@ -448,7 +445,7 @@ What is the second thing a Shiny app needs?
 <https://shiny.posit.co/py/components/>
 :::
 
-## Syntax
+## Syntax Demo
 
 {{< yourview '102-output' >}}
 
@@ -493,6 +490,10 @@ Where are the instructions on how to build the outputs in this app?
 # Reactivity
 
 ## To make an app reactive...
+
+## To make an app reactive...
+
+Use an input value to build an output. 
 
 ## To make an app reactive...
 
