@@ -12,7 +12,7 @@ ui.page_opts(
     theme = app_theme
 )
 
-with ui.sidebar():
+with ui.sidebar(class_="bg-primary-subtle"):
     ui.input_select(
         "account",
         "Account",

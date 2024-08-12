@@ -53,7 +53,6 @@ website:
           contents:
           - docs/apps/101-input/index.qmd
           - docs/apps/102-output/index.qmd
-          - docs/apps/103-table/index.qmd
           
     - title: "Reactivity"
       contents:
@@ -86,7 +85,7 @@ website:
         - section: "Exercises"
           contents: 
           - docs/exercises/express-301-cards/index.qmd
-          - docs/exercises/express-302-sidebars/index.qmdi
+          - docs/exercises/express-302-sidebars/index.qmd
           - docs/exercises/express-303-value-boxes/index.qmd
           - docs/exercises/express-304-columns/index.qmd
           - docs/exercises/express-305-app/index.qmd
@@ -98,9 +97,12 @@ website:
           - docs/exercises/express-311-style/index.qmd
         - section: "Apps"
           contents:
-          - docs/apps/301-cards/index.qmd
-          - docs/apps/302-dynamic-ui/index.qmd
-          - docs/apps/303-conditional-panel/index.qmd
+          - docs/apps/330-target-app/index.qmd
+          - docs/apps/331-starting-app/index.qmd
+          - docs/apps/332-value-boxes/index.qmd
+          - docs/apps/333-columns/index.qmd
+          - docs/apps/334-target-app/index.qmd
+          - docs/apps/335-css/index.qmd
     - title: "Workflow"
       contents:
         - section: "Slides"

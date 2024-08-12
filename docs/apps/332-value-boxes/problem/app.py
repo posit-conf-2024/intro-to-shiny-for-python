@@ -8,7 +8,6 @@ with ui.value_box(
     theme="green"
 ):
     "Save"
-
     @render.text 
     def save(): 
         return f"${input.number()}"

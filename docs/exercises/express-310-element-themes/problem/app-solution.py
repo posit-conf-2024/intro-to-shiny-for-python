@@ -9,7 +9,7 @@ app_theme = theme.cerulean
 
 ui.page_opts(
     title="Model scoring dashboard",
-    theme = app_theme
+   # theme = app_theme
 )
 
 with ui.sidebar(class_="bg-primary-subtle"):

@@ -40,7 +40,7 @@ bgcolor = "whitesmoke"
 
 ## Combine what you've learned
 
-{{< yourturn 'express-306-new-app' >}}
+{{< yourturn 'express-306-app' >}}
 
 ## Where we're headed
 
@@ -194,7 +194,7 @@ Assign styles to:
 
 ## Adding CSS to a Shiny app
 
-{{< yourview '315-css' >}}
+{{< yourview '335-css' >}}
 
 ## To link an external style sheet
 
@@ -229,7 +229,7 @@ ui.card_header(
 )
 ```
 
-# Bootstrap classes
+## Bootstrap classes
 
 ::: {.callout-tip}
 Bootstrap provides many predefined CSS classes. These are collections or coordinated style rules, ready to use pass to an element's `class_` parameter.
@@ -300,4 +300,4 @@ This makes `www` a very good place to store things needed by a browser, like:
 
 ## Your Turn
 
-{{< yourturn 'express-310-style' >}}
+{{< yourturn 'express-311-style' >}}

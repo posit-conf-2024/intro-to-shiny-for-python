@@ -35,8 +35,6 @@ from helpers import include_shiny_folder
 bgcolor = "whitesmoke"
 ```
 
-# Introduction
-
 ## Goals
 
 You can fill your app with content, but can you organize it?
@@ -54,6 +52,8 @@ This section is a bit of a survey. Just know:
 - It's what your stakeholders care about!
 - Good UI design simplifies your application code 
 - Intuitive UIs mean fewer questions 
+
+# Introduction
 
 ## Where we're headed
 
@@ -264,15 +264,16 @@ The `faicons` package provides [fontawesome](https://fontawesome.com/search?) ic
 ## Rows and columns
 
 What if you want to customize your layout more generally?
-- What about?
-    - Different screen sizes?
-    - Mobile browsers? 
-    - Different zoom levels?
-    - Nested UI containers?
-- What we need is a responsive way to specify the size of things
-- Enter `ui.layout_coilumns()`
 
-## `ui.layout_columns()`
+- What about?  
+    - Different screen sizes?  
+    - Mobile browsers?  
+    - Different zoom levels?  
+    - Nested UI containers?  
+- What we need is a responsive way to specify the size of things  
+- Enter `ui.layout_columns()`  
+
+## `ui.layout_columns()` demo
 
 {{< yourview '333-columns' >}}
 
@@ -337,7 +338,7 @@ with ui.nav_panel("A"):
 
 2. Choose a function to provide navigation between panels.
 
-## Nav panels
+## Nav panels demo
 
 {{< yourview '333-columns' >}}
 
@@ -365,7 +366,7 @@ Use `ui.page_opts()` to provide a title for the navbar.
 Call `ui.nav_spacer()` to push the panel labels to the right side of the navbar.
 :::
 
-![Navbars](images/layouts/navbars.png)
+![Navbars](images/layouts/navbars.png){height=400 fig-align="center"}
 
 ::: aside
 <https://shiny.posit.co/py/layouts/navbars/>
