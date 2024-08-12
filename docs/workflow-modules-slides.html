@@ -416,12 +416,6 @@ Conf(2024) – Intro to Shiny Modules</title>
 <li><div class="agenda-inactive agenda-post-active">
 <p>Including reactivity in your module</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Using a shiny module in your app</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Modules: shiny modules and python modules</p>
-</div></li>
 </ul>
 </div>
 </section>
@@ -514,12 +508,6 @@ Conf(2024) – Intro to Shiny Modules</title>
 <li><div class="agenda-active">
 <p>Including reactivity in your module</p>
 </div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Using a shiny module in your app</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Modules: shiny modules and python modules</p>
-</div></li>
 </ul>
 </div>
 </section>
@@ -601,72 +589,16 @@ Conf(2024) – Intro to Shiny Modules</title>
 <img data-src="../images/keep-calm-and-take-your-turn.png">
 </div>
 </div>
-</section></section>
-<section>
-<section class="title-slide slide level1 agenda-slide">
-<h1>Using a shiny module in your app</h1>
-<div class="agenda-heading">
-<p>Agenda</p>
-</div>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Introduction to shiny modules</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Including reactivity in your module</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Using a shiny module in your app</p>
-</div></li>
-<li><div class="agenda-inactive agenda-post-active">
-<p>Modules: shiny modules and python modules</p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="your-turn-insert-the-shiny-module-into-your-weather-1" class="slide level2">
-<h2>Your turn: insert the shiny module into your weather</h2>
-<div class="your-turn-container" style="display:flex;">
-<div class="your-turn-link" style="width:70%;">
-<p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-405-module-app/index.html" target="_blank">express-405-module-app</a></p>
-<p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-405-module-app/index.html', '*')">Open Exercise</button></p>
-</div>
-<div class="your-turn-image" style="width:30%;">
-<img data-src="../images/keep-calm-and-take-your-turn.png">
-</div>
-</div>
-</section></section>
-<section class="title-slide slide level1 agenda-slide">
-<h1>Modules: shiny modules and python modules</h1>
-<div class="agenda-heading">
-<p>Agenda</p>
-</div>
-<div class="agenda">
-<ul>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Introduction to shiny modules</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Including reactivity in your module</p>
-</div></li>
-<li><div class="agenda-inactive agenda-pre-active">
-<p>Using a shiny module in your app</p>
-</div></li>
-<li><div class="agenda-active">
-<p>Modules: shiny modules and python modules</p>
-</div></li>
-</ul>
-</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</section></section>
     </div>
   </div>
 
@@ -968,7 +900,7 @@ Conf(2024) – Intro to Shiny Modules</title>
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

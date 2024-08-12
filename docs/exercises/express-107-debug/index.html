@@ -340,14 +340,6 @@ def table():
     tbl=df[df.account == input.account()]
     return tbl
 
-## file: plots.py
-import plotly.express as px
-from pandas import DataFrame
-
-def plot_var_distribution(df: DataFrame, var="prod_score"):
-    fig = px.histogram(df, x=var, nbins=50, title="Model scores")
-    fig.update_layout(xaxis_title="Score", yaxis_title="Density")
-    return fig
 ## file: data_import.py
 from pathlib import Path
 import pandas as pd
@@ -356,6 +348,14 @@ file_path = Path(__file__).parent / "simulated-data.csv"
 df = pd.read_csv(file_path, dtype={"sub_account": str})
 df["date"] = pd.to_datetime(df["date"], errors="coerce")
 df = df.drop(columns=["text"])
+## file: plots.py
+import plotly.express as px
+from pandas import DataFrame
+
+def plot_var_distribution(df: DataFrame, var="prod_score"):
+    fig = px.histogram(df, x=var, nbins=50, title="Model scores")
+    fig.update_layout(xaxis_title="Score", yaxis_title="Density")
+    return fig
 ## file: requirements.txt
 pandas
 plotly
@@ -1404,14 +1404,6 @@ def table():
     tbl=df[df.account == input.account()]
     return tbl
 
-## file: plots.py
-import plotly.express as px
-from pandas import DataFrame
-
-def plot_var_distribution(df: DataFrame, var="prod_score"):
-    fig = px.histogram(df, x=var, nbins=50, title="Model scores")
-    fig.update_layout(xaxis_title="Score", yaxis_title="Density")
-    return fig
 ## file: data_import.py
 from pathlib import Path
 import pandas as pd
@@ -1420,6 +1412,14 @@ file_path = Path(__file__).parent / "simulated-data.csv"
 df = pd.read_csv(file_path, dtype={"sub_account": str})
 df["date"] = pd.to_datetime(df["date"], errors="coerce")
 df = df.drop(columns=["text"])
+## file: plots.py
+import plotly.express as px
+from pandas import DataFrame
+
+def plot_var_distribution(df: DataFrame, var="prod_score"):
+    fig = px.histogram(df, x=var, nbins=50, title="Model scores")
+    fig.update_layout(xaxis_title="Score", yaxis_title="Density")
+    return fig
 ## file: requirements.txt
 pandas
 plotly
@@ -2471,14 +2471,6 @@ def table():
     tbl=df[df.account == input.account()]
     return tbl
 
-## file: plots.py
-import plotly.express as px
-from pandas import DataFrame
-
-def plot_var_distribution(df: DataFrame, var="prod_score"):
-    fig = px.histogram(df, x=var, nbins=50, title="Model scores")
-    fig.update_layout(xaxis_title="Score", yaxis_title="Density")
-    return fig
 ## file: data_import.py
 from pathlib import Path
 import pandas as pd
@@ -2487,6 +2479,14 @@ file_path = Path(__file__).parent / "simulated-data.csv"
 df = pd.read_csv(file_path, dtype={"sub_account": str})
 df["date"] = pd.to_datetime(df["date"], errors="coerce")
 df = df.drop(columns=["text"])
+## file: plots.py
+import plotly.express as px
+from pandas import DataFrame
+
+def plot_var_distribution(df: DataFrame, var="prod_score"):
+    fig = px.histogram(df, x=var, nbins=50, title="Model scores")
+    fig.update_layout(xaxis_title="Score", yaxis_title="Density")
+    return fig
 ## file: requirements.txt
 pandas
 plotly
@@ -3597,7 +3597,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -323,6 +323,16 @@ def plot():
     filtered_df = df[df['city'] == input.city()]
     return plot_weather_scatterplot(filtered_df, input.trendline())
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -345,16 +355,6 @@ def plot_weather_scatterplot(df: DataFrame, trendline: bool):
         fig = px.scatter(df, x='observed_temp', y='forecast_temp')
     
     return fig
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -2290,6 +2290,16 @@ statsmodels</code></pre>
 #| viewerHeight: 800
 # One way to get a complete list of city values is
 # df['city'].unique().tolist()
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -2312,16 +2322,6 @@ def plot_weather_scatterplot(df: DataFrame, trendline: bool):
         fig = px.scatter(df, x='observed_temp', y='forecast_temp')
     
     return fig
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -4276,6 +4276,16 @@ def plot():
     filtered_df = df[df['city'] == input.city()]
     return plot_weather_scatterplot(filtered_df, input.trendline())
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -4298,16 +4308,6 @@ def plot_weather_scatterplot(df: DataFrame, trendline: bool):
         fig = px.scatter(df, x='observed_temp', y='forecast_temp')
     
     return fig
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -6338,7 +6338,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

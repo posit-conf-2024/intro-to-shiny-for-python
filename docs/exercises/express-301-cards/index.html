@@ -390,6 +390,16 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -426,16 +436,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -2408,6 +2408,16 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -2444,16 +2454,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -4430,6 +4430,16 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -4466,16 +4476,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -6508,7 +6508,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
