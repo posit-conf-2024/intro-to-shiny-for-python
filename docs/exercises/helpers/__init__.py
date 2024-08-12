@@ -146,6 +146,7 @@ def problem_app_express(folder_name) -> None:
 def problem_tabs_express(
         folder_name:str, 
         app:bool = False,
+        viewer_height:str="800",
         app_exclusions:list = [],
         sol_exclusions:list = [],
     ) -> None:
@@ -180,6 +181,7 @@ def problem_tabs_express(
                 "app-solution.py",
                 exclusions=["app.py", "README"],
                 components="viewer",
+                viewer_height=viewer_height
             )
         )
         block.append("## Problem")
@@ -187,8 +189,8 @@ def problem_tabs_express(
             _include_shiny_folder(
                 path, 
                 "app.py", 
-                exclusions=app_exclusions
-                # exclusions=["app-solution.py", "README"]
+                exclusions=app_exclusions,
+                viewer_height=viewer_height
             )
         )
     else:
@@ -198,7 +200,9 @@ def problem_tabs_express(
                 path, 
                 "app.py", 
                 exclusions=["app-solution.py", "README"],
-                components="viewer"
+                components="viewer",
+                viewer_height=viewer_height
+
             )
         )
     if not app:
@@ -207,7 +211,8 @@ def problem_tabs_express(
             _include_shiny_folder(
                 path, 
                 "app-solution.py", 
-                exclusions=sol_exclusions
+                exclusions=sol_exclusions,
+                viewer_height=viewer_height
             )
         )
     else:
@@ -216,7 +221,8 @@ def problem_tabs_express(
             _include_shiny_folder(
                 path, 
                 "app.py", 
-                exclusions=["app.py", "README"]
+                exclusions=["app.py", "README"],
+                viewer_height=viewer_height
             )
         )
 
