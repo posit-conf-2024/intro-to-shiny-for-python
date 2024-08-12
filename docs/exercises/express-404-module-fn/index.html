@@ -271,7 +271,7 @@ Instructions
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| components: [viewer]
 #| layout: horizontal
-#| viewerHeight: 800
+#| viewerHeight: 1500
 from shiny.express import ui, input, render, module
 from shiny import reactive
 
@@ -293,7 +293,7 @@ card_mod("card1")</code></pre>
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| components: [editor, viewer]
 #| layout: horizontal
-#| viewerHeight: 800
+#| viewerHeight: 1500
 from shiny.express import ui, input, render, module
 from shiny import reactive
 
@@ -314,7 +314,7 @@ card_mod("card1")</code></pre>
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| components: [editor, viewer]
 #| layout: horizontal
-#| viewerHeight: 800
+#| viewerHeight: 1500
 from shiny.express import ui, input, render, module
 from shiny import reactive
 
@@ -434,7 +434,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -276,7 +276,7 @@ Instructions
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| components: [viewer]
 #| layout: horizontal
-#| viewerHeight: 800
+#| viewerHeight: 1500
 from shiny.express import ui, render, input
 from shiny import reactive
 import pandas as pd
@@ -334,17 +334,6 @@ with ui.layout_sidebar():
     
 
 
-## file: solution.py
-import pandas as pd
-
-# This is the non-reactive function:
-def filter_weather(data, cities, dates):
-    df = data.copy()
-    df = df[df["city"].isin(cities)]
-    df["date"] = pd.to_datetime(df["date"])
-    dates = pd.to_datetime(dates)
-    df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
-    return df
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -380,8 +369,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
         + theme(axis_text_x=element_text(rotation=45, hjust=1))
     )
     return out
-
-## file: filter.py
 
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
@@ -2305,13 +2292,26 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
-</code></pre>
+
+## file: filter.py
+
+## file: solution.py
+import pandas as pd
+
+# This is the non-reactive function:
+def filter_weather(data, cities, dates):
+    df = data.copy()
+    df = df[df["city"].isin(cities)]
+    df["date"] = pd.to_datetime(df["date"])
+    dates = pd.to_datetime(dates)
+    df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
+    return df</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| components: [editor, viewer]
 #| layout: horizontal
-#| viewerHeight: 800
+#| viewerHeight: 1500
 
 from shiny.express import ui, render, input
 from shiny import reactive
@@ -2412,8 +2412,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: filter.py
-
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -4336,13 +4334,15 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
+
+## file: filter.py
 </code></pre>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| components: [editor, viewer]
 #| layout: horizontal
-#| viewerHeight: 800
+#| viewerHeight: 1500
 from shiny.express import ui, render, input
 from shiny import reactive
 import pandas as pd
@@ -4400,17 +4400,6 @@ with ui.layout_sidebar():
     
 
 
-## file: solution.py
-import pandas as pd
-
-# This is the non-reactive function:
-def filter_weather(data, cities, dates):
-    df = data.copy()
-    df = df[df["city"].isin(cities)]
-    df["date"] = pd.to_datetime(df["date"])
-    dates = pd.to_datetime(dates)
-    df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
-    return df
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -6369,7 +6358,18 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
-</code></pre>
+
+## file: solution.py
+import pandas as pd
+
+# This is the non-reactive function:
+def filter_weather(data, cities, dates):
+    df = data.copy()
+    df = df[df["city"].isin(cities)]
+    df["date"] = pd.to_datetime(df["date"])
+    dates = pd.to_datetime(dates)
+    df = df[(df["date"] &gt; dates[0]) &amp; (df["date"] &lt;= dates[1])]
+    return df</code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-402-python-module/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-402-python-module/problem</a>.</p>
@@ -6473,7 +6473,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
