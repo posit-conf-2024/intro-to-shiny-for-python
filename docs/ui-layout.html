@@ -182,12 +182,15 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">docs/exercises/express-302-sidebars/index.qmdi</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../docs/exercises/express-302-sidebars/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">302 Sidebars</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/exercises/express-303-value-boxes/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">303 Taerget App</span></a>
+ <span class="menu-text">303 Value Boxes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -250,14 +253,41 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">docs/apps/301-cards/index.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/330-target-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">330 Target App</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">docs/apps/302-dynamic-ui/index.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/331-starting-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">331 Starting App</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">docs/apps/303-conditional-panel/index.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/332-value-boxes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">332 Value Boxes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/333-columns/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">333 Columns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/334-target-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">334 Target App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/apps/335-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">335 CSS</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -394,7 +424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

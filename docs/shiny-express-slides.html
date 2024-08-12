@@ -475,7 +475,7 @@ Director of Learning, Posit
 -->
 </section>
 <section class="slide level2">
-<h2>Goals</h2>
+<h2>Goals for this section</h2>
 <ol type="1">
 <li><p>Understand the “whole game”/ big picture</p></li>
 <li><p>Identify the resources that will support you</p></li>
@@ -655,18 +655,39 @@ Director of Learning, Posit
 </ul>
 <p>And, these apps can scale from prototype to production-ready.</p>
 </section>
-<section id="quiz" class="slide level2" data-background-color="whitesmoke">
-<h2>Quiz</h2>
+<section id="quiz---where-are-the-inputs-the-outputs" class="slide level2" data-background-color="whitesmoke">
+<h2>Quiz - Where are the inputs? The Outputs?</h2>
 
 <img data-src="../images/app-components.004.png" class="r-stretch"></section>
-<section id="quiz-1" class="slide level2" data-background-color="whitesmoke">
-<h2>Quiz</h2>
+<section id="quiz---where-are-the-inputs-the-outputs-1" class="slide level2" data-background-color="whitesmoke">
+<h2>Quiz - Where are the inputs? The Outputs?</h2>
 
 <img data-src="../images/app-components.005.png" class="r-stretch"></section>
-<section id="quiz-2" class="slide level2" data-background-color="whitesmoke">
-<h2>Quiz</h2>
+<section id="quiz---where-are-the-inputs-the-outputs-2" class="slide level2" data-background-color="whitesmoke">
+<h2>Quiz - Where are the inputs? The Outputs?</h2>
 
-<img data-src="../images/app-components.006.png" class="r-stretch"></section></section>
+<img data-src="../images/app-components.006.png" class="r-stretch"></section>
+<section id="tell-me-about-shiny-express" class="slide level2">
+<h2>Tell me about Shiny Express</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Shiny for Python has two <em>syntaxes</em> for writing the same apps:</p>
+<ol type="1">
+<li>Shiny Express - lightweight syntax informed by notebooks</li>
+<li>Shiny Core - more verbose syntax similar to Shiny for R</li>
+</ol>
+</div>
+</div>
+</div>
+<p>Today, we will learn Shiny Express.</p>
+</section></section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
 <h1>Your first App</h1>
@@ -751,7 +772,7 @@ Director of Learning, Posit
 <p><br>
 </p>
 <div class="smaller">
-<div id="cceb81d1" class="cell" data-class-output="striped" data-execution_count="2">
+<div id="51aa0953" class="cell" data-class-output="striped" data-execution_count="2">
 <table class="caption-top">
 <colgroup>
 <col style="width: 16%">
@@ -817,7 +838,7 @@ Director of Learning, Posit
 </div>
 </div>
 </section>
-<section id="quiz-3" class="slide level2" data-background-color="whitesmoke">
+<section id="quiz" class="slide level2" data-background-color="whitesmoke">
 <h2>Quiz</h2>
 <p>Let’s build an app.</p>
 <p>Who remembers the three components of an app?</p>
@@ -904,11 +925,8 @@ Director of Learning, Posit
 <aside><div>
 <p><a href="https://shiny.posit.co/py/components/" class="uri">https://shiny.posit.co/py/components/</a></p>
 </div></aside></section>
-<section id="demo" class="slide level2">
-<h2>Demo</h2>
-</section>
-<section id="syntax" class="slide level2">
-<h2>Syntax</h2>
+<section id="syntax-demo" class="slide level2">
+<h2>Syntax Demo</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>View the app on this page:</p>
@@ -936,12 +954,12 @@ Director of Learning, Posit
 </ol></li>
 </ul>
 </section>
-<section id="the-shiny-function-reference" class="slide level2">
-<h2>The Shiny function reference</h2>
-<p>How can you learn about input specific options?</p>
+<section id="how-can-you-learn-about-input-specific-options" class="slide level2">
+<h2>How can you learn about input specific options?</h2>
+<p>The Shiny function reference</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../images/shiny-function-reference.png" class="quarto-figure quarto-figure-center" height="700"></p>
+<p><img data-src="../images/shiny-function-reference.png" class="quarto-figure quarto-figure-center" height="650"></p>
 </figure>
 </div>
 
@@ -962,7 +980,7 @@ Director of Learning, Posit
 </div>
 </div>
 </section>
-<section id="quiz-4" class="slide level2" data-background-color="whitesmoke">
+<section id="quiz-1" class="slide level2" data-background-color="whitesmoke">
 <h2>Quiz</h2>
 <p>What is the second thing a Shiny app needs?</p>
 </section></section>
@@ -1009,8 +1027,8 @@ Director of Learning, Posit
 <aside><div>
 <p><a href="https://shiny.posit.co/py/components/" class="uri">https://shiny.posit.co/py/components/</a></p>
 </div></aside></section>
-<section id="syntax-1" class="slide level2">
-<h2>Syntax</h2>
+<section id="syntax-demo-1" class="slide level2">
+<h2>Syntax Demo</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>View the app on this page:</p>
@@ -1060,20 +1078,6 @@ Director of Learning, Posit
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="at">@decorator</span>(args)</span>
 <span id="cb3-2"><a></a>function</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="syntax-2" class="slide level2">
-<h2>Syntax</h2>
-<div class="your-turn-container" style="display:flex;">
-<div class="your-turn-link" style="width:70%;">
-<p>View the app on this page:</p>
-<p><a href="apps/103-table/index.html" target="_blank">103-table</a></p>
-<p>...</p>
-<p><button style="background-color: #4A6B79; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('apps/103-table/index.html', '*')">View the App</button></p>
-</div>
-<div class="your-turn-image" style="width:30%;">
-<img data-src="../images/keep-calm-and-view-the-app.png">
-</div>
-</div>
-</section>
 <section id="your-turn-3" class="slide level2">
 <h2>Your turn</h2>
 <div class="your-turn-container" style="display:flex;">
@@ -1088,7 +1092,7 @@ Director of Learning, Posit
 </div>
 </div>
 </section>
-<section id="quiz-5" class="slide level2" data-background-color="whitesmoke">
+<section id="quiz-2" class="slide level2" data-background-color="whitesmoke">
 <h2>Quiz</h2>
 <p>Where are the instructions on how to build the outputs in this app?</p>
 </section></section>
@@ -1128,6 +1132,10 @@ Director of Learning, Posit
 <h2>To make an app reactive…</h2>
 </section>
 <section id="to-make-an-app-reactive-1" class="slide level2">
+<h2>To make an app reactive…</h2>
+<p>Use an input value to build an output.</p>
+</section>
+<section id="to-make-an-app-reactive-2" class="slide level2">
 <h2>To make an app reactive…</h2>
 <p>Use an input value to build an output.</p>
 <p><br>
@@ -1328,15 +1336,15 @@ Value:</p>
 <h2>Summary</h2>
 <p>Most Shiny app development consists of variations of these three things:</p>
 <ol type="1">
-<li>Add Inputs and other UI elements</li>
-<li>Define outputs with render functions</li>
-<li>Tell Shiny how to use inputs to build outputs</li>
+<li>Add <strong>Inputs</strong> and other UI elements</li>
+<li>Define <strong>outputs</strong> with render functions</li>
+<li>Give Shiny <strong>instructions</strong> on how to use inputs to build outputs</li>
 </ol>
 </section>
 <section id="weather-data" class="slide level2">
 <h2>Weather data</h2>
 <p>How accurate are forecasts?</p>
-<div id="2cd5d01d" class="cell" data-class-output="striped" data-execution_count="3">
+<div id="d3f4f612" class="cell" data-class-output="striped" data-execution_count="3">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -1711,7 +1719,7 @@ Value:</p>
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

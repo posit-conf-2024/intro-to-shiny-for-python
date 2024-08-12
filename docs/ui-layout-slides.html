@@ -405,6 +405,36 @@ Conf(2024) – UI Layout</title>
 </div>
 
 </section>
+<section class="slide level2">
+<h2>Goals</h2>
+<p>You can fill your app with content, but can you organize it?</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>This section is a bit of a survey. Just know:</p>
+<ul>
+<li>That these exist</li>
+<li>What it feels like to use them</li>
+<li>And where to rediscover them when you need them</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why care about UI design?</h2>
+<ul>
+<li>It’s what your stakeholders care about!</li>
+<li>Good UI design simplifies your application code</li>
+<li>Intuitive UIs mean fewer questions</li>
+</ul>
+</section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
 <h1>Introduction</h1>
@@ -442,36 +472,6 @@ Conf(2024) – UI Layout</title>
 </div></li>
 </ul>
 </div>
-</section>
-<section id="goals" class="slide level2">
-<h2>Goals</h2>
-<p>You can fill your app with content, but can you organize it?</p>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p>This section is a bit of a survey. Just know:</p>
-<ul>
-<li>That these exist</li>
-<li>What it feels like to use them</li>
-<li>And where to rediscover them when you need them</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="why-care-about-ui-design" class="slide level2">
-<h2>Why care about UI design?</h2>
-<ul>
-<li>It’s what your stakeholders care about!</li>
-<li>Good UI design simplifies your application code</li>
-<li>Intuitive UIs mean fewer questions</li>
-</ul>
 </section>
 <section id="where-were-headed" class="slide level2">
 <h2>Where we’re headed</h2>
@@ -523,7 +523,7 @@ Conf(2024) – UI Layout</title>
 <div class="callout-content">
 <p><br>
 </p>
-<div id="363ca813" class="cell" data-execution_count="3">
+<div id="a205d66a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>ui.HTML(<span class="st">'&lt;a href="https://posit.co"&gt;Visit posit.co&lt;/a&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <a href="https://posit.co">Visit posit.co</a>
@@ -531,7 +531,7 @@ Conf(2024) – UI Layout</title>
 </div>
 <p><br>
 </p>
-<div id="fcdec590" class="cell" data-execution_count="4">
+<div id="06ad8800" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>ui.tags.a(<span class="st">"Visit posit.co"</span>, href<span class="op">=</span><span class="st">"https://posit.co"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <a href="https://posit.co">Visit posit.co</a>
@@ -899,10 +899,26 @@ Conf(2024) – UI Layout</title>
 </section>
 <section id="rows-and-columns-1" class="slide level2">
 <h2>Rows and columns</h2>
-<p>What if you want to customize your layout more generally? - What about? - Different screen sizes? - Mobile browsers? - Different zoom levels? - Nested UI containers? - What we need is a responsive way to specify the size of things - Enter <code>ui.layout_coilumns()</code></p>
+<p>What if you want to customize your layout more generally?</p>
+<ul>
+<li>What about?
+<ul>
+<li>Different screen sizes?<br>
+</li>
+<li>Mobile browsers?<br>
+</li>
+<li>Different zoom levels?<br>
+</li>
+<li>Nested UI containers?<br>
+</li>
+</ul></li>
+<li>What we need is a responsive way to specify the size of things<br>
+</li>
+<li>Enter <code>ui.layout_columns()</code></li>
+</ul>
 </section>
-<section id="ui.layout_columns" class="slide level2">
-<h2><code>ui.layout_columns()</code></h2>
+<section id="ui.layout_columns-demo" class="slide level2">
+<h2><code>ui.layout_columns()</code> demo</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>View the app on this page:</p>
@@ -1030,8 +1046,8 @@ Conf(2024) – UI Layout</title>
 <li>Choose a function to provide navigation between panels.</li>
 </ol>
 </section>
-<section id="nav-panels" class="slide level2">
-<h2>Nav panels</h2>
+<section id="nav-panels-demo" class="slide level2">
+<h2>Nav panels demo</h2>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>View the app on this page:</p>
@@ -1114,7 +1130,7 @@ Call <code>ui.nav_spacer()</code> to push the panel labels to the right side of 
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/layouts/navbars.png"></p>
+<p><img data-src="images/layouts/navbars.png" height="400"></p>
 <figcaption>Navbars</figcaption>
 </figure>
 </div>
@@ -1571,7 +1587,7 @@ with ui.navset_tab():
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
