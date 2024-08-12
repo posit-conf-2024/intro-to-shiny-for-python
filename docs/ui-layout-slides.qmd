@@ -338,7 +338,7 @@ with ui.nav_panel("A"):
 
 2. Choose a function to provide navigation between panels.
 
-## Nav panels
+## Nav panels demo
 
 {{< yourview '333-columns' >}}
 
