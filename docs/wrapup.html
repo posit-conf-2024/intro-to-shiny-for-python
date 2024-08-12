@@ -186,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This will help us to improve our materials and this course.</p>
 <div id="qrcode" class="qrcode"></div>
 <script type="text/javascript">
-var qrcode = new QRCode("qrcode", {"width":"200","colorDark":"#000000","text":"https://forms.gle/NFEPJMH6j8czsi63A","height":"200","colorLight":"#ffffff"});
+var qrcode = new QRCode("qrcode", {"height":"200","colorDark":"#000000","width":"200","text":"https://forms.gle/NFEPJMH6j8czsi63A","colorLight":"#ffffff"});
 </script>
     
 
@@ -287,7 +287,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

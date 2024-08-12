@@ -384,6 +384,16 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -420,16 +430,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -2430,6 +2430,16 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -2466,16 +2476,6 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -4399,6 +4399,12 @@ date,city,state,observed_temp,forecast_temp
 2022-01-31,FLINT,MI,20,19
 2022-01-31,FLINT,MI,20,20
 
+## file: requirements.txt
+pandas
+plotly
+numpy
+pathlib
+faicons
 ## file: app-solution.py
 from shiny.express import ui, render, input
 from shiny import reactive
@@ -4477,13 +4483,7 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
-
-## file: requirements.txt
-pandas
-plotly
-numpy
-pathlib
-faicons</code></pre>
+</code></pre>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-304-columns/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-304-columns/problem</a>.</p>
@@ -4587,7 +4587,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
