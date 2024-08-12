@@ -366,7 +366,7 @@ Use `ui.page_opts()` to provide a title for the navbar.
 Call `ui.nav_spacer()` to push the panel labels to the right side of the navbar.
 :::
 
-![Navbars](images/layouts/navbars.png)
+![Navbars](images/layouts/navbars.png){height=400 fig-align="center"}
 
 ::: aside
 <https://shiny.posit.co/py/layouts/navbars/>
