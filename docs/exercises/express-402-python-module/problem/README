@@ -1,0 +1,7 @@
+Move the non-reactive function into python module (`filter.py`).
+Then import the module and use the function in `app.py`.
+
+Hint:
+
+- You may have to modify your function to accept a data frame as an argument.
+- You may have to import the `pandas` module in your new python module.

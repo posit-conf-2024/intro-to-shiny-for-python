@@ -1,5 +1,5 @@
 ---
-title: "401 Extract function"
+title: "402 Python module"
 ---
 
 {{< yourturnChild >}}
@@ -13,5 +13,7 @@ if helpers_path not in sys.path:
     sys.path.append(helpers_path)
 from helpers import problem_tabs_express, getcwd
 
-problem_tabs_express(getcwd(), viewer_height="1500")
+problem_tabs_express(getcwd(), app_exclusions = ["solution.py"],
+sol_exclusions = ["filter.py"], viewer_height="1500"
+)
 ```

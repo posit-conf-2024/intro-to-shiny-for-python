@@ -1,0 +1,2 @@
+Create a simple shiny module to insert `ui.card()` with a title and body.
+Follow the four-part instructions in `app.py` to get the module working.

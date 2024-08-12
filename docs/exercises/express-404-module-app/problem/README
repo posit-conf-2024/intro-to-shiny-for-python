@@ -1,1 +1,0 @@
-We have some repetitive code that creates a column with a single card in it. Create a function `card_col` that takes the card title and the UI elements that go in the card.

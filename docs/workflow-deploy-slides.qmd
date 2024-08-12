@@ -22,16 +22,112 @@ format:
     auto-agenda:
       heading: Agenda
 ---
-```{python}
-# | echo: false
-import os
-import sys
-exercises_path = "./exercises"
-if exercises_path not in sys.path:
-    sys.path.append(exercises_path)
-from helpers import include_shiny_folder
-```
 
 # Introduction
 
-to be completed
+## Deployment options
+
+- Posit Connect Cloud
+
+  - Currently in public beta
+
+  - Free for personal use
+
+
+- Posit Connect (self-hosted commercial solution)
+
+- Host your own solution
+
+## Posit Connect Cloud
+
+Three simple steps
+
+1. Create an account
+
+2. Authenticated with github
+
+3. Select a repo to deploy  
+
+
+# Log in or create an account
+
+
+## Go to Connect Cloud
+
+Go to <https://connect.posit.cloud/>
+
+  ![](images/deploy-1-connect-cloud.png)
+
+
+## Sign up or log in
+
+Click on "Sign up for free"
+
+  - Or log in
+
+  ![](images/deploy-2-sign-up.png)
+
+Click on "Sign up with github"
+
+## Fill out the form
+
+Fill out the form
+
+  ![](images/deploy-3-fill-form.png)
+
+
+Click "Get started"
+
+## Authenticate with github
+
+
+If you are a member of a GitHub organization, you will also be asked if you want to authorize specific organization accounts.
+
+This is optional.
+
+Authorizing organizations will enable auto-completion for repository, branch, and primary file for public repositories in these accounts.
+
+# Publish an app
+
+## Ensure you have a  github repo with your shiny app
+
+Clone a repo
+
+Or create your own repo
+
+## Publish
+
+The only supported publishing path at this time is pulling code from an existing public GitHub repository.
+
+## Publish
+
+
+1. Log In to Connect Cloud. This redirects you to your Content page.
+1. Click the Publish button in the upper right of the screen.
+1. Select the content type you want to deploy.
+1. Select your Repository: Use the autocomplete functionality to choose which of your public GitHub repositories you want to publish content from. You can also enter a link to any public GitHub repository.
+1. Confirm the Branch.
+1. Select your Primary File: The main file for your application (e.g., app.py) or document (e.g., index.qmd).
+
+## Publish
+
+1. Click Next.
+1. Select a Python Version, if needed: Python version that you want to deploy with.
+1. Set Advanced settings, if applicable
+1. Click Publish.
+
+::: aside
+(From <https://docs.posit.co/connect-cloud/user/publish/01-new.html>)
+:::
+
+## Note
+
+Python deployments require a `requirements.txt` dependency file to be included in the repository.
+
+R deployments require a `manifest.json` dependency file.
+
+See Supported Content Types for more information.
+
+A successful publish results in a URL for your application or document that is accessible by anyone on the web.
+
+## Your turn
