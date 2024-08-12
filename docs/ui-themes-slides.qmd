@@ -194,7 +194,7 @@ Assign styles to:
 
 ## Adding CSS to a Shiny app
 
-{{< yourview '315-css' >}}
+{{< yourview '335-css' >}}
 
 ## To link an external style sheet
 
@@ -229,7 +229,7 @@ ui.card_header(
 )
 ```
 
-# Bootstrap classes
+## Bootstrap classes
 
 ::: {.callout-tip}
 Bootstrap provides many predefined CSS classes. These are collections or coordinated style rules, ready to use pass to an element's `class_` parameter.
