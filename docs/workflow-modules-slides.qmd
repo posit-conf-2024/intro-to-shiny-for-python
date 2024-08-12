@@ -164,11 +164,4 @@ card_module(
 
 {{< yourturn 'express-405-module-lambda' >}}
 
-# Using a shiny module in your app
-
-## Your turn: insert the shiny module into your weather
-
-{{< yourturn 'express-405-module-app' >}}
-
-# Modules: shiny modules and python modules
 
