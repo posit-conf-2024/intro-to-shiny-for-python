@@ -23,22 +23,13 @@ format:
     mermaid-format: svg
 ---
 
-```{python}
-# | echo: false
-import os
-import sys
-exercises_path = "./exercises"
-if exercises_path not in sys.path:
-    sys.path.append(exercises_path)
-from helpers import include_shiny_folder, multiple_choice_app, Quiz
-```
 
 # Reactivity overview
 
 
 ## How did Shiny do that?
 
-{{< yourview '000-penguins' >}}
+{{< yourview '105-reactivity' >}}
 
 
 ## How did Shiny do that?
@@ -115,10 +106,12 @@ Source: <https://jcheng.shinyapps.io/reactivity-dsc2014>
 
 ## Is there a better way?
 
-::: {.v-center-container}
+::: {.callout-note}
 - Infer the relationships between components 
 - Build a computation graph
 :::
+
+
 
 ## The better way: reactivity
 
