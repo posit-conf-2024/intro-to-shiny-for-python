@@ -238,6 +238,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">102 Output</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/105-reactivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">105 Connect inputs to outputs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -338,14 +344,6 @@ def table():
     tbl=df[df.account == input.account()]
     return tbl
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-
-file_path = Path(__file__).parent / "simulated-data.csv"
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df = df.drop(columns=["text"])
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -354,6 +352,14 @@ def plot_var_distribution(df: DataFrame, var="prod_score"):
     fig = px.histogram(df, x=var, nbins=50, title="Model scores")
     fig.update_layout(xaxis_title="Score", yaxis_title="Density")
     return fig
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+file_path = Path(__file__).parent / "simulated-data.csv"
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df = df.drop(columns=["text"])
 ## file: requirements.txt
 pandas
 plotly
@@ -1405,14 +1411,6 @@ def table():
     return tbl
 
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-
-file_path = Path(__file__).parent / "simulated-data.csv"
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df = df.drop(columns=["text"])
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -1421,6 +1419,14 @@ def plot_var_distribution(df: DataFrame, var="prod_score"):
     fig = px.histogram(df, x=var, nbins=50, title="Model scores")
     fig.update_layout(xaxis_title="Score", yaxis_title="Density")
     return fig
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+file_path = Path(__file__).parent / "simulated-data.csv"
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df = df.drop(columns=["text"])
 ## file: requirements.txt
 pandas
 plotly
@@ -2471,14 +2477,6 @@ def table():
     tbl=df[df.account == input.account()]
     return tbl
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-
-file_path = Path(__file__).parent / "simulated-data.csv"
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df = df.drop(columns=["text"])
 ## file: plots.py
 import plotly.express as px
 from pandas import DataFrame
@@ -2487,6 +2485,14 @@ def plot_var_distribution(df: DataFrame, var="prod_score"):
     fig = px.histogram(df, x=var, nbins=50, title="Model scores")
     fig.update_layout(xaxis_title="Score", yaxis_title="Density")
     return fig
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+file_path = Path(__file__).parent / "simulated-data.csv"
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df = df.drop(columns=["text"])
 ## file: requirements.txt
 pandas
 plotly
@@ -3496,7 +3502,7 @@ id,account,text,date,is_electronics,training_score,prod_score,sub_account
 </code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-105-reactivity/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-105-reactivity/problem</a>.</p>
+<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-105-reactivity" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-105-reactivity</a>.</p>
 </div>
 </div>
 </div>
@@ -3597,7 +3603,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

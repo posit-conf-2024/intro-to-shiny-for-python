@@ -8,11 +8,6 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<meta name="shinylive:serviceworker_dir" content="..">
-<script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
-<link href="../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/shinylive.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script src="../site_libs/quarto-contrib/posit_slides/posit-slides.js"></script>
 <link href="../site_libs/quarto-contrib/reveal-auto-agenda-0.0.3/reveal-auto-agenda.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.55">
@@ -1618,77 +1613,6 @@
 </section>
 <section id="whats-a-side-effect" class="slide level2">
 <h2>What’s a side effect?</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Test your understanding</strong></p>
-</div>
-<div class="callout-content">
-<div class="sourceCode" id="cb5" data-engine="python"><pre class="sourceCode numberSource shinylive-python number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a>#| standalone: true</span>
-<span id="cb5-2"><a></a>#| components: [viewer]</span>
-<span id="cb5-3"><a></a>#| layout: horizontal</span>
-<span id="cb5-4"><a></a>#| viewerHeight: 250</span>
-<span id="cb5-5"><a></a>from shiny import App, render, ui, reactive, req</span>
-<span id="cb5-6"><a></a>import json</span>
-<span id="cb5-7"><a></a>from pathlib import Path</span>
-<span id="cb5-8"><a></a></span>
-<span id="cb5-9"><a></a>with open(Path(__file__).parent / "questions.json", "r") as file:</span>
-<span id="cb5-10"><a></a>    questions = json.load(file)</span>
-<span id="cb5-11"><a></a></span>
-<span id="cb5-12"><a></a>app_ui = ui.page_fluid(ui.output_ui("question"), ui.output_ui("validation"))</span>
-<span id="cb5-13"><a></a></span>
-<span id="cb5-14"><a></a></span>
-<span id="cb5-15"><a></a>def server(input, output, session):</span>
-<span id="cb5-16"><a></a>    q_num = reactive.Value(0)</span>
-<span id="cb5-17"><a></a></span>
-<span id="cb5-18"><a></a>    question_keys = list(questions.keys())</span>
-<span id="cb5-19"><a></a></span>
-<span id="cb5-20"><a></a>    @reactive.Calc</span>
-<span id="cb5-21"><a></a>    def current_q():</span>
-<span id="cb5-22"><a></a>        return questions[question_keys[q_num()]]</span>
-<span id="cb5-23"><a></a></span>
-<span id="cb5-24"><a></a>    @output</span>
-<span id="cb5-25"><a></a>    @render.ui</span>
-<span id="cb5-26"><a></a>    def question():</span>
-<span id="cb5-27"><a></a>        return ui.div(</span>
-<span id="cb5-28"><a></a>            ui.h5(question_keys[q_num()], style="margin-bottom: 20px"),</span>
-<span id="cb5-29"><a></a>            ui.input_radio_buttons(</span>
-<span id="cb5-30"><a></a>                "question",</span>
-<span id="cb5-31"><a></a>                "",</span>
-<span id="cb5-32"><a></a>                choices=current_q()["choices"],</span>
-<span id="cb5-33"><a></a>                selected="",</span>
-<span id="cb5-34"><a></a>            ),</span>
-<span id="cb5-35"><a></a>        )</span>
-<span id="cb5-36"><a></a></span>
-<span id="cb5-37"><a></a>    @output</span>
-<span id="cb5-38"><a></a>    @render.ui</span>
-<span id="cb5-39"><a></a>    def validation():</span>
-<span id="cb5-40"><a></a>        req(input.question())</span>
-<span id="cb5-41"><a></a>        if input.question() == current_q()["answer"]:</span>
-<span id="cb5-42"><a></a>            if q_num() == len(question_keys) - 1:</span>
-<span id="cb5-43"><a></a>                return ui.p("Correct! Quiz complete.")</span>
-<span id="cb5-44"><a></a>            else:</span>
-<span id="cb5-45"><a></a>                return ui.div(</span>
-<span id="cb5-46"><a></a>                    ui.p("Correct!"), ui.input_action_button("next", "Next Question")</span>
-<span id="cb5-47"><a></a>                )</span>
-<span id="cb5-48"><a></a>        return ui.p("Not quite right, try again")</span>
-<span id="cb5-49"><a></a></span>
-<span id="cb5-50"><a></a>    @reactive.Effect</span>
-<span id="cb5-51"><a></a>    @reactive.event(input.next)</span>
-<span id="cb5-52"><a></a>    def next_question():</span>
-<span id="cb5-53"><a></a>        q_num.set(q_num.get() + 1)</span>
-<span id="cb5-54"><a></a></span>
-<span id="cb5-55"><a></a></span>
-<span id="cb5-56"><a></a>app = App(app_ui, server)</span>
-<span id="cb5-57"><a></a></span>
-<span id="cb5-58"><a></a>## file: questions.json</span>
-<span id="cb5-59"><a></a>{"Writing a CSV": {"choices": ["value", "side effect"], "answer": "side effect"}, "Querying a database": {"choices": ["value", "side effect"], "answer": "value"}, "Adding two numbers": {"choices": ["value", "side effect"], "answer": "value"}, "A function which prints to the console": {"choices": ["value", "side effect"], "answer": "side effect"}, "Fetching the current temperature from an API": {"choices": ["value", "side effect"], "answer": "value"}, "A function which sorts a list in place": {"choices": ["value", "side effect"], "answer": "side effect"}, "Getting a model score for a set of inputs": {"choices": ["value", "side effect"], "answer": "value"}, "Deploying a model to a hosting service": {"choices": ["value", "side effect"], "answer": "side effect"}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="whats-a-side-effect-1" class="slide level2">
 <h2>What’s a side effect?</h2>
@@ -2022,7 +1946,7 @@
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

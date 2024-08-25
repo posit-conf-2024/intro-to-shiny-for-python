@@ -427,16 +427,6 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -473,6 +463,16 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -2491,16 +2491,6 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -2537,6 +2527,16 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -4556,16 +4556,6 @@ def filtered_data() -&gt; pd.DataFrame:
 
 
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-import numpy as np
-
-file_path = Path(__file__).parent / "weather.csv"
-
-df = pd.read_csv(file_path, dtype={"sub_account": str})
-df["date"] = pd.to_datetime(df["date"], errors="coerce")
-df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: plots.py
 import pandas as pd
 from plotnine import (
@@ -4602,6 +4592,16 @@ def daily_error(plot_df: pd.DataFrame, alpha: float) -&gt; ggplot:
     )
     return out
 
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+file_path = Path(__file__).parent / "weather.csv"
+
+df = pd.read_csv(file_path, dtype={"sub_account": str})
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+df["error"] = df["observed_temp"] - df["forecast_temp"]
 ## file: weather.csv
 date,city,state,observed_temp,forecast_temp
 2022-01-02,ALBANY,NY,35,39
@@ -6533,7 +6533,7 @@ pathlib
 faicons</code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-305-app/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-305-app/problem</a>.</p>
+<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-305-app" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-305-app</a>.</p>
 </div>
 </div>
 </div>
@@ -6634,7 +6634,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

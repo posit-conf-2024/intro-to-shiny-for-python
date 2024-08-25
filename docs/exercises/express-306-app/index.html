@@ -412,6 +412,74 @@ def dat() -&gt; pd.DataFrame:
 
 
 
+## file: plots.py
+from pandas import DataFrame
+from plotnine import (
+    aes,
+    geom_abline,
+    geom_density,
+    geom_line,
+    ggplot,
+    labs,
+    theme_minimal,
+)
+from sklearn.metrics import auc, precision_recall_curve, roc_curve
+
+
+def plot_score_distribution(df: DataFrame, color = "blue"):
+    plot = (
+        ggplot(df, aes(x="training_score"))
+        + geom_density(fill=color, alpha=0.3)
+        + theme_minimal()
+        + labs(title="Model scores", x="Score")
+    )
+    return plot
+
+
+def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
+    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
+
+    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
+
+    plot = (
+        ggplot(roc_df, aes(x="fpr", y="tpr"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
+        + labs(
+            title="Receiver Operating Characteristic (ROC)",
+            x="False Positive Rate",
+            y="True Positive Rate",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+
+def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
+    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
+
+    pr_df = DataFrame({"precision": precision, "recall": recall})
+
+    plot = (
+        ggplot(pr_df, aes(x="recall", y="precision"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + labs(
+            title="Precision-Recall Curve",
+            x="Recall",
+            y="Precision",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+app_dir = Path(__file__).parent
+scores = pd.read_csv(app_dir / "scores.csv")
 ## file: scores.csv
 id,account,date,is_electronics,training_score,training_auc,prod_score
 197,Berge &amp; Berge,2023-03-22,0,3.8569316e-4,0.706,1.2184013625090797
@@ -914,74 +982,6 @@ id,account,date,is_electronics,training_score,training_auc,prod_score
 808,Wolff Ltd,2023-01-15,0,1.507717e-4,0.726,1.0603164175116029
 811,Wolff Ltd,2023-02-08,0,0.47511867,0.726,0.0449847506183881
 814,Wolff Ltd,2023-03-17,1,0.025192128,0.726,1.057791747326691
-
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-
-app_dir = Path(__file__).parent
-scores = pd.read_csv(app_dir / "scores.csv")
-## file: plots.py
-from pandas import DataFrame
-from plotnine import (
-    aes,
-    geom_abline,
-    geom_density,
-    geom_line,
-    ggplot,
-    labs,
-    theme_minimal,
-)
-from sklearn.metrics import auc, precision_recall_curve, roc_curve
-
-
-def plot_score_distribution(df: DataFrame, color = "blue"):
-    plot = (
-        ggplot(df, aes(x="training_score"))
-        + geom_density(fill=color, alpha=0.3)
-        + theme_minimal()
-        + labs(title="Model scores", x="Score")
-    )
-    return plot
-
-
-def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
-    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
-
-    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
-
-    plot = (
-        ggplot(roc_df, aes(x="fpr", y="tpr"))
-        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
-        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
-        + labs(
-            title="Receiver Operating Characteristic (ROC)",
-            x="False Positive Rate",
-            y="True Positive Rate",
-        )
-        + theme_minimal()
-    )
-
-    return plot
-
-
-def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
-    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
-
-    pr_df = DataFrame({"precision": precision, "recall": recall})
-
-    plot = (
-        ggplot(pr_df, aes(x="recall", y="precision"))
-        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
-        + labs(
-            title="Precision-Recall Curve",
-            x="Recall",
-            y="Precision",
-        )
-        + theme_minimal()
-    )
-
-    return plot
 
 ## file: requirements.txt
 numpy
@@ -1063,6 +1063,74 @@ def dat() -&gt; pd.DataFrame:
 
 
 
+## file: plots.py
+from pandas import DataFrame
+from plotnine import (
+    aes,
+    geom_abline,
+    geom_density,
+    geom_line,
+    ggplot,
+    labs,
+    theme_minimal,
+)
+from sklearn.metrics import auc, precision_recall_curve, roc_curve
+
+
+def plot_score_distribution(df: DataFrame, color = "blue"):
+    plot = (
+        ggplot(df, aes(x="training_score"))
+        + geom_density(fill=color, alpha=0.3)
+        + theme_minimal()
+        + labs(title="Model scores", x="Score")
+    )
+    return plot
+
+
+def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
+    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
+
+    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
+
+    plot = (
+        ggplot(roc_df, aes(x="fpr", y="tpr"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
+        + labs(
+            title="Receiver Operating Characteristic (ROC)",
+            x="False Positive Rate",
+            y="True Positive Rate",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+
+def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
+    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
+
+    pr_df = DataFrame({"precision": precision, "recall": recall})
+
+    plot = (
+        ggplot(pr_df, aes(x="recall", y="precision"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + labs(
+            title="Precision-Recall Curve",
+            x="Recall",
+            y="Precision",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+app_dir = Path(__file__).parent
+scores = pd.read_csv(app_dir / "scores.csv")
 ## file: scores.csv
 id,account,date,is_electronics,training_score,training_auc,prod_score
 197,Berge &amp; Berge,2023-03-22,0,3.8569316e-4,0.706,1.2184013625090797
@@ -1565,74 +1633,6 @@ id,account,date,is_electronics,training_score,training_auc,prod_score
 808,Wolff Ltd,2023-01-15,0,1.507717e-4,0.726,1.0603164175116029
 811,Wolff Ltd,2023-02-08,0,0.47511867,0.726,0.0449847506183881
 814,Wolff Ltd,2023-03-17,1,0.025192128,0.726,1.057791747326691
-
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-
-app_dir = Path(__file__).parent
-scores = pd.read_csv(app_dir / "scores.csv")
-## file: plots.py
-from pandas import DataFrame
-from plotnine import (
-    aes,
-    geom_abline,
-    geom_density,
-    geom_line,
-    ggplot,
-    labs,
-    theme_minimal,
-)
-from sklearn.metrics import auc, precision_recall_curve, roc_curve
-
-
-def plot_score_distribution(df: DataFrame, color = "blue"):
-    plot = (
-        ggplot(df, aes(x="training_score"))
-        + geom_density(fill=color, alpha=0.3)
-        + theme_minimal()
-        + labs(title="Model scores", x="Score")
-    )
-    return plot
-
-
-def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
-    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
-
-    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
-
-    plot = (
-        ggplot(roc_df, aes(x="fpr", y="tpr"))
-        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
-        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
-        + labs(
-            title="Receiver Operating Characteristic (ROC)",
-            x="False Positive Rate",
-            y="True Positive Rate",
-        )
-        + theme_minimal()
-    )
-
-    return plot
-
-
-def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
-    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
-
-    pr_df = DataFrame({"precision": precision, "recall": recall})
-
-    plot = (
-        ggplot(pr_df, aes(x="recall", y="precision"))
-        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
-        + labs(
-            title="Precision-Recall Curve",
-            x="Recall",
-            y="Precision",
-        )
-        + theme_minimal()
-    )
-
-    return plot
 
 ## file: requirements.txt
 numpy
@@ -1716,6 +1716,74 @@ def dat() -&gt; pd.DataFrame:
 
 
 
+## file: plots.py
+from pandas import DataFrame
+from plotnine import (
+    aes,
+    geom_abline,
+    geom_density,
+    geom_line,
+    ggplot,
+    labs,
+    theme_minimal,
+)
+from sklearn.metrics import auc, precision_recall_curve, roc_curve
+
+
+def plot_score_distribution(df: DataFrame, color = "blue"):
+    plot = (
+        ggplot(df, aes(x="training_score"))
+        + geom_density(fill=color, alpha=0.3)
+        + theme_minimal()
+        + labs(title="Model scores", x="Score")
+    )
+    return plot
+
+
+def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
+    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
+
+    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
+
+    plot = (
+        ggplot(roc_df, aes(x="fpr", y="tpr"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
+        + labs(
+            title="Receiver Operating Characteristic (ROC)",
+            x="False Positive Rate",
+            y="True Positive Rate",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+
+def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
+    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
+
+    pr_df = DataFrame({"precision": precision, "recall": recall})
+
+    plot = (
+        ggplot(pr_df, aes(x="recall", y="precision"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + labs(
+            title="Precision-Recall Curve",
+            x="Recall",
+            y="Precision",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+app_dir = Path(__file__).parent
+scores = pd.read_csv(app_dir / "scores.csv")
 ## file: scores.csv
 id,account,date,is_electronics,training_score,training_auc,prod_score
 197,Berge &amp; Berge,2023-03-22,0,3.8569316e-4,0.706,1.2184013625090797
@@ -2219,74 +2287,6 @@ id,account,date,is_electronics,training_score,training_auc,prod_score
 811,Wolff Ltd,2023-02-08,0,0.47511867,0.726,0.0449847506183881
 814,Wolff Ltd,2023-03-17,1,0.025192128,0.726,1.057791747326691
 
-## file: data_import.py
-from pathlib import Path
-import pandas as pd
-
-app_dir = Path(__file__).parent
-scores = pd.read_csv(app_dir / "scores.csv")
-## file: plots.py
-from pandas import DataFrame
-from plotnine import (
-    aes,
-    geom_abline,
-    geom_density,
-    geom_line,
-    ggplot,
-    labs,
-    theme_minimal,
-)
-from sklearn.metrics import auc, precision_recall_curve, roc_curve
-
-
-def plot_score_distribution(df: DataFrame, color = "blue"):
-    plot = (
-        ggplot(df, aes(x="training_score"))
-        + geom_density(fill=color, alpha=0.3)
-        + theme_minimal()
-        + labs(title="Model scores", x="Score")
-    )
-    return plot
-
-
-def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
-    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
-
-    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
-
-    plot = (
-        ggplot(roc_df, aes(x="fpr", y="tpr"))
-        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
-        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
-        + labs(
-            title="Receiver Operating Characteristic (ROC)",
-            x="False Positive Rate",
-            y="True Positive Rate",
-        )
-        + theme_minimal()
-    )
-
-    return plot
-
-
-def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
-    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
-
-    pr_df = DataFrame({"precision": precision, "recall": recall})
-
-    plot = (
-        ggplot(pr_df, aes(x="recall", y="precision"))
-        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
-        + labs(
-            title="Precision-Recall Curve",
-            x="Recall",
-            y="Precision",
-        )
-        + theme_minimal()
-    )
-
-    return plot
-
 ## file: requirements.txt
 numpy
 pandas
@@ -2296,7 +2296,7 @@ shiny
 </code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-306-app/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-306-app/problem</a>.</p>
+<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-306-app" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-306-app</a>.</p>
 </div>
 </div>
 </div>
@@ -2397,7 +2397,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

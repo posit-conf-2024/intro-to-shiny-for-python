@@ -238,6 +238,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">102 Output</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/105-reactivity/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">105 Connect inputs to outputs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -371,7 +377,7 @@ ui.input_radio_buttons(
 </code></pre>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-103-inputs/problem" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-103-inputs/problem</a>.</p>
+<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-103-inputs" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/express-103-inputs</a>.</p>
 </div>
 </div>
 </div>
@@ -472,7 +478,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
