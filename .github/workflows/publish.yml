@@ -12,16 +12,6 @@ jobs:
       contents: write
       pages: write
 
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        include:
-          - attempt: 1
-          - attempt: 2
-          - attempt: 3
-          
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -52,6 +42,3 @@ jobs:
           QUARTO_PRINT_STACK: true
         timeout-minutes: 20
       
-      - name: Check if step succeeded
-        if: ${{ steps.long-running-step.outcome == 'failure' }}
-        run: exit 1
