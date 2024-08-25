@@ -35,9 +35,11 @@ def getcwd() -> str:
         folder = current
     return folder
 
-def list_files(path: str) -> list:
-    files = glob.glob(path + "/**", recursive=True)
+def list_files(path: str = "") -> list:
+    files = glob.glob("*.*", recursive=True)
     files = [file for file in files if not glob.os.path.isdir(file)]
+    exclusions = ["index.qmd", "index.quarto_ipynb"]
+    files = [file for file in files if not any(exclusion in file for exclusion in exclusions)]
     return files
 
 
@@ -67,7 +69,7 @@ def print_cwd(path: str):
     print(block)
 
 def _include_shiny_folder(
-    path: str,
+    path: str = "",
     file_name: str = "app.py",
     exclusions: list = [],
     # components: str = "editor, viewer, terminal",
@@ -75,7 +77,8 @@ def _include_shiny_folder(
     viewer_height: str = "800",
     extra_object: any = "",
 ) -> QuartoPrint:
-    folder_path = Path(__name__).parent / path
+    # folder_path = Path(__name__).parent / path
+    folder_path = path
 
     additional_exclude = ['app-core.py', 'app-solution-core.py']
 
@@ -91,7 +94,8 @@ def _include_shiny_folder(
     )
 
     # Print contents of the main application
-    block.append_file(folder_path / file_name, None)
+    # block.append_file(folder_path / file_name, None)
+    block.append_file(file_name, None)
 
     exclude_list = ["__pycache__"] + [file_name] + exclusions + additional_exclude
 
@@ -128,7 +132,7 @@ def collapse_prompt(prompt: str) -> list:
 def parse_readme(path: str) -> str:
     # file_path = Path(__name__).parent / path / "README"
     file_path = os.path.join(path, "README")
-    # file_path = "README"
+    file_path = "README"
     file_contents = ""
     with open(file_path, "r") as file:
         file_contents = file.read()
@@ -144,21 +148,24 @@ def problem_app_express(folder_name) -> None:
 #    - folder_name:  relative folder path
 #    - app: If True, expects an app (app.py) and if False, expects a problem (app.py and app-solution.py)
 def problem_tabs_express(
-        folder_name:str, 
+        folder_name:str = "", 
         app:bool = False,
         viewer_height:str="800",
         app_exclusions:list = [],
         sol_exclusions:list = [],
     ) -> None:
-    path = os.path.basename(folder_name)
-    path = os.path.join(path, "problem")
-    path = "problem"
+    # path = os.path.basename(folder_name)
+    # path = os.path.join(path, "problem")
+    # path = "problem"
+    path = ""
+
 
     app_exclusions = ["app-solution.py", "README"] + app_exclusions
     sol_exclusions = ["app.py", "README"] + sol_exclusions
 
     
-    prompt = parse_readme("problem")
+    # prompt = parse_readme("problem")
+    prompt = parse_readme("")
 
     if prompt == "":
         block = QuartoPrint("")
@@ -173,6 +180,8 @@ def problem_tabs_express(
             "::: {.panel-tabset}",
         ]
     )
+
+    #---- Goal -------------------------------
     if not app:
         block.append( "## Goal")
         block.extend(
@@ -229,9 +238,11 @@ def problem_tabs_express(
     block.append("## {{< bi github >}}")
 
     if app:
-        github_path = os.path.join("docs", folder_name, "problem")
+        # github_path = os.path.join("docs", folder_name, "problem")
+        github_path = os.path.join("docs", folder_name)
     else:
-        github_path = os.path.join("docs", folder_name, "problem")
+        # github_path = os.path.join("docs", folder_name, "problem")
+        github_path = os.path.join("docs", folder_name)
     block.append(
         f"The source code for this exercise is at "
         f"<https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/{github_path}>."
@@ -285,7 +296,8 @@ def multiple_choice_app(questions: Quiz):
     current_dir = os.path.dirname(__file__)
     # Construct the path to app.py assuming it's in the same directory as helpers.py
     app_path = os.path.join(current_dir, "multiple_choice/app.py")
-    shutil.copy(app_path, temp_dir)
+    # Copy app.py directly to the temporary directory
+    shutil.copy(app_path, os.path.join(temp_dir, "app.py"))
 
     with open(os.path.join(temp_dir, "questions.json"), "w") as file:
         json.dump(questions, file)

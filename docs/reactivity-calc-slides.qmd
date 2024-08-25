@@ -441,8 +441,9 @@ def toggle_modal():
 
 ## What's a side effect?
 ```{python}
-# | echo: false
-# | output: asis
+#| echo: false
+#| output: asis
+#| eval: false
 
 questions = Quiz(
     {
