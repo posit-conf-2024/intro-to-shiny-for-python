@@ -20,8 +20,6 @@ format:
       - reveal-auto-agenda
     auto-agenda:
       heading: Agenda
-      format:
-    mermaid-format: svg
 ---
 
 ## your turn
