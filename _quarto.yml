@@ -38,16 +38,16 @@ website:
           text: Slides
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-101-run-app/index.qmd
-          - docs/exercises/express-102-ui-module/index.qmd
-          - docs/exercises/express-103-inputs/index.qmd
-          - docs/exercises/express-104-outputs/index.qmd
-          - docs/exercises/express-105-reactivity/index.qmd
-          - docs/exercises/express-106-debug/index.qmd
-          - docs/exercises/express-107-debug/index.qmd
-          - docs/exercises/express-108-debug/index.qmd
-          - docs/exercises/express-109-debug/index.qmd
-          - docs/exercises/express-110-app/index.qmd
+          - docs/exercises/101-run-app/index.qmd
+          - docs/exercises/102-ui-module/index.qmd
+          - docs/exercises/103-inputs/index.qmd
+          - docs/exercises/104-outputs/index.qmd
+          - docs/exercises/105-reactivity/index.qmd
+          - docs/exercises/106-debug/index.qmd
+          - docs/exercises/107-debug/index.qmd
+          - docs/exercises/108-debug/index.qmd
+          - docs/exercises/109-debug/index.qmd
+          - docs/exercises/110-app/index.qmd
         - section: "Apps"
           contents:
           - docs/apps/101-input/index.qmd
@@ -64,10 +64,10 @@ website:
             text: Reactive Calculations
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-201-reactive-calc/index.qmd
-          - docs/exercises/express-202-reactive-stack/index.qmd
-          - docs/exercises/express-208-reactive-event/index.qmd
-          - docs/exercises/express-209-reactive-effect/index.qmd
+          - docs/exercises/201-reactive-calc/index.qmd
+          - docs/exercises/202-reactive-stack/index.qmd
+          - docs/exercises/208-reactive-event/index.qmd
+          - docs/exercises/209-reactive-effect/index.qmd
         - section: "Apps"
           contents:
           - docs/apps/200-simple-reactive-calc/index.qmd
@@ -84,17 +84,17 @@ website:
             text: UI Themes
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-301-cards/index.qmd
-          - docs/exercises/express-302-sidebars/index.qmd
-          - docs/exercises/express-303-value-boxes/index.qmd
-          - docs/exercises/express-304-columns/index.qmd
-          - docs/exercises/express-305-app/index.qmd
-          - docs/exercises/express-306-app/index.qmd
-          - docs/exercises/express-307-themes/index.qmd
-          - docs/exercises/express-308-plot-themes/index.qmd
-          - docs/exercises/express-309-valuebox-themes/index.qmd
-          - docs/exercises/express-310-element-themes/index.qmd
-          - docs/exercises/express-311-style/index.qmd
+          - docs/exercises/301-cards/index.qmd
+          - docs/exercises/302-sidebars/index.qmd
+          - docs/exercises/303-value-boxes/index.qmd
+          - docs/exercises/304-columns/index.qmd
+          - docs/exercises/305-app/index.qmd
+          - docs/exercises/306-app/index.qmd
+          - docs/exercises/307-themes/index.qmd
+          - docs/exercises/308-plot-themes/index.qmd
+          - docs/exercises/309-valuebox-themes/index.qmd
+          - docs/exercises/310-element-themes/index.qmd
+          - docs/exercises/311-style/index.qmd
         - section: "Apps"
           contents:
           - docs/apps/330-target-app/index.qmd
@@ -113,18 +113,18 @@ website:
           - docs/workflow-deploy.qmd
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-401-extract-function/index.qmd
-          - docs/exercises/express-402-python-module/index.qmd
-          - docs/exercises/express-403-simple-module/index.qmd
-          - docs/exercises/express-404-module-fn/index.qmd
-          - docs/exercises/express-405-module-lambda/index.qmd
-          # - docs/exercises/express-410-iterators/index.qmd
+          - docs/exercises/401-extract-function/index.qmd
+          - docs/exercises/402-python-module/index.qmd
+          - docs/exercises/403-simple-module/index.qmd
+          - docs/exercises/404-module-fn/index.qmd
+          - docs/exercises/405-module-lambda/index.qmd
+          # - docs/exercises/410-iterators/index.qmd
     - title: "Test"
       contents:      
         - docs/test.qmd
         - section: "Exercises"
           contents: 
-          - docs/exercises/express-101-run-app/index.qmd
+          - docs/exercises/101-run-app/index.qmd
 
 filters:
   - shinylive

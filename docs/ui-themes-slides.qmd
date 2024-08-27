@@ -31,7 +31,7 @@ bgcolor = "whitesmoke"
 
 ## Combine what you've learned
 
-{{< yourturn 'express-306-app' >}}
+{{< yourturn '306-app' >}}
 
 ## Where we're headed
 
@@ -74,7 +74,7 @@ ui.page_opts(
 
 ## Your Turn
 
-{{< yourturn 'express-307-themes' >}}
+{{< yourturn '307-themes' >}}
 
 # Plots
 
@@ -106,7 +106,7 @@ Use tab completion to explore the color options.
 
 ## Your Turn
 
-{{< yourturn 'express-308-plot-themes' >}}
+{{< yourturn '308-plot-themes' >}}
 
 # Value boxes
 
@@ -147,7 +147,7 @@ with ui.value_box(theme = "primary"):
 
 ## Your Turn
 
-{{< yourturn 'express-309-valuebox-themes' >}}
+{{< yourturn '309-valuebox-themes' >}}
 
 ## That's it
 
@@ -236,7 +236,7 @@ See <https://getbootstrap.com/docs/5.3/utilities/background/> to begin your sear
 
 ## Your Turn
 
-{{< yourturn 'express-310-element-themes' >}}
+{{< yourturn '310-element-themes' >}}
 
 # Fonts
 
@@ -291,4 +291,4 @@ This makes `www` a very good place to store things needed by a browser, like:
 
 ## Your Turn
 
-{{< yourturn 'express-311-style' >}}
+{{< yourturn '311-style' >}}

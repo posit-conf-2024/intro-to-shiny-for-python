@@ -104,7 +104,7 @@ In turn, this makes your reactive code much clearer
 
 ## Your turn
 
-{{< yourturn 'express-401-extract-function' >}}
+{{< yourturn '401-extract-function' >}}
 
 # Moving code into a python module
 
@@ -156,6 +156,6 @@ foo(2)
 
 ## Your turn
 
-{{< yourturn 'express-402-python-module' >}}
+{{< yourturn '402-python-module' >}}
 
 

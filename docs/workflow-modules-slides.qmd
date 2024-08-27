@@ -84,13 +84,13 @@ card_module('id1', 'title', fn)
 
 ## Your turn: create a simple shiny module
 
-{{< yourturn 'express-403-simple-module' >}}
+{{< yourturn '403-simple-module' >}}
 
 # Including reactivity in your module
 
 ## Your turn: create a more complicated shiny module
 
-{{< yourturn 'express-404-module-fn' >}}
+{{< yourturn '404-module-fn' >}}
 
 
 ## Delaying reactivity with `lambda` functions
@@ -153,6 +153,6 @@ card_module(
 
 ## Your turn: insert the shiny module into your weather
 
-{{< yourturn 'express-405-module-lambda' >}}
+{{< yourturn '405-module-lambda' >}}
 
 

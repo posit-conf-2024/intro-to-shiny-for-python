@@ -249,7 +249,7 @@ Today, we will learn Shiny Express.
 
 ## Your turn
 
-{{< yourturn 'express-101-run-app' >}}
+{{< yourturn '101-run-app' >}}
 
 ## Run an App
 
@@ -346,7 +346,7 @@ Instructions
 
 ## Your turn
 
-{{< yourturn 'express-102-ui-module' >}}
+{{< yourturn '102-ui-module' >}}
 
 # Inputs
 
@@ -384,7 +384,7 @@ The Shiny function reference
 
 ## Your turn
 
-{{< yourturn 'express-103-inputs' >}}
+{{< yourturn '103-inputs' >}}
 
 ## Quiz {background-color=`{python} bgcolor`}
 
@@ -436,7 +436,7 @@ function
 
 ## Your turn
 
-{{< yourturn 'express-104-outputs' >}}
+{{< yourturn '104-outputs' >}}
 
 ## Quiz {background-color=`{python} bgcolor`}
 
@@ -474,7 +474,7 @@ input.n()
 
 ## Your turn
 
-{{< yourturn 'express-105-reactivity' >}}
+{{< yourturn '105-reactivity' >}}
 
 ## Reactive values are special
 
@@ -512,21 +512,21 @@ Can we spot them in our sample code?
 
 ## Your turn
 
-{{< yourturn 'express-106-debug' >}}
+{{< yourturn '106-debug' >}}
 
 
 ## Your turn
 
-{{< yourturn 'express-107-debug' >}}
+{{< yourturn '107-debug' >}}
 
 
 ## Your turn
 
-{{< yourturn 'express-108-debug' >}}
+{{< yourturn '108-debug' >}}
 
 ## Your turn
 
-{{< yourturn 'express-109-debug' >}}
+{{< yourturn '109-debug' >}}
 
 
 # Recap
@@ -558,4 +558,4 @@ print(tabulate(df, headers='keys', tablefmt='github', showindex=False))
 
 ## Your turn
 
-{{< yourturn 'express-110-app' >}}
+{{< yourturn '110-app' >}}

@@ -16,11 +16,11 @@ format:
 
 ## your turn
 
-{{< yourturn 'express-101-run-app' >}}
+{{< yourturn '101-run-app' >}}
 
 ## your turn app only
 
-{{< yourview 'express-101-hello-world' >}}
+{{< yourview '101-hello-world' >}}
 
 
 

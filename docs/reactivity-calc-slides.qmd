@@ -315,7 +315,7 @@ flowchart TD
 
 ## Your turn
 
-{{< yourturn 'express-209-reactive-effect' >}}
+{{< yourturn '209-reactive-effect' >}}
 
 
 ## Exercise 2.3 answer 
@@ -371,7 +371,7 @@ def output_txt():
 
 ## Your turn
 
-{{< yourturn 'express-208-reactive-event' 'true' >}}
+{{< yourturn '208-reactive-event' 'true' >}}
 
 
 # Side effects
@@ -483,5 +483,5 @@ multiple_choice_app(questions)
 
 ## Your turn
 
-{{< yourturn 'express-201-reactive-calc' >}}
+{{< yourturn '201-reactive-calc' >}}
 
