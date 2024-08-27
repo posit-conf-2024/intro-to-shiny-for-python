@@ -43,22 +43,32 @@
     font-size: 1.5em;
 }
 
-.reveal svg.mermaid-js {
+.reveal svg.mermaid {
   /* transform: scale(2) translateX(50%) translateX(50%); */
-  background-color: red;
+  border-color: red;
   height: 500px;
   width: 800px;
 }
 
+.reveal div.cell.mermaid svg {
+  /* transform: scale(2) translateX(50%) translateX(50%); */
+  /* background-color: red; */
+  /* height: 500px;
+  width: 800px; */
+    border-width: 3px;
+    border-style: solid;
+}
+
 .reveal div.cell.mermaid img {
-    border-color: red;
+    /* border-color: red; */
     border-width: 3px;
     border-style: solid;
 }
 
 .reveal #title-slide h1 {
-    color: white;
-    background-color: #091A34;
+    /* color: white;
+    background-color: #091A34; */
+    color:black;
     max-width: 55%;
 }
 

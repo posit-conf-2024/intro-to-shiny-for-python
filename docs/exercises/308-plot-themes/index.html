@@ -1,0 +1,2788 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.55">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>308 Plot Themes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<meta name="shinylive:serviceworker_dir" content="../../..">
+<script src="../../../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="../../../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
+<link href="../../../site_libs/quarto-contrib/shinylive-0.5.0/shinylive/shinylive.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-contrib/yourturnIframeChild-0.1.0/iframe-resizer.child.js"></script>
+<link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/intro-to-shiny-for-python.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../docs/pre-requisites.html"> 
+<span class="menu-text">Pre-requisites</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../docs/shiny-express.html"> 
+<span class="menu-text">Shiny Express</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../docs/reactivity-intro.html"> 
+<span class="menu-text">Reactivity</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../docs/ui-layout.html" aria-current="page"> 
+<span class="menu-text">UI Customization</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../docs/workflow-refactor.html"> 
+<span class="menu-text">Workflow</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/posit-dev/intro-to-shiny-for-python" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://discord.gg/AQVJzG2bnN" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-discord"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/301-cards/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/308-plot-themes/index.html">308 Plot Themes</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+  <div id="quarto-announcement" data-announcement-id="17c3353fa487da670c8d44723e1bd226" class="alert alert-warning hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>Alert</strong> - this site is under active construction</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/ui-layout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UI Layout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/ui-themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UI Themes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/301-cards/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">301 Cards</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/302-sidebars/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">302 Sidebars</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/303-value-boxes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">303 Value Boxes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/304-columns/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">304 Columns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/305-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">305 Navsets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/306-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">306 Model Scoring App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/307-themes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">307 Themes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/308-plot-themes/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">308 Plot Themes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/309-valuebox-themes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">309 Value Box Themes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/310-element-themes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">310 Element Themes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/311-style/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">311 Style</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apps</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/330-target-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">330 Target App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/331-starting-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">331 Starting App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/332-value-boxes/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">332 Value Boxes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/333-columns/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">333 Columns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/334-target-app/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">334 Target App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/apps/335-css/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">335 CSS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/exercises/301-cards/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../../docs/exercises/308-plot-themes/index.html">308 Plot Themes</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">308 Plot Themes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The functions in plots have been written to accept color names. Update the app to ensure that the plot colors always harmonize with the theme.</p>
+</div>
+</div>
+</div>
+<div class="column-screen-inset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Goal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Problem</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Solution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false"><i class="bi-github " style="" role="img" aria-hidden="true"></i></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| components: [viewer]
+#| layout: horizontal
+#| viewerHeight: 800
+from shiny.express import input, render, ui
+from shiny import reactive
+from plots import plot_auc_curve, plot_precision_recall_curve, plot_score_distribution
+from data_import import scores
+from shinyswatch import theme
+
+
+app_theme = theme.cerulean
+
+ui.page_opts(
+    title="Model scoring dashboard",
+    theme = app_theme
+)
+
+with ui.sidebar():
+    ui.input_select(
+        "account",
+        "Account",
+        choices=[
+            "Berge &amp; Berge",
+            "Fritsch &amp; Fritsch",
+            "Hintz &amp; Hintz",
+            "Mosciski and Sons",
+            "Wolff Ltd",
+        ],
+    )
+
+ui.nav_spacer(),
+
+with ui.nav_panel("Training Dashboard"):
+
+    with ui.navset_card_underline(title="Model Metrics"):
+
+        with ui.nav_panel("ROC Curve"):
+            @render.plot
+            def roc_curve():
+                return plot_auc_curve(
+                    dat(), 
+                    "is_electronics", 
+                    "training_score", 
+                    color = app_theme.colors.primary,
+                    line_color = app_theme.colors.secondary
+                )
+
+        with ui.nav_panel("Precision/Recall"):
+            @render.plot
+            def precision_recall():
+                return plot_precision_recall_curve(
+                    dat(), 
+                    "is_electronics", 
+                    "training_score", 
+                    color = app_theme.colors.primary
+                )
+
+    with ui.card():
+        ui.card_header("Training Scores")
+        @render.plot
+        def score_dist():
+            return plot_score_distribution(dat(), color = app_theme.colors.primary)
+
+with ui.nav_panel("View Data"):
+
+    with ui.layout_columns():
+
+        with ui.value_box():
+            "Row count"
+            @render.text
+            def row_count():
+                return dat().shape[0]
+
+        with ui.value_box():
+            "Mean training score"
+            @render.text
+            def mean_score():
+                return round(dat()["training_score"].mean(), 2)
+                
+    with ui.card():
+        @render.data_frame
+        def data():
+            return dat()
+
+@reactive.calc()
+def dat() -&gt; pd.DataFrame:
+    return scores.loc[scores["account"] == input.account()]
+
+
+
+## file: plots.py
+from pandas import DataFrame
+from plotnine import (
+    aes,
+    geom_abline,
+    geom_density,
+    geom_line,
+    ggplot,
+    labs,
+    theme_minimal,
+)
+from sklearn.metrics import auc, precision_recall_curve, roc_curve
+
+
+def plot_score_distribution(df: DataFrame, color = "blue"):
+    plot = (
+        ggplot(df, aes(x="training_score"))
+        + geom_density(fill=color, alpha=0.3)
+        + theme_minimal()
+        + labs(title="Model scores", x="Score")
+    )
+    return plot
+
+
+def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
+    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
+
+    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
+
+    plot = (
+        ggplot(roc_df, aes(x="fpr", y="tpr"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
+        + labs(
+            title="Receiver Operating Characteristic (ROC)",
+            x="False Positive Rate",
+            y="True Positive Rate",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+
+def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
+    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
+
+    pr_df = DataFrame({"precision": precision, "recall": recall})
+
+    plot = (
+        ggplot(pr_df, aes(x="recall", y="precision"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + labs(
+            title="Precision-Recall Curve",
+            x="Recall",
+            y="Precision",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+app_dir = Path(__file__).parent
+scores = pd.read_csv(app_dir / "scores.csv")
+## file: scores.csv
+id,account,date,is_electronics,training_score,training_auc,prod_score
+197,Berge &amp; Berge,2023-03-22,0,3.8569316e-4,0.706,1.2184013625090797
+147,Berge &amp; Berge,2023-03-04,0,0.059454158,0.706,1.0458517996515018
+151,Berge &amp; Berge,2023-02-26,1,0.43344864,0.706,1.0899208432188952
+191,Berge &amp; Berge,2023-02-05,0,0.07182422,0.706,0.1166857347716988
+97,Berge &amp; Berge,2023-03-20,0,0.036536578,0.706,0.1122427067173862
+42,Berge &amp; Berge,2023-02-24,0,7.8474486e-4,0.706,1.134496258677401
+162,Berge &amp; Berge,2023-03-18,0,0.0021639657,0.706,0.0911876468541704
+86,Berge &amp; Berge,2023-01-31,0,0.0043587093,0.706,0.1072100007045478
+185,Berge &amp; Berge,2023-01-29,0,0.0037410355,0.706,1.0629598986580249
+195,Berge &amp; Berge,2023-03-09,1,0.0064030294,0.706,0.1163625609796782
+65,Berge &amp; Berge,2023-01-12,0,0.01680326,0.706,1.1117144598925008
+0,Berge &amp; Berge,2023-02-17,1,0.16943726,0.706,1.1618205506162425
+153,Berge &amp; Berge,2023-01-17,0,0.009950074,0.706,1.0548759269150825
+7,Berge &amp; Berge,2023-02-24,1,0.07434944,0.706,1.1549266491020864
+108,Berge &amp; Berge,2023-01-16,0,0.0011474524,0.706,0.2033384586903546
+46,Berge &amp; Berge,2023-03-30,1,0.8862941,0.706,1.128921393965052
+78,Berge &amp; Berge,2023-01-03,0,0.10584876,0.706,1.1458269113570143
+133,Berge &amp; Berge,2023-03-08,0,0.010757598,0.706,1.1434908567274518
+39,Berge &amp; Berge,2023-01-31,0,0.0041037435,0.706,1.102184667768606
+50,Berge &amp; Berge,2023-02-09,0,4.3265644e-4,0.706,0.1307080249504367
+134,Berge &amp; Berge,2023-03-26,0,0.026536584,0.706,1.060611614694643
+14,Berge &amp; Berge,2023-01-03,1,0.9737248,0.706,0.0482518688678079
+105,Berge &amp; Berge,2023-02-06,0,0.2176104,0.706,1.1731506131766771
+171,Berge &amp; Berge,2023-03-01,1,0.640394,0.706,0.0344893088752213
+56,Berge &amp; Berge,2023-01-02,1,0.50905395,0.706,1.1379332748001638
+180,Berge &amp; Berge,2023-03-14,0,0.0642861,0.706,1.1407096495166118
+66,Berge &amp; Berge,2023-03-07,1,0.83971083,0.706,1.0837485612427225
+150,Berge &amp; Berge,2023-03-04,0,0.0035049587,0.706,1.1011918088070027
+155,Berge &amp; Berge,2023-02-15,1,0.032146282,0.706,1.120811408972631
+117,Berge &amp; Berge,2023-01-30,1,0.020795507,0.706,0.1429895261825527
+115,Berge &amp; Berge,2023-03-27,0,0.19586882,0.706,0.0559595407746099
+141,Berge &amp; Berge,2023-01-30,0,0.006336129,0.706,0.0278086785772974
+135,Berge &amp; Berge,2023-02-14,0,0.030219903,0.706,0.1026964751058112
+146,Berge &amp; Berge,2023-02-07,0,0.6306924,0.706,0.096962911436626
+126,Berge &amp; Berge,2023-02-11,0,0.0047198967,0.706,1.0245361267752373
+93,Berge &amp; Berge,2023-02-01,0,0.02713681,0.706,0.1579912873196112
+33,Berge &amp; Berge,2023-03-19,0,0.013932462,0.706,0.0321096202157411
+18,Berge &amp; Berge,2023-02-09,0,0.0016045833,0.706,0.9290365950652846
+118,Berge &amp; Berge,2023-03-13,0,8.186491e-4,0.706,1.171047420916767
+121,Berge &amp; Berge,2023-03-28,0,0.042930435,0.706,0.0182820762909576
+3,Berge &amp; Berge,2023-02-16,0,6.695764e-5,0.706,1.0702198663587448
+101,Berge &amp; Berge,2023-03-27,1,0.596601,0.706,0.0354858430405799
+49,Berge &amp; Berge,2023-03-04,0,0.0026418588,0.706,0.135275069008277
+25,Berge &amp; Berge,2023-03-15,0,0.002401195,0.706,1.0803649357719638
+114,Berge &amp; Berge,2023-03-20,0,0.004930519,0.706,0.0529895890406713
+83,Berge &amp; Berge,2023-01-31,0,0.28393862,0.706,1.178427193769903
+26,Berge &amp; Berge,2023-02-19,0,0.0013338907,0.706,0.0790943397275872
+8,Berge &amp; Berge,2023-02-09,1,0.53028095,0.706,1.0790892070448892
+82,Berge &amp; Berge,2023-02-04,0,0.07508605,0.706,1.0792260606504211
+144,Berge &amp; Berge,2023-02-22,1,0.007376648,0.706,0.0159388925203865
+47,Berge &amp; Berge,2023-01-09,0,0.5997613,0.706,0.1503643390126841
+158,Berge &amp; Berge,2023-02-26,0,2.6945552e-4,0.706,0.0789026735194982
+125,Berge &amp; Berge,2023-02-05,0,0.0020228848,0.706,0.0990200427437474
+182,Berge &amp; Berge,2023-01-28,0,0.25345734,0.706,0.0795373098515089
+172,Berge &amp; Berge,2023-02-14,1,0.02713681,0.706,1.114272275398885
+59,Berge &amp; Berge,2023-02-26,0,5.998765e-4,0.706,0.1952806158676867
+106,Berge &amp; Berge,2023-03-28,0,0.4591681,0.706,0.0333539700019854
+178,Berge &amp; Berge,2023-03-19,0,0.0082185855,0.706,1.0660816173986911
+87,Berge &amp; Berge,2023-01-10,1,0.0102780815,0.706,0.0648974711738842
+129,Berge &amp; Berge,2023-01-09,0,0.08157975,0.706,1.1024817266914324
+76,Berge &amp; Berge,2023-02-17,0,0.9813013,0.706,1.0437485590218905
+152,Berge &amp; Berge,2023-04-01,0,0.02713681,0.706,1.0658221905441567
+10,Berge &amp; Berge,2023-03-22,1,0.0018194998,0.706,1.162316179068009
+81,Berge &amp; Berge,2023-02-20,0,0.0040970254,0.706,0.1344352359121208
+21,Berge &amp; Berge,2023-01-30,0,0.17966346,0.706,0.0611759823953039
+188,Berge &amp; Berge,2023-01-23,0,5.169117e-4,0.706,0.0605163725785426
+91,Berge &amp; Berge,2023-01-20,0,0.012792897,0.706,1.1745493364442443
+168,Berge &amp; Berge,2023-02-06,1,0.13991953,0.706,0.0733946355292885
+103,Berge &amp; Berge,2023-01-11,0,0.004973566,0.706,1.0696554116486614
+73,Berge &amp; Berge,2023-02-06,0,0.0031296157,0.706,0.196424055291592
+99,Berge &amp; Berge,2023-03-19,1,0.8845187,0.706,1.0950902714355684
+130,Berge &amp; Berge,2023-03-29,0,0.8360748,0.706,0.1109771893645958
+143,Berge &amp; Berge,2023-02-12,0,0.02713681,0.706,0.0953839965711691
+31,Berge &amp; Berge,2023-03-03,0,0.005173868,0.706,1.0095134249839255
+167,Berge &amp; Berge,2023-02-28,0,0.024421345,0.706,1.185489811661379
+68,Berge &amp; Berge,2023-02-08,0,0.013632686,0.706,0.1176918009270848
+102,Berge &amp; Berge,2023-03-19,0,1.5559672e-4,0.706,1.065979804935678
+84,Berge &amp; Berge,2023-03-29,0,0.02713681,0.706,1.1773390305290543
+32,Berge &amp; Berge,2023-01-24,0,0.4591681,0.706,1.1071007317674466
+160,Berge &amp; Berge,2023-01-09,0,0.006623661,0.706,0.1152776457328768
+164,Berge &amp; Berge,2023-02-22,0,0.28222394,0.706,1.1356251790637168
+89,Berge &amp; Berge,2023-02-03,0,0.03192866,0.706,1.0644034733853214
+94,Berge &amp; Berge,2023-01-28,0,0.0071903053,0.706,0.1056048701372983
+45,Berge &amp; Berge,2023-01-12,0,0.0042942734,0.706,0.1082480366955144
+24,Berge &amp; Berge,2023-03-19,0,0.019535521,0.706,1.0433825213672572
+166,Berge &amp; Berge,2023-02-26,0,0.0060619935,0.706,0.0564479161802195
+77,Berge &amp; Berge,2023-01-31,0,0.0011749135,0.706,1.087268528455399
+95,Berge &amp; Berge,2023-03-03,0,0.08239752,0.706,0.0533042139694344
+58,Berge &amp; Berge,2023-02-12,1,0.041278575,0.706,1.0085201689574197
+148,Berge &amp; Berge,2023-02-26,0,0.0024912758,0.706,1.1628297802769785
+72,Berge &amp; Berge,2023-01-29,0,0.002776768,0.706,1.1740788046681194
+154,Berge &amp; Berge,2023-01-25,0,0.05633103,0.706,1.075950784146292
+54,Berge &amp; Berge,2023-03-23,0,1.5559672e-4,0.706,1.1088940882230371
+174,Berge &amp; Berge,2023-01-15,0,0.0024278944,0.706,0.0508260666041443
+60,Berge &amp; Berge,2023-03-23,0,0.07136285,0.706,0.1123962378606316
+165,Berge &amp; Berge,2023-02-06,0,0.26181462,0.706,1.048973603249126
+161,Berge &amp; Berge,2023-02-24,0,0.0015807872,0.706,1.0699741196609214
+184,Berge &amp; Berge,2023-02-22,0,0.02713681,0.706,-0.0167169970518766
+40,Berge &amp; Berge,2023-03-29,1,0.86764634,0.706,0.1325794389828509
+44,Berge &amp; Berge,2023-03-12,0,0.007022531,0.706,0.11879110789460991
+237,Fritsch &amp; Fritsch,2023-01-14,0,2.358206e-4,0.727,1.0956762144637295
+372,Fritsch &amp; Fritsch,2023-01-30,0,0.0137081025,0.727,0.0451347495536708
+281,Fritsch &amp; Fritsch,2023-03-08,0,0.009095548,0.727,0.1078499667525478
+201,Fritsch &amp; Fritsch,2023-03-25,0,3.8113075e-4,0.727,1.0832891563613951
+377,Fritsch &amp; Fritsch,2023-02-26,0,0.015281866,0.727,0.1219644374830517
+287,Fritsch &amp; Fritsch,2023-03-03,0,1.2389862e-4,0.727,0.1180714382195422
+211,Fritsch &amp; Fritsch,2023-03-31,1,0.11702571,0.727,0.0875116987282002
+366,Fritsch &amp; Fritsch,2023-02-06,0,0.048854023,0.727,1.1479159358438384
+336,Fritsch &amp; Fritsch,2023-01-13,0,0.053801402,0.727,1.0920391641713827
+210,Fritsch &amp; Fritsch,2023-02-15,0,0.0062982617,0.727,0.0189330179328656
+378,Fritsch &amp; Fritsch,2023-01-29,0,6.596002e-4,0.727,1.1219390194293912
+294,Fritsch &amp; Fritsch,2023-03-21,0,0.85546285,0.727,1.1038427721060056
+248,Fritsch &amp; Fritsch,2023-03-27,0,0.03374543,0.727,0.079659192091873
+334,Fritsch &amp; Fritsch,2023-02-27,0,0.010514908,0.727,0.0664022783020107
+228,Fritsch &amp; Fritsch,2023-03-19,1,0.026538111,0.727,1.1274705818285398
+250,Fritsch &amp; Fritsch,2023-01-24,0,0.5458885,0.727,1.1070096701184933
+314,Fritsch &amp; Fritsch,2023-02-27,0,2.562467e-4,0.727,1.1565316534314074
+341,Fritsch &amp; Fritsch,2023-02-27,0,0.005878947,0.727,1.0750012447802877
+286,Fritsch &amp; Fritsch,2023-02-14,0,0.18391743,0.727,1.151114538064511
+361,Fritsch &amp; Fritsch,2023-01-01,0,0.057021406,0.727,0.0389095880586878
+244,Fritsch &amp; Fritsch,2023-03-27,0,5.844329e-4,0.727,0.1628508218939803
+279,Fritsch &amp; Fritsch,2023-02-17,0,0.101148106,0.727,0.098055841370775
+302,Fritsch &amp; Fritsch,2023-01-05,0,0.008378361,0.727,1.1056681855338812
+296,Fritsch &amp; Fritsch,2023-03-03,1,0.9737248,0.727,1.2940866046734034
+215,Fritsch &amp; Fritsch,2023-03-23,1,0.44451058,0.727,0.1485946888358069
+264,Fritsch &amp; Fritsch,2023-01-17,0,0.011026854000000001,0.727,1.0971973746858978
+263,Fritsch &amp; Fritsch,2023-03-01,0,0.017002124,0.727,0.0652936212357286
+349,Fritsch &amp; Fritsch,2023-03-07,0,0.052240945,0.727,1.1494782553396878
+339,Fritsch &amp; Fritsch,2023-04-01,1,0.82110965,0.727,0.1658443904376221
+301,Fritsch &amp; Fritsch,2023-01-16,0,0.051902127,0.727,0.1013863483700123
+259,Fritsch &amp; Fritsch,2023-01-25,0,0.011026854000000001,0.727,1.166177513433963
+300,Fritsch &amp; Fritsch,2023-01-29,0,4.531328e-4,0.727,0.1410733625721101
+236,Fritsch &amp; Fritsch,2023-01-30,0,0.03192866,0.727,0.1969263375585029
+291,Fritsch &amp; Fritsch,2023-02-17,0,0.21523075,0.727,1.1371311510740738
+221,Fritsch &amp; Fritsch,2023-03-10,0,0.47267234,0.727,0.051463165243258203
+391,Fritsch &amp; Fritsch,2023-01-19,0,0.0038934741,0.727,1.0637377195385729
+320,Fritsch &amp; Fritsch,2023-01-30,0,0.0037223082,0.727,1.050446994947837
+297,Fritsch &amp; Fritsch,2023-03-04,0,0.021917637,0.727,1.1814927128062764
+254,Fritsch &amp; Fritsch,2023-02-15,0,0.0057278997,0.727,0.139348971846723
+295,Fritsch &amp; Fritsch,2023-02-28,0,0.094302475,0.727,1.0195612826238587
+266,Fritsch &amp; Fritsch,2023-02-02,0,0.02713681,0.727,1.1567571642740544
+280,Fritsch &amp; Fritsch,2023-01-02,1,0.28761825,0.727,1.1666757772021707
+397,Fritsch &amp; Fritsch,2023-01-01,0,8.14293e-4,0.727,1.2023825884127286
+203,Fritsch &amp; Fritsch,2023-01-23,1,0.015067808,0.727,1.117227979569394
+396,Fritsch &amp; Fritsch,2023-03-10,0,0.26286763,0.727,0.0472016017529595
+289,Fritsch &amp; Fritsch,2023-01-30,0,0.003978128,0.727,1.1127618378000312
+258,Fritsch &amp; Fritsch,2023-01-06,0,2.3396911e-4,0.727,0.129483999651832
+230,Fritsch &amp; Fritsch,2023-03-25,0,0.007413884,0.727,1.0790157307607944
+232,Fritsch &amp; Fritsch,2023-03-22,1,0.39736626,0.727,1.045809472269621
+309,Fritsch &amp; Fritsch,2023-03-31,1,0.0646534,0.727,1.142513464846696
+257,Fritsch &amp; Fritsch,2023-02-05,0,4.2030227e-4,0.727,0.1721043219147598
+390,Fritsch &amp; Fritsch,2023-03-07,0,0.18442275,0.727,0.0294220988525324
+388,Fritsch &amp; Fritsch,2023-03-24,1,0.7637683,0.727,0.1303454445493918
+380,Fritsch &amp; Fritsch,2023-01-06,1,0.5033501,0.727,0.0947911901784009
+331,Fritsch &amp; Fritsch,2023-02-04,0,0.018333044,0.727,0.0810985180871314
+311,Fritsch &amp; Fritsch,2023-02-20,0,0.40999982,0.727,0.1024602493146951
+209,Fritsch &amp; Fritsch,2023-02-12,0,0.022420665,0.727,0.1970011502481187
+222,Fritsch &amp; Fritsch,2023-01-31,0,0.17173569,0.727,1.0968446501834528
+223,Fritsch &amp; Fritsch,2023-01-18,0,0.30898094,0.727,0.0518436169871427
+285,Fritsch &amp; Fritsch,2023-01-13,0,0.13098921,0.727,1.1155843033928434
+398,Fritsch &amp; Fritsch,2023-01-02,0,0.044065084,0.727,1.121770815435699
+204,Fritsch &amp; Fritsch,2023-03-11,0,3.1946754e-4,0.727,1.079832501957774
+272,Fritsch &amp; Fritsch,2023-03-13,0,0.14330977,0.727,1.040274436123384
+269,Fritsch &amp; Fritsch,2023-01-12,0,1.6662259e-4,0.727,0.1559544665610497
+326,Fritsch &amp; Fritsch,2023-01-14,1,0.032594856,0.727,0.1580775229894702
+384,Fritsch &amp; Fritsch,2023-01-05,0,0.01407777,0.727,1.0922793525778989
+205,Fritsch &amp; Fritsch,2023-03-04,0,0.0039401073,0.727,1.0394201743300855
+220,Fritsch &amp; Fritsch,2023-01-01,1,0.01722058,0.727,1.1304432242651643
+328,Fritsch &amp; Fritsch,2023-02-01,1,0.1263778,0.727,0.0689098306734142
+365,Fritsch &amp; Fritsch,2023-02-16,1,0.055628844,0.727,1.1045521682924666
+324,Fritsch &amp; Fritsch,2023-03-11,0,0.8320204,0.727,0.1759290575850101
+308,Fritsch &amp; Fritsch,2023-01-07,0,0.0060746167,0.727,0.1107005170577313
+354,Fritsch &amp; Fritsch,2023-02-24,1,0.025668005,0.727,0.1203832188132277
+219,Fritsch &amp; Fritsch,2023-03-15,0,0.0011474524,0.727,1.087878682539265
+242,Fritsch &amp; Fritsch,2023-02-05,0,0.0038046008,0.727,1.1380690977378072
+212,Fritsch &amp; Fritsch,2023-03-25,0,0.008506459,0.727,0.1134653067802029
+261,Fritsch &amp; Fritsch,2023-03-23,0,0.035150588,0.727,1.1247590897600812
+202,Fritsch &amp; Fritsch,2023-02-11,0,0.007411905,0.727,1.0427256365351536
+292,Fritsch &amp; Fritsch,2023-01-01,0,0.20810522,0.727,0.1147893082208852
+252,Fritsch &amp; Fritsch,2023-03-25,0,0.026536584,0.727,1.0523276552272216
+357,Fritsch &amp; Fritsch,2023-01-23,1,0.124237865,0.727,1.085033131848418
+370,Fritsch &amp; Fritsch,2023-02-19,1,0.7714718,0.727,0.0910457374281693
+327,Fritsch &amp; Fritsch,2023-02-05,0,0.14883229,0.727,1.0835013890515015
+226,Fritsch &amp; Fritsch,2023-03-18,0,0.0850883,0.727,0.1675372381895208
+217,Fritsch &amp; Fritsch,2023-01-22,0,0.008597593,0.727,0.1185780133793893
+387,Fritsch &amp; Fritsch,2023-01-31,0,0.08615121,0.727,0.057082354870273
+283,Fritsch &amp; Fritsch,2023-01-13,0,8.573997e-4,0.727,1.1201189700314946
+318,Fritsch &amp; Fritsch,2023-01-20,0,0.021570161,0.727,0.1110699740834348
+234,Fritsch &amp; Fritsch,2023-02-23,0,0.0011474524,0.727,1.0929293036804897
+231,Fritsch &amp; Fritsch,2023-03-01,0,0.02713681,0.727,1.0895114694218777
+325,Fritsch &amp; Fritsch,2023-01-28,1,0.640394,0.727,1.1344822135861288
+395,Fritsch &amp; Fritsch,2023-02-12,0,2.562467e-4,0.727,0.072384901076557
+352,Fritsch &amp; Fritsch,2023-03-18,0,0.020198904,0.727,0.0771729244660083
+362,Fritsch &amp; Fritsch,2023-02-12,0,0.021032954,0.727,1.08181651904278
+246,Fritsch &amp; Fritsch,2023-02-06,0,0.0477094,0.727,0.0680249288179094
+356,Fritsch &amp; Fritsch,2023-02-02,0,0.04010874,0.727,0.0768282452841528
+375,Fritsch &amp; Fritsch,2023-01-30,1,0.25526205,0.727,0.081957682968991
+359,Fritsch &amp; Fritsch,2023-04-01,1,0.027723527,0.727,1.1274603051731444
+315,Fritsch &amp; Fritsch,2023-01-16,0,0.89041793,0.727,0.0593836947517993
+214,Fritsch &amp; Fritsch,2023-01-03,0,0.0061433944,0.727,0.1931007138527479
+450,Hintz &amp; Hintz,2023-03-09,0,0.1701673,0.934,1.1068552243842018
+538,Hintz &amp; Hintz,2023-02-01,1,0.8598257,0.934,0.1044032735979264
+443,Hintz &amp; Hintz,2023-01-28,1,0.06102638,0.934,1.126421115181424
+490,Hintz &amp; Hintz,2023-03-03,1,0.0244589,0.934,1.1846717309580177
+564,Hintz &amp; Hintz,2023-01-20,0,6.792998e-4,0.934,0.1230877877855508
+589,Hintz &amp; Hintz,2023-01-13,0,0.044336256,0.934,0.955499082470552
+458,Hintz &amp; Hintz,2023-02-22,1,0.95590156,0.934,1.1031464584348014
+578,Hintz &amp; Hintz,2023-01-15,1,0.07901703,0.934,1.0937359258937789
+426,Hintz &amp; Hintz,2023-03-13,1,0.2623574,0.934,0.1728583190721533
+563,Hintz &amp; Hintz,2023-02-01,0,0.06882919,0.934,1.1771324857029042
+480,Hintz &amp; Hintz,2023-03-21,0,0.06367789,0.934,1.108782934831115
+471,Hintz &amp; Hintz,2023-03-07,0,0.06850347,0.934,1.1948685870458229
+547,Hintz &amp; Hintz,2023-01-26,1,0.01722058,0.934,0.0312985160112934
+454,Hintz &amp; Hintz,2023-01-28,0,0.03110653,0.934,1.1161153062243407
+587,Hintz &amp; Hintz,2023-02-10,1,0.19495015,0.934,0.174837639078212
+409,Hintz &amp; Hintz,2023-02-06,0,0.003525351,0.934,1.062705988474564
+542,Hintz &amp; Hintz,2023-03-25,0,5.5642764e-4,0.934,0.0311436021264635
+548,Hintz &amp; Hintz,2023-02-14,1,0.14660004,0.934,0.1563855280240541
+456,Hintz &amp; Hintz,2023-03-05,1,0.5646388,0.934,1.122043722588777
+586,Hintz &amp; Hintz,2023-01-02,0,0.0016085407,0.934,1.0388789699491705
+427,Hintz &amp; Hintz,2023-01-09,0,4.366419e-4,0.934,1.1433223524247005
+522,Hintz &amp; Hintz,2023-01-21,0,0.040729154,0.934,0.0256051623402911
+449,Hintz &amp; Hintz,2023-03-01,0,0.05801831,0.934,0.1600088488465246
+474,Hintz &amp; Hintz,2023-02-05,0,0.034921747,0.934,1.167358199984491
+445,Hintz &amp; Hintz,2023-01-23,0,0.014691184,0.934,1.133676497730964
+505,Hintz &amp; Hintz,2023-03-24,1,0.8621201,0.934,0.1337478543164452
+410,Hintz &amp; Hintz,2023-03-31,1,0.88824934,0.934,1.1323931258191502
+462,Hintz &amp; Hintz,2023-03-31,0,0.02151093,0.934,0.1062821403410974
+557,Hintz &amp; Hintz,2023-02-14,0,0.03179885,0.934,1.049720145250293
+401,Hintz &amp; Hintz,2023-02-15,0,0.0012305528,0.934,1.053233198138479
+574,Hintz &amp; Hintz,2023-01-26,0,0.5919985,0.934,0.0683046099830677
+517,Hintz &amp; Hintz,2023-03-20,1,0.18926267,0.934,0.1716475392570836
+477,Hintz &amp; Hintz,2023-03-17,0,0.0073302207,0.934,1.127131891662609
+579,Hintz &amp; Hintz,2023-01-02,0,0.016731959,0.934,1.0654368002494965
+432,Hintz &amp; Hintz,2023-02-09,0,0.02713681,0.934,1.1380909910930856
+524,Hintz &amp; Hintz,2023-03-23,0,0.004010897,0.934,1.1202351027992503
+455,Hintz &amp; Hintz,2023-02-13,0,0.002227653,0.934,1.0829340975382702
+561,Hintz &amp; Hintz,2023-01-19,1,0.09165248,0.934,0.1037107972905217
+554,Hintz &amp; Hintz,2023-02-24,0,0.0013029911,0.934,1.0779649551105308
+541,Hintz &amp; Hintz,2023-03-26,0,0.0062745274,0.934,0.0326063299728535
+512,Hintz &amp; Hintz,2023-02-12,0,0.02713681,0.934,1.165237482938431
+453,Hintz &amp; Hintz,2023-02-28,0,0.0105454875,0.934,0.0742547872610601
+599,Hintz &amp; Hintz,2023-03-10,0,0.022691585,0.934,1.078117422744088
+504,Hintz &amp; Hintz,2023-01-14,0,0.0012587371,0.934,0.1577060457590473
+581,Hintz &amp; Hintz,2023-04-01,0,0.0074251355,0.934,0.9917618788478576
+519,Hintz &amp; Hintz,2023-01-24,0,0.41233888,0.934,0.0560391794333758
+435,Hintz &amp; Hintz,2023-01-06,0,7.100313e-4,0.934,1.1219129034161246
+478,Hintz &amp; Hintz,2023-03-25,0,0.12977844,0.934,0.0990493307054747
+543,Hintz &amp; Hintz,2023-03-31,0,0.014825128,0.934,1.0504157172366018
+416,Hintz &amp; Hintz,2023-01-09,1,0.31836855,0.934,1.134545952022915
+452,Hintz &amp; Hintz,2023-01-17,0,0.02713681,0.934,1.1540804647565972
+509,Hintz &amp; Hintz,2023-04-01,0,3.8566397e-4,0.934,0.1071000524414627
+595,Hintz &amp; Hintz,2023-01-22,0,0.05322563,0.934,1.1061557953119374
+493,Hintz &amp; Hintz,2023-03-08,0,0.0027624562,0.934,0.1244750210565094
+511,Hintz &amp; Hintz,2023-02-04,0,2.8499114e-4,0.934,1.1541611607030258
+546,Hintz &amp; Hintz,2023-01-14,0,0.0016689355,0.934,0.1539256340391158
+415,Hintz &amp; Hintz,2023-01-25,0,0.0030429794,0.934,0.0890199978786554
+555,Hintz &amp; Hintz,2023-02-28,0,0.8396749,0.934,1.0932462456408627
+417,Hintz &amp; Hintz,2023-03-20,0,0.20999487,0.934,0.1072377732395115
+532,Hintz &amp; Hintz,2023-04-01,0,0.0035428032,0.934,0.1882874038866111
+413,Hintz &amp; Hintz,2023-01-03,0,0.02713681,0.934,1.0791669209733907
+534,Hintz &amp; Hintz,2023-01-18,0,0.01722058,0.934,0.0726831353010628
+444,Hintz &amp; Hintz,2023-02-09,0,0.003961715,0.934,1.0281795685345705
+568,Hintz &amp; Hintz,2023-03-11,0,0.011916836,0.934,0.148138560058259
+442,Hintz &amp; Hintz,2023-01-19,1,0.016262366,0.934,0.1278908670435503
+482,Hintz &amp; Hintz,2023-01-17,0,0.0075225546,0.934,1.0951944177968274
+420,Hintz &amp; Hintz,2023-03-01,0,0.014386703,0.934,0.0596753877944121
+500,Hintz &amp; Hintz,2023-03-26,0,9.4913295e-4,0.934,0.1878545592540821
+489,Hintz &amp; Hintz,2023-03-11,0,0.009899498,0.934,0.0507569225199717
+566,Hintz &amp; Hintz,2023-02-21,1,0.32672116,0.934,1.1168607644113324
+418,Hintz &amp; Hintz,2023-03-30,0,0.035792656,0.934,0.0793191031104142
+464,Hintz &amp; Hintz,2023-03-09,0,0.001030728,0.934,1.2176073646160606
+488,Hintz &amp; Hintz,2023-01-01,0,0.0019740025,0.934,1.07045941125935
+560,Hintz &amp; Hintz,2023-02-19,1,0.87406754,0.934,1.1840352414983952
+508,Hintz &amp; Hintz,2023-03-29,0,0.0059008,0.934,1.0041977643989333
+562,Hintz &amp; Hintz,2023-01-28,0,0.25797996,0.934,0.1130850266731972
+446,Hintz &amp; Hintz,2023-01-30,1,0.3901382,0.934,1.1247395253124084
+487,Hintz &amp; Hintz,2023-03-17,1,0.050020643,0.934,0.10501316691808
+486,Hintz &amp; Hintz,2023-02-28,0,0.52094424,0.934,0.0442753829011319
+507,Hintz &amp; Hintz,2023-01-03,0,0.006595796,0.934,1.0438526458466548
+551,Hintz &amp; Hintz,2023-01-25,1,0.14365149,0.934,0.9934708856639304
+535,Hintz &amp; Hintz,2023-01-13,0,0.0069284798,0.934,0.0693340868442309
+597,Hintz &amp; Hintz,2023-03-15,0,5.4465205e-4,0.934,0.0293831628491591
+553,Hintz &amp; Hintz,2023-04-01,0,0.0011474524,0.934,0.089332540325546
+501,Hintz &amp; Hintz,2023-01-31,1,0.96700424,0.934,0.1421078480165114
+514,Hintz &amp; Hintz,2023-03-07,0,0.0023783434,0.934,0.1932806491927614
+526,Hintz &amp; Hintz,2023-02-24,1,0.9467816,0.934,1.0392284145694073
+565,Hintz &amp; Hintz,2023-03-19,1,0.98436683,0.934,0.1623319127713567
+544,Hintz &amp; Hintz,2023-01-11,1,0.0013307774,0.934,1.1208364847296046
+400,Hintz &amp; Hintz,2023-02-13,1,0.23045018,0.934,1.1005934567176343
+422,Hintz &amp; Hintz,2023-02-12,0,8.499933e-4,0.934,0.0990542898044073
+523,Hintz &amp; Hintz,2023-01-26,0,0.02713681,0.934,0.1006112038224418
+583,Hintz &amp; Hintz,2023-03-09,1,0.9309046,0.934,0.020886765584435
+481,Hintz &amp; Hintz,2023-02-04,0,0.016241034,0.934,0.0476784537561671
+499,Hintz &amp; Hintz,2023-01-31,0,0.02713681,0.934,1.118459299537331
+573,Hintz &amp; Hintz,2023-02-18,0,0.64166915,0.934,0.0722461706948132
+407,Hintz &amp; Hintz,2023-02-02,0,0.008933006,0.934,1.107735797143414
+533,Hintz &amp; Hintz,2023-03-28,1,0.0011969404,0.934,1.0584957994495785
+582,Hintz &amp; Hintz,2023-03-13,0,0.039883167,0.934,0.1430526701467971
+591,Hintz &amp; Hintz,2023-03-18,0,1.21852885e-4,0.934,1.1563141957899683
+731,Mosciski and Sons,2023-03-26,1,0.0013307774,0.8879999999999999,1.185076311722786
+647,Mosciski and Sons,2023-03-13,0,0.10936674,0.8879999999999999,1.0674774200149009
+729,Mosciski and Sons,2023-02-11,0,1.9797268e-4,0.8879999999999999,1.1154570969083917
+727,Mosciski and Sons,2023-02-02,0,0.003229611,0.8879999999999999,0.0727039108340473
+612,Mosciski and Sons,2023-01-19,1,0.04316289,0.8879999999999999,0.1048574129070726
+614,Mosciski and Sons,2023-01-27,0,5.958507e-4,0.8879999999999999,0.0830258933963685
+621,Mosciski and Sons,2023-01-23,1,0.86696565,0.8879999999999999,1.1018535819282855
+693,Mosciski and Sons,2023-03-26,0,0.5202152,0.8879999999999999,0.1065532567252535
+681,Mosciski and Sons,2023-02-11,1,0.51045996,0.8879999999999999,1.129195399923456
+676,Mosciski and Sons,2023-02-05,0,0.0010871114,0.8879999999999999,0.1450376910946741
+707,Mosciski and Sons,2023-02-14,0,0.008150931,0.8879999999999999,0.1251337710289197
+713,Mosciski and Sons,2023-01-26,0,5.2595546e-4,0.8879999999999999,1.0856008079683452
+789,Mosciski and Sons,2023-03-21,0,0.5256873,0.8879999999999999,0.0592039749503366
+654,Mosciski and Sons,2023-02-15,0,0.049613122,0.8879999999999999,1.123088731753324
+660,Mosciski and Sons,2023-01-03,0,0.018622428,0.8879999999999999,0.1009149431519532
+701,Mosciski and Sons,2023-03-30,0,0.03476548,0.8879999999999999,0.1138782460352903
+611,Mosciski and Sons,2023-03-27,0,0.0038235756,0.8879999999999999,1.0502349884156992
+629,Mosciski and Sons,2023-01-04,0,0.0642861,0.8879999999999999,0.0382192519484954
+625,Mosciski and Sons,2023-03-23,0,0.012245923,0.8879999999999999,0.1516688115062547
+708,Mosciski and Sons,2023-01-06,0,0.006585475,0.8879999999999999,0.1655924444801469
+636,Mosciski and Sons,2023-01-24,1,0.10234994,0.8879999999999999,1.0051543185081244
+615,Mosciski and Sons,2023-03-14,1,0.858326,0.8879999999999999,0.1184317770696613
+640,Mosciski and Sons,2023-03-28,0,0.0021567128,0.8879999999999999,0.0868200979628904
+649,Mosciski and Sons,2023-03-28,0,0.4418892,0.8879999999999999,0.1015527753588054
+628,Mosciski and Sons,2023-02-17,0,0.12762818,0.8879999999999999,0.1245685942081463
+769,Mosciski and Sons,2023-03-02,1,0.009295199,0.8879999999999999,1.108677468175114
+736,Mosciski and Sons,2023-03-27,1,0.92429477,0.8879999999999999,1.139441270614971
+627,Mosciski and Sons,2023-04-01,0,4.3627844e-4,0.8879999999999999,0.1225426942810387
+743,Mosciski and Sons,2023-03-19,0,0.054935087,0.8879999999999999,-0.0014822862969038
+623,Mosciski and Sons,2023-02-23,1,0.9066716,0.8879999999999999,1.1814889973721443
+784,Mosciski and Sons,2023-01-30,0,0.09775246,0.8879999999999999,0.1894654289692666
+600,Mosciski and Sons,2023-01-14,0,0.003571191,0.8879999999999999,0.1922671661845837
+724,Mosciski and Sons,2023-02-01,0,0.0035205702,0.8879999999999999,1.153591280835914
+639,Mosciski and Sons,2023-01-15,0,0.056981664,0.8879999999999999,0.1269815934052153
+702,Mosciski and Sons,2023-01-07,0,0.0053847716,0.8879999999999999,0.0710617869061485
+786,Mosciski and Sons,2023-01-18,0,1.6935471e-4,0.8879999999999999,0.999113216845917
+648,Mosciski and Sons,2023-03-17,0,0.021917637,0.8879999999999999,1.002083290141563
+692,Mosciski and Sons,2023-03-07,0,0.038905066,0.8879999999999999,1.1346642504097424
+711,Mosciski and Sons,2023-02-21,0,0.7472271,0.8879999999999999,0.1158662295984764
+766,Mosciski and Sons,2023-03-03,0,0.010710109,0.8879999999999999,0.0681001621204367
+616,Mosciski and Sons,2023-02-23,1,0.25494322,0.8879999999999999,0.1360742873157363
+667,Mosciski and Sons,2023-03-30,1,0.95203143,0.8879999999999999,1.1705365402619838
+675,Mosciski and Sons,2023-02-23,0,0.023900347,0.8879999999999999,0.1058727373167783
+617,Mosciski and Sons,2023-02-23,0,0.933767,0.8879999999999999,1.0887264457146264
+687,Mosciski and Sons,2023-03-23,0,0.016035909,0.8879999999999999,1.0806470003952202
+775,Mosciski and Sons,2023-01-18,0,0.0061433944,0.8879999999999999,0.0841596130038128
+682,Mosciski and Sons,2023-01-26,0,0.0843278,0.8879999999999999,1.0584093469214324
+688,Mosciski and Sons,2023-02-17,0,4.8195766e-4,0.8879999999999999,1.0052444421266116
+655,Mosciski and Sons,2023-03-04,0,0.15788873,0.8879999999999999,1.1227909935025977
+646,Mosciski and Sons,2023-02-01,0,0.02713681,0.8879999999999999,0.1372362240201376
+673,Mosciski and Sons,2023-03-06,0,2.0417472e-4,0.8879999999999999,1.0514170086462458
+689,Mosciski and Sons,2023-02-17,0,0.02713681,0.8879999999999999,1.0991564354531485
+694,Mosciski and Sons,2023-01-26,0,0.077929676,0.8879999999999999,0.0732293649370238
+755,Mosciski and Sons,2023-01-22,0,0.0018567637,0.8879999999999999,1.069649564472707
+773,Mosciski and Sons,2023-02-19,0,0.01319327,0.8879999999999999,0.0652957553599793
+796,Mosciski and Sons,2023-02-14,1,0.5423872,0.8879999999999999,1.1260448497925255
+754,Mosciski and Sons,2023-04-01,0,0.02713681,0.8879999999999999,1.092222782785492
+795,Mosciski and Sons,2023-01-13,0,0.0642861,0.8879999999999999,1.0782431349221615
+777,Mosciski and Sons,2023-01-14,0,0.003410091,0.8879999999999999,0.1235515440442039
+748,Mosciski and Sons,2023-02-25,0,0.014180996,0.8879999999999999,0.058369806591113
+791,Mosciski and Sons,2023-01-23,0,0.11277599,0.8879999999999999,0.1522006628542877
+738,Mosciski and Sons,2023-03-23,0,2.1690133e-4,0.8879999999999999,0.207276174108371
+774,Mosciski and Sons,2023-01-25,0,0.19778694,0.8879999999999999,0.0340935652796324
+792,Mosciski and Sons,2023-03-08,1,0.9268653,0.8879999999999999,0.1117071715622744
+793,Mosciski and Sons,2023-01-25,0,0.3713521,0.8879999999999999,1.0595568794809826
+691,Mosciski and Sons,2023-01-10,0,0.003035573,0.8879999999999999,0.1097194484226117
+604,Mosciski and Sons,2023-02-24,0,0.91099197,0.8879999999999999,1.157739494394615
+618,Mosciski and Sons,2023-01-19,1,0.06289425,0.8879999999999999,1.019638173073521
+757,Mosciski and Sons,2023-03-05,0,0.003167176,0.8879999999999999,1.0827029639442531
+620,Mosciski and Sons,2023-01-01,1,0.98540074,0.8879999999999999,1.1415314160425178
+630,Mosciski and Sons,2023-01-03,0,0.81901187,0.8879999999999999,1.1038088417094063
+715,Mosciski and Sons,2023-01-12,1,0.9535631,0.8879999999999999,1.0107181258409408
+679,Mosciski and Sons,2023-03-27,0,0.13858669,0.8879999999999999,0.0986381004135453
+669,Mosciski and Sons,2023-01-05,1,0.9289174,0.8879999999999999,0.1281639269376895
+767,Mosciski and Sons,2023-02-15,0,0.05920328,0.8879999999999999,1.160854106332284
+732,Mosciski and Sons,2023-02-14,0,0.02713681,0.8879999999999999,1.082592800477486
+690,Mosciski and Sons,2023-03-07,1,0.005718609,0.8879999999999999,1.1361694677257084
+734,Mosciski and Sons,2023-03-19,0,0.0642861,0.8879999999999999,1.0892647025438311
+772,Mosciski and Sons,2023-02-03,1,0.009995974,0.8879999999999999,0.0727606859252713
+607,Mosciski and Sons,2023-03-28,0,0.9004678,0.8879999999999999,1.0280517606392372
+765,Mosciski and Sons,2023-01-11,0,0.016281936,0.8879999999999999,1.1349394300608822
+685,Mosciski and Sons,2023-01-25,0,0.013594767,0.8879999999999999,1.0738504711377068
+741,Mosciski and Sons,2023-03-01,0,0.010847072,0.8879999999999999,1.11725468708371
+721,Mosciski and Sons,2023-01-17,1,0.92699265,0.8879999999999999,1.0671492159044886
+787,Mosciski and Sons,2023-02-22,0,0.004928262,0.8879999999999999,1.1141644612043462
+619,Mosciski and Sons,2023-02-06,0,1.6374596e-4,0.8879999999999999,0.002592094407338
+776,Mosciski and Sons,2023-03-19,0,0.02713681,0.8879999999999999,0.1030663456404976
+780,Mosciski and Sons,2023-02-19,0,0.8177334,0.8879999999999999,1.0564186831794762
+703,Mosciski and Sons,2023-03-31,0,0.0046089096,0.8879999999999999,1.1129694972848172
+601,Mosciski and Sons,2023-03-03,0,0.005612415,0.8879999999999999,0.0743810749090334
+762,Mosciski and Sons,2023-02-11,0,0.010868683,0.8879999999999999,-0.0079396866725947
+656,Mosciski and Sons,2023-02-27,0,0.016419558,0.8879999999999999,1.0635699540448271
+752,Mosciski and Sons,2023-01-29,0,0.02713681,0.8879999999999999,0.0681084715573242
+680,Mosciski and Sons,2023-01-17,0,0.039191496,0.8879999999999999,0.0939338477458055
+760,Mosciski and Sons,2023-03-01,0,0.0014032405,0.8879999999999999,1.0660642438654897
+666,Mosciski and Sons,2023-01-24,0,0.010427132,0.8879999999999999,1.099002169980558
+790,Mosciski and Sons,2023-02-20,0,0.51385003,0.8879999999999999,1.1702777876683037
+699,Mosciski and Sons,2023-01-06,1,0.004392893,0.8879999999999999,1.1790449354653538
+643,Mosciski and Sons,2023-02-11,0,0.4886055,0.8879999999999999,0.0130214920562096
+728,Mosciski and Sons,2023-03-14,0,0.02713681,0.8879999999999999,1.0923704911045589
+901,Wolff Ltd,2023-03-21,0,0.0015656011,0.726,1.1073800884366118
+873,Wolff Ltd,2023-01-01,0,0.02713681,0.726,1.1100978329479614
+837,Wolff Ltd,2023-01-09,1,0.014136449,0.726,0.1290009155954002
+914,Wolff Ltd,2023-03-12,0,0.02455339,0.726,1.1501850410239252
+967,Wolff Ltd,2023-02-14,0,0.007698572,0.726,1.1341592164877596
+822,Wolff Ltd,2023-03-10,1,0.9264066,0.726,0.073899914275038
+831,Wolff Ltd,2023-03-09,0,0.019275283,0.726,0.0376105785869047
+989,Wolff Ltd,2023-03-27,0,0.024350211,0.726,1.1158046999184683
+959,Wolff Ltd,2023-01-20,0,9.1150746e-4,0.726,0.1292121514075647
+894,Wolff Ltd,2023-01-10,1,0.20550598,0.726,0.0597702756159074
+860,Wolff Ltd,2023-01-30,0,0.0016855258,0.726,0.1182546013805456
+982,Wolff Ltd,2023-01-27,1,0.7256641,0.726,1.1000028156503965
+868,Wolff Ltd,2023-02-16,0,0.021917637,0.726,1.1287680953090804
+910,Wolff Ltd,2023-03-02,0,2.0253863e-4,0.726,0.0714257898478195
+848,Wolff Ltd,2023-01-08,0,0.23963508,0.726,1.036054449524078
+877,Wolff Ltd,2023-01-04,0,0.05022146,0.726,1.101235670699939
+813,Wolff Ltd,2023-02-09,0,7.453233e-4,0.726,0.1547157813235877
+948,Wolff Ltd,2023-02-05,0,0.0037316016,0.726,1.0802703915559262
+969,Wolff Ltd,2023-03-19,1,0.51019555,0.726,0.0552505468881667
+817,Wolff Ltd,2023-02-28,0,0.017986858,0.726,0.0623583218467312
+980,Wolff Ltd,2023-03-21,0,0.06911792,0.726,1.0609929597275138
+900,Wolff Ltd,2023-02-18,0,0.0023566363,0.726,1.107596958094453
+903,Wolff Ltd,2023-01-19,0,0.023743665,0.726,0.0336200123711356
+869,Wolff Ltd,2023-03-07,0,0.006336129,0.726,1.1350904913945827
+979,Wolff Ltd,2023-01-18,0,0.1267301,0.726,1.0659414564172136
+818,Wolff Ltd,2023-01-12,0,0.045687977,0.726,0.0794832560707618
+867,Wolff Ltd,2023-03-12,0,0.002391879,0.726,0.0888979294066529
+821,Wolff Ltd,2023-03-13,0,0.02713681,0.726,1.1043172196605493
+960,Wolff Ltd,2023-01-09,0,7.173031e-4,0.726,1.0849204359218412
+843,Wolff Ltd,2023-02-02,1,0.91909254,0.726,1.151552812209392
+957,Wolff Ltd,2023-01-04,0,0.005344911,0.726,1.1648272738887036
+908,Wolff Ltd,2023-02-06,0,0.01743073,0.726,1.0560925622372286
+966,Wolff Ltd,2023-01-21,0,0.0038639638,0.726,0.0614188235887227
+986,Wolff Ltd,2023-03-15,0,0.004426663,0.726,0.1166540480987674
+928,Wolff Ltd,2023-03-24,0,0.02713681,0.726,1.0918009708604162
+942,Wolff Ltd,2023-02-15,0,0.040216736,0.726,1.0593747529470676
+815,Wolff Ltd,2023-02-04,0,0.0403938,0.726,0.1523745209221236
+922,Wolff Ltd,2023-03-03,0,0.01288958,0.726,1.107810063713731
+855,Wolff Ltd,2023-04-01,0,0.0061369,0.726,0.0448008972256167
+809,Wolff Ltd,2023-01-12,0,0.0023616517,0.726,1.0452024196334224
+941,Wolff Ltd,2023-03-09,0,0.006880349,0.726,0.1362693366395884
+896,Wolff Ltd,2023-03-28,0,0.0018684408,0.726,1.0806545643494854
+998,Wolff Ltd,2023-01-24,0,0.017293109,0.726,1.11101882511548
+872,Wolff Ltd,2023-02-26,0,9.82973e-4,0.726,0.1075373780762863
+937,Wolff Ltd,2023-02-21,1,0.118713334,0.726,-0.011430135510996
+830,Wolff Ltd,2023-03-15,1,0.11616709,0.726,0.0936397242412064
+828,Wolff Ltd,2023-02-15,1,0.02713681,0.726,1.1535389877837574
+968,Wolff Ltd,2023-02-25,0,8.127345e-4,0.726,1.1149767903621486
+904,Wolff Ltd,2023-03-10,0,3.250132e-4,0.726,1.039221638197544
+933,Wolff Ltd,2023-02-08,0,0.022062326,0.726,0.1643461712587002
+920,Wolff Ltd,2023-02-10,0,0.0034829043,0.726,0.0579344410805292
+893,Wolff Ltd,2023-03-30,0,0.02752766,0.726,0.1629244283184082
+826,Wolff Ltd,2023-01-27,0,0.11980678,0.726,0.1118239832708646
+906,Wolff Ltd,2023-01-19,0,8.691524e-4,0.726,1.128437553245591
+975,Wolff Ltd,2023-01-30,0,1.7651406e-4,0.726,0.1755410023823818
+853,Wolff Ltd,2023-03-26,0,0.007967289,0.726,1.1269821828927462
+835,Wolff Ltd,2023-02-16,0,4.5773044e-4,0.726,1.1060996641675185
+946,Wolff Ltd,2023-03-25,1,0.86469084,0.726,0.1672439279654513
+981,Wolff Ltd,2023-02-21,0,4.864218e-4,0.726,0.1095329066380471
+841,Wolff Ltd,2023-02-20,1,0.02275583,0.726,1.12709901198154
+802,Wolff Ltd,2023-03-11,0,0.4858842,0.726,1.140492954062058
+911,Wolff Ltd,2023-03-18,1,0.62254745,0.726,1.085189388452215
+935,Wolff Ltd,2023-03-21,0,0.16649412,0.726,1.1998543236356578
+944,Wolff Ltd,2023-02-25,0,0.03679726,0.726,1.003765139053014
+995,Wolff Ltd,2023-01-03,0,2.8293038e-4,0.726,0.2172049291363578
+970,Wolff Ltd,2023-02-11,0,0.029361194,0.726,1.078402608626916
+806,Wolff Ltd,2023-01-08,1,0.0014967432,0.726,0.1497141870460403
+929,Wolff Ltd,2023-01-20,1,0.8817406,0.726,0.1831868727346051
+887,Wolff Ltd,2023-01-10,0,0.76013565,0.726,1.1218262359527982
+846,Wolff Ltd,2023-01-02,0,0.0012982454,0.726,0.0755934329404263
+845,Wolff Ltd,2023-03-02,1,0.051907055,0.726,1.0987321457560757
+878,Wolff Ltd,2023-02-27,0,0.0025967034,0.726,1.1357745302276168
+800,Wolff Ltd,2023-03-11,0,0.0037018147,0.726,1.1165651784532804
+861,Wolff Ltd,2023-01-14,0,0.023446035,0.726,1.1253782280901723
+832,Wolff Ltd,2023-01-08,0,0.008602106,0.726,0.0986691249831899
+842,Wolff Ltd,2023-03-02,0,0.024421345,0.726,0.1556148454573195
+996,Wolff Ltd,2023-01-05,0,0.01090797,0.726,0.1609416639801347
+923,Wolff Ltd,2023-01-09,0,0.0021788233,0.726,1.0080521776814624
+895,Wolff Ltd,2023-02-10,0,1.9449965e-4,0.726,1.0505377461102858
+892,Wolff Ltd,2023-02-10,0,8.517721e-4,0.726,1.044545389222387
+983,Wolff Ltd,2023-02-05,0,0.48974505,0.726,0.047923620649441
+833,Wolff Ltd,2023-02-08,0,4.977726e-4,0.726,0.1091870598062626
+876,Wolff Ltd,2023-01-25,0,0.023232227,0.726,1.0703266457867644
+956,Wolff Ltd,2023-02-01,1,0.04625162,0.726,0.0929863318694679
+819,Wolff Ltd,2023-02-14,1,0.0045832526,0.726,0.1361688761801263
+859,Wolff Ltd,2023-03-26,1,0.92760354,0.726,0.0365125788061349
+839,Wolff Ltd,2023-03-28,0,0.0071243895,0.726,1.0592236691019097
+858,Wolff Ltd,2023-01-08,0,6.880531e-4,0.726,0.0322609777718254
+950,Wolff Ltd,2023-01-28,1,0.027723527,0.726,1.167413665699018
+999,Wolff Ltd,2023-01-26,0,0.33065912,0.726,1.0886532899948944
+840,Wolff Ltd,2023-02-14,0,0.051401,0.726,1.0764428334716791
+851,Wolff Ltd,2023-01-15,0,0.007764892,0.726,1.201769837091461
+976,Wolff Ltd,2023-03-01,0,0.021917637,0.726,0.1131520476646788
+936,Wolff Ltd,2023-02-02,0,2.2685772e-4,0.726,1.0256144618089478
+916,Wolff Ltd,2023-03-08,0,0.31157422,0.726,0.0939590448960927
+955,Wolff Ltd,2023-01-29,0,5.5734755e-4,0.726,0.1260804716414843
+823,Wolff Ltd,2023-03-24,1,0.9944839,0.726,0.1389054009709788
+808,Wolff Ltd,2023-01-15,0,1.507717e-4,0.726,1.0603164175116029
+811,Wolff Ltd,2023-02-08,0,0.47511867,0.726,0.0449847506183881
+814,Wolff Ltd,2023-03-17,1,0.025192128,0.726,1.057791747326691
+
+## file: requirements.txt
+numpy
+pandas
+plotnine
+scikit-learn
+shiny
+</code></pre>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| components: [editor, viewer]
+#| layout: horizontal
+#| viewerHeight: 800
+from shiny.express import input, render, ui
+from shiny import reactive
+from plots import plot_auc_curve, plot_precision_recall_curve, plot_score_distribution
+from data_import import scores
+from shinyswatch import theme
+
+
+app_theme = theme.cerulean
+
+ui.page_opts(
+    title="Model scoring dashboard",
+    theme = app_theme
+)
+
+with ui.sidebar():
+    ui.input_select(
+        "account",
+        "Account",
+        choices=[
+            "Berge &amp; Berge",
+            "Fritsch &amp; Fritsch",
+            "Hintz &amp; Hintz",
+            "Mosciski and Sons",
+            "Wolff Ltd",
+        ],
+    )
+
+ui.nav_spacer(),
+
+with ui.nav_panel("Training Dashboard"):
+
+    with ui.navset_card_underline(title="Model Metrics"):
+
+        with ui.nav_panel("ROC Curve"):
+            @render.plot
+            def roc_curve():
+                return plot_auc_curve(
+                    dat(), 
+                    "is_electronics", 
+                    "training_score"
+                )
+
+        with ui.nav_panel("Precision/Recall"):
+            @render.plot
+            def precision_recall():
+                return plot_precision_recall_curve(
+                    dat(), "is_electronics", 
+                    "training_score"
+                )
+
+    with ui.card():
+        ui.card_header("Training Scores")
+        @render.plot
+        def score_dist():
+            return plot_score_distribution(dat())
+
+with ui.nav_panel("View Data"):
+
+    with ui.layout_columns():
+
+        with ui.value_box():
+            "Row count"
+            @render.text
+            def row_count():
+                return dat().shape[0]
+
+        with ui.value_box():
+            "Mean training score"
+            @render.text
+            def mean_score():
+                return round(dat()["training_score"].mean(), 2)
+                
+    with ui.card():
+        @render.data_frame
+        def data():
+            return dat()
+
+@reactive.calc()
+def dat() -&gt; pd.DataFrame:
+    return scores.loc[scores["account"] == input.account()]
+
+
+
+## file: plots.py
+from pandas import DataFrame
+from plotnine import (
+    aes,
+    geom_abline,
+    geom_density,
+    geom_line,
+    ggplot,
+    labs,
+    theme_minimal,
+)
+from sklearn.metrics import auc, precision_recall_curve, roc_curve
+
+
+def plot_score_distribution(df: DataFrame, color = "blue"):
+    plot = (
+        ggplot(df, aes(x="training_score"))
+        + geom_density(fill=color, alpha=0.3)
+        + theme_minimal()
+        + labs(title="Model scores", x="Score")
+    )
+    return plot
+
+
+def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
+    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
+
+    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
+
+    plot = (
+        ggplot(roc_df, aes(x="fpr", y="tpr"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
+        + labs(
+            title="Receiver Operating Characteristic (ROC)",
+            x="False Positive Rate",
+            y="True Positive Rate",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+
+def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
+    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
+
+    pr_df = DataFrame({"precision": precision, "recall": recall})
+
+    plot = (
+        ggplot(pr_df, aes(x="recall", y="precision"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + labs(
+            title="Precision-Recall Curve",
+            x="Recall",
+            y="Precision",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+app_dir = Path(__file__).parent
+scores = pd.read_csv(app_dir / "scores.csv")
+## file: scores.csv
+id,account,date,is_electronics,training_score,training_auc,prod_score
+197,Berge &amp; Berge,2023-03-22,0,3.8569316e-4,0.706,1.2184013625090797
+147,Berge &amp; Berge,2023-03-04,0,0.059454158,0.706,1.0458517996515018
+151,Berge &amp; Berge,2023-02-26,1,0.43344864,0.706,1.0899208432188952
+191,Berge &amp; Berge,2023-02-05,0,0.07182422,0.706,0.1166857347716988
+97,Berge &amp; Berge,2023-03-20,0,0.036536578,0.706,0.1122427067173862
+42,Berge &amp; Berge,2023-02-24,0,7.8474486e-4,0.706,1.134496258677401
+162,Berge &amp; Berge,2023-03-18,0,0.0021639657,0.706,0.0911876468541704
+86,Berge &amp; Berge,2023-01-31,0,0.0043587093,0.706,0.1072100007045478
+185,Berge &amp; Berge,2023-01-29,0,0.0037410355,0.706,1.0629598986580249
+195,Berge &amp; Berge,2023-03-09,1,0.0064030294,0.706,0.1163625609796782
+65,Berge &amp; Berge,2023-01-12,0,0.01680326,0.706,1.1117144598925008
+0,Berge &amp; Berge,2023-02-17,1,0.16943726,0.706,1.1618205506162425
+153,Berge &amp; Berge,2023-01-17,0,0.009950074,0.706,1.0548759269150825
+7,Berge &amp; Berge,2023-02-24,1,0.07434944,0.706,1.1549266491020864
+108,Berge &amp; Berge,2023-01-16,0,0.0011474524,0.706,0.2033384586903546
+46,Berge &amp; Berge,2023-03-30,1,0.8862941,0.706,1.128921393965052
+78,Berge &amp; Berge,2023-01-03,0,0.10584876,0.706,1.1458269113570143
+133,Berge &amp; Berge,2023-03-08,0,0.010757598,0.706,1.1434908567274518
+39,Berge &amp; Berge,2023-01-31,0,0.0041037435,0.706,1.102184667768606
+50,Berge &amp; Berge,2023-02-09,0,4.3265644e-4,0.706,0.1307080249504367
+134,Berge &amp; Berge,2023-03-26,0,0.026536584,0.706,1.060611614694643
+14,Berge &amp; Berge,2023-01-03,1,0.9737248,0.706,0.0482518688678079
+105,Berge &amp; Berge,2023-02-06,0,0.2176104,0.706,1.1731506131766771
+171,Berge &amp; Berge,2023-03-01,1,0.640394,0.706,0.0344893088752213
+56,Berge &amp; Berge,2023-01-02,1,0.50905395,0.706,1.1379332748001638
+180,Berge &amp; Berge,2023-03-14,0,0.0642861,0.706,1.1407096495166118
+66,Berge &amp; Berge,2023-03-07,1,0.83971083,0.706,1.0837485612427225
+150,Berge &amp; Berge,2023-03-04,0,0.0035049587,0.706,1.1011918088070027
+155,Berge &amp; Berge,2023-02-15,1,0.032146282,0.706,1.120811408972631
+117,Berge &amp; Berge,2023-01-30,1,0.020795507,0.706,0.1429895261825527
+115,Berge &amp; Berge,2023-03-27,0,0.19586882,0.706,0.0559595407746099
+141,Berge &amp; Berge,2023-01-30,0,0.006336129,0.706,0.0278086785772974
+135,Berge &amp; Berge,2023-02-14,0,0.030219903,0.706,0.1026964751058112
+146,Berge &amp; Berge,2023-02-07,0,0.6306924,0.706,0.096962911436626
+126,Berge &amp; Berge,2023-02-11,0,0.0047198967,0.706,1.0245361267752373
+93,Berge &amp; Berge,2023-02-01,0,0.02713681,0.706,0.1579912873196112
+33,Berge &amp; Berge,2023-03-19,0,0.013932462,0.706,0.0321096202157411
+18,Berge &amp; Berge,2023-02-09,0,0.0016045833,0.706,0.9290365950652846
+118,Berge &amp; Berge,2023-03-13,0,8.186491e-4,0.706,1.171047420916767
+121,Berge &amp; Berge,2023-03-28,0,0.042930435,0.706,0.0182820762909576
+3,Berge &amp; Berge,2023-02-16,0,6.695764e-5,0.706,1.0702198663587448
+101,Berge &amp; Berge,2023-03-27,1,0.596601,0.706,0.0354858430405799
+49,Berge &amp; Berge,2023-03-04,0,0.0026418588,0.706,0.135275069008277
+25,Berge &amp; Berge,2023-03-15,0,0.002401195,0.706,1.0803649357719638
+114,Berge &amp; Berge,2023-03-20,0,0.004930519,0.706,0.0529895890406713
+83,Berge &amp; Berge,2023-01-31,0,0.28393862,0.706,1.178427193769903
+26,Berge &amp; Berge,2023-02-19,0,0.0013338907,0.706,0.0790943397275872
+8,Berge &amp; Berge,2023-02-09,1,0.53028095,0.706,1.0790892070448892
+82,Berge &amp; Berge,2023-02-04,0,0.07508605,0.706,1.0792260606504211
+144,Berge &amp; Berge,2023-02-22,1,0.007376648,0.706,0.0159388925203865
+47,Berge &amp; Berge,2023-01-09,0,0.5997613,0.706,0.1503643390126841
+158,Berge &amp; Berge,2023-02-26,0,2.6945552e-4,0.706,0.0789026735194982
+125,Berge &amp; Berge,2023-02-05,0,0.0020228848,0.706,0.0990200427437474
+182,Berge &amp; Berge,2023-01-28,0,0.25345734,0.706,0.0795373098515089
+172,Berge &amp; Berge,2023-02-14,1,0.02713681,0.706,1.114272275398885
+59,Berge &amp; Berge,2023-02-26,0,5.998765e-4,0.706,0.1952806158676867
+106,Berge &amp; Berge,2023-03-28,0,0.4591681,0.706,0.0333539700019854
+178,Berge &amp; Berge,2023-03-19,0,0.0082185855,0.706,1.0660816173986911
+87,Berge &amp; Berge,2023-01-10,1,0.0102780815,0.706,0.0648974711738842
+129,Berge &amp; Berge,2023-01-09,0,0.08157975,0.706,1.1024817266914324
+76,Berge &amp; Berge,2023-02-17,0,0.9813013,0.706,1.0437485590218905
+152,Berge &amp; Berge,2023-04-01,0,0.02713681,0.706,1.0658221905441567
+10,Berge &amp; Berge,2023-03-22,1,0.0018194998,0.706,1.162316179068009
+81,Berge &amp; Berge,2023-02-20,0,0.0040970254,0.706,0.1344352359121208
+21,Berge &amp; Berge,2023-01-30,0,0.17966346,0.706,0.0611759823953039
+188,Berge &amp; Berge,2023-01-23,0,5.169117e-4,0.706,0.0605163725785426
+91,Berge &amp; Berge,2023-01-20,0,0.012792897,0.706,1.1745493364442443
+168,Berge &amp; Berge,2023-02-06,1,0.13991953,0.706,0.0733946355292885
+103,Berge &amp; Berge,2023-01-11,0,0.004973566,0.706,1.0696554116486614
+73,Berge &amp; Berge,2023-02-06,0,0.0031296157,0.706,0.196424055291592
+99,Berge &amp; Berge,2023-03-19,1,0.8845187,0.706,1.0950902714355684
+130,Berge &amp; Berge,2023-03-29,0,0.8360748,0.706,0.1109771893645958
+143,Berge &amp; Berge,2023-02-12,0,0.02713681,0.706,0.0953839965711691
+31,Berge &amp; Berge,2023-03-03,0,0.005173868,0.706,1.0095134249839255
+167,Berge &amp; Berge,2023-02-28,0,0.024421345,0.706,1.185489811661379
+68,Berge &amp; Berge,2023-02-08,0,0.013632686,0.706,0.1176918009270848
+102,Berge &amp; Berge,2023-03-19,0,1.5559672e-4,0.706,1.065979804935678
+84,Berge &amp; Berge,2023-03-29,0,0.02713681,0.706,1.1773390305290543
+32,Berge &amp; Berge,2023-01-24,0,0.4591681,0.706,1.1071007317674466
+160,Berge &amp; Berge,2023-01-09,0,0.006623661,0.706,0.1152776457328768
+164,Berge &amp; Berge,2023-02-22,0,0.28222394,0.706,1.1356251790637168
+89,Berge &amp; Berge,2023-02-03,0,0.03192866,0.706,1.0644034733853214
+94,Berge &amp; Berge,2023-01-28,0,0.0071903053,0.706,0.1056048701372983
+45,Berge &amp; Berge,2023-01-12,0,0.0042942734,0.706,0.1082480366955144
+24,Berge &amp; Berge,2023-03-19,0,0.019535521,0.706,1.0433825213672572
+166,Berge &amp; Berge,2023-02-26,0,0.0060619935,0.706,0.0564479161802195
+77,Berge &amp; Berge,2023-01-31,0,0.0011749135,0.706,1.087268528455399
+95,Berge &amp; Berge,2023-03-03,0,0.08239752,0.706,0.0533042139694344
+58,Berge &amp; Berge,2023-02-12,1,0.041278575,0.706,1.0085201689574197
+148,Berge &amp; Berge,2023-02-26,0,0.0024912758,0.706,1.1628297802769785
+72,Berge &amp; Berge,2023-01-29,0,0.002776768,0.706,1.1740788046681194
+154,Berge &amp; Berge,2023-01-25,0,0.05633103,0.706,1.075950784146292
+54,Berge &amp; Berge,2023-03-23,0,1.5559672e-4,0.706,1.1088940882230371
+174,Berge &amp; Berge,2023-01-15,0,0.0024278944,0.706,0.0508260666041443
+60,Berge &amp; Berge,2023-03-23,0,0.07136285,0.706,0.1123962378606316
+165,Berge &amp; Berge,2023-02-06,0,0.26181462,0.706,1.048973603249126
+161,Berge &amp; Berge,2023-02-24,0,0.0015807872,0.706,1.0699741196609214
+184,Berge &amp; Berge,2023-02-22,0,0.02713681,0.706,-0.0167169970518766
+40,Berge &amp; Berge,2023-03-29,1,0.86764634,0.706,0.1325794389828509
+44,Berge &amp; Berge,2023-03-12,0,0.007022531,0.706,0.11879110789460991
+237,Fritsch &amp; Fritsch,2023-01-14,0,2.358206e-4,0.727,1.0956762144637295
+372,Fritsch &amp; Fritsch,2023-01-30,0,0.0137081025,0.727,0.0451347495536708
+281,Fritsch &amp; Fritsch,2023-03-08,0,0.009095548,0.727,0.1078499667525478
+201,Fritsch &amp; Fritsch,2023-03-25,0,3.8113075e-4,0.727,1.0832891563613951
+377,Fritsch &amp; Fritsch,2023-02-26,0,0.015281866,0.727,0.1219644374830517
+287,Fritsch &amp; Fritsch,2023-03-03,0,1.2389862e-4,0.727,0.1180714382195422
+211,Fritsch &amp; Fritsch,2023-03-31,1,0.11702571,0.727,0.0875116987282002
+366,Fritsch &amp; Fritsch,2023-02-06,0,0.048854023,0.727,1.1479159358438384
+336,Fritsch &amp; Fritsch,2023-01-13,0,0.053801402,0.727,1.0920391641713827
+210,Fritsch &amp; Fritsch,2023-02-15,0,0.0062982617,0.727,0.0189330179328656
+378,Fritsch &amp; Fritsch,2023-01-29,0,6.596002e-4,0.727,1.1219390194293912
+294,Fritsch &amp; Fritsch,2023-03-21,0,0.85546285,0.727,1.1038427721060056
+248,Fritsch &amp; Fritsch,2023-03-27,0,0.03374543,0.727,0.079659192091873
+334,Fritsch &amp; Fritsch,2023-02-27,0,0.010514908,0.727,0.0664022783020107
+228,Fritsch &amp; Fritsch,2023-03-19,1,0.026538111,0.727,1.1274705818285398
+250,Fritsch &amp; Fritsch,2023-01-24,0,0.5458885,0.727,1.1070096701184933
+314,Fritsch &amp; Fritsch,2023-02-27,0,2.562467e-4,0.727,1.1565316534314074
+341,Fritsch &amp; Fritsch,2023-02-27,0,0.005878947,0.727,1.0750012447802877
+286,Fritsch &amp; Fritsch,2023-02-14,0,0.18391743,0.727,1.151114538064511
+361,Fritsch &amp; Fritsch,2023-01-01,0,0.057021406,0.727,0.0389095880586878
+244,Fritsch &amp; Fritsch,2023-03-27,0,5.844329e-4,0.727,0.1628508218939803
+279,Fritsch &amp; Fritsch,2023-02-17,0,0.101148106,0.727,0.098055841370775
+302,Fritsch &amp; Fritsch,2023-01-05,0,0.008378361,0.727,1.1056681855338812
+296,Fritsch &amp; Fritsch,2023-03-03,1,0.9737248,0.727,1.2940866046734034
+215,Fritsch &amp; Fritsch,2023-03-23,1,0.44451058,0.727,0.1485946888358069
+264,Fritsch &amp; Fritsch,2023-01-17,0,0.011026854000000001,0.727,1.0971973746858978
+263,Fritsch &amp; Fritsch,2023-03-01,0,0.017002124,0.727,0.0652936212357286
+349,Fritsch &amp; Fritsch,2023-03-07,0,0.052240945,0.727,1.1494782553396878
+339,Fritsch &amp; Fritsch,2023-04-01,1,0.82110965,0.727,0.1658443904376221
+301,Fritsch &amp; Fritsch,2023-01-16,0,0.051902127,0.727,0.1013863483700123
+259,Fritsch &amp; Fritsch,2023-01-25,0,0.011026854000000001,0.727,1.166177513433963
+300,Fritsch &amp; Fritsch,2023-01-29,0,4.531328e-4,0.727,0.1410733625721101
+236,Fritsch &amp; Fritsch,2023-01-30,0,0.03192866,0.727,0.1969263375585029
+291,Fritsch &amp; Fritsch,2023-02-17,0,0.21523075,0.727,1.1371311510740738
+221,Fritsch &amp; Fritsch,2023-03-10,0,0.47267234,0.727,0.051463165243258203
+391,Fritsch &amp; Fritsch,2023-01-19,0,0.0038934741,0.727,1.0637377195385729
+320,Fritsch &amp; Fritsch,2023-01-30,0,0.0037223082,0.727,1.050446994947837
+297,Fritsch &amp; Fritsch,2023-03-04,0,0.021917637,0.727,1.1814927128062764
+254,Fritsch &amp; Fritsch,2023-02-15,0,0.0057278997,0.727,0.139348971846723
+295,Fritsch &amp; Fritsch,2023-02-28,0,0.094302475,0.727,1.0195612826238587
+266,Fritsch &amp; Fritsch,2023-02-02,0,0.02713681,0.727,1.1567571642740544
+280,Fritsch &amp; Fritsch,2023-01-02,1,0.28761825,0.727,1.1666757772021707
+397,Fritsch &amp; Fritsch,2023-01-01,0,8.14293e-4,0.727,1.2023825884127286
+203,Fritsch &amp; Fritsch,2023-01-23,1,0.015067808,0.727,1.117227979569394
+396,Fritsch &amp; Fritsch,2023-03-10,0,0.26286763,0.727,0.0472016017529595
+289,Fritsch &amp; Fritsch,2023-01-30,0,0.003978128,0.727,1.1127618378000312
+258,Fritsch &amp; Fritsch,2023-01-06,0,2.3396911e-4,0.727,0.129483999651832
+230,Fritsch &amp; Fritsch,2023-03-25,0,0.007413884,0.727,1.0790157307607944
+232,Fritsch &amp; Fritsch,2023-03-22,1,0.39736626,0.727,1.045809472269621
+309,Fritsch &amp; Fritsch,2023-03-31,1,0.0646534,0.727,1.142513464846696
+257,Fritsch &amp; Fritsch,2023-02-05,0,4.2030227e-4,0.727,0.1721043219147598
+390,Fritsch &amp; Fritsch,2023-03-07,0,0.18442275,0.727,0.0294220988525324
+388,Fritsch &amp; Fritsch,2023-03-24,1,0.7637683,0.727,0.1303454445493918
+380,Fritsch &amp; Fritsch,2023-01-06,1,0.5033501,0.727,0.0947911901784009
+331,Fritsch &amp; Fritsch,2023-02-04,0,0.018333044,0.727,0.0810985180871314
+311,Fritsch &amp; Fritsch,2023-02-20,0,0.40999982,0.727,0.1024602493146951
+209,Fritsch &amp; Fritsch,2023-02-12,0,0.022420665,0.727,0.1970011502481187
+222,Fritsch &amp; Fritsch,2023-01-31,0,0.17173569,0.727,1.0968446501834528
+223,Fritsch &amp; Fritsch,2023-01-18,0,0.30898094,0.727,0.0518436169871427
+285,Fritsch &amp; Fritsch,2023-01-13,0,0.13098921,0.727,1.1155843033928434
+398,Fritsch &amp; Fritsch,2023-01-02,0,0.044065084,0.727,1.121770815435699
+204,Fritsch &amp; Fritsch,2023-03-11,0,3.1946754e-4,0.727,1.079832501957774
+272,Fritsch &amp; Fritsch,2023-03-13,0,0.14330977,0.727,1.040274436123384
+269,Fritsch &amp; Fritsch,2023-01-12,0,1.6662259e-4,0.727,0.1559544665610497
+326,Fritsch &amp; Fritsch,2023-01-14,1,0.032594856,0.727,0.1580775229894702
+384,Fritsch &amp; Fritsch,2023-01-05,0,0.01407777,0.727,1.0922793525778989
+205,Fritsch &amp; Fritsch,2023-03-04,0,0.0039401073,0.727,1.0394201743300855
+220,Fritsch &amp; Fritsch,2023-01-01,1,0.01722058,0.727,1.1304432242651643
+328,Fritsch &amp; Fritsch,2023-02-01,1,0.1263778,0.727,0.0689098306734142
+365,Fritsch &amp; Fritsch,2023-02-16,1,0.055628844,0.727,1.1045521682924666
+324,Fritsch &amp; Fritsch,2023-03-11,0,0.8320204,0.727,0.1759290575850101
+308,Fritsch &amp; Fritsch,2023-01-07,0,0.0060746167,0.727,0.1107005170577313
+354,Fritsch &amp; Fritsch,2023-02-24,1,0.025668005,0.727,0.1203832188132277
+219,Fritsch &amp; Fritsch,2023-03-15,0,0.0011474524,0.727,1.087878682539265
+242,Fritsch &amp; Fritsch,2023-02-05,0,0.0038046008,0.727,1.1380690977378072
+212,Fritsch &amp; Fritsch,2023-03-25,0,0.008506459,0.727,0.1134653067802029
+261,Fritsch &amp; Fritsch,2023-03-23,0,0.035150588,0.727,1.1247590897600812
+202,Fritsch &amp; Fritsch,2023-02-11,0,0.007411905,0.727,1.0427256365351536
+292,Fritsch &amp; Fritsch,2023-01-01,0,0.20810522,0.727,0.1147893082208852
+252,Fritsch &amp; Fritsch,2023-03-25,0,0.026536584,0.727,1.0523276552272216
+357,Fritsch &amp; Fritsch,2023-01-23,1,0.124237865,0.727,1.085033131848418
+370,Fritsch &amp; Fritsch,2023-02-19,1,0.7714718,0.727,0.0910457374281693
+327,Fritsch &amp; Fritsch,2023-02-05,0,0.14883229,0.727,1.0835013890515015
+226,Fritsch &amp; Fritsch,2023-03-18,0,0.0850883,0.727,0.1675372381895208
+217,Fritsch &amp; Fritsch,2023-01-22,0,0.008597593,0.727,0.1185780133793893
+387,Fritsch &amp; Fritsch,2023-01-31,0,0.08615121,0.727,0.057082354870273
+283,Fritsch &amp; Fritsch,2023-01-13,0,8.573997e-4,0.727,1.1201189700314946
+318,Fritsch &amp; Fritsch,2023-01-20,0,0.021570161,0.727,0.1110699740834348
+234,Fritsch &amp; Fritsch,2023-02-23,0,0.0011474524,0.727,1.0929293036804897
+231,Fritsch &amp; Fritsch,2023-03-01,0,0.02713681,0.727,1.0895114694218777
+325,Fritsch &amp; Fritsch,2023-01-28,1,0.640394,0.727,1.1344822135861288
+395,Fritsch &amp; Fritsch,2023-02-12,0,2.562467e-4,0.727,0.072384901076557
+352,Fritsch &amp; Fritsch,2023-03-18,0,0.020198904,0.727,0.0771729244660083
+362,Fritsch &amp; Fritsch,2023-02-12,0,0.021032954,0.727,1.08181651904278
+246,Fritsch &amp; Fritsch,2023-02-06,0,0.0477094,0.727,0.0680249288179094
+356,Fritsch &amp; Fritsch,2023-02-02,0,0.04010874,0.727,0.0768282452841528
+375,Fritsch &amp; Fritsch,2023-01-30,1,0.25526205,0.727,0.081957682968991
+359,Fritsch &amp; Fritsch,2023-04-01,1,0.027723527,0.727,1.1274603051731444
+315,Fritsch &amp; Fritsch,2023-01-16,0,0.89041793,0.727,0.0593836947517993
+214,Fritsch &amp; Fritsch,2023-01-03,0,0.0061433944,0.727,0.1931007138527479
+450,Hintz &amp; Hintz,2023-03-09,0,0.1701673,0.934,1.1068552243842018
+538,Hintz &amp; Hintz,2023-02-01,1,0.8598257,0.934,0.1044032735979264
+443,Hintz &amp; Hintz,2023-01-28,1,0.06102638,0.934,1.126421115181424
+490,Hintz &amp; Hintz,2023-03-03,1,0.0244589,0.934,1.1846717309580177
+564,Hintz &amp; Hintz,2023-01-20,0,6.792998e-4,0.934,0.1230877877855508
+589,Hintz &amp; Hintz,2023-01-13,0,0.044336256,0.934,0.955499082470552
+458,Hintz &amp; Hintz,2023-02-22,1,0.95590156,0.934,1.1031464584348014
+578,Hintz &amp; Hintz,2023-01-15,1,0.07901703,0.934,1.0937359258937789
+426,Hintz &amp; Hintz,2023-03-13,1,0.2623574,0.934,0.1728583190721533
+563,Hintz &amp; Hintz,2023-02-01,0,0.06882919,0.934,1.1771324857029042
+480,Hintz &amp; Hintz,2023-03-21,0,0.06367789,0.934,1.108782934831115
+471,Hintz &amp; Hintz,2023-03-07,0,0.06850347,0.934,1.1948685870458229
+547,Hintz &amp; Hintz,2023-01-26,1,0.01722058,0.934,0.0312985160112934
+454,Hintz &amp; Hintz,2023-01-28,0,0.03110653,0.934,1.1161153062243407
+587,Hintz &amp; Hintz,2023-02-10,1,0.19495015,0.934,0.174837639078212
+409,Hintz &amp; Hintz,2023-02-06,0,0.003525351,0.934,1.062705988474564
+542,Hintz &amp; Hintz,2023-03-25,0,5.5642764e-4,0.934,0.0311436021264635
+548,Hintz &amp; Hintz,2023-02-14,1,0.14660004,0.934,0.1563855280240541
+456,Hintz &amp; Hintz,2023-03-05,1,0.5646388,0.934,1.122043722588777
+586,Hintz &amp; Hintz,2023-01-02,0,0.0016085407,0.934,1.0388789699491705
+427,Hintz &amp; Hintz,2023-01-09,0,4.366419e-4,0.934,1.1433223524247005
+522,Hintz &amp; Hintz,2023-01-21,0,0.040729154,0.934,0.0256051623402911
+449,Hintz &amp; Hintz,2023-03-01,0,0.05801831,0.934,0.1600088488465246
+474,Hintz &amp; Hintz,2023-02-05,0,0.034921747,0.934,1.167358199984491
+445,Hintz &amp; Hintz,2023-01-23,0,0.014691184,0.934,1.133676497730964
+505,Hintz &amp; Hintz,2023-03-24,1,0.8621201,0.934,0.1337478543164452
+410,Hintz &amp; Hintz,2023-03-31,1,0.88824934,0.934,1.1323931258191502
+462,Hintz &amp; Hintz,2023-03-31,0,0.02151093,0.934,0.1062821403410974
+557,Hintz &amp; Hintz,2023-02-14,0,0.03179885,0.934,1.049720145250293
+401,Hintz &amp; Hintz,2023-02-15,0,0.0012305528,0.934,1.053233198138479
+574,Hintz &amp; Hintz,2023-01-26,0,0.5919985,0.934,0.0683046099830677
+517,Hintz &amp; Hintz,2023-03-20,1,0.18926267,0.934,0.1716475392570836
+477,Hintz &amp; Hintz,2023-03-17,0,0.0073302207,0.934,1.127131891662609
+579,Hintz &amp; Hintz,2023-01-02,0,0.016731959,0.934,1.0654368002494965
+432,Hintz &amp; Hintz,2023-02-09,0,0.02713681,0.934,1.1380909910930856
+524,Hintz &amp; Hintz,2023-03-23,0,0.004010897,0.934,1.1202351027992503
+455,Hintz &amp; Hintz,2023-02-13,0,0.002227653,0.934,1.0829340975382702
+561,Hintz &amp; Hintz,2023-01-19,1,0.09165248,0.934,0.1037107972905217
+554,Hintz &amp; Hintz,2023-02-24,0,0.0013029911,0.934,1.0779649551105308
+541,Hintz &amp; Hintz,2023-03-26,0,0.0062745274,0.934,0.0326063299728535
+512,Hintz &amp; Hintz,2023-02-12,0,0.02713681,0.934,1.165237482938431
+453,Hintz &amp; Hintz,2023-02-28,0,0.0105454875,0.934,0.0742547872610601
+599,Hintz &amp; Hintz,2023-03-10,0,0.022691585,0.934,1.078117422744088
+504,Hintz &amp; Hintz,2023-01-14,0,0.0012587371,0.934,0.1577060457590473
+581,Hintz &amp; Hintz,2023-04-01,0,0.0074251355,0.934,0.9917618788478576
+519,Hintz &amp; Hintz,2023-01-24,0,0.41233888,0.934,0.0560391794333758
+435,Hintz &amp; Hintz,2023-01-06,0,7.100313e-4,0.934,1.1219129034161246
+478,Hintz &amp; Hintz,2023-03-25,0,0.12977844,0.934,0.0990493307054747
+543,Hintz &amp; Hintz,2023-03-31,0,0.014825128,0.934,1.0504157172366018
+416,Hintz &amp; Hintz,2023-01-09,1,0.31836855,0.934,1.134545952022915
+452,Hintz &amp; Hintz,2023-01-17,0,0.02713681,0.934,1.1540804647565972
+509,Hintz &amp; Hintz,2023-04-01,0,3.8566397e-4,0.934,0.1071000524414627
+595,Hintz &amp; Hintz,2023-01-22,0,0.05322563,0.934,1.1061557953119374
+493,Hintz &amp; Hintz,2023-03-08,0,0.0027624562,0.934,0.1244750210565094
+511,Hintz &amp; Hintz,2023-02-04,0,2.8499114e-4,0.934,1.1541611607030258
+546,Hintz &amp; Hintz,2023-01-14,0,0.0016689355,0.934,0.1539256340391158
+415,Hintz &amp; Hintz,2023-01-25,0,0.0030429794,0.934,0.0890199978786554
+555,Hintz &amp; Hintz,2023-02-28,0,0.8396749,0.934,1.0932462456408627
+417,Hintz &amp; Hintz,2023-03-20,0,0.20999487,0.934,0.1072377732395115
+532,Hintz &amp; Hintz,2023-04-01,0,0.0035428032,0.934,0.1882874038866111
+413,Hintz &amp; Hintz,2023-01-03,0,0.02713681,0.934,1.0791669209733907
+534,Hintz &amp; Hintz,2023-01-18,0,0.01722058,0.934,0.0726831353010628
+444,Hintz &amp; Hintz,2023-02-09,0,0.003961715,0.934,1.0281795685345705
+568,Hintz &amp; Hintz,2023-03-11,0,0.011916836,0.934,0.148138560058259
+442,Hintz &amp; Hintz,2023-01-19,1,0.016262366,0.934,0.1278908670435503
+482,Hintz &amp; Hintz,2023-01-17,0,0.0075225546,0.934,1.0951944177968274
+420,Hintz &amp; Hintz,2023-03-01,0,0.014386703,0.934,0.0596753877944121
+500,Hintz &amp; Hintz,2023-03-26,0,9.4913295e-4,0.934,0.1878545592540821
+489,Hintz &amp; Hintz,2023-03-11,0,0.009899498,0.934,0.0507569225199717
+566,Hintz &amp; Hintz,2023-02-21,1,0.32672116,0.934,1.1168607644113324
+418,Hintz &amp; Hintz,2023-03-30,0,0.035792656,0.934,0.0793191031104142
+464,Hintz &amp; Hintz,2023-03-09,0,0.001030728,0.934,1.2176073646160606
+488,Hintz &amp; Hintz,2023-01-01,0,0.0019740025,0.934,1.07045941125935
+560,Hintz &amp; Hintz,2023-02-19,1,0.87406754,0.934,1.1840352414983952
+508,Hintz &amp; Hintz,2023-03-29,0,0.0059008,0.934,1.0041977643989333
+562,Hintz &amp; Hintz,2023-01-28,0,0.25797996,0.934,0.1130850266731972
+446,Hintz &amp; Hintz,2023-01-30,1,0.3901382,0.934,1.1247395253124084
+487,Hintz &amp; Hintz,2023-03-17,1,0.050020643,0.934,0.10501316691808
+486,Hintz &amp; Hintz,2023-02-28,0,0.52094424,0.934,0.0442753829011319
+507,Hintz &amp; Hintz,2023-01-03,0,0.006595796,0.934,1.0438526458466548
+551,Hintz &amp; Hintz,2023-01-25,1,0.14365149,0.934,0.9934708856639304
+535,Hintz &amp; Hintz,2023-01-13,0,0.0069284798,0.934,0.0693340868442309
+597,Hintz &amp; Hintz,2023-03-15,0,5.4465205e-4,0.934,0.0293831628491591
+553,Hintz &amp; Hintz,2023-04-01,0,0.0011474524,0.934,0.089332540325546
+501,Hintz &amp; Hintz,2023-01-31,1,0.96700424,0.934,0.1421078480165114
+514,Hintz &amp; Hintz,2023-03-07,0,0.0023783434,0.934,0.1932806491927614
+526,Hintz &amp; Hintz,2023-02-24,1,0.9467816,0.934,1.0392284145694073
+565,Hintz &amp; Hintz,2023-03-19,1,0.98436683,0.934,0.1623319127713567
+544,Hintz &amp; Hintz,2023-01-11,1,0.0013307774,0.934,1.1208364847296046
+400,Hintz &amp; Hintz,2023-02-13,1,0.23045018,0.934,1.1005934567176343
+422,Hintz &amp; Hintz,2023-02-12,0,8.499933e-4,0.934,0.0990542898044073
+523,Hintz &amp; Hintz,2023-01-26,0,0.02713681,0.934,0.1006112038224418
+583,Hintz &amp; Hintz,2023-03-09,1,0.9309046,0.934,0.020886765584435
+481,Hintz &amp; Hintz,2023-02-04,0,0.016241034,0.934,0.0476784537561671
+499,Hintz &amp; Hintz,2023-01-31,0,0.02713681,0.934,1.118459299537331
+573,Hintz &amp; Hintz,2023-02-18,0,0.64166915,0.934,0.0722461706948132
+407,Hintz &amp; Hintz,2023-02-02,0,0.008933006,0.934,1.107735797143414
+533,Hintz &amp; Hintz,2023-03-28,1,0.0011969404,0.934,1.0584957994495785
+582,Hintz &amp; Hintz,2023-03-13,0,0.039883167,0.934,0.1430526701467971
+591,Hintz &amp; Hintz,2023-03-18,0,1.21852885e-4,0.934,1.1563141957899683
+731,Mosciski and Sons,2023-03-26,1,0.0013307774,0.8879999999999999,1.185076311722786
+647,Mosciski and Sons,2023-03-13,0,0.10936674,0.8879999999999999,1.0674774200149009
+729,Mosciski and Sons,2023-02-11,0,1.9797268e-4,0.8879999999999999,1.1154570969083917
+727,Mosciski and Sons,2023-02-02,0,0.003229611,0.8879999999999999,0.0727039108340473
+612,Mosciski and Sons,2023-01-19,1,0.04316289,0.8879999999999999,0.1048574129070726
+614,Mosciski and Sons,2023-01-27,0,5.958507e-4,0.8879999999999999,0.0830258933963685
+621,Mosciski and Sons,2023-01-23,1,0.86696565,0.8879999999999999,1.1018535819282855
+693,Mosciski and Sons,2023-03-26,0,0.5202152,0.8879999999999999,0.1065532567252535
+681,Mosciski and Sons,2023-02-11,1,0.51045996,0.8879999999999999,1.129195399923456
+676,Mosciski and Sons,2023-02-05,0,0.0010871114,0.8879999999999999,0.1450376910946741
+707,Mosciski and Sons,2023-02-14,0,0.008150931,0.8879999999999999,0.1251337710289197
+713,Mosciski and Sons,2023-01-26,0,5.2595546e-4,0.8879999999999999,1.0856008079683452
+789,Mosciski and Sons,2023-03-21,0,0.5256873,0.8879999999999999,0.0592039749503366
+654,Mosciski and Sons,2023-02-15,0,0.049613122,0.8879999999999999,1.123088731753324
+660,Mosciski and Sons,2023-01-03,0,0.018622428,0.8879999999999999,0.1009149431519532
+701,Mosciski and Sons,2023-03-30,0,0.03476548,0.8879999999999999,0.1138782460352903
+611,Mosciski and Sons,2023-03-27,0,0.0038235756,0.8879999999999999,1.0502349884156992
+629,Mosciski and Sons,2023-01-04,0,0.0642861,0.8879999999999999,0.0382192519484954
+625,Mosciski and Sons,2023-03-23,0,0.012245923,0.8879999999999999,0.1516688115062547
+708,Mosciski and Sons,2023-01-06,0,0.006585475,0.8879999999999999,0.1655924444801469
+636,Mosciski and Sons,2023-01-24,1,0.10234994,0.8879999999999999,1.0051543185081244
+615,Mosciski and Sons,2023-03-14,1,0.858326,0.8879999999999999,0.1184317770696613
+640,Mosciski and Sons,2023-03-28,0,0.0021567128,0.8879999999999999,0.0868200979628904
+649,Mosciski and Sons,2023-03-28,0,0.4418892,0.8879999999999999,0.1015527753588054
+628,Mosciski and Sons,2023-02-17,0,0.12762818,0.8879999999999999,0.1245685942081463
+769,Mosciski and Sons,2023-03-02,1,0.009295199,0.8879999999999999,1.108677468175114
+736,Mosciski and Sons,2023-03-27,1,0.92429477,0.8879999999999999,1.139441270614971
+627,Mosciski and Sons,2023-04-01,0,4.3627844e-4,0.8879999999999999,0.1225426942810387
+743,Mosciski and Sons,2023-03-19,0,0.054935087,0.8879999999999999,-0.0014822862969038
+623,Mosciski and Sons,2023-02-23,1,0.9066716,0.8879999999999999,1.1814889973721443
+784,Mosciski and Sons,2023-01-30,0,0.09775246,0.8879999999999999,0.1894654289692666
+600,Mosciski and Sons,2023-01-14,0,0.003571191,0.8879999999999999,0.1922671661845837
+724,Mosciski and Sons,2023-02-01,0,0.0035205702,0.8879999999999999,1.153591280835914
+639,Mosciski and Sons,2023-01-15,0,0.056981664,0.8879999999999999,0.1269815934052153
+702,Mosciski and Sons,2023-01-07,0,0.0053847716,0.8879999999999999,0.0710617869061485
+786,Mosciski and Sons,2023-01-18,0,1.6935471e-4,0.8879999999999999,0.999113216845917
+648,Mosciski and Sons,2023-03-17,0,0.021917637,0.8879999999999999,1.002083290141563
+692,Mosciski and Sons,2023-03-07,0,0.038905066,0.8879999999999999,1.1346642504097424
+711,Mosciski and Sons,2023-02-21,0,0.7472271,0.8879999999999999,0.1158662295984764
+766,Mosciski and Sons,2023-03-03,0,0.010710109,0.8879999999999999,0.0681001621204367
+616,Mosciski and Sons,2023-02-23,1,0.25494322,0.8879999999999999,0.1360742873157363
+667,Mosciski and Sons,2023-03-30,1,0.95203143,0.8879999999999999,1.1705365402619838
+675,Mosciski and Sons,2023-02-23,0,0.023900347,0.8879999999999999,0.1058727373167783
+617,Mosciski and Sons,2023-02-23,0,0.933767,0.8879999999999999,1.0887264457146264
+687,Mosciski and Sons,2023-03-23,0,0.016035909,0.8879999999999999,1.0806470003952202
+775,Mosciski and Sons,2023-01-18,0,0.0061433944,0.8879999999999999,0.0841596130038128
+682,Mosciski and Sons,2023-01-26,0,0.0843278,0.8879999999999999,1.0584093469214324
+688,Mosciski and Sons,2023-02-17,0,4.8195766e-4,0.8879999999999999,1.0052444421266116
+655,Mosciski and Sons,2023-03-04,0,0.15788873,0.8879999999999999,1.1227909935025977
+646,Mosciski and Sons,2023-02-01,0,0.02713681,0.8879999999999999,0.1372362240201376
+673,Mosciski and Sons,2023-03-06,0,2.0417472e-4,0.8879999999999999,1.0514170086462458
+689,Mosciski and Sons,2023-02-17,0,0.02713681,0.8879999999999999,1.0991564354531485
+694,Mosciski and Sons,2023-01-26,0,0.077929676,0.8879999999999999,0.0732293649370238
+755,Mosciski and Sons,2023-01-22,0,0.0018567637,0.8879999999999999,1.069649564472707
+773,Mosciski and Sons,2023-02-19,0,0.01319327,0.8879999999999999,0.0652957553599793
+796,Mosciski and Sons,2023-02-14,1,0.5423872,0.8879999999999999,1.1260448497925255
+754,Mosciski and Sons,2023-04-01,0,0.02713681,0.8879999999999999,1.092222782785492
+795,Mosciski and Sons,2023-01-13,0,0.0642861,0.8879999999999999,1.0782431349221615
+777,Mosciski and Sons,2023-01-14,0,0.003410091,0.8879999999999999,0.1235515440442039
+748,Mosciski and Sons,2023-02-25,0,0.014180996,0.8879999999999999,0.058369806591113
+791,Mosciski and Sons,2023-01-23,0,0.11277599,0.8879999999999999,0.1522006628542877
+738,Mosciski and Sons,2023-03-23,0,2.1690133e-4,0.8879999999999999,0.207276174108371
+774,Mosciski and Sons,2023-01-25,0,0.19778694,0.8879999999999999,0.0340935652796324
+792,Mosciski and Sons,2023-03-08,1,0.9268653,0.8879999999999999,0.1117071715622744
+793,Mosciski and Sons,2023-01-25,0,0.3713521,0.8879999999999999,1.0595568794809826
+691,Mosciski and Sons,2023-01-10,0,0.003035573,0.8879999999999999,0.1097194484226117
+604,Mosciski and Sons,2023-02-24,0,0.91099197,0.8879999999999999,1.157739494394615
+618,Mosciski and Sons,2023-01-19,1,0.06289425,0.8879999999999999,1.019638173073521
+757,Mosciski and Sons,2023-03-05,0,0.003167176,0.8879999999999999,1.0827029639442531
+620,Mosciski and Sons,2023-01-01,1,0.98540074,0.8879999999999999,1.1415314160425178
+630,Mosciski and Sons,2023-01-03,0,0.81901187,0.8879999999999999,1.1038088417094063
+715,Mosciski and Sons,2023-01-12,1,0.9535631,0.8879999999999999,1.0107181258409408
+679,Mosciski and Sons,2023-03-27,0,0.13858669,0.8879999999999999,0.0986381004135453
+669,Mosciski and Sons,2023-01-05,1,0.9289174,0.8879999999999999,0.1281639269376895
+767,Mosciski and Sons,2023-02-15,0,0.05920328,0.8879999999999999,1.160854106332284
+732,Mosciski and Sons,2023-02-14,0,0.02713681,0.8879999999999999,1.082592800477486
+690,Mosciski and Sons,2023-03-07,1,0.005718609,0.8879999999999999,1.1361694677257084
+734,Mosciski and Sons,2023-03-19,0,0.0642861,0.8879999999999999,1.0892647025438311
+772,Mosciski and Sons,2023-02-03,1,0.009995974,0.8879999999999999,0.0727606859252713
+607,Mosciski and Sons,2023-03-28,0,0.9004678,0.8879999999999999,1.0280517606392372
+765,Mosciski and Sons,2023-01-11,0,0.016281936,0.8879999999999999,1.1349394300608822
+685,Mosciski and Sons,2023-01-25,0,0.013594767,0.8879999999999999,1.0738504711377068
+741,Mosciski and Sons,2023-03-01,0,0.010847072,0.8879999999999999,1.11725468708371
+721,Mosciski and Sons,2023-01-17,1,0.92699265,0.8879999999999999,1.0671492159044886
+787,Mosciski and Sons,2023-02-22,0,0.004928262,0.8879999999999999,1.1141644612043462
+619,Mosciski and Sons,2023-02-06,0,1.6374596e-4,0.8879999999999999,0.002592094407338
+776,Mosciski and Sons,2023-03-19,0,0.02713681,0.8879999999999999,0.1030663456404976
+780,Mosciski and Sons,2023-02-19,0,0.8177334,0.8879999999999999,1.0564186831794762
+703,Mosciski and Sons,2023-03-31,0,0.0046089096,0.8879999999999999,1.1129694972848172
+601,Mosciski and Sons,2023-03-03,0,0.005612415,0.8879999999999999,0.0743810749090334
+762,Mosciski and Sons,2023-02-11,0,0.010868683,0.8879999999999999,-0.0079396866725947
+656,Mosciski and Sons,2023-02-27,0,0.016419558,0.8879999999999999,1.0635699540448271
+752,Mosciski and Sons,2023-01-29,0,0.02713681,0.8879999999999999,0.0681084715573242
+680,Mosciski and Sons,2023-01-17,0,0.039191496,0.8879999999999999,0.0939338477458055
+760,Mosciski and Sons,2023-03-01,0,0.0014032405,0.8879999999999999,1.0660642438654897
+666,Mosciski and Sons,2023-01-24,0,0.010427132,0.8879999999999999,1.099002169980558
+790,Mosciski and Sons,2023-02-20,0,0.51385003,0.8879999999999999,1.1702777876683037
+699,Mosciski and Sons,2023-01-06,1,0.004392893,0.8879999999999999,1.1790449354653538
+643,Mosciski and Sons,2023-02-11,0,0.4886055,0.8879999999999999,0.0130214920562096
+728,Mosciski and Sons,2023-03-14,0,0.02713681,0.8879999999999999,1.0923704911045589
+901,Wolff Ltd,2023-03-21,0,0.0015656011,0.726,1.1073800884366118
+873,Wolff Ltd,2023-01-01,0,0.02713681,0.726,1.1100978329479614
+837,Wolff Ltd,2023-01-09,1,0.014136449,0.726,0.1290009155954002
+914,Wolff Ltd,2023-03-12,0,0.02455339,0.726,1.1501850410239252
+967,Wolff Ltd,2023-02-14,0,0.007698572,0.726,1.1341592164877596
+822,Wolff Ltd,2023-03-10,1,0.9264066,0.726,0.073899914275038
+831,Wolff Ltd,2023-03-09,0,0.019275283,0.726,0.0376105785869047
+989,Wolff Ltd,2023-03-27,0,0.024350211,0.726,1.1158046999184683
+959,Wolff Ltd,2023-01-20,0,9.1150746e-4,0.726,0.1292121514075647
+894,Wolff Ltd,2023-01-10,1,0.20550598,0.726,0.0597702756159074
+860,Wolff Ltd,2023-01-30,0,0.0016855258,0.726,0.1182546013805456
+982,Wolff Ltd,2023-01-27,1,0.7256641,0.726,1.1000028156503965
+868,Wolff Ltd,2023-02-16,0,0.021917637,0.726,1.1287680953090804
+910,Wolff Ltd,2023-03-02,0,2.0253863e-4,0.726,0.0714257898478195
+848,Wolff Ltd,2023-01-08,0,0.23963508,0.726,1.036054449524078
+877,Wolff Ltd,2023-01-04,0,0.05022146,0.726,1.101235670699939
+813,Wolff Ltd,2023-02-09,0,7.453233e-4,0.726,0.1547157813235877
+948,Wolff Ltd,2023-02-05,0,0.0037316016,0.726,1.0802703915559262
+969,Wolff Ltd,2023-03-19,1,0.51019555,0.726,0.0552505468881667
+817,Wolff Ltd,2023-02-28,0,0.017986858,0.726,0.0623583218467312
+980,Wolff Ltd,2023-03-21,0,0.06911792,0.726,1.0609929597275138
+900,Wolff Ltd,2023-02-18,0,0.0023566363,0.726,1.107596958094453
+903,Wolff Ltd,2023-01-19,0,0.023743665,0.726,0.0336200123711356
+869,Wolff Ltd,2023-03-07,0,0.006336129,0.726,1.1350904913945827
+979,Wolff Ltd,2023-01-18,0,0.1267301,0.726,1.0659414564172136
+818,Wolff Ltd,2023-01-12,0,0.045687977,0.726,0.0794832560707618
+867,Wolff Ltd,2023-03-12,0,0.002391879,0.726,0.0888979294066529
+821,Wolff Ltd,2023-03-13,0,0.02713681,0.726,1.1043172196605493
+960,Wolff Ltd,2023-01-09,0,7.173031e-4,0.726,1.0849204359218412
+843,Wolff Ltd,2023-02-02,1,0.91909254,0.726,1.151552812209392
+957,Wolff Ltd,2023-01-04,0,0.005344911,0.726,1.1648272738887036
+908,Wolff Ltd,2023-02-06,0,0.01743073,0.726,1.0560925622372286
+966,Wolff Ltd,2023-01-21,0,0.0038639638,0.726,0.0614188235887227
+986,Wolff Ltd,2023-03-15,0,0.004426663,0.726,0.1166540480987674
+928,Wolff Ltd,2023-03-24,0,0.02713681,0.726,1.0918009708604162
+942,Wolff Ltd,2023-02-15,0,0.040216736,0.726,1.0593747529470676
+815,Wolff Ltd,2023-02-04,0,0.0403938,0.726,0.1523745209221236
+922,Wolff Ltd,2023-03-03,0,0.01288958,0.726,1.107810063713731
+855,Wolff Ltd,2023-04-01,0,0.0061369,0.726,0.0448008972256167
+809,Wolff Ltd,2023-01-12,0,0.0023616517,0.726,1.0452024196334224
+941,Wolff Ltd,2023-03-09,0,0.006880349,0.726,0.1362693366395884
+896,Wolff Ltd,2023-03-28,0,0.0018684408,0.726,1.0806545643494854
+998,Wolff Ltd,2023-01-24,0,0.017293109,0.726,1.11101882511548
+872,Wolff Ltd,2023-02-26,0,9.82973e-4,0.726,0.1075373780762863
+937,Wolff Ltd,2023-02-21,1,0.118713334,0.726,-0.011430135510996
+830,Wolff Ltd,2023-03-15,1,0.11616709,0.726,0.0936397242412064
+828,Wolff Ltd,2023-02-15,1,0.02713681,0.726,1.1535389877837574
+968,Wolff Ltd,2023-02-25,0,8.127345e-4,0.726,1.1149767903621486
+904,Wolff Ltd,2023-03-10,0,3.250132e-4,0.726,1.039221638197544
+933,Wolff Ltd,2023-02-08,0,0.022062326,0.726,0.1643461712587002
+920,Wolff Ltd,2023-02-10,0,0.0034829043,0.726,0.0579344410805292
+893,Wolff Ltd,2023-03-30,0,0.02752766,0.726,0.1629244283184082
+826,Wolff Ltd,2023-01-27,0,0.11980678,0.726,0.1118239832708646
+906,Wolff Ltd,2023-01-19,0,8.691524e-4,0.726,1.128437553245591
+975,Wolff Ltd,2023-01-30,0,1.7651406e-4,0.726,0.1755410023823818
+853,Wolff Ltd,2023-03-26,0,0.007967289,0.726,1.1269821828927462
+835,Wolff Ltd,2023-02-16,0,4.5773044e-4,0.726,1.1060996641675185
+946,Wolff Ltd,2023-03-25,1,0.86469084,0.726,0.1672439279654513
+981,Wolff Ltd,2023-02-21,0,4.864218e-4,0.726,0.1095329066380471
+841,Wolff Ltd,2023-02-20,1,0.02275583,0.726,1.12709901198154
+802,Wolff Ltd,2023-03-11,0,0.4858842,0.726,1.140492954062058
+911,Wolff Ltd,2023-03-18,1,0.62254745,0.726,1.085189388452215
+935,Wolff Ltd,2023-03-21,0,0.16649412,0.726,1.1998543236356578
+944,Wolff Ltd,2023-02-25,0,0.03679726,0.726,1.003765139053014
+995,Wolff Ltd,2023-01-03,0,2.8293038e-4,0.726,0.2172049291363578
+970,Wolff Ltd,2023-02-11,0,0.029361194,0.726,1.078402608626916
+806,Wolff Ltd,2023-01-08,1,0.0014967432,0.726,0.1497141870460403
+929,Wolff Ltd,2023-01-20,1,0.8817406,0.726,0.1831868727346051
+887,Wolff Ltd,2023-01-10,0,0.76013565,0.726,1.1218262359527982
+846,Wolff Ltd,2023-01-02,0,0.0012982454,0.726,0.0755934329404263
+845,Wolff Ltd,2023-03-02,1,0.051907055,0.726,1.0987321457560757
+878,Wolff Ltd,2023-02-27,0,0.0025967034,0.726,1.1357745302276168
+800,Wolff Ltd,2023-03-11,0,0.0037018147,0.726,1.1165651784532804
+861,Wolff Ltd,2023-01-14,0,0.023446035,0.726,1.1253782280901723
+832,Wolff Ltd,2023-01-08,0,0.008602106,0.726,0.0986691249831899
+842,Wolff Ltd,2023-03-02,0,0.024421345,0.726,0.1556148454573195
+996,Wolff Ltd,2023-01-05,0,0.01090797,0.726,0.1609416639801347
+923,Wolff Ltd,2023-01-09,0,0.0021788233,0.726,1.0080521776814624
+895,Wolff Ltd,2023-02-10,0,1.9449965e-4,0.726,1.0505377461102858
+892,Wolff Ltd,2023-02-10,0,8.517721e-4,0.726,1.044545389222387
+983,Wolff Ltd,2023-02-05,0,0.48974505,0.726,0.047923620649441
+833,Wolff Ltd,2023-02-08,0,4.977726e-4,0.726,0.1091870598062626
+876,Wolff Ltd,2023-01-25,0,0.023232227,0.726,1.0703266457867644
+956,Wolff Ltd,2023-02-01,1,0.04625162,0.726,0.0929863318694679
+819,Wolff Ltd,2023-02-14,1,0.0045832526,0.726,0.1361688761801263
+859,Wolff Ltd,2023-03-26,1,0.92760354,0.726,0.0365125788061349
+839,Wolff Ltd,2023-03-28,0,0.0071243895,0.726,1.0592236691019097
+858,Wolff Ltd,2023-01-08,0,6.880531e-4,0.726,0.0322609777718254
+950,Wolff Ltd,2023-01-28,1,0.027723527,0.726,1.167413665699018
+999,Wolff Ltd,2023-01-26,0,0.33065912,0.726,1.0886532899948944
+840,Wolff Ltd,2023-02-14,0,0.051401,0.726,1.0764428334716791
+851,Wolff Ltd,2023-01-15,0,0.007764892,0.726,1.201769837091461
+976,Wolff Ltd,2023-03-01,0,0.021917637,0.726,0.1131520476646788
+936,Wolff Ltd,2023-02-02,0,2.2685772e-4,0.726,1.0256144618089478
+916,Wolff Ltd,2023-03-08,0,0.31157422,0.726,0.0939590448960927
+955,Wolff Ltd,2023-01-29,0,5.5734755e-4,0.726,0.1260804716414843
+823,Wolff Ltd,2023-03-24,1,0.9944839,0.726,0.1389054009709788
+808,Wolff Ltd,2023-01-15,0,1.507717e-4,0.726,1.0603164175116029
+811,Wolff Ltd,2023-02-08,0,0.47511867,0.726,0.0449847506183881
+814,Wolff Ltd,2023-03-17,1,0.025192128,0.726,1.057791747326691
+
+## file: requirements.txt
+numpy
+pandas
+plotnine
+scikit-learn
+shiny
+</code></pre>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| components: [editor, viewer]
+#| layout: horizontal
+#| viewerHeight: 800
+from shiny.express import input, render, ui
+from shiny import reactive
+from plots import plot_auc_curve, plot_precision_recall_curve, plot_score_distribution
+from data_import import scores
+from shinyswatch import theme
+
+
+app_theme = theme.cerulean
+
+ui.page_opts(
+    title="Model scoring dashboard",
+    theme = app_theme
+)
+
+with ui.sidebar():
+    ui.input_select(
+        "account",
+        "Account",
+        choices=[
+            "Berge &amp; Berge",
+            "Fritsch &amp; Fritsch",
+            "Hintz &amp; Hintz",
+            "Mosciski and Sons",
+            "Wolff Ltd",
+        ],
+    )
+
+ui.nav_spacer(),
+
+with ui.nav_panel("Training Dashboard"):
+
+    with ui.navset_card_underline(title="Model Metrics"):
+
+        with ui.nav_panel("ROC Curve"):
+            @render.plot
+            def roc_curve():
+                return plot_auc_curve(
+                    dat(), 
+                    "is_electronics", 
+                    "training_score", 
+                    color = app_theme.colors.primary,
+                    line_color = app_theme.colors.secondary
+                )
+
+        with ui.nav_panel("Precision/Recall"):
+            @render.plot
+            def precision_recall():
+                return plot_precision_recall_curve(
+                    dat(), 
+                    "is_electronics", 
+                    "training_score", 
+                    color = app_theme.colors.primary
+                )
+
+    with ui.card():
+        ui.card_header("Training Scores")
+        @render.plot
+        def score_dist():
+            return plot_score_distribution(dat(), color = app_theme.colors.primary)
+
+with ui.nav_panel("View Data"):
+
+    with ui.layout_columns():
+
+        with ui.value_box():
+            "Row count"
+            @render.text
+            def row_count():
+                return dat().shape[0]
+
+        with ui.value_box():
+            "Mean training score"
+            @render.text
+            def mean_score():
+                return round(dat()["training_score"].mean(), 2)
+                
+    with ui.card():
+        @render.data_frame
+        def data():
+            return dat()
+
+@reactive.calc()
+def dat() -&gt; pd.DataFrame:
+    return scores.loc[scores["account"] == input.account()]
+
+
+
+## file: plots.py
+from pandas import DataFrame
+from plotnine import (
+    aes,
+    geom_abline,
+    geom_density,
+    geom_line,
+    ggplot,
+    labs,
+    theme_minimal,
+)
+from sklearn.metrics import auc, precision_recall_curve, roc_curve
+
+
+def plot_score_distribution(df: DataFrame, color = "blue"):
+    plot = (
+        ggplot(df, aes(x="training_score"))
+        + geom_density(fill=color, alpha=0.3)
+        + theme_minimal()
+        + labs(title="Model scores", x="Score")
+    )
+    return plot
+
+
+def plot_auc_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange", line_color="navy"):
+    fpr, tpr, _ = roc_curve(df[true_col], df[pred_col])
+
+    roc_df = DataFrame({"fpr": fpr, "tpr": tpr})
+
+    plot = (
+        ggplot(roc_df, aes(x="fpr", y="tpr"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + geom_abline(intercept=0, slope=1, color=line_color, linetype="dashed")
+        + labs(
+            title="Receiver Operating Characteristic (ROC)",
+            x="False Positive Rate",
+            y="True Positive Rate",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+
+def plot_precision_recall_curve(df: DataFrame, true_col: str, pred_col: str, color="darkorange",):
+    precision, recall, _ = precision_recall_curve(df[true_col], df[pred_col])
+
+    pr_df = DataFrame({"precision": precision, "recall": recall})
+
+    plot = (
+        ggplot(pr_df, aes(x="recall", y="precision"))
+        + geom_line(color=color, size=1.5, show_legend=True, linetype="solid")
+        + labs(
+            title="Precision-Recall Curve",
+            x="Recall",
+            y="Precision",
+        )
+        + theme_minimal()
+    )
+
+    return plot
+
+## file: data_import.py
+from pathlib import Path
+import pandas as pd
+
+app_dir = Path(__file__).parent
+scores = pd.read_csv(app_dir / "scores.csv")
+## file: scores.csv
+id,account,date,is_electronics,training_score,training_auc,prod_score
+197,Berge &amp; Berge,2023-03-22,0,3.8569316e-4,0.706,1.2184013625090797
+147,Berge &amp; Berge,2023-03-04,0,0.059454158,0.706,1.0458517996515018
+151,Berge &amp; Berge,2023-02-26,1,0.43344864,0.706,1.0899208432188952
+191,Berge &amp; Berge,2023-02-05,0,0.07182422,0.706,0.1166857347716988
+97,Berge &amp; Berge,2023-03-20,0,0.036536578,0.706,0.1122427067173862
+42,Berge &amp; Berge,2023-02-24,0,7.8474486e-4,0.706,1.134496258677401
+162,Berge &amp; Berge,2023-03-18,0,0.0021639657,0.706,0.0911876468541704
+86,Berge &amp; Berge,2023-01-31,0,0.0043587093,0.706,0.1072100007045478
+185,Berge &amp; Berge,2023-01-29,0,0.0037410355,0.706,1.0629598986580249
+195,Berge &amp; Berge,2023-03-09,1,0.0064030294,0.706,0.1163625609796782
+65,Berge &amp; Berge,2023-01-12,0,0.01680326,0.706,1.1117144598925008
+0,Berge &amp; Berge,2023-02-17,1,0.16943726,0.706,1.1618205506162425
+153,Berge &amp; Berge,2023-01-17,0,0.009950074,0.706,1.0548759269150825
+7,Berge &amp; Berge,2023-02-24,1,0.07434944,0.706,1.1549266491020864
+108,Berge &amp; Berge,2023-01-16,0,0.0011474524,0.706,0.2033384586903546
+46,Berge &amp; Berge,2023-03-30,1,0.8862941,0.706,1.128921393965052
+78,Berge &amp; Berge,2023-01-03,0,0.10584876,0.706,1.1458269113570143
+133,Berge &amp; Berge,2023-03-08,0,0.010757598,0.706,1.1434908567274518
+39,Berge &amp; Berge,2023-01-31,0,0.0041037435,0.706,1.102184667768606
+50,Berge &amp; Berge,2023-02-09,0,4.3265644e-4,0.706,0.1307080249504367
+134,Berge &amp; Berge,2023-03-26,0,0.026536584,0.706,1.060611614694643
+14,Berge &amp; Berge,2023-01-03,1,0.9737248,0.706,0.0482518688678079
+105,Berge &amp; Berge,2023-02-06,0,0.2176104,0.706,1.1731506131766771
+171,Berge &amp; Berge,2023-03-01,1,0.640394,0.706,0.0344893088752213
+56,Berge &amp; Berge,2023-01-02,1,0.50905395,0.706,1.1379332748001638
+180,Berge &amp; Berge,2023-03-14,0,0.0642861,0.706,1.1407096495166118
+66,Berge &amp; Berge,2023-03-07,1,0.83971083,0.706,1.0837485612427225
+150,Berge &amp; Berge,2023-03-04,0,0.0035049587,0.706,1.1011918088070027
+155,Berge &amp; Berge,2023-02-15,1,0.032146282,0.706,1.120811408972631
+117,Berge &amp; Berge,2023-01-30,1,0.020795507,0.706,0.1429895261825527
+115,Berge &amp; Berge,2023-03-27,0,0.19586882,0.706,0.0559595407746099
+141,Berge &amp; Berge,2023-01-30,0,0.006336129,0.706,0.0278086785772974
+135,Berge &amp; Berge,2023-02-14,0,0.030219903,0.706,0.1026964751058112
+146,Berge &amp; Berge,2023-02-07,0,0.6306924,0.706,0.096962911436626
+126,Berge &amp; Berge,2023-02-11,0,0.0047198967,0.706,1.0245361267752373
+93,Berge &amp; Berge,2023-02-01,0,0.02713681,0.706,0.1579912873196112
+33,Berge &amp; Berge,2023-03-19,0,0.013932462,0.706,0.0321096202157411
+18,Berge &amp; Berge,2023-02-09,0,0.0016045833,0.706,0.9290365950652846
+118,Berge &amp; Berge,2023-03-13,0,8.186491e-4,0.706,1.171047420916767
+121,Berge &amp; Berge,2023-03-28,0,0.042930435,0.706,0.0182820762909576
+3,Berge &amp; Berge,2023-02-16,0,6.695764e-5,0.706,1.0702198663587448
+101,Berge &amp; Berge,2023-03-27,1,0.596601,0.706,0.0354858430405799
+49,Berge &amp; Berge,2023-03-04,0,0.0026418588,0.706,0.135275069008277
+25,Berge &amp; Berge,2023-03-15,0,0.002401195,0.706,1.0803649357719638
+114,Berge &amp; Berge,2023-03-20,0,0.004930519,0.706,0.0529895890406713
+83,Berge &amp; Berge,2023-01-31,0,0.28393862,0.706,1.178427193769903
+26,Berge &amp; Berge,2023-02-19,0,0.0013338907,0.706,0.0790943397275872
+8,Berge &amp; Berge,2023-02-09,1,0.53028095,0.706,1.0790892070448892
+82,Berge &amp; Berge,2023-02-04,0,0.07508605,0.706,1.0792260606504211
+144,Berge &amp; Berge,2023-02-22,1,0.007376648,0.706,0.0159388925203865
+47,Berge &amp; Berge,2023-01-09,0,0.5997613,0.706,0.1503643390126841
+158,Berge &amp; Berge,2023-02-26,0,2.6945552e-4,0.706,0.0789026735194982
+125,Berge &amp; Berge,2023-02-05,0,0.0020228848,0.706,0.0990200427437474
+182,Berge &amp; Berge,2023-01-28,0,0.25345734,0.706,0.0795373098515089
+172,Berge &amp; Berge,2023-02-14,1,0.02713681,0.706,1.114272275398885
+59,Berge &amp; Berge,2023-02-26,0,5.998765e-4,0.706,0.1952806158676867
+106,Berge &amp; Berge,2023-03-28,0,0.4591681,0.706,0.0333539700019854
+178,Berge &amp; Berge,2023-03-19,0,0.0082185855,0.706,1.0660816173986911
+87,Berge &amp; Berge,2023-01-10,1,0.0102780815,0.706,0.0648974711738842
+129,Berge &amp; Berge,2023-01-09,0,0.08157975,0.706,1.1024817266914324
+76,Berge &amp; Berge,2023-02-17,0,0.9813013,0.706,1.0437485590218905
+152,Berge &amp; Berge,2023-04-01,0,0.02713681,0.706,1.0658221905441567
+10,Berge &amp; Berge,2023-03-22,1,0.0018194998,0.706,1.162316179068009
+81,Berge &amp; Berge,2023-02-20,0,0.0040970254,0.706,0.1344352359121208
+21,Berge &amp; Berge,2023-01-30,0,0.17966346,0.706,0.0611759823953039
+188,Berge &amp; Berge,2023-01-23,0,5.169117e-4,0.706,0.0605163725785426
+91,Berge &amp; Berge,2023-01-20,0,0.012792897,0.706,1.1745493364442443
+168,Berge &amp; Berge,2023-02-06,1,0.13991953,0.706,0.0733946355292885
+103,Berge &amp; Berge,2023-01-11,0,0.004973566,0.706,1.0696554116486614
+73,Berge &amp; Berge,2023-02-06,0,0.0031296157,0.706,0.196424055291592
+99,Berge &amp; Berge,2023-03-19,1,0.8845187,0.706,1.0950902714355684
+130,Berge &amp; Berge,2023-03-29,0,0.8360748,0.706,0.1109771893645958
+143,Berge &amp; Berge,2023-02-12,0,0.02713681,0.706,0.0953839965711691
+31,Berge &amp; Berge,2023-03-03,0,0.005173868,0.706,1.0095134249839255
+167,Berge &amp; Berge,2023-02-28,0,0.024421345,0.706,1.185489811661379
+68,Berge &amp; Berge,2023-02-08,0,0.013632686,0.706,0.1176918009270848
+102,Berge &amp; Berge,2023-03-19,0,1.5559672e-4,0.706,1.065979804935678
+84,Berge &amp; Berge,2023-03-29,0,0.02713681,0.706,1.1773390305290543
+32,Berge &amp; Berge,2023-01-24,0,0.4591681,0.706,1.1071007317674466
+160,Berge &amp; Berge,2023-01-09,0,0.006623661,0.706,0.1152776457328768
+164,Berge &amp; Berge,2023-02-22,0,0.28222394,0.706,1.1356251790637168
+89,Berge &amp; Berge,2023-02-03,0,0.03192866,0.706,1.0644034733853214
+94,Berge &amp; Berge,2023-01-28,0,0.0071903053,0.706,0.1056048701372983
+45,Berge &amp; Berge,2023-01-12,0,0.0042942734,0.706,0.1082480366955144
+24,Berge &amp; Berge,2023-03-19,0,0.019535521,0.706,1.0433825213672572
+166,Berge &amp; Berge,2023-02-26,0,0.0060619935,0.706,0.0564479161802195
+77,Berge &amp; Berge,2023-01-31,0,0.0011749135,0.706,1.087268528455399
+95,Berge &amp; Berge,2023-03-03,0,0.08239752,0.706,0.0533042139694344
+58,Berge &amp; Berge,2023-02-12,1,0.041278575,0.706,1.0085201689574197
+148,Berge &amp; Berge,2023-02-26,0,0.0024912758,0.706,1.1628297802769785
+72,Berge &amp; Berge,2023-01-29,0,0.002776768,0.706,1.1740788046681194
+154,Berge &amp; Berge,2023-01-25,0,0.05633103,0.706,1.075950784146292
+54,Berge &amp; Berge,2023-03-23,0,1.5559672e-4,0.706,1.1088940882230371
+174,Berge &amp; Berge,2023-01-15,0,0.0024278944,0.706,0.0508260666041443
+60,Berge &amp; Berge,2023-03-23,0,0.07136285,0.706,0.1123962378606316
+165,Berge &amp; Berge,2023-02-06,0,0.26181462,0.706,1.048973603249126
+161,Berge &amp; Berge,2023-02-24,0,0.0015807872,0.706,1.0699741196609214
+184,Berge &amp; Berge,2023-02-22,0,0.02713681,0.706,-0.0167169970518766
+40,Berge &amp; Berge,2023-03-29,1,0.86764634,0.706,0.1325794389828509
+44,Berge &amp; Berge,2023-03-12,0,0.007022531,0.706,0.11879110789460991
+237,Fritsch &amp; Fritsch,2023-01-14,0,2.358206e-4,0.727,1.0956762144637295
+372,Fritsch &amp; Fritsch,2023-01-30,0,0.0137081025,0.727,0.0451347495536708
+281,Fritsch &amp; Fritsch,2023-03-08,0,0.009095548,0.727,0.1078499667525478
+201,Fritsch &amp; Fritsch,2023-03-25,0,3.8113075e-4,0.727,1.0832891563613951
+377,Fritsch &amp; Fritsch,2023-02-26,0,0.015281866,0.727,0.1219644374830517
+287,Fritsch &amp; Fritsch,2023-03-03,0,1.2389862e-4,0.727,0.1180714382195422
+211,Fritsch &amp; Fritsch,2023-03-31,1,0.11702571,0.727,0.0875116987282002
+366,Fritsch &amp; Fritsch,2023-02-06,0,0.048854023,0.727,1.1479159358438384
+336,Fritsch &amp; Fritsch,2023-01-13,0,0.053801402,0.727,1.0920391641713827
+210,Fritsch &amp; Fritsch,2023-02-15,0,0.0062982617,0.727,0.0189330179328656
+378,Fritsch &amp; Fritsch,2023-01-29,0,6.596002e-4,0.727,1.1219390194293912
+294,Fritsch &amp; Fritsch,2023-03-21,0,0.85546285,0.727,1.1038427721060056
+248,Fritsch &amp; Fritsch,2023-03-27,0,0.03374543,0.727,0.079659192091873
+334,Fritsch &amp; Fritsch,2023-02-27,0,0.010514908,0.727,0.0664022783020107
+228,Fritsch &amp; Fritsch,2023-03-19,1,0.026538111,0.727,1.1274705818285398
+250,Fritsch &amp; Fritsch,2023-01-24,0,0.5458885,0.727,1.1070096701184933
+314,Fritsch &amp; Fritsch,2023-02-27,0,2.562467e-4,0.727,1.1565316534314074
+341,Fritsch &amp; Fritsch,2023-02-27,0,0.005878947,0.727,1.0750012447802877
+286,Fritsch &amp; Fritsch,2023-02-14,0,0.18391743,0.727,1.151114538064511
+361,Fritsch &amp; Fritsch,2023-01-01,0,0.057021406,0.727,0.0389095880586878
+244,Fritsch &amp; Fritsch,2023-03-27,0,5.844329e-4,0.727,0.1628508218939803
+279,Fritsch &amp; Fritsch,2023-02-17,0,0.101148106,0.727,0.098055841370775
+302,Fritsch &amp; Fritsch,2023-01-05,0,0.008378361,0.727,1.1056681855338812
+296,Fritsch &amp; Fritsch,2023-03-03,1,0.9737248,0.727,1.2940866046734034
+215,Fritsch &amp; Fritsch,2023-03-23,1,0.44451058,0.727,0.1485946888358069
+264,Fritsch &amp; Fritsch,2023-01-17,0,0.011026854000000001,0.727,1.0971973746858978
+263,Fritsch &amp; Fritsch,2023-03-01,0,0.017002124,0.727,0.0652936212357286
+349,Fritsch &amp; Fritsch,2023-03-07,0,0.052240945,0.727,1.1494782553396878
+339,Fritsch &amp; Fritsch,2023-04-01,1,0.82110965,0.727,0.1658443904376221
+301,Fritsch &amp; Fritsch,2023-01-16,0,0.051902127,0.727,0.1013863483700123
+259,Fritsch &amp; Fritsch,2023-01-25,0,0.011026854000000001,0.727,1.166177513433963
+300,Fritsch &amp; Fritsch,2023-01-29,0,4.531328e-4,0.727,0.1410733625721101
+236,Fritsch &amp; Fritsch,2023-01-30,0,0.03192866,0.727,0.1969263375585029
+291,Fritsch &amp; Fritsch,2023-02-17,0,0.21523075,0.727,1.1371311510740738
+221,Fritsch &amp; Fritsch,2023-03-10,0,0.47267234,0.727,0.051463165243258203
+391,Fritsch &amp; Fritsch,2023-01-19,0,0.0038934741,0.727,1.0637377195385729
+320,Fritsch &amp; Fritsch,2023-01-30,0,0.0037223082,0.727,1.050446994947837
+297,Fritsch &amp; Fritsch,2023-03-04,0,0.021917637,0.727,1.1814927128062764
+254,Fritsch &amp; Fritsch,2023-02-15,0,0.0057278997,0.727,0.139348971846723
+295,Fritsch &amp; Fritsch,2023-02-28,0,0.094302475,0.727,1.0195612826238587
+266,Fritsch &amp; Fritsch,2023-02-02,0,0.02713681,0.727,1.1567571642740544
+280,Fritsch &amp; Fritsch,2023-01-02,1,0.28761825,0.727,1.1666757772021707
+397,Fritsch &amp; Fritsch,2023-01-01,0,8.14293e-4,0.727,1.2023825884127286
+203,Fritsch &amp; Fritsch,2023-01-23,1,0.015067808,0.727,1.117227979569394
+396,Fritsch &amp; Fritsch,2023-03-10,0,0.26286763,0.727,0.0472016017529595
+289,Fritsch &amp; Fritsch,2023-01-30,0,0.003978128,0.727,1.1127618378000312
+258,Fritsch &amp; Fritsch,2023-01-06,0,2.3396911e-4,0.727,0.129483999651832
+230,Fritsch &amp; Fritsch,2023-03-25,0,0.007413884,0.727,1.0790157307607944
+232,Fritsch &amp; Fritsch,2023-03-22,1,0.39736626,0.727,1.045809472269621
+309,Fritsch &amp; Fritsch,2023-03-31,1,0.0646534,0.727,1.142513464846696
+257,Fritsch &amp; Fritsch,2023-02-05,0,4.2030227e-4,0.727,0.1721043219147598
+390,Fritsch &amp; Fritsch,2023-03-07,0,0.18442275,0.727,0.0294220988525324
+388,Fritsch &amp; Fritsch,2023-03-24,1,0.7637683,0.727,0.1303454445493918
+380,Fritsch &amp; Fritsch,2023-01-06,1,0.5033501,0.727,0.0947911901784009
+331,Fritsch &amp; Fritsch,2023-02-04,0,0.018333044,0.727,0.0810985180871314
+311,Fritsch &amp; Fritsch,2023-02-20,0,0.40999982,0.727,0.1024602493146951
+209,Fritsch &amp; Fritsch,2023-02-12,0,0.022420665,0.727,0.1970011502481187
+222,Fritsch &amp; Fritsch,2023-01-31,0,0.17173569,0.727,1.0968446501834528
+223,Fritsch &amp; Fritsch,2023-01-18,0,0.30898094,0.727,0.0518436169871427
+285,Fritsch &amp; Fritsch,2023-01-13,0,0.13098921,0.727,1.1155843033928434
+398,Fritsch &amp; Fritsch,2023-01-02,0,0.044065084,0.727,1.121770815435699
+204,Fritsch &amp; Fritsch,2023-03-11,0,3.1946754e-4,0.727,1.079832501957774
+272,Fritsch &amp; Fritsch,2023-03-13,0,0.14330977,0.727,1.040274436123384
+269,Fritsch &amp; Fritsch,2023-01-12,0,1.6662259e-4,0.727,0.1559544665610497
+326,Fritsch &amp; Fritsch,2023-01-14,1,0.032594856,0.727,0.1580775229894702
+384,Fritsch &amp; Fritsch,2023-01-05,0,0.01407777,0.727,1.0922793525778989
+205,Fritsch &amp; Fritsch,2023-03-04,0,0.0039401073,0.727,1.0394201743300855
+220,Fritsch &amp; Fritsch,2023-01-01,1,0.01722058,0.727,1.1304432242651643
+328,Fritsch &amp; Fritsch,2023-02-01,1,0.1263778,0.727,0.0689098306734142
+365,Fritsch &amp; Fritsch,2023-02-16,1,0.055628844,0.727,1.1045521682924666
+324,Fritsch &amp; Fritsch,2023-03-11,0,0.8320204,0.727,0.1759290575850101
+308,Fritsch &amp; Fritsch,2023-01-07,0,0.0060746167,0.727,0.1107005170577313
+354,Fritsch &amp; Fritsch,2023-02-24,1,0.025668005,0.727,0.1203832188132277
+219,Fritsch &amp; Fritsch,2023-03-15,0,0.0011474524,0.727,1.087878682539265
+242,Fritsch &amp; Fritsch,2023-02-05,0,0.0038046008,0.727,1.1380690977378072
+212,Fritsch &amp; Fritsch,2023-03-25,0,0.008506459,0.727,0.1134653067802029
+261,Fritsch &amp; Fritsch,2023-03-23,0,0.035150588,0.727,1.1247590897600812
+202,Fritsch &amp; Fritsch,2023-02-11,0,0.007411905,0.727,1.0427256365351536
+292,Fritsch &amp; Fritsch,2023-01-01,0,0.20810522,0.727,0.1147893082208852
+252,Fritsch &amp; Fritsch,2023-03-25,0,0.026536584,0.727,1.0523276552272216
+357,Fritsch &amp; Fritsch,2023-01-23,1,0.124237865,0.727,1.085033131848418
+370,Fritsch &amp; Fritsch,2023-02-19,1,0.7714718,0.727,0.0910457374281693
+327,Fritsch &amp; Fritsch,2023-02-05,0,0.14883229,0.727,1.0835013890515015
+226,Fritsch &amp; Fritsch,2023-03-18,0,0.0850883,0.727,0.1675372381895208
+217,Fritsch &amp; Fritsch,2023-01-22,0,0.008597593,0.727,0.1185780133793893
+387,Fritsch &amp; Fritsch,2023-01-31,0,0.08615121,0.727,0.057082354870273
+283,Fritsch &amp; Fritsch,2023-01-13,0,8.573997e-4,0.727,1.1201189700314946
+318,Fritsch &amp; Fritsch,2023-01-20,0,0.021570161,0.727,0.1110699740834348
+234,Fritsch &amp; Fritsch,2023-02-23,0,0.0011474524,0.727,1.0929293036804897
+231,Fritsch &amp; Fritsch,2023-03-01,0,0.02713681,0.727,1.0895114694218777
+325,Fritsch &amp; Fritsch,2023-01-28,1,0.640394,0.727,1.1344822135861288
+395,Fritsch &amp; Fritsch,2023-02-12,0,2.562467e-4,0.727,0.072384901076557
+352,Fritsch &amp; Fritsch,2023-03-18,0,0.020198904,0.727,0.0771729244660083
+362,Fritsch &amp; Fritsch,2023-02-12,0,0.021032954,0.727,1.08181651904278
+246,Fritsch &amp; Fritsch,2023-02-06,0,0.0477094,0.727,0.0680249288179094
+356,Fritsch &amp; Fritsch,2023-02-02,0,0.04010874,0.727,0.0768282452841528
+375,Fritsch &amp; Fritsch,2023-01-30,1,0.25526205,0.727,0.081957682968991
+359,Fritsch &amp; Fritsch,2023-04-01,1,0.027723527,0.727,1.1274603051731444
+315,Fritsch &amp; Fritsch,2023-01-16,0,0.89041793,0.727,0.0593836947517993
+214,Fritsch &amp; Fritsch,2023-01-03,0,0.0061433944,0.727,0.1931007138527479
+450,Hintz &amp; Hintz,2023-03-09,0,0.1701673,0.934,1.1068552243842018
+538,Hintz &amp; Hintz,2023-02-01,1,0.8598257,0.934,0.1044032735979264
+443,Hintz &amp; Hintz,2023-01-28,1,0.06102638,0.934,1.126421115181424
+490,Hintz &amp; Hintz,2023-03-03,1,0.0244589,0.934,1.1846717309580177
+564,Hintz &amp; Hintz,2023-01-20,0,6.792998e-4,0.934,0.1230877877855508
+589,Hintz &amp; Hintz,2023-01-13,0,0.044336256,0.934,0.955499082470552
+458,Hintz &amp; Hintz,2023-02-22,1,0.95590156,0.934,1.1031464584348014
+578,Hintz &amp; Hintz,2023-01-15,1,0.07901703,0.934,1.0937359258937789
+426,Hintz &amp; Hintz,2023-03-13,1,0.2623574,0.934,0.1728583190721533
+563,Hintz &amp; Hintz,2023-02-01,0,0.06882919,0.934,1.1771324857029042
+480,Hintz &amp; Hintz,2023-03-21,0,0.06367789,0.934,1.108782934831115
+471,Hintz &amp; Hintz,2023-03-07,0,0.06850347,0.934,1.1948685870458229
+547,Hintz &amp; Hintz,2023-01-26,1,0.01722058,0.934,0.0312985160112934
+454,Hintz &amp; Hintz,2023-01-28,0,0.03110653,0.934,1.1161153062243407
+587,Hintz &amp; Hintz,2023-02-10,1,0.19495015,0.934,0.174837639078212
+409,Hintz &amp; Hintz,2023-02-06,0,0.003525351,0.934,1.062705988474564
+542,Hintz &amp; Hintz,2023-03-25,0,5.5642764e-4,0.934,0.0311436021264635
+548,Hintz &amp; Hintz,2023-02-14,1,0.14660004,0.934,0.1563855280240541
+456,Hintz &amp; Hintz,2023-03-05,1,0.5646388,0.934,1.122043722588777
+586,Hintz &amp; Hintz,2023-01-02,0,0.0016085407,0.934,1.0388789699491705
+427,Hintz &amp; Hintz,2023-01-09,0,4.366419e-4,0.934,1.1433223524247005
+522,Hintz &amp; Hintz,2023-01-21,0,0.040729154,0.934,0.0256051623402911
+449,Hintz &amp; Hintz,2023-03-01,0,0.05801831,0.934,0.1600088488465246
+474,Hintz &amp; Hintz,2023-02-05,0,0.034921747,0.934,1.167358199984491
+445,Hintz &amp; Hintz,2023-01-23,0,0.014691184,0.934,1.133676497730964
+505,Hintz &amp; Hintz,2023-03-24,1,0.8621201,0.934,0.1337478543164452
+410,Hintz &amp; Hintz,2023-03-31,1,0.88824934,0.934,1.1323931258191502
+462,Hintz &amp; Hintz,2023-03-31,0,0.02151093,0.934,0.1062821403410974
+557,Hintz &amp; Hintz,2023-02-14,0,0.03179885,0.934,1.049720145250293
+401,Hintz &amp; Hintz,2023-02-15,0,0.0012305528,0.934,1.053233198138479
+574,Hintz &amp; Hintz,2023-01-26,0,0.5919985,0.934,0.0683046099830677
+517,Hintz &amp; Hintz,2023-03-20,1,0.18926267,0.934,0.1716475392570836
+477,Hintz &amp; Hintz,2023-03-17,0,0.0073302207,0.934,1.127131891662609
+579,Hintz &amp; Hintz,2023-01-02,0,0.016731959,0.934,1.0654368002494965
+432,Hintz &amp; Hintz,2023-02-09,0,0.02713681,0.934,1.1380909910930856
+524,Hintz &amp; Hintz,2023-03-23,0,0.004010897,0.934,1.1202351027992503
+455,Hintz &amp; Hintz,2023-02-13,0,0.002227653,0.934,1.0829340975382702
+561,Hintz &amp; Hintz,2023-01-19,1,0.09165248,0.934,0.1037107972905217
+554,Hintz &amp; Hintz,2023-02-24,0,0.0013029911,0.934,1.0779649551105308
+541,Hintz &amp; Hintz,2023-03-26,0,0.0062745274,0.934,0.0326063299728535
+512,Hintz &amp; Hintz,2023-02-12,0,0.02713681,0.934,1.165237482938431
+453,Hintz &amp; Hintz,2023-02-28,0,0.0105454875,0.934,0.0742547872610601
+599,Hintz &amp; Hintz,2023-03-10,0,0.022691585,0.934,1.078117422744088
+504,Hintz &amp; Hintz,2023-01-14,0,0.0012587371,0.934,0.1577060457590473
+581,Hintz &amp; Hintz,2023-04-01,0,0.0074251355,0.934,0.9917618788478576
+519,Hintz &amp; Hintz,2023-01-24,0,0.41233888,0.934,0.0560391794333758
+435,Hintz &amp; Hintz,2023-01-06,0,7.100313e-4,0.934,1.1219129034161246
+478,Hintz &amp; Hintz,2023-03-25,0,0.12977844,0.934,0.0990493307054747
+543,Hintz &amp; Hintz,2023-03-31,0,0.014825128,0.934,1.0504157172366018
+416,Hintz &amp; Hintz,2023-01-09,1,0.31836855,0.934,1.134545952022915
+452,Hintz &amp; Hintz,2023-01-17,0,0.02713681,0.934,1.1540804647565972
+509,Hintz &amp; Hintz,2023-04-01,0,3.8566397e-4,0.934,0.1071000524414627
+595,Hintz &amp; Hintz,2023-01-22,0,0.05322563,0.934,1.1061557953119374
+493,Hintz &amp; Hintz,2023-03-08,0,0.0027624562,0.934,0.1244750210565094
+511,Hintz &amp; Hintz,2023-02-04,0,2.8499114e-4,0.934,1.1541611607030258
+546,Hintz &amp; Hintz,2023-01-14,0,0.0016689355,0.934,0.1539256340391158
+415,Hintz &amp; Hintz,2023-01-25,0,0.0030429794,0.934,0.0890199978786554
+555,Hintz &amp; Hintz,2023-02-28,0,0.8396749,0.934,1.0932462456408627
+417,Hintz &amp; Hintz,2023-03-20,0,0.20999487,0.934,0.1072377732395115
+532,Hintz &amp; Hintz,2023-04-01,0,0.0035428032,0.934,0.1882874038866111
+413,Hintz &amp; Hintz,2023-01-03,0,0.02713681,0.934,1.0791669209733907
+534,Hintz &amp; Hintz,2023-01-18,0,0.01722058,0.934,0.0726831353010628
+444,Hintz &amp; Hintz,2023-02-09,0,0.003961715,0.934,1.0281795685345705
+568,Hintz &amp; Hintz,2023-03-11,0,0.011916836,0.934,0.148138560058259
+442,Hintz &amp; Hintz,2023-01-19,1,0.016262366,0.934,0.1278908670435503
+482,Hintz &amp; Hintz,2023-01-17,0,0.0075225546,0.934,1.0951944177968274
+420,Hintz &amp; Hintz,2023-03-01,0,0.014386703,0.934,0.0596753877944121
+500,Hintz &amp; Hintz,2023-03-26,0,9.4913295e-4,0.934,0.1878545592540821
+489,Hintz &amp; Hintz,2023-03-11,0,0.009899498,0.934,0.0507569225199717
+566,Hintz &amp; Hintz,2023-02-21,1,0.32672116,0.934,1.1168607644113324
+418,Hintz &amp; Hintz,2023-03-30,0,0.035792656,0.934,0.0793191031104142
+464,Hintz &amp; Hintz,2023-03-09,0,0.001030728,0.934,1.2176073646160606
+488,Hintz &amp; Hintz,2023-01-01,0,0.0019740025,0.934,1.07045941125935
+560,Hintz &amp; Hintz,2023-02-19,1,0.87406754,0.934,1.1840352414983952
+508,Hintz &amp; Hintz,2023-03-29,0,0.0059008,0.934,1.0041977643989333
+562,Hintz &amp; Hintz,2023-01-28,0,0.25797996,0.934,0.1130850266731972
+446,Hintz &amp; Hintz,2023-01-30,1,0.3901382,0.934,1.1247395253124084
+487,Hintz &amp; Hintz,2023-03-17,1,0.050020643,0.934,0.10501316691808
+486,Hintz &amp; Hintz,2023-02-28,0,0.52094424,0.934,0.0442753829011319
+507,Hintz &amp; Hintz,2023-01-03,0,0.006595796,0.934,1.0438526458466548
+551,Hintz &amp; Hintz,2023-01-25,1,0.14365149,0.934,0.9934708856639304
+535,Hintz &amp; Hintz,2023-01-13,0,0.0069284798,0.934,0.0693340868442309
+597,Hintz &amp; Hintz,2023-03-15,0,5.4465205e-4,0.934,0.0293831628491591
+553,Hintz &amp; Hintz,2023-04-01,0,0.0011474524,0.934,0.089332540325546
+501,Hintz &amp; Hintz,2023-01-31,1,0.96700424,0.934,0.1421078480165114
+514,Hintz &amp; Hintz,2023-03-07,0,0.0023783434,0.934,0.1932806491927614
+526,Hintz &amp; Hintz,2023-02-24,1,0.9467816,0.934,1.0392284145694073
+565,Hintz &amp; Hintz,2023-03-19,1,0.98436683,0.934,0.1623319127713567
+544,Hintz &amp; Hintz,2023-01-11,1,0.0013307774,0.934,1.1208364847296046
+400,Hintz &amp; Hintz,2023-02-13,1,0.23045018,0.934,1.1005934567176343
+422,Hintz &amp; Hintz,2023-02-12,0,8.499933e-4,0.934,0.0990542898044073
+523,Hintz &amp; Hintz,2023-01-26,0,0.02713681,0.934,0.1006112038224418
+583,Hintz &amp; Hintz,2023-03-09,1,0.9309046,0.934,0.020886765584435
+481,Hintz &amp; Hintz,2023-02-04,0,0.016241034,0.934,0.0476784537561671
+499,Hintz &amp; Hintz,2023-01-31,0,0.02713681,0.934,1.118459299537331
+573,Hintz &amp; Hintz,2023-02-18,0,0.64166915,0.934,0.0722461706948132
+407,Hintz &amp; Hintz,2023-02-02,0,0.008933006,0.934,1.107735797143414
+533,Hintz &amp; Hintz,2023-03-28,1,0.0011969404,0.934,1.0584957994495785
+582,Hintz &amp; Hintz,2023-03-13,0,0.039883167,0.934,0.1430526701467971
+591,Hintz &amp; Hintz,2023-03-18,0,1.21852885e-4,0.934,1.1563141957899683
+731,Mosciski and Sons,2023-03-26,1,0.0013307774,0.8879999999999999,1.185076311722786
+647,Mosciski and Sons,2023-03-13,0,0.10936674,0.8879999999999999,1.0674774200149009
+729,Mosciski and Sons,2023-02-11,0,1.9797268e-4,0.8879999999999999,1.1154570969083917
+727,Mosciski and Sons,2023-02-02,0,0.003229611,0.8879999999999999,0.0727039108340473
+612,Mosciski and Sons,2023-01-19,1,0.04316289,0.8879999999999999,0.1048574129070726
+614,Mosciski and Sons,2023-01-27,0,5.958507e-4,0.8879999999999999,0.0830258933963685
+621,Mosciski and Sons,2023-01-23,1,0.86696565,0.8879999999999999,1.1018535819282855
+693,Mosciski and Sons,2023-03-26,0,0.5202152,0.8879999999999999,0.1065532567252535
+681,Mosciski and Sons,2023-02-11,1,0.51045996,0.8879999999999999,1.129195399923456
+676,Mosciski and Sons,2023-02-05,0,0.0010871114,0.8879999999999999,0.1450376910946741
+707,Mosciski and Sons,2023-02-14,0,0.008150931,0.8879999999999999,0.1251337710289197
+713,Mosciski and Sons,2023-01-26,0,5.2595546e-4,0.8879999999999999,1.0856008079683452
+789,Mosciski and Sons,2023-03-21,0,0.5256873,0.8879999999999999,0.0592039749503366
+654,Mosciski and Sons,2023-02-15,0,0.049613122,0.8879999999999999,1.123088731753324
+660,Mosciski and Sons,2023-01-03,0,0.018622428,0.8879999999999999,0.1009149431519532
+701,Mosciski and Sons,2023-03-30,0,0.03476548,0.8879999999999999,0.1138782460352903
+611,Mosciski and Sons,2023-03-27,0,0.0038235756,0.8879999999999999,1.0502349884156992
+629,Mosciski and Sons,2023-01-04,0,0.0642861,0.8879999999999999,0.0382192519484954
+625,Mosciski and Sons,2023-03-23,0,0.012245923,0.8879999999999999,0.1516688115062547
+708,Mosciski and Sons,2023-01-06,0,0.006585475,0.8879999999999999,0.1655924444801469
+636,Mosciski and Sons,2023-01-24,1,0.10234994,0.8879999999999999,1.0051543185081244
+615,Mosciski and Sons,2023-03-14,1,0.858326,0.8879999999999999,0.1184317770696613
+640,Mosciski and Sons,2023-03-28,0,0.0021567128,0.8879999999999999,0.0868200979628904
+649,Mosciski and Sons,2023-03-28,0,0.4418892,0.8879999999999999,0.1015527753588054
+628,Mosciski and Sons,2023-02-17,0,0.12762818,0.8879999999999999,0.1245685942081463
+769,Mosciski and Sons,2023-03-02,1,0.009295199,0.8879999999999999,1.108677468175114
+736,Mosciski and Sons,2023-03-27,1,0.92429477,0.8879999999999999,1.139441270614971
+627,Mosciski and Sons,2023-04-01,0,4.3627844e-4,0.8879999999999999,0.1225426942810387
+743,Mosciski and Sons,2023-03-19,0,0.054935087,0.8879999999999999,-0.0014822862969038
+623,Mosciski and Sons,2023-02-23,1,0.9066716,0.8879999999999999,1.1814889973721443
+784,Mosciski and Sons,2023-01-30,0,0.09775246,0.8879999999999999,0.1894654289692666
+600,Mosciski and Sons,2023-01-14,0,0.003571191,0.8879999999999999,0.1922671661845837
+724,Mosciski and Sons,2023-02-01,0,0.0035205702,0.8879999999999999,1.153591280835914
+639,Mosciski and Sons,2023-01-15,0,0.056981664,0.8879999999999999,0.1269815934052153
+702,Mosciski and Sons,2023-01-07,0,0.0053847716,0.8879999999999999,0.0710617869061485
+786,Mosciski and Sons,2023-01-18,0,1.6935471e-4,0.8879999999999999,0.999113216845917
+648,Mosciski and Sons,2023-03-17,0,0.021917637,0.8879999999999999,1.002083290141563
+692,Mosciski and Sons,2023-03-07,0,0.038905066,0.8879999999999999,1.1346642504097424
+711,Mosciski and Sons,2023-02-21,0,0.7472271,0.8879999999999999,0.1158662295984764
+766,Mosciski and Sons,2023-03-03,0,0.010710109,0.8879999999999999,0.0681001621204367
+616,Mosciski and Sons,2023-02-23,1,0.25494322,0.8879999999999999,0.1360742873157363
+667,Mosciski and Sons,2023-03-30,1,0.95203143,0.8879999999999999,1.1705365402619838
+675,Mosciski and Sons,2023-02-23,0,0.023900347,0.8879999999999999,0.1058727373167783
+617,Mosciski and Sons,2023-02-23,0,0.933767,0.8879999999999999,1.0887264457146264
+687,Mosciski and Sons,2023-03-23,0,0.016035909,0.8879999999999999,1.0806470003952202
+775,Mosciski and Sons,2023-01-18,0,0.0061433944,0.8879999999999999,0.0841596130038128
+682,Mosciski and Sons,2023-01-26,0,0.0843278,0.8879999999999999,1.0584093469214324
+688,Mosciski and Sons,2023-02-17,0,4.8195766e-4,0.8879999999999999,1.0052444421266116
+655,Mosciski and Sons,2023-03-04,0,0.15788873,0.8879999999999999,1.1227909935025977
+646,Mosciski and Sons,2023-02-01,0,0.02713681,0.8879999999999999,0.1372362240201376
+673,Mosciski and Sons,2023-03-06,0,2.0417472e-4,0.8879999999999999,1.0514170086462458
+689,Mosciski and Sons,2023-02-17,0,0.02713681,0.8879999999999999,1.0991564354531485
+694,Mosciski and Sons,2023-01-26,0,0.077929676,0.8879999999999999,0.0732293649370238
+755,Mosciski and Sons,2023-01-22,0,0.0018567637,0.8879999999999999,1.069649564472707
+773,Mosciski and Sons,2023-02-19,0,0.01319327,0.8879999999999999,0.0652957553599793
+796,Mosciski and Sons,2023-02-14,1,0.5423872,0.8879999999999999,1.1260448497925255
+754,Mosciski and Sons,2023-04-01,0,0.02713681,0.8879999999999999,1.092222782785492
+795,Mosciski and Sons,2023-01-13,0,0.0642861,0.8879999999999999,1.0782431349221615
+777,Mosciski and Sons,2023-01-14,0,0.003410091,0.8879999999999999,0.1235515440442039
+748,Mosciski and Sons,2023-02-25,0,0.014180996,0.8879999999999999,0.058369806591113
+791,Mosciski and Sons,2023-01-23,0,0.11277599,0.8879999999999999,0.1522006628542877
+738,Mosciski and Sons,2023-03-23,0,2.1690133e-4,0.8879999999999999,0.207276174108371
+774,Mosciski and Sons,2023-01-25,0,0.19778694,0.8879999999999999,0.0340935652796324
+792,Mosciski and Sons,2023-03-08,1,0.9268653,0.8879999999999999,0.1117071715622744
+793,Mosciski and Sons,2023-01-25,0,0.3713521,0.8879999999999999,1.0595568794809826
+691,Mosciski and Sons,2023-01-10,0,0.003035573,0.8879999999999999,0.1097194484226117
+604,Mosciski and Sons,2023-02-24,0,0.91099197,0.8879999999999999,1.157739494394615
+618,Mosciski and Sons,2023-01-19,1,0.06289425,0.8879999999999999,1.019638173073521
+757,Mosciski and Sons,2023-03-05,0,0.003167176,0.8879999999999999,1.0827029639442531
+620,Mosciski and Sons,2023-01-01,1,0.98540074,0.8879999999999999,1.1415314160425178
+630,Mosciski and Sons,2023-01-03,0,0.81901187,0.8879999999999999,1.1038088417094063
+715,Mosciski and Sons,2023-01-12,1,0.9535631,0.8879999999999999,1.0107181258409408
+679,Mosciski and Sons,2023-03-27,0,0.13858669,0.8879999999999999,0.0986381004135453
+669,Mosciski and Sons,2023-01-05,1,0.9289174,0.8879999999999999,0.1281639269376895
+767,Mosciski and Sons,2023-02-15,0,0.05920328,0.8879999999999999,1.160854106332284
+732,Mosciski and Sons,2023-02-14,0,0.02713681,0.8879999999999999,1.082592800477486
+690,Mosciski and Sons,2023-03-07,1,0.005718609,0.8879999999999999,1.1361694677257084
+734,Mosciski and Sons,2023-03-19,0,0.0642861,0.8879999999999999,1.0892647025438311
+772,Mosciski and Sons,2023-02-03,1,0.009995974,0.8879999999999999,0.0727606859252713
+607,Mosciski and Sons,2023-03-28,0,0.9004678,0.8879999999999999,1.0280517606392372
+765,Mosciski and Sons,2023-01-11,0,0.016281936,0.8879999999999999,1.1349394300608822
+685,Mosciski and Sons,2023-01-25,0,0.013594767,0.8879999999999999,1.0738504711377068
+741,Mosciski and Sons,2023-03-01,0,0.010847072,0.8879999999999999,1.11725468708371
+721,Mosciski and Sons,2023-01-17,1,0.92699265,0.8879999999999999,1.0671492159044886
+787,Mosciski and Sons,2023-02-22,0,0.004928262,0.8879999999999999,1.1141644612043462
+619,Mosciski and Sons,2023-02-06,0,1.6374596e-4,0.8879999999999999,0.002592094407338
+776,Mosciski and Sons,2023-03-19,0,0.02713681,0.8879999999999999,0.1030663456404976
+780,Mosciski and Sons,2023-02-19,0,0.8177334,0.8879999999999999,1.0564186831794762
+703,Mosciski and Sons,2023-03-31,0,0.0046089096,0.8879999999999999,1.1129694972848172
+601,Mosciski and Sons,2023-03-03,0,0.005612415,0.8879999999999999,0.0743810749090334
+762,Mosciski and Sons,2023-02-11,0,0.010868683,0.8879999999999999,-0.0079396866725947
+656,Mosciski and Sons,2023-02-27,0,0.016419558,0.8879999999999999,1.0635699540448271
+752,Mosciski and Sons,2023-01-29,0,0.02713681,0.8879999999999999,0.0681084715573242
+680,Mosciski and Sons,2023-01-17,0,0.039191496,0.8879999999999999,0.0939338477458055
+760,Mosciski and Sons,2023-03-01,0,0.0014032405,0.8879999999999999,1.0660642438654897
+666,Mosciski and Sons,2023-01-24,0,0.010427132,0.8879999999999999,1.099002169980558
+790,Mosciski and Sons,2023-02-20,0,0.51385003,0.8879999999999999,1.1702777876683037
+699,Mosciski and Sons,2023-01-06,1,0.004392893,0.8879999999999999,1.1790449354653538
+643,Mosciski and Sons,2023-02-11,0,0.4886055,0.8879999999999999,0.0130214920562096
+728,Mosciski and Sons,2023-03-14,0,0.02713681,0.8879999999999999,1.0923704911045589
+901,Wolff Ltd,2023-03-21,0,0.0015656011,0.726,1.1073800884366118
+873,Wolff Ltd,2023-01-01,0,0.02713681,0.726,1.1100978329479614
+837,Wolff Ltd,2023-01-09,1,0.014136449,0.726,0.1290009155954002
+914,Wolff Ltd,2023-03-12,0,0.02455339,0.726,1.1501850410239252
+967,Wolff Ltd,2023-02-14,0,0.007698572,0.726,1.1341592164877596
+822,Wolff Ltd,2023-03-10,1,0.9264066,0.726,0.073899914275038
+831,Wolff Ltd,2023-03-09,0,0.019275283,0.726,0.0376105785869047
+989,Wolff Ltd,2023-03-27,0,0.024350211,0.726,1.1158046999184683
+959,Wolff Ltd,2023-01-20,0,9.1150746e-4,0.726,0.1292121514075647
+894,Wolff Ltd,2023-01-10,1,0.20550598,0.726,0.0597702756159074
+860,Wolff Ltd,2023-01-30,0,0.0016855258,0.726,0.1182546013805456
+982,Wolff Ltd,2023-01-27,1,0.7256641,0.726,1.1000028156503965
+868,Wolff Ltd,2023-02-16,0,0.021917637,0.726,1.1287680953090804
+910,Wolff Ltd,2023-03-02,0,2.0253863e-4,0.726,0.0714257898478195
+848,Wolff Ltd,2023-01-08,0,0.23963508,0.726,1.036054449524078
+877,Wolff Ltd,2023-01-04,0,0.05022146,0.726,1.101235670699939
+813,Wolff Ltd,2023-02-09,0,7.453233e-4,0.726,0.1547157813235877
+948,Wolff Ltd,2023-02-05,0,0.0037316016,0.726,1.0802703915559262
+969,Wolff Ltd,2023-03-19,1,0.51019555,0.726,0.0552505468881667
+817,Wolff Ltd,2023-02-28,0,0.017986858,0.726,0.0623583218467312
+980,Wolff Ltd,2023-03-21,0,0.06911792,0.726,1.0609929597275138
+900,Wolff Ltd,2023-02-18,0,0.0023566363,0.726,1.107596958094453
+903,Wolff Ltd,2023-01-19,0,0.023743665,0.726,0.0336200123711356
+869,Wolff Ltd,2023-03-07,0,0.006336129,0.726,1.1350904913945827
+979,Wolff Ltd,2023-01-18,0,0.1267301,0.726,1.0659414564172136
+818,Wolff Ltd,2023-01-12,0,0.045687977,0.726,0.0794832560707618
+867,Wolff Ltd,2023-03-12,0,0.002391879,0.726,0.0888979294066529
+821,Wolff Ltd,2023-03-13,0,0.02713681,0.726,1.1043172196605493
+960,Wolff Ltd,2023-01-09,0,7.173031e-4,0.726,1.0849204359218412
+843,Wolff Ltd,2023-02-02,1,0.91909254,0.726,1.151552812209392
+957,Wolff Ltd,2023-01-04,0,0.005344911,0.726,1.1648272738887036
+908,Wolff Ltd,2023-02-06,0,0.01743073,0.726,1.0560925622372286
+966,Wolff Ltd,2023-01-21,0,0.0038639638,0.726,0.0614188235887227
+986,Wolff Ltd,2023-03-15,0,0.004426663,0.726,0.1166540480987674
+928,Wolff Ltd,2023-03-24,0,0.02713681,0.726,1.0918009708604162
+942,Wolff Ltd,2023-02-15,0,0.040216736,0.726,1.0593747529470676
+815,Wolff Ltd,2023-02-04,0,0.0403938,0.726,0.1523745209221236
+922,Wolff Ltd,2023-03-03,0,0.01288958,0.726,1.107810063713731
+855,Wolff Ltd,2023-04-01,0,0.0061369,0.726,0.0448008972256167
+809,Wolff Ltd,2023-01-12,0,0.0023616517,0.726,1.0452024196334224
+941,Wolff Ltd,2023-03-09,0,0.006880349,0.726,0.1362693366395884
+896,Wolff Ltd,2023-03-28,0,0.0018684408,0.726,1.0806545643494854
+998,Wolff Ltd,2023-01-24,0,0.017293109,0.726,1.11101882511548
+872,Wolff Ltd,2023-02-26,0,9.82973e-4,0.726,0.1075373780762863
+937,Wolff Ltd,2023-02-21,1,0.118713334,0.726,-0.011430135510996
+830,Wolff Ltd,2023-03-15,1,0.11616709,0.726,0.0936397242412064
+828,Wolff Ltd,2023-02-15,1,0.02713681,0.726,1.1535389877837574
+968,Wolff Ltd,2023-02-25,0,8.127345e-4,0.726,1.1149767903621486
+904,Wolff Ltd,2023-03-10,0,3.250132e-4,0.726,1.039221638197544
+933,Wolff Ltd,2023-02-08,0,0.022062326,0.726,0.1643461712587002
+920,Wolff Ltd,2023-02-10,0,0.0034829043,0.726,0.0579344410805292
+893,Wolff Ltd,2023-03-30,0,0.02752766,0.726,0.1629244283184082
+826,Wolff Ltd,2023-01-27,0,0.11980678,0.726,0.1118239832708646
+906,Wolff Ltd,2023-01-19,0,8.691524e-4,0.726,1.128437553245591
+975,Wolff Ltd,2023-01-30,0,1.7651406e-4,0.726,0.1755410023823818
+853,Wolff Ltd,2023-03-26,0,0.007967289,0.726,1.1269821828927462
+835,Wolff Ltd,2023-02-16,0,4.5773044e-4,0.726,1.1060996641675185
+946,Wolff Ltd,2023-03-25,1,0.86469084,0.726,0.1672439279654513
+981,Wolff Ltd,2023-02-21,0,4.864218e-4,0.726,0.1095329066380471
+841,Wolff Ltd,2023-02-20,1,0.02275583,0.726,1.12709901198154
+802,Wolff Ltd,2023-03-11,0,0.4858842,0.726,1.140492954062058
+911,Wolff Ltd,2023-03-18,1,0.62254745,0.726,1.085189388452215
+935,Wolff Ltd,2023-03-21,0,0.16649412,0.726,1.1998543236356578
+944,Wolff Ltd,2023-02-25,0,0.03679726,0.726,1.003765139053014
+995,Wolff Ltd,2023-01-03,0,2.8293038e-4,0.726,0.2172049291363578
+970,Wolff Ltd,2023-02-11,0,0.029361194,0.726,1.078402608626916
+806,Wolff Ltd,2023-01-08,1,0.0014967432,0.726,0.1497141870460403
+929,Wolff Ltd,2023-01-20,1,0.8817406,0.726,0.1831868727346051
+887,Wolff Ltd,2023-01-10,0,0.76013565,0.726,1.1218262359527982
+846,Wolff Ltd,2023-01-02,0,0.0012982454,0.726,0.0755934329404263
+845,Wolff Ltd,2023-03-02,1,0.051907055,0.726,1.0987321457560757
+878,Wolff Ltd,2023-02-27,0,0.0025967034,0.726,1.1357745302276168
+800,Wolff Ltd,2023-03-11,0,0.0037018147,0.726,1.1165651784532804
+861,Wolff Ltd,2023-01-14,0,0.023446035,0.726,1.1253782280901723
+832,Wolff Ltd,2023-01-08,0,0.008602106,0.726,0.0986691249831899
+842,Wolff Ltd,2023-03-02,0,0.024421345,0.726,0.1556148454573195
+996,Wolff Ltd,2023-01-05,0,0.01090797,0.726,0.1609416639801347
+923,Wolff Ltd,2023-01-09,0,0.0021788233,0.726,1.0080521776814624
+895,Wolff Ltd,2023-02-10,0,1.9449965e-4,0.726,1.0505377461102858
+892,Wolff Ltd,2023-02-10,0,8.517721e-4,0.726,1.044545389222387
+983,Wolff Ltd,2023-02-05,0,0.48974505,0.726,0.047923620649441
+833,Wolff Ltd,2023-02-08,0,4.977726e-4,0.726,0.1091870598062626
+876,Wolff Ltd,2023-01-25,0,0.023232227,0.726,1.0703266457867644
+956,Wolff Ltd,2023-02-01,1,0.04625162,0.726,0.0929863318694679
+819,Wolff Ltd,2023-02-14,1,0.0045832526,0.726,0.1361688761801263
+859,Wolff Ltd,2023-03-26,1,0.92760354,0.726,0.0365125788061349
+839,Wolff Ltd,2023-03-28,0,0.0071243895,0.726,1.0592236691019097
+858,Wolff Ltd,2023-01-08,0,6.880531e-4,0.726,0.0322609777718254
+950,Wolff Ltd,2023-01-28,1,0.027723527,0.726,1.167413665699018
+999,Wolff Ltd,2023-01-26,0,0.33065912,0.726,1.0886532899948944
+840,Wolff Ltd,2023-02-14,0,0.051401,0.726,1.0764428334716791
+851,Wolff Ltd,2023-01-15,0,0.007764892,0.726,1.201769837091461
+976,Wolff Ltd,2023-03-01,0,0.021917637,0.726,0.1131520476646788
+936,Wolff Ltd,2023-02-02,0,2.2685772e-4,0.726,1.0256144618089478
+916,Wolff Ltd,2023-03-08,0,0.31157422,0.726,0.0939590448960927
+955,Wolff Ltd,2023-01-29,0,5.5734755e-4,0.726,0.1260804716414843
+823,Wolff Ltd,2023-03-24,1,0.9944839,0.726,0.1389054009709788
+808,Wolff Ltd,2023-01-15,0,1.507717e-4,0.726,1.0603164175116029
+811,Wolff Ltd,2023-02-08,0,0.47511867,0.726,0.0449847506183881
+814,Wolff Ltd,2023-03-17,1,0.025192128,0.726,1.057791747326691
+
+## file: requirements.txt
+numpy
+pandas
+plotnine
+scikit-learn
+shiny
+</code></pre>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>The source code for this exercise is at <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/308-plot-themes" class="uri">https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises/308-plot-themes</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/posit-conf-2024\.github\.io\/intro-to-shiny-for-python\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

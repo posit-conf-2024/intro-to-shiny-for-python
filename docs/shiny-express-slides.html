@@ -394,15 +394,50 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/shiny-for-python-seattle.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
+<section id="title-slide" data-background-image="images/shiny-for-python.jpg" data-background-position="bottom left" data-background-size="cover" class="quarto-title-block">
   <h1 class="title">Getting started with Shiny Express</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section class="slide level2">
-<h2></h2>
+<section>
+<section class="title-slide slide level1 agenda-slide">
+<h1>Introduction</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<ul>
+<li><div class="agenda-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Anatomy of an App</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Your first App</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Inputs</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Outputs</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Reactivity</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>What can go wrong?</p>
+</div></li>
+<li><div class="agenda-inactive agenda-post-active">
+<p>Recap</p>
+</div></li>
+</ul>
+</div>
+</section>
+<section id="intro" class="slide level2">
+<h2>Intro</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -414,38 +449,19 @@
 <div class="callout-content">
 <ul>
 <li>This workshop is exercise based</li>
-<li>All of the exercises and slides are running live on this <a href="https://posit-conf-2024.github.io/intro-to-shiny-for-python/">website</a></li>
-<li>The exercise files are available for download from <a href="https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises">github</a></li>
+<li>All of the exercises and slides are running live on this <a href="https://posit-dev.github.io/intro-to-shiny-for-python/">website</a></li>
+<li>The exercise files are available for download from <a href="https://github.com/posit-dev/intro-to-shiny-for-python/tree/main/docs/exercises">github</a></li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section class="slide level2">
+<section id="todays-goal" class="slide level2">
 <h2>Today’s goal</h2>
 <p>Learn how to build reactive web apps with Shiny for Python,<br>
 from the simple to the mission critical.</p>
-<!-- 
-## Who we are
-
-:::: {.columns}
-
-::: {.column width="50%"}
-![Andrie de Vries](../images/andrie.png){width=80%}  
-Andrie de Vries  
-Director of Product Strategy, Posit
-:::
-
-::: {.column width="50%"}
-![Garrett Grolemund](../images/garrett.png){width=80%}  
-Garrett Grolemund  
-Director of Learning, Posit
-:::
-
-::::
--->
 </section>
-<section class="slide level2" data-background-color="whitesmoke">
+<section id="who-you-are" class="slide level2" data-background-color="whitesmoke">
 <h2>Who you are</h2>
 <ul>
 <li>Name</li>
@@ -457,30 +473,15 @@ Director of Learning, Posit
 <li>HTML, CSS, JavaScript?</li>
 </ul></li>
 </ul>
-<!--
-## Today's Schedule
-
-|                 |               |
-|-----------------|---------------|
-| Hello Shiny     |  9:00 - 10:30 |
-| Coffee break    | 10:30 - 11:00 |
-| Reactivity      | 11:00 - 12:30 |
-| Lunch           | 12:30 - 1:30  |
-| User Interfaces |  1:30 - 3:00  |
-| Coffee break    |  3:00 - 3:30  |
-| Best Practices  |  3:30 - 5:00  |
-
-: {.striped}
--->
 </section>
-<section class="slide level2">
+<section id="goals-for-this-section" class="slide level2">
 <h2>Goals for this section</h2>
 <ol type="1">
 <li><p>Understand the “whole game”/ big picture</p></li>
 <li><p>Identify the resources that will support you</p></li>
 <li><p>Develop comfort with debugging</p></li>
 </ol>
-</section>
+</section></section>
 <section>
 <section class="title-slide slide level1 agenda-slide">
 <h1>Anatomy of an App</h1>
@@ -489,6 +490,9 @@ Director of Learning, Posit
 </div>
 <div class="agenda">
 <ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
 <li><div class="agenda-active">
 <p>Anatomy of an App</p>
 </div></li>
@@ -549,7 +553,7 @@ Director of Learning, Posit
 <li>A computer that watches the web page and responds to user events on that page</li>
 </ol>
 
-<img data-src="../images/app-architecture.001.png" class="r-stretch"></section>
+<img data-src="images/app-architecture.001.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="what-is-a-shiny-app-2" class="slide level2">
 <h2>What is a Shiny app?</h2>
 <p>Each Shiny app involves:</p>
@@ -558,7 +562,7 @@ Director of Learning, Posit
 <li>A computer that watches the web page and responds to user events on that page</li>
 </ol>
 
-<img data-src="../images/app-architecture.002.png" class="r-stretch"></section>
+<img data-src="images/app-architecture.002.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="what-is-a-shiny-app-3" class="slide level2">
 <h2>What is a Shiny app?</h2>
 <p>Each Shiny app involves:</p>
@@ -567,7 +571,7 @@ Director of Learning, Posit
 <li>A computer that watches the web page and responds to user events on that page</li>
 </ol>
 
-<img data-src="../images/app-architecture.003.png" class="r-stretch"></section>
+<img data-src="images/app-architecture.003.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="components" class="slide level2">
 <h2>Components</h2>
 <div class="columns">
@@ -577,7 +581,7 @@ Director of Learning, Posit
 <li>Inputs</li>
 </ol>
 </div><div class="column" style="width:60%;">
-<p><img data-src="../images/app-components.001.png"></p>
+<p><img data-src="images/app-components.001.png"></p>
 </div></div>
 </section>
 <section id="components-1" class="slide level2">
@@ -590,7 +594,7 @@ Director of Learning, Posit
 <li>Outputs</li>
 </ol>
 </div><div class="column" style="width:60%;">
-<p><img data-src="../images/app-components.002.png"></p>
+<p><img data-src="images/app-components.002.png"></p>
 </div></div>
 </section>
 <section id="components-2" class="slide level2">
@@ -604,7 +608,7 @@ Director of Learning, Posit
 <li>Instructions on how to build outputs from inputs</li>
 </ol>
 </div><div class="column" style="width:60%;">
-<p><img data-src="../images/app-components.003.png"></p>
+<p><img data-src="images/app-components.003.png"></p>
 </div></div>
 </section>
 <section id="reactivity" class="slide level2">
@@ -613,13 +617,17 @@ Director of Learning, Posit
 <div class="column" style="width:40%;">
 <p>When an input changes, Shiny reacts by rebuilding the outputs that depend on it, and <em>only those outputs</em>.</p>
 </div><div class="column" style="width:60%;">
-<p><img data-src="../images/app-components.003.png"></p>
+<p><img data-src="images/app-components.003.png"></p>
 </div></div>
 </section>
 <section id="spreadsheet-analogy" class="slide level2">
 <h2>Spreadsheet Analogy</h2>
-
-<img data-src="../gifs/spreadsheets.gif" class="r-stretch"><ol type="1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/spreadsheets.gif" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+<ol type="1">
 <li>Inputs</li>
 <li>Outputs</li>
 <li>Instructions on how to build outputs from inputs</li>
@@ -627,8 +635,12 @@ Director of Learning, Posit
 </section>
 <section id="spreadsheet-analogy-1" class="slide level2">
 <h2>Spreadsheet Analogy</h2>
-
-<img data-src="../gifs/spreadsheets-2.gif" class="r-stretch"><p>Updates:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/spreadsheets-2.gif" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+<p>Updates:</p>
 <ol type="1">
 <li>When an input changes</li>
 <li>Only the parts of the app that depend on the input</li>
@@ -656,16 +668,28 @@ Director of Learning, Posit
 </section>
 <section id="quiz---where-are-the-inputs-the-outputs" class="slide level2" data-background-color="whitesmoke">
 <h2>Quiz - Where are the inputs? The Outputs?</h2>
-
-<img data-src="../images/app-components.004.png" class="r-stretch"></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/app-components.004.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+</section>
 <section id="quiz---where-are-the-inputs-the-outputs-1" class="slide level2" data-background-color="whitesmoke">
 <h2>Quiz - Where are the inputs? The Outputs?</h2>
-
-<img data-src="../images/app-components.005.png" class="r-stretch"></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/app-components.005.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+</section>
 <section id="quiz---where-are-the-inputs-the-outputs-2" class="slide level2" data-background-color="whitesmoke">
 <h2>Quiz - Where are the inputs? The Outputs?</h2>
-
-<img data-src="../images/app-components.006.png" class="r-stretch"></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/app-components.006.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+</section>
 <section id="tell-me-about-shiny-express" class="slide level2">
 <h2>Tell me about Shiny Express</h2>
 <div class="callout callout-important callout-titled callout-style-default">
@@ -696,6 +720,9 @@ Director of Learning, Posit
 <div class="agenda">
 <ul>
 <li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
+<li><div class="agenda-inactive agenda-pre-active">
 <p>Anatomy of an App</p>
 </div></li>
 <li><div class="agenda-active">
@@ -724,9 +751,9 @@ Director of Learning, Posit
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-101-run-app/index.html" target="_blank">express-101-run-app</a></p>
+<p><a href="exercises/101-run-app/index.html" target="_blank">101-run-app</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-101-run-app/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/101-run-app/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -742,26 +769,28 @@ Director of Learning, Posit
 <p>&nbsp;</p>
 <p>where <code>app.py</code> is the name of your file.</p>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<p>Today, we will do that in an exercise container.</p>
-
-<img data-src="../images/exercise-button.png" class="r-stretch"></section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<p>But you can run <code>shiny run app.py</code> at any command line.</p>
+<section id="today-we-will-do-that-in-an-exercise-container." class="slide level2">
+<h2>Today, we will do that in an exercise container.</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../images/vscode-command-line.png" class="quarto-figure quarto-figure-center" height="700"></p>
+<p><img data-src="images/exercise-button.png" class="quarto-figure quarto-figure-center" height="650"></p>
 </figure>
 </div>
 </section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<p>Or use the VS Code Shiny extension, for a Run App button in VS Code.</p>
+<section id="but-you-can-run-shiny-run-app.py-at-any-command-line." class="slide level2">
+<h2>But you can run <code>shiny run app.py</code> at any command line.</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../images/vscode-button.png" class="quarto-figure quarto-figure-center" height="700"></p>
+<p><img data-src="images/vscode-command-line.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+</section>
+<section id="or-use-the-vs-code-shiny-extension" class="slide level2">
+<h2>Or use the VS Code Shiny extension</h2>
+<p>This gives you a “Run App” button in VS Code.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/vscode-button.png" class="quarto-figure quarto-figure-center" height="600"></p>
 </figure>
 </div>
 </section>
@@ -771,7 +800,7 @@ Director of Learning, Posit
 <p><br>
 </p>
 <div class="smaller">
-<div id="d3ab49e8" class="cell" data-class-output="striped" data-execution_count="2">
+<div id="d1e04950" class="cell" data-class-output="striped" data-execution_count="2">
 <table class="caption-top">
 <colgroup>
 <col style="width: 16%">
@@ -842,17 +871,17 @@ Director of Learning, Posit
 <p>Let’s build an app.</p>
 <p>Who remembers the three components of an app?</p>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p><img data-src="../images/app-components.001.png"></p>
+<p><img data-src="images/app-components.001.png"></p>
 <p>Inputs</p>
 </div><div class="column" style="width:30%;">
-<p><img data-src="../images/app-components.002.png"></p>
+<p><img data-src="images/app-components.002.png"></p>
 <p>Outputs</p>
 </div><div class="column" style="width:30%;">
-<p><img data-src="../images/app-components.003.png"></p>
+<p><img data-src="images/app-components.003.png"></p>
 <p>Instructions</p>
 </div></div>
 </section>
@@ -872,9 +901,9 @@ Director of Learning, Posit
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-102-ui-module/index.html" target="_blank">express-102-ui-module</a></p>
+<p><a href="exercises/102-ui-module/index.html" target="_blank">102-ui-module</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-102-ui-module/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/102-ui-module/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -889,6 +918,9 @@ Director of Learning, Posit
 </div>
 <div class="agenda">
 <ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Anatomy of an App</p>
 </div></li>
@@ -958,7 +990,7 @@ Director of Learning, Posit
 <p>The Shiny function reference</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../images/shiny-function-reference.png" class="quarto-figure quarto-figure-center" height="650"></p>
+<p><img data-src="images/shiny-function-reference.png" class="quarto-figure quarto-figure-center" height="650"></p>
 </figure>
 </div>
 
@@ -970,9 +1002,9 @@ Director of Learning, Posit
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-103-inputs/index.html" target="_blank">express-103-inputs</a></p>
+<p><a href="exercises/103-inputs/index.html" target="_blank">103-inputs</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-103-inputs/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/103-inputs/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -991,6 +1023,9 @@ Director of Learning, Posit
 </div>
 <div class="agenda">
 <ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Anatomy of an App</p>
 </div></li>
@@ -1082,9 +1117,9 @@ Director of Learning, Posit
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-104-outputs/index.html" target="_blank">express-104-outputs</a></p>
+<p><a href="exercises/104-outputs/index.html" target="_blank">104-outputs</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-104-outputs/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/104-outputs/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1103,6 +1138,9 @@ Director of Learning, Posit
 </div>
 <div class="agenda">
 <ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Anatomy of an App</p>
 </div></li>
@@ -1156,9 +1194,9 @@ Value:</p>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-105-reactivity/index.html" target="_blank">express-105-reactivity</a></p>
+<p><a href="exercises/105-reactivity/index.html" target="_blank">105-reactivity</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-105-reactivity/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/105-reactivity/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1202,6 +1240,9 @@ Value:</p>
 </div>
 <div class="agenda">
 <ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Anatomy of an App</p>
 </div></li>
@@ -1248,9 +1289,9 @@ Value:</p>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-106-debug/index.html" target="_blank">express-106-debug</a></p>
+<p><a href="exercises/106-debug/index.html" target="_blank">106-debug</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-106-debug/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/106-debug/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1262,9 +1303,9 @@ Value:</p>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-107-debug/index.html" target="_blank">express-107-debug</a></p>
+<p><a href="exercises/107-debug/index.html" target="_blank">107-debug</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-107-debug/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/107-debug/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1276,9 +1317,9 @@ Value:</p>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-108-debug/index.html" target="_blank">express-108-debug</a></p>
+<p><a href="exercises/108-debug/index.html" target="_blank">108-debug</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-108-debug/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/108-debug/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1290,9 +1331,9 @@ Value:</p>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-109-debug/index.html" target="_blank">express-109-debug</a></p>
+<p><a href="exercises/109-debug/index.html" target="_blank">109-debug</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-109-debug/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/109-debug/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
@@ -1307,6 +1348,9 @@ Value:</p>
 </div>
 <div class="agenda">
 <ul>
+<li><div class="agenda-inactive agenda-pre-active">
+<p>Introduction</p>
+</div></li>
 <li><div class="agenda-inactive agenda-pre-active">
 <p>Anatomy of an App</p>
 </div></li>
@@ -1343,7 +1387,7 @@ Value:</p>
 <section id="weather-data" class="slide level2">
 <h2>Weather data</h2>
 <p>How accurate are forecasts?</p>
-<div id="25def903" class="cell" data-class-output="striped" data-execution_count="3">
+<div id="7bd694c1" class="cell" data-class-output="striped" data-execution_count="3">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -1399,9 +1443,9 @@ Value:</p>
 <div class="your-turn-container" style="display:flex;">
 <div class="your-turn-link" style="width:70%;">
 <p>Complete the exercise on this page:</p>
-<p><a href="exercises/express-110-app/index.html" target="_blank">express-110-app</a></p>
+<p><a href="exercises/110-app/index.html" target="_blank">110-app</a></p>
 <p>...</p>
-<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/express-110-app/index.html', '*')">Open Exercise</button></p>
+<p><button style="background-color: #72994E; color:#FFFFFF; font-size: 1em; border-radius: 15px; padding: 0.5em 1em;" onclick="window.top.postMessage('exercises/110-app/index.html', '*')">Open Exercise</button></p>
 </div>
 <div class="your-turn-image" style="width:30%;">
 <img data-src="../images/keep-calm-and-take-your-turn.png">
