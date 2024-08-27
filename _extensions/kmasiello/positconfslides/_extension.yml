@@ -4,6 +4,19 @@ version: 1.0.0
 quarto-required: ">=1.2.0"
 contributes:
   formats:
+    common:
+      incremental: false
+      chalkboard: true
+      slide-number: c/t
+      code-copy: true
+      center-title-slide: false
+      highlight-style: a11y
+      width: "1600"
+      height: "900"
+      mermaid-format: svg
+      mermaid:
+        theme: neutral
+
     revealjs:
       theme: [custom.scss]
   filters:

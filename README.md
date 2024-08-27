@@ -1,11 +1,11 @@
 # Intro to Shiny for Python / Posit Conf::20204
 
-This is the repository for the "Intro to Shiny for Python" workshop Posit Conf 2024.
+This is the repository for the "Intro to Shiny for Python" workshop.
 
 
 ## For students
 
-If you're a student, please visit the course pages at https://posit-conf-2024.github.io/intro-to-shiny-for-python/
+If you're a student, please visit the course pages at https://posit-dev.github.io/intro-to-shiny-for-python/
 
 ## Installation - for instructors only
 

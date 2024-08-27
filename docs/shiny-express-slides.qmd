@@ -1,20 +1,11 @@
 ---
 title: "Getting started with Shiny Express"
 title-slide-attributes: 
-  data-background-image:  images/shiny-for-python-seattle.jpg
+  data-background-image:  images/shiny-for-python.jpg
   data-background-position: bottom left
   data-background-size: cover
 format:
   positconfslides-revealjs:
-    incremental: false
-    chalkboard: true
-    slide-number: c/t
-    code-copy: true
-    center-title-slide: false
-    code-link: true
-    highlight-style: a11y
-    width: "1600"
-    height: "900"
     css: "styles.css"
     filters:
       - positconfslides
@@ -36,13 +27,15 @@ from helpers import include_shiny_folder
 bgcolor = "whitesmoke"
 ```
 
-##
+# Introduction
+
+## Intro
 
 ::: {.callout-note}
 
 -   This workshop is exercise based
--   All of the exercises and slides are running live on this [website](https://posit-conf-2024.github.io/intro-to-shiny-for-python/)
--   The exercise files are available for download from [github](https://github.com/posit-conf-2024/intro-to-shiny-for-python/tree/main/docs/exercises)
+-   All of the exercises and slides are running live on this [website](https://posit-dev.github.io/intro-to-shiny-for-python/)
+-   The exercise files are available for download from [github](https://github.com/posit-dev/intro-to-shiny-for-python/tree/main/docs/exercises)
 
 :::
 
@@ -51,25 +44,6 @@ bgcolor = "whitesmoke"
 Learn how to build reactive web apps with Shiny for Python,\
 from the simple to the mission critical.
 
-<!-- 
-## Who we are
-
-:::: {.columns}
-
-::: {.column width="50%"}
-![Andrie de Vries](../images/andrie.png){width=80%}  
-Andrie de Vries  
-Director of Product Strategy, Posit
-:::
-
-::: {.column width="50%"}
-![Garrett Grolemund](../images/garrett.png){width=80%}  
-Garrett Grolemund  
-Director of Learning, Posit
-:::
-
-::::
--->
 
 ## Who you are {background-color=`{python} bgcolor`}
 - Name
@@ -79,21 +53,6 @@ Director of Learning, Posit
     + Shiny (for R or Python)?
     + HTML, CSS, JavaScript?
 
-<!--
-## Today's Schedule
-
-|                 |               |
-|-----------------|---------------|
-| Hello Shiny     |  9:00 - 10:30 |
-| Coffee break    | 10:30 - 11:00 |
-| Reactivity      | 11:00 - 12:30 |
-| Lunch           | 12:30 - 1:30  |
-| User Interfaces |  1:30 - 3:00  |
-| Coffee break    |  3:00 - 3:30  |
-| Best Practices  |  3:30 - 5:00  |
-
-: {.striped}
--->
 
 ## Goals for this section
 
@@ -139,7 +98,7 @@ Each Shiny app involves:
 1. A web page
 2. A computer that watches the web page and responds to user events on that page  
 
-![](../images/app-architecture.001.png)
+![](images/app-architecture.001.png){fig-align="center"}
 
 ## What is a Shiny app?
 
@@ -148,7 +107,7 @@ Each Shiny app involves:
 1. A web page
 2. A computer that watches the web page and responds to user events on that page    
 
-![](../images/app-architecture.002.png)
+![](images/app-architecture.002.png){fig-align="center"}
 
 ## What is a Shiny app?
 
@@ -157,7 +116,7 @@ Each Shiny app involves:
 1. A web page
 2. A computer that watches the web page and responds to user events on that page    
 
-![](../images/app-architecture.003.png)
+![](images/app-architecture.003.png){fig-align="center"}
 
 ## Components 
 
@@ -171,7 +130,7 @@ Each Shiny app consists of:
 
 ::: {.column width="60%"}
 
-![](../images/app-components.001.png)
+![](images/app-components.001.png)
 :::
 
 ::::
@@ -189,7 +148,7 @@ Each Shiny app consists of:
 
 ::: {.column width="60%"}
 
-![](../images/app-components.002.png)
+![](images/app-components.002.png)
 :::
 
 ::::
@@ -208,7 +167,7 @@ Each Shiny app consists of:
 
 ::: {.column width="60%"}
 
-![](../images/app-components.003.png)
+![](images/app-components.003.png)
 :::
 
 ::::
@@ -223,14 +182,14 @@ When an input changes, Shiny reacts by rebuilding the outputs that depend on it,
 
 ::: {.column width="60%"}
 
-![](../images/app-components.003.png)
+![](images/app-components.003.png)
 :::
 
 ::::
 
 ## Spreadsheet Analogy
 
-![](../gifs/spreadsheets.gif)
+![](images/spreadsheets.gif){height=300 fig-align="center"}
 
 1. Inputs
 2. Outputs
@@ -238,7 +197,7 @@ When an input changes, Shiny reacts by rebuilding the outputs that depend on it,
 
 ## Spreadsheet Analogy
 
-![](../gifs/spreadsheets-2.gif)
+![](images/spreadsheets-2.gif){height=300 fig-align="center"}
 
 Updates:
 
@@ -264,15 +223,15 @@ And, these apps can scale from prototype to production-ready.
 
 ## Quiz - Where are the inputs? The Outputs?{background-color=`{python} bgcolor`}
 
-![](../images/app-components.004.png)
+![](images/app-components.004.png){height=650 fig-align="center"}
 
 ## Quiz - Where are the inputs? The Outputs?{background-color=`{python} bgcolor`}
 
-![](../images/app-components.005.png)
+![](images/app-components.005.png){height=650 fig-align="center"}
 
 ## Quiz - Where are the inputs? The Outputs?{background-color=`{python} bgcolor`}
 
-![](../images/app-components.006.png)
+![](images/app-components.006.png){height=650 fig-align="center"}
 
 ## Tell me about Shiny Express
 
@@ -309,23 +268,19 @@ shiny run app.py
 
 where `app.py` is the name of your file.
 
-##
+## Today, we will do that in an exercise container.
 
-Today, we will do that in an exercise container.
+![](images/exercise-button.png){height=650 fig-align="center"}
 
-![](../images/exercise-button.png)
+## But you can run `shiny run app.py` at any command line.
 
-##
+![](images/vscode-command-line.png){height=700 fig-align="center"}
 
-But you can run `shiny run app.py` at any command line.
+## Or use the VS Code Shiny extension
 
-![](../images/vscode-command-line.png){height=700 fig-align="center"}
+This gives you a "Run App" button in VS Code.
 
-## 
-
-Or use the VS Code Shiny extension, for a Run App button in VS Code.
-
-![](../images/vscode-button.png){height=700 fig-align="center"}
+![](images/vscode-button.png){height=600 fig-align="center"}
 
 
 ## The Important Accounts data
@@ -360,19 +315,19 @@ Who remembers the three components of an app?
 :::: {.columns}
 
 ::: {.column width="30%"}
-![](../images/app-components.001.png)
+![](images/app-components.001.png)
 
 Inputs
 :::
 
 ::: {.column width="30%"}
-![](../images/app-components.002.png)
+![](images/app-components.002.png)
 
 Outputs
 :::
 
 ::: {.column width="30%"}
-![](../images/app-components.003.png)
+![](images/app-components.003.png)
 
 Instructions
 :::
@@ -421,7 +376,7 @@ Notice:
 
 The Shiny function reference 
 
-![](../images/shiny-function-reference.png){height=650 fig-align="center"}
+![](images/shiny-function-reference.png){height=650 fig-align="center"}
 
 ::: aside
 <https://shiny.posit.co/py/api/express/>

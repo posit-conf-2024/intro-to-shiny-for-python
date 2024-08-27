@@ -1,11 +1,11 @@
 
 ## Introduction
 
-This is the workshop website for the "Intro to Shiny for Python" Workshop at [Posit::Conf(2024)](https://posit.co/conference/).
+This is the  website for the "Intro to Shiny for Python" workshop.
 
 While most of these materials are designed to be used in conjunction with the workshop, they also stand alone as an educational resource.
 
-![](docs/images/shiny-for-python-seattle.jpg){fig-alt="Stock photo image of the Seattle skyline, with logos for both Shiny and Python" fig-align="center" width="500"}
+![](docs/images/shiny-for-python.jpg){fig-alt="Stock photo image of the Seattle skyline, with logos for both Shiny and Python" fig-align="center" width="500"}
 
 ## Background
 
@@ -39,4 +39,6 @@ Time          | Session
 
 ## Acknowledgements
 
-This material has been adjusted for a workshop at Shiny in Production, 2023. These adjustments are very minor, and the original work was done by Gordon Shotwell and Joe Cheng, for the workshop they taught at Posit::conf(2023).
+The origin of this material was a workshop taught by Gordon Shotwell and Joe Cheng at Posit::conf(2023).
+
+It has since been modified with contributions by Garrett Grolemund and Andrie de Vries.
